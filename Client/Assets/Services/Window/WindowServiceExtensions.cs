@@ -1,0 +1,9 @@
+using Microsoft.Extensions.DependencyInjection;
+
+public static class WindowServiceExtensions
+{
+    public static void AddWindowService(this IServiceCollection services)
+    {
+        services.AddSingleton<IWindowService, WindowService>();
+    }
+}

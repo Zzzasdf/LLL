@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{508f1c05-b4d7-e3a0-c686-f671d4b4b4c2}</ProjectGuid>
+    <ProjectGuid>{8441f412-22a4-275f-22e6-507969043f15}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -41,33 +41,157 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\UnityProject\LLL\Assets\Plugins\CommunityToolkit.Mvvm.SourceGenerators.dll" />
+    <Analyzer Include="C:\UnityProject\LLL\Client\Assets\Plugins\CommunityToolkit.Mvvm.SourceGenerators.dll" />
     <Analyzer Include="C:\UnityEditor\2022.3.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\UnityEditor\2022.3.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AOT\Scripts\PatchLogic\FsmNode\FsmDownloadPackageOver.cs" />
+    <Compile Include="Assets\Unprocessed\CustomCollections\SortedHeap.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\MapLongBitReverseConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Extensions\System\Collections\Generic\DictionaryExtensions.cs" />
+    <Compile Include="Assets\Unprocessed\Pooled\PooledCharArray.cs" />
     <Compile Include="Assets\AOT\Scripts\EventDefine\UserEventDefine.cs" />
+    <Compile Include="Assets\Unprocessed\Time\FixedFrequencyManager.cs" />
+    <Compile Include="Assets\Unprocessed\Condition\Integration\ConditionManager.cs" />
+    <Compile Include="Assets\Unprocessed\UI\Chat\View\UIChatRoomLoopScrollRect.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Map\MapIntIntConverter.cs" />
     <Compile Include="Assets\AOT\Scripts\EventDefine\SceneEventDefine.cs" />
+    <Compile Include="Assets\Unprocessed\UI\MVVM\ViewModel\MainViewModel.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Int\Conveter\DailyRedPointManager.cs" />
+    <Compile Include="Assets\Unprocessed\Condition\Integration\ConditionManager.Responder.cs" />
+    <Compile Include="Assets\Unprocessed\UI\Chat\View\UIChatMessageLoopScrollRect.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Map\MapLongLongConverter.cs" />
+    <Compile Include="Assets\Unprocessed\CustomCollections\Heap.cs" />
+    <Compile Include="Assets\Unprocessed\UI\MVVM\View\ViewBase.cs" />
+    <Compile Include="Assets\Unprocessed\Condition\Element\ConditionManager.Responder.cs" />
+    <Compile Include="Assets\AOT\CustomRP\Examples\MeshBall.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Bitmap\BitmapReverseConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\Variant\BitmapTimingResetConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Int\Conveter\Bitmap\BitmapReverseConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\HashSet\HashSetLongReverseConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Condition\Element\FuncOpenDisplayCondition.cs" />
+    <Compile Include="Assets\Unprocessed\UI\Chat\Model\Room\Unit\EditContentStorage.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Collections\ListIntConverter.cs" />
     <Compile Include="Assets\AOT\Scripts\PatchLogic\FsmNode\FsmCreateDownloader.cs" />
     <Compile Include="Assets\AOT\Scripts\PatchLogic\FsmNode\FsmUpdatePackageManifest.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\IConverter.cs" />
     <Compile Include="Assets\AOT\Scripts\PatchLogic\FsmNode\FsmStartGame.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\ListLongConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\HashSetIntReverseConverter.cs" />
+    <Compile Include="Assets\Unprocessed\App.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\ClientConverterCollectorSystem.cs" />
     <Compile Include="Assets\AOT\Scripts\Boot.cs" />
+    <Compile Include="Assets\Unprocessed\Time\TimerManager.cs" />
+    <Compile Include="Assets\Unprocessed\UI\MVVM\Model\LoginModel.cs" />
+    <Compile Include="Assets\Unprocessed\Utility\Helper\CopyHelper.cs" />
     <Compile Include="Assets\AOT\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\MapLongIntConverter.cs" />
+    <Compile Include="Assets\AOT\CustomRP\Runtime\Lighting.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\MapIntLongConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Extensions\System\Collections\Generic\IListExtensions.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Map\MapIntBitConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\MapLongLongConverter.cs" />
+    <Compile Include="Assets\Unprocessed\UI\Chat\ChatManager.Parser.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\BitmapReverseConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Collector\ConverterCollector.cs" />
+    <Compile Include="Assets\Unprocessed\Pooled\PooledHashSet.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\ConverterCollector.cs" />
+    <Compile Include="Assets\Unprocessed\Pooled\PooledList.cs" />
+    <Compile Include="Assets\Unprocessed\Condition\Element\Test\DisplayConditionTest.cs" />
+    <Compile Include="Assets\Unprocessed\Time\FixedFrequencyManager.Format.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Variant\TimingReset\BitmapTimingResetConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Collector\IConverterCollector.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\BitmapConverter.cs" />
+    <Compile Include="Assets\Unprocessed\UI\RedPoint\RedPointTreeManager.Configure.cs" />
+    <Compile Include="Assets\AOT\CustomRP\Runtime\CustomRenderPipelineAsset.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Client\ClientDailyFirstRedPointConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\ListIntConverter.cs" />
+    <Compile Include="Assets\Unprocessed\UI\Chat\Model\Room\Unit\IChatRoomUnit.cs" />
     <Compile Include="Assets\HybridCLRGenerate\AOTGenericReferences.cs" />
+    <Compile Include="Assets\Unprocessed\UI\RedPoint\RedPointTree.cs" />
+    <Compile Include="Assets\Unprocessed\UI\Chat\Model\Room\ChatRoom.cs" />
+    <Compile Include="Assets\Unprocessed\UI\Chat\Model\House\ChatHouse.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\HashSet\HashSetIntConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Client\ClientDailyFirstRedPointConverter.Constant.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\System\ConverterCollectorSystem.Config.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Map\MapIntBitReverseConverter.cs" />
+    <Compile Include="Assets\AOT\CustomRP\Runtime\CameraRenderer.Editor.cs" />
     <Compile Include="Assets\AOT\Scripts\PatchLogic\PatchOperation.cs" />
+    <Compile Include="Assets\Unprocessed\UI\Chat\Verify\Tablet\ChatRoomTablet.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\MapIntIntConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\MapIntBitConverter.cs" />
     <Compile Include="Assets\AOT\Scripts\PatchLogic\PatchWindow.cs" />
+    <Compile Include="Assets\Unprocessed\UI\Chat\TestChatData.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Int\Conveter\Bitmap\BitmapConverter.cs" />
+    <Compile Include="Assets\Unprocessed\UI\MVVM\ViewModel\LoginController.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Map\MapLongBitConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Utility\Helper\IOHelper.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\MapLongBitConverter.cs" />
+    <Compile Include="Assets\AOT\CustomRP\Settings\ShadowSettings.cs" />
+    <Compile Include="Assets\Unprocessed\UI\Chat\Model\Room\ChatMessageEntityBase.cs" />
+    <Compile Include="Assets\Unprocessed\Pooled\PooledObject.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\HashSetLongReverseConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Collections\ListLongConverter.cs" />
+    <Compile Include="Assets\AOT\CustomRP\Runtime\CustomRenderPipeline.cs" />
     <Compile Include="Assets\AOT\ConsoleToScreen.cs" />
+    <Compile Include="Assets\Unprocessed\Extensions\System\Collections\Generic\HashSetExtensions.cs" />
     <Compile Include="Assets\AOT\Scripts\EventDefine\PatchEventDefine.cs" />
+    <Compile Include="Assets\Unprocessed\Pooled\Test\PooledTest.cs" />
+    <Compile Include="Assets\Unprocessed\Event\EventManager.cs" />
+    <Compile Include="Assets\Unprocessed\GameEntry.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\HashSet\HashSetIntReverseConverter.cs" />
     <Compile Include="Assets\AOT\Scripts\PatchLogic\FsmNode\FsmClearCacheBundle.cs" />
+    <Compile Include="Assets\Unprocessed\Condition\Integration\ConditionManager.Fire.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Bitmap\BitmapConverter.cs" />
+    <Compile Include="Assets\Unprocessed\UI\RedPoint\RedPointNode.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\HashSetIntConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Map\MapLongBitReverseConverter.cs" />
+    <Compile Include="Assets\Unprocessed\UI\RedPoint\IRedPointLinkNode.cs" />
+    <Compile Include="Assets\Unprocessed\UI\MVVM\View\LoginView.cs" />
+    <Compile Include="Assets\Unprocessed\Pooled\MonitoredObjectPool.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\HashSet\HashSetLongConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Condition\Element\Test\ConditionTest.cs" />
+    <Compile Include="Assets\Unprocessed\Utility\Helper\CrcHelper.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Map\MapLongIntConverter.cs" />
+    <Compile Include="Assets\Unprocessed\CDebug\CDebug.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\MapIntBitReverseConverter.cs" />
+    <Compile Include="Assets\AOT\CustomRP\Runtime\CameraRenderer.cs" />
+    <Compile Include="Assets\Unprocessed\Condition\Element\ConditionManager.Fire.cs" />
+    <Compile Include="Assets\Unprocessed\UI\Chat\Model\Room\ChatMessageEntity.cs" />
+    <Compile Include="Assets\Unprocessed\UI\RedPoint\RedPointTreeManager.cs" />
+    <Compile Include="Assets\Unprocessed\UI\MVVM\View\MainView.cs" />
+    <Compile Include="Assets\Unprocessed\Time\SystemTime.cs" />
+    <Compile Include="Assets\Unprocessed\Condition\Element\DisplayConditionBase.cs" />
+    <Compile Include="Assets\Unprocessed\UI\Chat\ChatManager.cs" />
+    <Compile Include="Assets\Unprocessed\UI\Chat\ChatManager.ChannelConfigure.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Utility\CBitmap.cs" />
     <Compile Include="Assets\AOT\Scripts\PatchLogic\FsmNode\FsmRequestPackageVersion.cs" />
+    <Compile Include="Assets\Unprocessed\UI\Chat\ChatManager.Space.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\ServerConverterCollectorSystem.cs" />
+    <Compile Include="Assets\AOT\CustomRP\Runtime\Shadows.cs" />
+    <Compile Include="Assets\Unprocessed\Pooled\PooledDictionary.cs" />
+    <Compile Include="Assets\Unprocessed\UI\Chat\ChatMessage.cs" />
+    <Compile Include="Assets\Unprocessed\Extensions\System\Threading\Tasks\TasksExtensions.cs" />
+    <Compile Include="Assets\Unprocessed\UI\Chat\Verify\Gate\ChatHouseGate.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\System\ConverterCollectorSystem.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\System\IConverterCollectorSystem.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Map\MapIntLongConverter.cs" />
     <Compile Include="Assets\AOT\Scripts\PatchLogic\FsmNode\FsmInitializePackage.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Int\Conveter\IConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Buffer\DelayBuffer.cs" />
     <Compile Include="Assets\AOT\Scripts\PatchLogic\FsmNode\FsmDownloadPackageFiles.cs" />
+    <Compile Include="Assets\Unprocessed\Condition\Element\ConditionManager.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\Sealed\HashSetLongConverter.cs" />
+    <Compile Include="Assets\AOT\CustomRP\Examples\PerObjectMaterialProperties.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\RepeatedField.cs" />
+    <Compile Include="Assets\Unprocessed\PlayerLoop.cs" />
     <Compile Include="Assets\AOT\Scripts\EventDefine\BattleEventDefine.cs" />
     <None Include="Library\PackageCache\com.unity.modules.subsystems@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.render-pipelines.universal@14.0.9\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Library\PackageCache\com.unity.modules.jsonserialize@1.0.0\package.json" />
+    <None Include="Assets\AOT\CustomRP\Shaders\LitPass.hlsl" />
     <None Include="Library\PackageCache\com.unity.modules.screencapture@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.cloth@1.0.0\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
@@ -76,10 +200,12 @@
     <None Include="Assets\GameSetting\AssetBundleCollectorConfig.xml" />
     <None Include="Library\PackageCache\com.unity.ugui@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.render-pipelines.universal-config@14.0.9\package.json" />
+    <None Include="Assets\AOT\CustomRP\Shaders\UnlitPass.hlsl" />
     <None Include="Library\PackageCache\com.unity.modules.assetbundle@1.0.0\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Library\PackageCache\com.unity.modules.imgui@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.tilemap@1.0.0\package.json" />
+    <None Include="Assets\HotUpdate\ShaderLib\ShadertoyTunnel\ShadertoyTunnel.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Library\PackageCache\com.unity.modules.terrainphysics@1.0.0\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
@@ -88,10 +214,13 @@
     <None Include="Library\PackageCache\com.unity.render-pipelines.core@14.0.9\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Library\PackageCache\com.unity.modules.imageconversion@1.0.0\package.json" />
+    <None Include="Assets\AOT\CustomRP\ShaderLibrary\UnityInput.hlsl" />
     <None Include="Library\PackageCache\com.unity.shadergraph@14.0.9\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.unityanalytics@1.0.0\package.json" />
+    <None Include="Assets\AOT\CustomRP\ShaderLibrary\Common.hlsl" />
     <None Include="Library\PackageCache\com.unity.modules.video@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.shadergraph@14.0.9\ValidationConfig.json" />
+    <None Include="Assets\AOT\CustomRP\Shaders\ShadowCasterPass.hlsl" />
     <None Include="Assets\StreamingAssets\yoo\DefaultPackage\BuildinCatalog.json" />
     <None Include="Library\PackageCache\com.unity.modules.particlesystem@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.physics2d@1.0.0\package.json" />
@@ -111,8 +240,10 @@
     <None Include="Library\PackageCache\com.unity.render-pipelines.universal@14.0.9\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.modules.vehicles@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.unitywebrequestwww@1.0.0\package.json" />
+    <None Include="Assets\AOT\CustomRP\Shaders\Lit.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Library\PackageCache\com.unity.modules.unitywebrequestaudio@1.0.0\package.json" />
+    <None Include="Assets\AOT\CustomRP\ShaderLibrary\Light.hlsl" />
     <None Include="Library\PackageCache\com.unity.modules.xr@1.0.0\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\HybridCLRGenerate\link.xml" />
@@ -120,15 +251,20 @@
     <None Include="Library\PackageCache\com.unity.modules.terrain@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.androidjni@1.0.0\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\AOT\CustomRP\Shaders\Unlit.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Library\PackageCache\com.unity.modules.animation@1.0.0\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\AOT\CustomRP\ShaderLibrary\Shadows.hlsl" />
     <None Include="Library\PackageCache\com.unity.render-pipelines.universal@14.0.9\ValidationConfig.json" />
     <None Include="Library\PackageCache\com.unity.modules.unitywebrequest@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.uielements@1.0.0\package.json" />
+    <None Include="Assets\AOT\CustomRP\ShaderLibrary\Surface.hlsl" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
     <None Include="Library\PackageCache\com.unity.modules.ui@1.0.0\package.json" />
+    <None Include="Assets\AOT\CustomRP\ShaderLibrary\BRDF.hlsl" />
+    <None Include="Assets\AOT\CustomRP\ShaderLibrary\Lighting.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\UnityEditor\2022.3.15f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -380,28 +516,28 @@
       <HintPath>C:\UnityEditor\2022.3.15f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>C:\UnityProject\LLL\Assets\Plugins\Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Assets\Plugins\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection">
-      <HintPath>C:\UnityProject\LLL\Assets\Plugins\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Assets\Plugins\Microsoft.Extensions.DependencyInjection.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>C:\UnityProject\LLL\Assets\Plugins\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Assets\Plugins\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <HintPath>C:\UnityProject\LLL\Assets\Plugins\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Assets\Plugins\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="dnlib">
-      <HintPath>C:\UnityProject\LLL\Library\PackageCache\com.code-philosophy.hybridclr@77d4aec034\Plugins\dnlib.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\PackageCache\com.code-philosophy.hybridclr@77d4aec034\Plugins\dnlib.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>C:\UnityProject\LLL\Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="LZ4">
-      <HintPath>C:\UnityProject\LLL\Library\PackageCache\com.code-philosophy.hybridclr@77d4aec034\Plugins\LZ4.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\PackageCache\com.code-philosophy.hybridclr@77d4aec034\Plugins\LZ4.dll</HintPath>
     </Reference>
     <Reference Include="CommunityToolkit.Mvvm">
-      <HintPath>C:\UnityProject\LLL\Assets\Plugins\CommunityToolkit.Mvvm.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Assets\Plugins\CommunityToolkit.Mvvm.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:\UnityEditor\2022.3.15f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -794,160 +930,160 @@
       <HintPath>C:\UnityEditor\2022.3.15f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
     <Reference Include="HybridCLR.Runtime">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\HybridCLR.Runtime.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\HybridCLR.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Editor">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
     </Reference>
     <Reference Include="YooAsset">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\YooAsset.dll</HintPath>
-    </Reference>
-    <Reference Include="UniTask.TextMeshPro">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\UniTask.TextMeshPro.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\YooAsset.dll</HintPath>
     </Reference>
     <Reference Include="HybridCLR.Editor">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\HybridCLR.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UniTask.DOTween">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\UniTask.DOTween.dll</HintPath>
-    </Reference>
-    <Reference Include="UniTask.Addressables">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\UniTask.Addressables.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core.Editor">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\HybridCLR.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ScriptableBuildPipeline">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
     </Reference>
-    <Reference Include="UniTask.Linq">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\UniTask.Linq.dll</HintPath>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State.Editor">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.TextMeshPro">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\UniTask.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Shared.Editor">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.DOTween">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\UniTask.DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.Addressables">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\UniTask.Addressables.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Core">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Core.Editor">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.Linq">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\UniTask.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow.Editor">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State.Editor">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Searcher.Editor">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UniTask">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\UniTask.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
     </Reference>
     <Reference Include="YooAsset.Editor">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\YooAsset.Editor.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\YooAsset.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\UniTask.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.csproj">
-      <Project>{8c776cd0-ee06-8be2-163e-faa446529f83}</Project>
-      <Name>Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary</Name>
-    </ProjectReference>
     <ProjectReference Include="UniFramework.Machine.csproj">
-      <Project>{8ae93cb7-d36e-3d56-2fc8-5d9ef0dd6634}</Project>
+      <Project>{10673f21-7ad3-1e2f-c73f-bb9413dc72d2}</Project>
       <Name>UniFramework.Machine</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
-      <Project>{320b706a-6876-62d5-13aa-bda651dad6dc}</Project>
+      <Project>{3d835ad3-4de7-26c0-86ff-3e694e9e024d}</Project>
       <Name>Unity.RenderPipelines.Core.Runtime</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Universal.Runtime.csproj">
-      <Project>{a4125a53-68f6-79e3-4f87-3fbbc74da031}</Project>
-      <Name>Unity.RenderPipelines.Universal.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ShaderGraph.Editor.csproj">
-      <Project>{30a12a1b-baa5-9509-2769-529682a378fb}</Project>
-      <Name>Unity.ShaderGraph.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{966f7a7c-2c5e-0656-6a9e-031259ef440d}</Project>
-      <Name>UnityEditor.UI</Name>
-    </ProjectReference>
     <ProjectReference Include="UniFramework.Utility.csproj">
-      <Project>{cc661a35-abeb-06e0-ecdd-62cee6d572e4}</Project>
+      <Project>{a83c9481-d5c6-3068-db4f-3836ebf8175f}</Project>
       <Name>UniFramework.Utility</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{e03a8ec3-8383-001b-d82a-00568164beb8}</Project>
-      <Name>UnityEngine.UI</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Config.Runtime.csproj">
-      <Project>{95d0c3df-6c2a-995c-4e21-f3b05c6cd8d8}</Project>
+      <Project>{074e688f-fe51-e393-6e16-5a395bccf04b}</Project>
       <Name>Unity.RenderPipelines.Universal.Config.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Editor.csproj">
-      <Project>{be382b80-1ea9-3784-f8bc-b4b178f2a32b}</Project>
+      <Project>{40a11c74-5b85-49cf-80b3-c95e2e3ed3fb}</Project>
       <Name>Unity.RenderPipelines.Core.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipeline.Universal.ShaderLibrary.csproj">
-      <Project>{5c378829-65d1-49c0-9c7e-cc879fc78edd}</Project>
-      <Name>Unity.RenderPipeline.Universal.ShaderLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="UniFramework.Event.csproj">
-      <Project>{aba1885e-2f2b-53d5-c58d-23051ac72407}</Project>
-      <Name>UniFramework.Event</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.ShaderLibrary.csproj">
-      <Project>{e2d35409-2e47-bf57-30d8-d07a245475dd}</Project>
+      <Project>{519cf978-3c36-b33e-66c3-f8d543cb0020}</Project>
       <Name>Unity.RenderPipelines.Core.ShaderLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="PPv2URPConverters.csproj">
-      <Project>{ed7ddc1d-1b92-7aff-7aa4-c5ef108d0170}</Project>
+      <Project>{812f6b7c-cb6e-6af1-814c-085855f52ae1}</Project>
       <Name>PPv2URPConverters</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Universal.Shaders.csproj">
-      <Project>{69d05c8f-e29d-b988-78d8-6a59356ad1d4}</Project>
-      <Name>Unity.RenderPipelines.Universal.Shaders</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Editor.csproj">
-      <Project>{6462e151-7c0b-813b-3119-e6945ea8e11d}</Project>
+      <Project>{148500f7-362a-854d-6e95-6604e188694c}</Project>
       <Name>Unity.RenderPipelines.Universal.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.csproj">
+      <Project>{38be4fe7-4973-eee3-f59f-65586c47bc70}</Project>
+      <Name>Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.Universal.Runtime.csproj">
+      <Project>{ec1e15b3-1bef-d0b0-344d-0ffc509e976b}</Project>
+      <Name>Unity.RenderPipelines.Universal.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ShaderGraph.Editor.csproj">
+      <Project>{080b4d96-dc23-12cc-89ea-52f51a9bc3b7}</Project>
+      <Name>Unity.ShaderGraph.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{aa10a73a-0fb6-07c5-fcce-bc576a35745b}</Project>
+      <Name>UnityEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.UI.csproj">
+      <Project>{4e97dac8-471b-8ebc-e6a8-7bf55a8b1a61}</Project>
+      <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipeline.Universal.ShaderLibrary.csproj">
+      <Project>{46483ce8-398f-7b1f-da20-51dd2af94b5c}</Project>
+      <Name>Unity.RenderPipeline.Universal.ShaderLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniFramework.Event.csproj">
+      <Project>{a880cea0-c091-021c-17e5-72862b422f2f}</Project>
+      <Name>UniFramework.Event</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.Universal.Shaders.csproj">
+      <Project>{c2cda625-0b5d-60cd-d120-7417ddeab9c3}</Project>
+      <Name>Unity.RenderPipelines.Universal.Shaders</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

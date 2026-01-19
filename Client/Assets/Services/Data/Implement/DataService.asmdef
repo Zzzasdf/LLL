@@ -1,0 +1,16 @@
+{
+    "name": "DataService",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0fd25935020f53347874f4baaac81771"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

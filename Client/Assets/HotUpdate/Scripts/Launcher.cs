@@ -14,9 +14,11 @@ public class Launcher : MonoBehaviour
     {
         var services = new ServiceCollection();
     
+        services.AddDataService();
         services.AddDeviceService();
         services.AddHardwareService();
-        services.AddLoggerService();
+        services.AddLogService();
+        services.AddWindowService();
         
         return services.BuildServiceProvider();
     }

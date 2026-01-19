@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{a7bb2fec-3913-b072-22a6-739a3386e59d}</ProjectGuid>
+    <ProjectGuid>{21dbf7fe-a15a-c78f-4ee2-ef33f2bb9162}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -41,7 +41,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\UnityProject\LLL\Assets\Plugins\CommunityToolkit.Mvvm.SourceGenerators.dll" />
+    <Analyzer Include="C:\UnityProject\LLL\Client\Assets\Plugins\CommunityToolkit.Mvvm.SourceGenerators.dll" />
     <Analyzer Include="C:\UnityEditor\2022.3.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\UnityEditor\2022.3.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -313,49 +313,49 @@
       <HintPath>C:\UnityEditor\2022.3.15f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.YamlDotNet">
-      <HintPath>C:\UnityProject\LLL\Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>C:\UnityProject\LLL\Assets\Plugins\Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Assets\Plugins\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection">
-      <HintPath>C:\UnityProject\LLL\Assets\Plugins\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Assets\Plugins\Microsoft.Extensions.DependencyInjection.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>C:\UnityProject\LLL\Assets\Plugins\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Assets\Plugins\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
-      <HintPath>C:\UnityProject\LLL\Library\PackageCache\com.unity.collab-proxy@2.10.2\Lib\Editor\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\PackageCache\com.unity.collab-proxy@2.10.2\Lib\Editor\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
-      <HintPath>C:\UnityProject\LLL\Library\PackageCache\com.unity.collab-proxy@2.10.2\Lib\Editor\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\PackageCache\com.unity.collab-proxy@2.10.2\Lib\Editor\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
-      <HintPath>C:\UnityProject\LLL\Library\PackageCache\com.unity.collab-proxy@2.10.2\Lib\Editor\log4netPlastic.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\PackageCache\com.unity.collab-proxy@2.10.2\Lib\Editor\log4netPlastic.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
-      <HintPath>C:\UnityProject\LLL\Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <HintPath>C:\UnityProject\LLL\Assets\Plugins\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Assets\Plugins\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
-      <HintPath>C:\UnityProject\LLL\Library\PackageCache\com.unity.collab-proxy@2.10.2\Lib\Editor\unityplastic.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\PackageCache\com.unity.collab-proxy@2.10.2\Lib\Editor\unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="dnlib">
-      <HintPath>C:\UnityProject\LLL\Library\PackageCache\com.code-philosophy.hybridclr@77d4aec034\Plugins\dnlib.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\PackageCache\com.code-philosophy.hybridclr@77d4aec034\Plugins\dnlib.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>C:\UnityProject\LLL\Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="LZ4">
-      <HintPath>C:\UnityProject\LLL\Library\PackageCache\com.code-philosophy.hybridclr@77d4aec034\Plugins\LZ4.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\PackageCache\com.code-philosophy.hybridclr@77d4aec034\Plugins\LZ4.dll</HintPath>
     </Reference>
     <Reference Include="CommunityToolkit.Mvvm">
-      <HintPath>C:\UnityProject\LLL\Assets\Plugins\CommunityToolkit.Mvvm.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Assets\Plugins\CommunityToolkit.Mvvm.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
-      <HintPath>C:\UnityProject\LLL\Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:\UnityEditor\2022.3.15f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -748,38 +748,46 @@
       <HintPath>C:\UnityEditor\2022.3.15f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
     <Reference Include="YooAsset">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\YooAsset.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\YooAsset.dll</HintPath>
     </Reference>
     <Reference Include="UniTask">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\UniTask.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\UniTask.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:\UnityProject\LLL\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Services.csproj">
-      <Project>{c7f5993f-0ec5-d89b-5f01-09708826ac3f}</Project>
+      <Project>{836b720f-478d-53b0-3279-885d763507b9}</Project>
       <Name>Services</Name>
     </ProjectReference>
+    <ProjectReference Include="IDataService.csproj">
+      <Project>{2eb723c0-1d8e-ee80-fb8d-f5f14ef0485e}</Project>
+      <Name>IDataService</Name>
+    </ProjectReference>
     <ProjectReference Include="IDeviceService.csproj">
-      <Project>{5e98ba29-8433-895b-d4d0-f33fe77170ea}</Project>
+      <Project>{e3eebcdd-ba7f-425c-685d-b6445ff7e2fd}</Project>
       <Name>IDeviceService</Name>
     </ProjectReference>
     <ProjectReference Include="IHardwareService.csproj">
-      <Project>{e31ca680-4b7f-91a3-87ee-b8a688cfbe81}</Project>
+      <Project>{bcb0715c-3bb3-bc03-0a00-769d5e0b84fe}</Project>
       <Name>IHardwareService</Name>
     </ProjectReference>
-    <ProjectReference Include="ILoggerService.csproj">
-      <Project>{5904a9b1-61e4-2f81-8b03-14839ce054af}</Project>
-      <Name>ILoggerService</Name>
+    <ProjectReference Include="ILogService.csproj">
+      <Project>{b5eb0962-bc2b-590c-55ce-ca8b3c0d4169}</Project>
+      <Name>ILogService</Name>
+    </ProjectReference>
+    <ProjectReference Include="IWindowService.csproj">
+      <Project>{92d35b8e-fc77-6bf8-5514-bae5b6582cf1}</Project>
+      <Name>IWindowService</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{966f7a7c-2c5e-0656-6a9e-031259ef440d}</Project>
+      <Project>{aa10a73a-0fb6-07c5-fcce-bc576a35745b}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{e03a8ec3-8383-001b-d82a-00568164beb8}</Project>
+      <Project>{4e97dac8-471b-8ebc-e6a8-7bf55a8b1a61}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
   </ItemGroup>

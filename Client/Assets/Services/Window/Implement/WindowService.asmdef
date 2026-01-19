@@ -1,0 +1,16 @@
+{
+    "name": "WindowService",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d94337ea84325de408813549eff33ae2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

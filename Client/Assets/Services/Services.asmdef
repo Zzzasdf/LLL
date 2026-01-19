@@ -2,12 +2,16 @@
     "name": "Services",
     "rootNamespace": "",
     "references": [
+        "GUID:0fd25935020f53347874f4baaac81771",
+        "GUID:7ba91cc0ebcee4f4b96e9667d76a6fb5",
         "GUID:f18a3786da81f054581914343ea85662",
         "GUID:6fab81e37c1b6cd4093b4772cfce5310",
         "GUID:862b932290780e04e83648fc285aeb8a",
         "GUID:d5d91cbfdf202ed42a1fe20601a14a6c",
         "GUID:686dbc22b06a65e4c9361f0ca68ef3b5",
-        "GUID:aa9279e5a169d4049a0137edc81c403f"
+        "GUID:aa9279e5a169d4049a0137edc81c403f",
+        "GUID:d94337ea84325de408813549eff33ae2",
+        "GUID:5d53a349ba388aa4e9e33158c38ef23e"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
