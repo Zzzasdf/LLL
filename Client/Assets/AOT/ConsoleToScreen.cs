@@ -18,7 +18,7 @@ public class ConsoleToScreen : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        // DontDestroyOnLoad(this);
     }
 
     public void Log(string logString, string stackTrace, LogType type)

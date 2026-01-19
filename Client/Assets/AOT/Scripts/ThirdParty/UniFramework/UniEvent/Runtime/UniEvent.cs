@@ -40,7 +40,7 @@ namespace UniFramework.Event
 				_isInitialize = true;
 				_driver = new UnityEngine.GameObject($"[{nameof(UniEvent)}]");
 				_driver.AddComponent<UniEventDriver>();
-				UnityEngine.Object.DontDestroyOnLoad(_driver);
+				// UnityEngine.Object.DontDestroyOnLoad(_driver);
 				UniLogger.Log($"{nameof(UniEvent)} initalize !");
 			}
 		}

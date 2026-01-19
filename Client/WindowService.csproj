@@ -46,6 +46,10 @@
     <Analyzer Include="C:\UnityEditor\2022.3.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Services\Window\Implement\QueueContainer.cs" />
+    <Compile Include="Assets\Services\Window\Implement\IWindowContainer.cs" />
+    <Compile Include="Assets\Services\Window\Implement\StackContainer.cs" />
+    <Compile Include="Assets\Services\Window\Implement\PopupContainer.cs" />
     <Compile Include="Assets\Services\Window\Implement\WindowService.cs" />
     <None Include="Assets\Services\Window\Implement\WindowService.asmdef" />
     <Reference Include="UnityEngine">
@@ -744,11 +748,21 @@
     <Reference Include="System.Xml.XPath.XDocument">
       <HintPath>C:\UnityEditor\2022.3.15f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
+    <Reference Include="YooAsset">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\YooAsset.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\UniTask.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="IWindowService.csproj">
       <Project>{92d35b8e-fc77-6bf8-5514-bae5b6582cf1}</Project>
       <Name>IWindowService</Name>
+    </ProjectReference>
+    <ProjectReference Include="ILogService.csproj">
+      <Project>{b5eb0962-bc2b-590c-55ce-ca8b3c0d4169}</Project>
+      <Name>ILogService</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{aa10a73a-0fb6-07c5-fcce-bc576a35745b}</Project>

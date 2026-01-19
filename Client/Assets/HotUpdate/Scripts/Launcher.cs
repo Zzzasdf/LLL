@@ -26,5 +26,6 @@ public class Launcher : MonoBehaviour
     private void Start()
     {
         Hello.Run();
+        ServiceContext.GetProvider().GetService<IWindowService>();
     }
 }

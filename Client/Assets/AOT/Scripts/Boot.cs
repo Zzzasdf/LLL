@@ -37,7 +37,7 @@ public class Boot : MonoBehaviour
         Debug.Log($"资源系统运行模式：{PlayMode}");
         Application.targetFrameRate = 60;
         Application.runInBackground = true;
-        DontDestroyOnLoad(this.gameObject);
+        // DontDestroyOnLoad(this.gameObject);
     }
     IEnumerator Start()
     {
