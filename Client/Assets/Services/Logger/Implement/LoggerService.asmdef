@@ -1,0 +1,16 @@
+{
+    "name": "LoggerService",
+    "rootNamespace": "",
+    "references": [
+        "GUID:686dbc22b06a65e4c9361f0ca68ef3b5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

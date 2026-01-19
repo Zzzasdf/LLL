@@ -1,0 +1,16 @@
+{
+    "name": "HardwareService",
+    "rootNamespace": "",
+    "references": [
+        "GUID:862b932290780e04e83648fc285aeb8a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

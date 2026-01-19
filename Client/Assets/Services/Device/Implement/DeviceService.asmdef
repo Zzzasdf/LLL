@@ -1,0 +1,16 @@
+{
+    "name": "DeviceService",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f18a3786da81f054581914343ea85662"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
