@@ -13,6 +13,7 @@ public class LevelDataService
     public LevelDataService(Func<string> folderFunc)
     {
         this.folderFunc = folderFunc;
+        levelCache = new Dictionary<Type, Object>();
     }
     
     public T Get<T>() where T: new()

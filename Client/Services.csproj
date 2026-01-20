@@ -46,7 +46,6 @@
     <Analyzer Include="C:\UnityEditor\2022.3.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Services\Window\WindowServiceExtensions.cs" />
     <Compile Include="Assets\Services\Log\LogServiceExtensions.cs" />
     <Compile Include="Assets\Services\Hardware\HardwareServiceExtensions.cs" />
     <Compile Include="Assets\Services\Data\DataServiceExtensions.cs" />
@@ -781,14 +780,6 @@
     <ProjectReference Include="LogService.csproj">
       <Project>{b8860a33-cfda-ca4c-f630-6811ca40204b}</Project>
       <Name>LogService</Name>
-    </ProjectReference>
-    <ProjectReference Include="IWindowService.csproj">
-      <Project>{92d35b8e-fc77-6bf8-5514-bae5b6582cf1}</Project>
-      <Name>IWindowService</Name>
-    </ProjectReference>
-    <ProjectReference Include="WindowService.csproj">
-      <Project>{614c13d1-7deb-d6a8-75d0-0cba74a88caf}</Project>
-      <Name>WindowService</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{aa10a73a-0fb6-07c5-fcce-bc576a35745b}</Project>

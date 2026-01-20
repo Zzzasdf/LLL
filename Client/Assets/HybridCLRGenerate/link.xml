@@ -1,5 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <linker>
+  <assembly fullname="CommunityToolkit.Mvvm">
+    <type fullname="CommunityToolkit.Mvvm.ComponentModel.ObservableObject" preserve="all" />
+    <type fullname="CommunityToolkit.Mvvm.DependencyInjection.Ioc" preserve="all" />
+    <type fullname="CommunityToolkit.Mvvm.Input.IRelayCommand" preserve="all" />
+    <type fullname="CommunityToolkit.Mvvm.Input.RelayCommand" preserve="all" />
+    <type fullname="CommunityToolkit.Mvvm.Input.RelayCommandAttribute" preserve="all" />
+  </assembly>
+  <assembly fullname="IDataService">
+    <type fullname="IDataService" preserve="all" />
+  </assembly>
+  <assembly fullname="IDeviceService">
+    <type fullname="IDeviceService" preserve="all" />
+  </assembly>
+  <assembly fullname="IWindowService">
+    <type fullname="IWindowService" preserve="all" />
+    <type fullname="WindowBase" preserve="all" />
+    <type fullname="WindowLayer" preserve="all" />
+  </assembly>
   <assembly fullname="Microsoft.Extensions.DependencyInjection">
     <type fullname="Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions" preserve="all" />
     <type fullname="Microsoft.Extensions.DependencyInjection.ServiceProvider" preserve="all" />
@@ -7,26 +25,48 @@
   <assembly fullname="Microsoft.Extensions.DependencyInjection.Abstractions">
     <type fullname="Microsoft.Extensions.DependencyInjection.IServiceCollection" preserve="all" />
     <type fullname="Microsoft.Extensions.DependencyInjection.ServiceCollection" preserve="all" />
+    <type fullname="Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions" preserve="all" />
+    <type fullname="Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions" preserve="all" />
   </assembly>
   <assembly fullname="Services">
+    <type fullname="DataServiceExtensions" preserve="all" />
     <type fullname="DeviceServiceExtensions" preserve="all" />
     <type fullname="HardwareServiceExtensions" preserve="all" />
-    <type fullname="LoggerServiceExtensions" preserve="all" />
+    <type fullname="LogServiceExtensions" preserve="all" />
+    <type fullname="WindowServiceExtensions" preserve="all" />
   </assembly>
   <assembly fullname="System">
     <type fullname="System.CodeDom.Compiler.GeneratedCodeAttribute" preserve="all" />
     <type fullname="System.ComponentModel.EditorBrowsableAttribute" preserve="all" />
     <type fullname="System.ComponentModel.EditorBrowsableState" preserve="all" />
+    <type fullname="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute" preserve="all" />
+    <type fullname="System.Windows.Input.ICommand" preserve="all" />
+  </assembly>
+  <assembly fullname="UniTask">
+    <type fullname="Cysharp.Threading.Tasks.UniTask`1" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.CoreModule">
     <type fullname="UnityEngine.Debug" preserve="all" />
+    <type fullname="UnityEngine.Events.UnityAction" preserve="all" />
+    <type fullname="UnityEngine.Events.UnityEvent" preserve="all" />
+    <type fullname="UnityEngine.Events.UnityEventBase" preserve="all" />
     <type fullname="UnityEngine.MonoBehaviour" preserve="all" />
+    <type fullname="UnityEngine.SerializeField" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.UI">
+    <type fullname="UnityEngine.UI.Button" preserve="all" />
+    <type fullname="UnityEngine.UI.Button/ButtonClickedEvent" preserve="all" />
   </assembly>
   <assembly fullname="mscorlib">
+    <type fullname="System.Action" preserve="all" />
     <type fullname="System.Array" preserve="all" />
+    <type fullname="System.Attribute" preserve="all" />
+    <type fullname="System.AttributeTargets" preserve="all" />
+    <type fullname="System.AttributeUsageAttribute" preserve="all" />
     <type fullname="System.Byte" preserve="all" />
     <type fullname="System.Diagnostics.DebuggableAttribute" preserve="all" />
     <type fullname="System.Diagnostics.DebuggableAttribute/DebuggingModes" preserve="all" />
+    <type fullname="System.Func`2" preserve="all" />
     <type fullname="System.IServiceProvider" preserve="all" />
     <type fullname="System.Object" preserve="all" />
     <type fullname="System.Runtime.CompilerServices.CompilationRelaxationsAttribute" preserve="all" />

@@ -44,15 +44,23 @@ MonoBehaviour:
         CollectorGUID: d9044fefe5c389b45bf7a1a49c14fc47
         CollectorType: 0
         AddressRuleName: AddressByFileName
-        PackRuleName: PackSeparately
-        FilterRuleName: CollectScene
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
         AssetTags: 
         UserData: 
     - GroupName: ugui
       GroupDesc: "\u9762\u677F"
       AssetTags: 
       ActiveRuleName: EnableGroup
-      Collectors: []
+      Collectors:
+      - CollectPath: Assets/HotUpdate/Prefabs/Window
+        CollectorGUID: 8d748f51133c1734290d12530b629fd4
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
     - GroupName: Dlls
       GroupDesc: "\u70ED\u66F4\u4EE3\u7801"
       AssetTags: 

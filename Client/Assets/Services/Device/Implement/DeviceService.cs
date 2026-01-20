@@ -46,4 +46,14 @@ public class DeviceService : IDeviceService
     //     }
     //     Debug.Log($"根据显存({vramMB}MB)设置画质等级为: {QualitySettings.GetQualityLevel()}");
     // }
+
+    void IDeviceService.ApplicationQuit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        Debug.Log("Play mode stopped by script");
+#else
+        Application.Quit();
+#endif
+    }
 }

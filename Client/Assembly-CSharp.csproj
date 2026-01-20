@@ -150,8 +150,8 @@
     <Compile Include="Assets\Unprocessed\UI\RedPoint\IRedPointLinkNode.cs" />
     <Compile Include="Assets\Unprocessed\UI\MVVM\View\LoginView.cs" />
     <Compile Include="Assets\Unprocessed\Pooled\MonitoredObjectPool.cs" />
-    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\HashSet\HashSetLongConverter.cs" />
     <Compile Include="Assets\Unprocessed\Condition\Element\Test\ConditionTest.cs" />
+    <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\HashSet\HashSetLongConverter.cs" />
     <Compile Include="Assets\Unprocessed\Utility\Helper\CrcHelper.cs" />
     <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Map\MapLongIntConverter.cs" />
     <Compile Include="Assets\Unprocessed\CDebug\CDebug.cs" />
@@ -216,6 +216,7 @@
     <None Include="Library\PackageCache\com.unity.modules.imageconversion@1.0.0\package.json" />
     <None Include="Assets\AOT\CustomRP\ShaderLibrary\UnityInput.hlsl" />
     <None Include="Library\PackageCache\com.unity.shadergraph@14.0.9\package.json" />
+    <None Include="Assets\HotUpdate\Shader\ImageEffect\SimpleShader.shader" />
     <None Include="Library\PackageCache\com.unity.modules.unityanalytics@1.0.0\package.json" />
     <None Include="Assets\AOT\CustomRP\ShaderLibrary\Common.hlsl" />
     <None Include="Library\PackageCache\com.unity.modules.video@1.0.0\package.json" />

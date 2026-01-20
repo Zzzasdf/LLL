@@ -77,8 +77,8 @@
     <Compile Include="Assets\Unprocessed\Editor\Window\AssetHandlerWindow\AssetHandlerWindow3.cs" />
     <Compile Include="Assets\Unprocessed\Editor\Unit\ConverterExample.cs" />
     <Compile Include="Assets\Unprocessed\Editor\Window\AssetHandlerWindow.cs" />
-    <Compile Include="Assets\AOT\Scripts\Editor\TextureSchema.cs" />
     <Compile Include="Assets\Unprocessed\Editor\Window\AssetHandlerWindow\AssetHandlerWindow1.cs" />
+    <Compile Include="Assets\AOT\Scripts\Editor\TextureSchema.cs" />
     <Compile Include="Assets\Unprocessed\Editor\StateMachineModule\StateMachineEditorWindow.State.cs" />
     <Compile Include="Assets\Unprocessed\Editor\StateMachineModule\StateMachineData.cs" />
     <Compile Include="Assets\Unprocessed\Editor\Window\WindowCollectorEntry.cs" />
