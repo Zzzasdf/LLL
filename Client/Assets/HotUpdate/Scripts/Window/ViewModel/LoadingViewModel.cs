@@ -1,11 +1,10 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 
-public partial class LoadingViewModel : ObservableObject
+public partial class LoadingViewModel : ObservableObject, IViewModel
 {
     private readonly IDataService dataService;
-    private readonly LoadingModel loadingModel;
     
-    public LoadingViewModel(IDataService dataService, LoadingModel loadingModel)
+    public LoadingViewModel(IDataService dataService)
     {
         
     }

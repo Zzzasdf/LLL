@@ -1,23 +1,19 @@
+using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
-public partial class HelpViewModel : ObservableObject
+public partial class HelpViewModel : ObservableObject, IViewModel
 {
     private readonly IDataService dataService;
-    private readonly HelpModel helpModel;
-    private readonly IViewService viewService;
     
-    public HelpViewModel(IDataService dataService, HelpModel helpModel)
+    public HelpViewModel(IDataService dataService)
     {
-        this.dataService = dataService;
-        this.helpModel = helpModel;
-        viewService = Ioc.Default.GetService<IViewService>();
     }
     
     [RelayCommand]
-    private void Close(IView view)
+    private async Task Close(IView view)
     {
-        viewService.HideAsync(view);
+        await WeakReferenceMessenger.Default.SendViewHideAsync(view);
     }
 }

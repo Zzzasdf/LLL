@@ -1,41 +1,38 @@
+using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 
-public partial class StartViewModel : ObservableObject
+public partial class StartViewModel : ObservableObject, IViewModel
 {
-    private readonly IDataService dataService;
-    private readonly StartModel startModel;
     private readonly IDeviceService deviceService;
     
-    public StartViewModel(IDataService dataService, StartModel startModel,
-        IDeviceService deviceService)
+    public StartViewModel(IDeviceService deviceService)
     {
-        this.dataService = dataService;
-        this.startModel = startModel;
         this.deviceService = deviceService;
     }
 
     [RelayCommand]
     private void Start()
     {
-        WeakReferenceMessenger.Default.Send(new GameStateMessage
-        {
-            gameState = ProcedureService.GameState.Role,
-        });
+        WeakReferenceMessenger.Default.SendProcedureSwap(ProcedureService.GameState.SelectRole);
     }
 
     [RelayCommand]
-    private void Settings()
+    private void ShaderExamples()
     {
-        Ioc.Default.ShowViewAsync<SettingsView>();
     }
 
     [RelayCommand]
-    private void Help()
+    private async Task Settings()
     {
-        Ioc.Default.ShowViewAsync<HelpView>();
+        await WeakReferenceMessenger.Default.SendViewShowAsync<SettingsView>();
+    }
+
+    [RelayCommand]
+    private async Task Help()
+    {
+        await WeakReferenceMessenger.Default.SendViewShowAsync<HelpView>();
     }
 
     [RelayCommand]

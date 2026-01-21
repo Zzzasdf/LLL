@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LayerLocator : MonoBehaviour
+public class LayerLocator : MonoBehaviour, ILayerLocator
 {
     private ViewLayer viewLayer;
     private ILayerContainer layerContainer;
@@ -30,5 +30,5 @@ public class LayerLocator : MonoBehaviour
         this.layerContainer = layerContainer;
     }
 
-    public RectTransform GetRectTransform() => thisRt;
+    RectTransform ILayerLocator.GetRectTransform() => thisRt;
 }

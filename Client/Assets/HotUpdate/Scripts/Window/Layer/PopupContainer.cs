@@ -11,7 +11,7 @@ public class PopupContainer : ILayerContainer
     private Dictionary<int, IView> container;
     
     private IViewService viewService;
-    private LayerLocator layerLocator;
+    private ILayerLocator layerLocator;
 
     public PopupContainer(ILogService logService)
     {
@@ -32,22 +32,24 @@ public class PopupContainer : ILayerContainer
         this.viewService = viewService;
     }
     
-    void ILayerContainer.BindLocator(LayerLocator layerLocator)
+    void ILayerContainer.BindLocator(ILayerLocator layerLocator)
     {
         this.layerLocator = layerLocator;
     }
 
-    UniTask ILayerContainer.AddAsync<T>(T window)
+    UniTask ILayerContainer.AddAsync<T>(T view) => AddAsync_Internal(view);
+    private UniTask AddAsync_Internal<T>(T view) where T: class, IView
     {
         if (container.Count == warmCapacity)
         {
             logService.Warning($"{viewLayer} {nameof(StackContainer)} 的容量已超过预警值：{warmCapacity}");
         }
-        container.Add(window.GetUniqueId(), window);
+        container.Add(view.GetUniqueId(), view);
         return UniTask.CompletedTask;
     }
 
-    UniTask<bool> ILayerContainer.RemoveAsync(IView view)
+    UniTask<bool> ILayerContainer.RemoveAsync<T>(T view) => RemoveAsync_Internal(view);
+    private UniTask<bool> RemoveAsync_Internal<T>(T view) where T: class, IView
     {
         if (container.Count == 0)
         {
@@ -61,6 +63,21 @@ public class PopupContainer : ILayerContainer
             return UniTask.FromResult(false);
         }
         container.Remove(uniqueId);
+        return UniTask.FromResult(true);
+    }
+    
+    UniTask<bool> ILayerContainer.TryPop(out IView view) => TryPop_Internal(out view);
+    private UniTask<bool> TryPop_Internal(out IView view)
+    {
+        view = null;
+        if (container.Count == 0)
+        {
+            return UniTask.FromResult(false);
+        }
+        using (Dictionary<int, IView>.Enumerator enumerator = container.GetEnumerator())
+        {
+            view = enumerator.Current.Value;
+        }
         return UniTask.FromResult(true);
     }
 }

@@ -47,43 +47,39 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\StartViewModel.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Model\SettingsModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Model\RoleModel.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\ViewLayer.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\View\RoleArchiveItem.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\QueueContainer.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Launcher.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\ILayerContainer.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\IProcedure.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\CreateRoleViewModel.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureMain.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\View\CreateRoleView.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\StackContainer.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Procedure\FsmNode\ProcedureStart.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Procedure\FsmNode\ProcedureRole.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Procedure\FsmNode\IProcedure.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureInit.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Event\MessengerExtensions.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Locator\LayerLocator.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\View\RoleView.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\ViewServiceProviderServiceExtensions.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Event\EventDefine.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureCreateRole.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Message.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Context.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\IView.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureStart.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\PopupContainer.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Locator\UICanvasLocator.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureBattle.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\SettingsViewModel.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\Service\ViewService.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\SelectRoleViewModel.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedurePreload.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\StartView.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\Service\IViewService.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Procedure\FsmNode\ProcedureMain.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Model\HelpModel.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Procedure\FsmNode\ProcedurePreload.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Model\LoadingModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewBase.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\RoleViewModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\HelpViewModel.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Model\StartModel.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureSelectRole.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\View\SelectRoleView.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\LoadingViewModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\LoadingView.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\HelpView.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Procedure\FsmNode\ProcedureBattle.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\ProcedureService.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\SettingsView.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\ViewState.cs" />
     <None Include="Assets\HotUpdate\Scripts\HotUpdate.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>C:\UnityEditor\2022.3.15f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -348,9 +344,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>C:\UnityProject\LLL\Client\Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>C:\UnityProject\LLL\Client\Assets\Plugins\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection">
       <HintPath>C:\UnityProject\LLL\Client\Assets\Plugins\Microsoft.Extensions.DependencyInjection.dll</HintPath>
@@ -811,6 +804,10 @@
     <ProjectReference Include="ILogService.csproj">
       <Project>{b5eb0962-bc2b-590c-55ce-ca8b3c0d4169}</Project>
       <Name>ILogService</Name>
+    </ProjectReference>
+    <ProjectReference Include="IWindowService.csproj">
+      <Project>{92d35b8e-fc77-6bf8-5514-bae5b6582cf1}</Project>
+      <Name>IWindowService</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{aa10a73a-0fb6-07c5-fcce-bc576a35745b}</Project>

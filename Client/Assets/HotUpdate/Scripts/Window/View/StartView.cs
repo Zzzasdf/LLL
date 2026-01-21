@@ -1,20 +1,16 @@
-using CommunityToolkit.Mvvm.DependencyInjection;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartView : ViewBase
+public class StartView : ViewBase<StartViewModel>
 {
     [SerializeField] private Button btnStart;
+    [SerializeField] private Button btnShaderExamples;
     [SerializeField] private Button btnSettings;
     [SerializeField] private Button btnHelp;
     [SerializeField] private Button btnQuit;
 
-    private StartViewModel viewModel;
-    
     private void Start()
     {
-        // 使用依赖注入获取 ViewModel
-        viewModel = Ioc.Default.GetService<StartViewModel>();
         BindUI();
     }
 
@@ -22,6 +18,7 @@ public class StartView : ViewBase
     {
         // 绑定命令到按钮
         btnStart.onClick.AddListener(() => viewModel.StartCommand.Execute(null));
+        btnShaderExamples.onClick.AddListener(() => viewModel.ShaderExamplesCommand.Execute(null));
         btnSettings.onClick.AddListener(() => viewModel.SettingsCommand.Execute(null));
         btnHelp.onClick.AddListener(() => viewModel.HelpCommand.Execute(null));
         btnQuit.onClick.AddListener(() => viewModel.QuitCommand.Execute(null));
@@ -31,6 +28,7 @@ public class StartView : ViewBase
     {
         // 清理按钮事件
         btnStart.onClick.RemoveAllListeners();
+        btnShaderExamples.onClick.RemoveAllListeners();
         btnSettings.onClick.RemoveAllListeners();
         btnHelp.onClick.RemoveAllListeners();
         btnQuit.onClick.RemoveAllListeners();

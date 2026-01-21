@@ -516,9 +516,6 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\UnityEditor\2022.3.15f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>C:\UnityProject\LLL\Client\Assets\Plugins\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection">
       <HintPath>C:\UnityProject\LLL\Client\Assets\Plugins\Microsoft.Extensions.DependencyInjection.dll</HintPath>
     </Reference>
@@ -951,6 +948,9 @@
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
+    <Reference Include="LoopScrollRect.Editor">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\LoopScrollRect.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
@@ -977,6 +977,9 @@
     </Reference>
     <Reference Include="UniTask.Addressables">
       <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\UniTask.Addressables.dll</HintPath>
+    </Reference>
+    <Reference Include="LoopScrollRect.Runtime">
+      <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\LoopScrollRect.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
       <HintPath>C:\UnityProject\LLL\Client\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>

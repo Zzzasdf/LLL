@@ -1,4 +1,5 @@
-using System.Collections.Generic;using CommunityToolkit.Mvvm.ComponentModel;
+using System.Collections.Generic;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 
 public class ProcedureService: ObservableRecipient, IRecipient<GameStateMessage>
@@ -7,7 +8,9 @@ public class ProcedureService: ObservableRecipient, IRecipient<GameStateMessage>
     {
         Preload,
         Start,
-        Role,
+        SelectRole,
+        CreateRole,
+        Init,
         Main,
         Battle,
     }
@@ -22,6 +25,6 @@ public class ProcedureService: ObservableRecipient, IRecipient<GameStateMessage>
 
     void IRecipient<GameStateMessage>.Receive(GameStateMessage message)
     {
-        procedures[message.gameState].Run();
+        procedures[message.GameState].Run();
     }
 }

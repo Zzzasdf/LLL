@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using CommunityToolkit.Mvvm.DependencyInjection;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UICanvasLocator : MonoBehaviour
+public class UICanvasLocator : MonoBehaviour, IUICanvasLocator
 {
     private Transform canvasRt;
     private Canvas canvas;
@@ -57,6 +56,6 @@ public class UICanvasLocator : MonoBehaviour
         }
     }
 
-    public IViewService ViewService() => viewService;
-    public LayerLocator GetLayerLocator(ViewLayer viewLayer) => layerLocators[viewLayer];
+    IViewService IUICanvasLocator.ViewService() => viewService;
+    ILayerLocator IUICanvasLocator.GetLayerLocator(ViewLayer viewLayer) => layerLocators[viewLayer];
 }

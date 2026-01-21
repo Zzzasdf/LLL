@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using CommunityToolkit.Mvvm.DependencyInjection;
+using CommunityToolkit.Mvvm.Messaging;
 using Cysharp.Threading.Tasks;
 
 public class QueueContainer : ILayerContainer
@@ -12,7 +12,7 @@ public class QueueContainer : ILayerContainer
     private Queue<IView> container;
 
     private IViewService viewService;
-    private LayerLocator layerLocator;
+    private ILayerLocator layerLocator;
     
     public QueueContainer(ILogService logService)
     {
@@ -33,21 +33,23 @@ public class QueueContainer : ILayerContainer
         this.viewService = viewService;
     }
     
-    void ILayerContainer.BindLocator(LayerLocator layerLocator)
+    void ILayerContainer.BindLocator(ILayerLocator layerLocator)
     {
         this.layerLocator = layerLocator;
     }
 
-    async UniTask ILayerContainer.AddAsync<T>(T window)
+    async UniTask ILayerContainer.AddAsync<T>(T view) => await AddAsync_Internal(view);
+    private async UniTask AddAsync_Internal<T>(T view) where T: class, IView
     {
         if (container.Count == capacity)
         {
-            await viewService.HideAsync(container.Peek());
+            await WeakReferenceMessenger.Default.SendViewHideAsync(container.Peek());
         }
-        container.Enqueue(window);
+        container.Enqueue(view);
     }
 
-    UniTask<bool> ILayerContainer.RemoveAsync(IView view)
+    UniTask<bool> ILayerContainer.RemoveAsync<T>(T view) => RemoveAsync_Internal(view);
+    private UniTask<bool> RemoveAsync_Internal<T>(T view) where T: class, IView
     {
         if (container.Count == 0)
         {
@@ -60,6 +62,18 @@ public class QueueContainer : ILayerContainer
             return UniTask.FromResult(false);
         }
         container.Dequeue();
+        return UniTask.FromResult(true);
+    }
+    
+    UniTask<bool> ILayerContainer.TryPop(out IView view) => TryPop_Internal(out view);
+    private UniTask<bool> TryPop_Internal(out IView view)
+    {
+        view = null;
+        if (container.Count == 0)
+        {
+            return UniTask.FromResult(false);
+        }
+        view = container.Peek();
         return UniTask.FromResult(true);
     }
 }
