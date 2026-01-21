@@ -7,12 +7,10 @@ public partial class SelectRoleViewModel : ObservableRecipient,
     IRecipient<EventDefine.SelectedRoleArchiveEvent>
 {
     private readonly AccountModel accountModel;
-    private IDataService dataService;
     
-    public SelectRoleViewModel(AccountModel accountModel, IDataService dataService)
+    public SelectRoleViewModel(AccountModel accountModel)
     {
         this.accountModel = accountModel;
-        this.dataService = dataService;
         IsActive = true;
     }
 

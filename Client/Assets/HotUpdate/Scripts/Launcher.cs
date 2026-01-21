@@ -82,7 +82,7 @@ public class Launcher : MonoBehaviour
                     [ProcedureService.GameState.Battle] = sp.GetRequiredService<ProcedureBattle>(),
                 }));
 
-        services.AddTransient<RoleModel>(sp => sp.GetRequiredService<IDataService>().Get<RoleModel>()
+        services.AddRoleLevelModel<RoleModel>(sp => sp.GetRequiredService<IDataService>().Get<RoleModel>()
             .Bind(sp.GetRequiredService<IDataService>().AccountLevelGet<AccountModel>().GetSelectedAccountRoleSimpleModel()));
         
         return services.BuildServiceProvider();
@@ -113,7 +113,7 @@ public class Launcher : MonoBehaviour
         where TModel: class, new()
     {
         services.AddTransient<TViewModel>();
-        services.AddSingleton<TModel>(sp => sp.GetRequiredService<IDataService>().Get<TModel>());
+        services.AddRoleLevelModel<TModel>();
         return typeof(TView);
     }
     private static Type AddViewWithAccount<TView, TViewModel, TModel>(IServiceCollection services) 
@@ -122,7 +122,7 @@ public class Launcher : MonoBehaviour
         where TModel: class, IAccountLevelModel, new()
     {
         services.AddTransient<TViewModel>();
-        services.AddSingleton<TModel>(sp => sp.GetRequiredService<IDataService>().AccountLevelGet<TModel>());
+        services.AddAccountLevelModel<TModel>();
         return typeof(TView);
     }
 }
