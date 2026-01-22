@@ -11,7 +11,6 @@ public partial class SelectRoleViewModel : ObservableRecipient,
     public SelectRoleViewModel(AccountModel accountModel)
     {
         this.accountModel = accountModel;
-        IsActive = true;
     }
 
     [RelayCommand]

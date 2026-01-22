@@ -4,7 +4,7 @@ using YooAsset;
 public abstract class AssetBaseLoader<TObject> : MonoBehaviour
     where TObject : Object
 {
-    private bool init;
+    private bool unityEvent;
     private string location;
 
     private AssetLoadState loadState;
@@ -12,7 +12,7 @@ public abstract class AssetBaseLoader<TObject> : MonoBehaviour
     
     private void Awake()
     {
-        init = true;
+        unityEvent = true;
         if (string.IsNullOrEmpty(location))
         {
             return;
@@ -22,7 +22,7 @@ public abstract class AssetBaseLoader<TObject> : MonoBehaviour
     
     protected void Load(string location)
     {
-        if (!init)
+        if (!unityEvent)
         {
             this.location = location;
             return;

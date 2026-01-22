@@ -7,23 +7,19 @@ public class SelectRoleView : ViewBase<SelectRoleViewModel>
     [SerializeField] private List<RoleArchiveItem> roleArchiveItems;
     [SerializeField] private Button btnReturn;
 
-    private void Start()
+    protected override void BindUI()
     {
-        BindUI();
         for (int i = 0; i < roleArchiveItems.Count; i++)
         {
             RoleArchiveItem roleArchiveItem = roleArchiveItems[i];
             AccountRoleSimpleModel accountRoleSimpleModel = viewModel.GetOrAddRoleModel(i);
             roleArchiveItem.BindData(accountRoleSimpleModel);
         }
-    }
-
-    private void BindUI()
-    {
+        
         btnReturn.onClick.AddListener(()=> viewModel.ReturnCommand.Execute(null));
     }
 
-    private void OnDestroy()
+    protected override void UnBindUI()
     {
         btnReturn.onClick.RemoveAllListeners();
     }

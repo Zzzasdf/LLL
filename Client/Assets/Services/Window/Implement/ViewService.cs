@@ -138,7 +138,7 @@ public class ViewService : ObservableRecipient,
             return false;
         }
         uniqueIdCache.Remove(uniqueId);
-        UnityEngine.Object.DestroyImmediate(view.GameObject());
+        UnityEngine.Object.Destroy(view.GameObject());
         return true;
     }
     

@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 150}
   m_MaxSize: {x: 32384, y: 24288}
   vertical: 1
-  controlID: 1504
+  controlID: 3711
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -32,23 +32,23 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12019, guid: 0000000000000000e000000000000000, type: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12003, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinSize: {x: 275, y: 50}
+  m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Inspector
-    m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000,
+    m_Text: Console
+    m_Image: {fileID: -4327648978806127646, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1569
-    y: 73
-    width: 350
-    height: 918
+    x: 0
+    y: 775
+    width: 874
+    height: 216
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -59,19 +59,6 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
-  m_ObjectsLockedBeforeSerialization: []
-  m_InstanceIDsLockedBeforeSerialization: 
-  m_PreviewResizer:
-    m_CachedPref: 151
-    m_ControlHash: -371814159
-    m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
-  m_GlobalObjectId: 
-  m_InspectorMode: 0
-  m_LockTracker:
-    m_IsLocked: 0
-  m_PreviewWindow: {fileID: 0}
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -98,7 +85,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 150}
   m_MaxSize: {x: 32384, y: 24288}
   vertical: 0
-  controlID: 1505
+  controlID: 3712
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -119,12 +106,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 930
+    width: 875
     height: 939
   m_MinSize: {x: 100, y: 150}
   m_MaxSize: {x: 8096, y: 24288}
   vertical: 1
-  controlID: 17
+  controlID: 3713
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -142,8 +129,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 930
-    height: 190
+    width: 875
+    height: 270
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
@@ -174,8 +161,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 929
-    height: 169
+    width: 874
+    height: 249
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -242,7 +229,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: -151}
+      snapOffset: {x: 0, y: -175}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 2
       id: unity-transform-toolbar
@@ -463,7 +450,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 48, y: 0}
+      snapOffset: {x: 48, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: UnityEditor.SceneViewCameraOverlay
@@ -503,14 +490,14 @@ MonoBehaviour:
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
-  m_2DMode: 1
+  m_2DMode: 0
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 507.82364, y: 716.3425, z: -0.7366968}
+    m_Target: {x: 960, y: 540, z: 0}
     speed: 2
-    m_Value: {x: 507.82364, y: 716.3425, z: -0.7366968}
+    m_Value: {x: 960, y: 540, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -556,17 +543,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0, y: 0, z: 0, w: 1}
+    m_Target: {x: -0.11429303, y: -0.336519, z: 0.041232366, w: -0.93376637}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_Value: {x: -0.11429717, y: -0.3365312, z: 0.041233856, w: -0.93380016}
   m_Size:
-    m_Target: 363.1837
+    m_Target: 590.8077
     speed: 2
-    m_Value: 363.1837
+    m_Value: 590.8077
   m_Ortho:
-    m_Target: 1
+    m_Target: 0
     speed: 2
-    m_Value: 1
+    m_Value: 0
   m_CameraSettings:
     m_Speed: 1
     m_SpeedNormalized: 0.5
@@ -580,7 +567,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+  m_LastSceneViewRotation: {x: -0.12297562, y: -0.015777748, z: 0.0019940783, w: -0.9922465}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -603,9 +590,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 190
-    width: 930
-    height: 368
+    y: 270
+    width: 875
+    height: 432
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 8}
@@ -635,9 +622,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 263
-    width: 929
-    height: 347
+    y: 343
+    width: 874
+    height: 411
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -690,23 +677,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 929
-      height: 326
-    m_Scale: {x: 0.30185184, y: 0.30185184}
-    m_Translation: {x: 464.5, y: 163}
+      width: 874
+      height: 390
+    m_Scale: {x: 0.36111113, y: 0.3611111}
+    m_Translation: {x: 437, y: 195}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -1538.8345
+      x: -1210.1538
       y: -540
-      width: 3077.669
+      width: 2420.3076
       height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.30185184
-  m_LastWindowPixelSize: {x: 929, y: 347}
+  m_defaultScale: 0.3611111
+  m_LastWindowPixelSize: {x: 874, y: 411}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -728,13 +715,14 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 558
-    width: 930
-    height: 381
+    y: 702
+    width: 875
+    height: 237
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 10}
+  m_ActualView: {fileID: 2}
   m_Panes:
+  - {fileID: 2}
   - {fileID: 10}
   m_Selected: 0
   m_LastSelected: 1
@@ -747,22 +735,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 12003, guid: 0000000000000000e000000000000000, type: 0}
+  m_Script: {fileID: 11500000, guid: 3c8e4b80446fa33478a4453912913f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Console
-    m_Image: {fileID: -4327648978806127646, guid: 0000000000000000d000000000000000,
-      type: 0}
+    m_Text: Debug Viewer
+    m_Image: {fileID: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 631
-    width: 929
-    height: 360
+    y: 625
+    width: 874
+    height: 366
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -773,6 +760,1115 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
+  editorManager:
+    activeModeIndex: 0
+    serializeKeyList:
+    - Editor
+    - ADB Forward
+    - ADB Logcat
+    - Log File
+    serializeValueList:
+    - serializeKeyList:
+      - "\u8D44\u6E90\u7CFB\u7EDF\u8FD0\u884C\u6A21\u5F0F\uFF1AEditorSimulateModeUnityEngine.Debug:Log
+        (object)\nBoot:Awake () (at Assets/AOT/Scripts/Boot.cs:37)\nLog"
+      - 'UniEvent initalize !UnityEngine.Debug:Log (object)
+
+        UniFramework.Event.UniLogger:Log
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniLogger.cs:7)
+
+        UniFramework.Event.UniEvent:Initalize
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:44)
+
+        Boot/<Start>d__8:MoveNext
+        () (at Assets/AOT/Scripts/Boot.cs:48)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - 'YooAssets initialize !UnityEngine.Debug:Log (object)
+
+        YooAsset.YooLogger:Log
+        (string) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/Utility/YooLogger.cs:32)
+
+        YooAsset.YooAssets:Initialize
+        (YooAsset.ILogger) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:55)
+
+        Boot/<Start>d__8:MoveNext
+        () (at Assets/AOT/Scripts/Boot.cs:51)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - "\u521D\u59CB\u5316\u8D44\u6E90\u5305\uFF01UnityEngine.Debug:Log (object)\nPatchWindow:OnHandleEventMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/PatchLogic/PatchWindow.cs:101)\nUniFramework.Event.UniEvent:SendMessage
+        (int,UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:179)\nUniFramework.Event.UniEvent:SendMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:162)\nPatchEventDefine/PatchStepsChange:SendEventMessage
+        (string) (at Assets/AOT/Scripts/EventDefine/PatchEventDefine.cs:29)\nFsmInitializePackage:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmInitializePackage.cs:19)\nUniFramework.Machine.StateMachine:Run
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:73)\nUniFramework.Machine.StateMachine:Run<FsmInitializePackage>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:58)\nPatchOperation:OnStart
+        () (at Assets/AOT/Scripts/PatchLogic/PatchOperation.cs:48)\nYooAsset.GameAsyncOperation:InternalStart
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/GameAsyncOperation.cs:8)\nYooAsset.AsyncOperationBase:StartOperation
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/AsyncOperationBase.cs:163)\nYooAsset.OperationSystem:StartOperation
+        (string,YooAsset.AsyncOperationBase) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/OperationSystem.cs:157)\nYooAsset.YooAssets:StartOperation
+        (YooAsset.GameAsyncOperation) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:210)\nBoot/<Start>d__8:MoveNext
+        () (at Assets/AOT/Scripts/Boot.cs:59)\nUnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)\nLog"
+      - 'Create resource package : DefaultPackageUnityEngine.Debug:Log (object)
+
+        YooAsset.YooLogger:Log
+        (string) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/Utility/YooLogger.cs:32)
+
+        YooAsset.YooAssets:CreatePackage
+        (string) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:122)
+
+        FsmInitializePackage/<InitPackage>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmInitializePackage.cs:37)
+
+        UnityEngine.MonoBehaviour:StartCoroutine
+        (System.Collections.IEnumerator)
+
+        GameManager:StartCoroutine (System.Collections.IEnumerator)
+        (at Assets/AOT/Scripts/GameManager.cs:40)
+
+        FsmInitializePackage:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmInitializePackage.cs:20)
+
+        UniFramework.Machine.StateMachine:Run
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:73)
+
+        UniFramework.Machine.StateMachine:Run<FsmInitializePackage>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:58)
+
+        PatchOperation:OnStart
+        () (at Assets/AOT/Scripts/PatchLogic/PatchOperation.cs:48)
+
+        YooAsset.GameAsyncOperation:InternalStart
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/GameAsyncOperation.cs:8)
+
+        YooAsset.AsyncOperationBase:StartOperation
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/AsyncOperationBase.cs:163)
+
+        YooAsset.OperationSystem:StartOperation
+        (string,YooAsset.AsyncOperationBase) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/OperationSystem.cs:157)
+
+        YooAsset.YooAssets:StartOperation
+        (YooAsset.GameAsyncOperation) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:210)
+
+        Boot/<Start>d__8:MoveNext
+        () (at Assets/AOT/Scripts/Boot.cs:59)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - 'YooAsset use user settings.UnityEngine.Debug:Log (object)
+
+        YooAsset.YooLogger:Log
+        (string) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/Utility/YooLogger.cs:32)
+
+        YooAsset.YooAssetSettingsData:LoadSettingData
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/Settings/YooAssetSettingsData.cs:40)
+
+        YooAsset.YooAssetSettingsData:get_Setting
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/Settings/YooAssetSettingsData.cs:22)
+
+        YooAsset.YooAssetSettingsData:GetYooDefaultBuildinRoot
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/Settings/YooAssetSettingsData.cs:196)
+
+        YooAsset.Editor.AssetBundleBuilderHelper:GetStreamingAssetsRoot
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Editor/AssetBundleBuilder/AssetBundleBuilderHelper.cs:25)
+
+        YooAsset.Editor.AssetBundleSimulateBuilder:SimulateBuild
+        (YooAsset.PackageInvokeBuildParam) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Editor/AssetBundleBuilder/AssetBundleSimulateBuilder.cs:20)
+
+        System.Reflection.MethodBase:Invoke
+        (object,object[])
+
+        YooAsset.PackageInvokeBuilder:InvokePublicStaticMethod
+        (System.Type,string,object[]) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/PackageInvokeBuilder/PackageInvokeBuilder.cs:28)
+
+        YooAsset.PackageInvokeBuilder:InvokeBuilder
+        (YooAsset.PackageInvokeBuildParam) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/PackageInvokeBuilder/PackageInvokeBuilder.cs:17)
+
+        YooAsset.EditorSimulateModeHelper:SimulateBuild
+        (string) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/ResourcePackage/PlayMode/EditorSimulateModeHelper.cs:13)
+
+        FsmInitializePackage/<InitPackage>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmInitializePackage.cs:43)
+
+        UnityEngine.MonoBehaviour:StartCoroutine
+        (System.Collections.IEnumerator)
+
+        GameManager:StartCoroutine (System.Collections.IEnumerator)
+        (at Assets/AOT/Scripts/GameManager.cs:40)
+
+        FsmInitializePackage:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmInitializePackage.cs:20)
+
+        UniFramework.Machine.StateMachine:Run
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:73)
+
+        UniFramework.Machine.StateMachine:Run<FsmInitializePackage>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:58)
+
+        PatchOperation:OnStart
+        () (at Assets/AOT/Scripts/PatchLogic/PatchOperation.cs:48)
+
+        YooAsset.GameAsyncOperation:InternalStart
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/GameAsyncOperation.cs:8)
+
+        YooAsset.AsyncOperationBase:StartOperation
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/AsyncOperationBase.cs:163)
+
+        YooAsset.OperationSystem:StartOperation
+        (string,YooAsset.AsyncOperationBase) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/OperationSystem.cs:157)
+
+        YooAsset.YooAssets:StartOperation
+        (YooAsset.GameAsyncOperation) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:210)
+
+        Boot/<Start>d__8:MoveNext
+        () (at Assets/AOT/Scripts/Boot.cs:59)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - 'The package DefaultPackage create file system : YooAsset.DefaultEditorFileSystemUnityEngine.Debug:Log
+        (object)
+
+        YooAsset.YooLogger:Log (string) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/Utility/YooLogger.cs:32)
+
+        YooAsset.FileSystemParameters:CreateFileSystem
+        (string) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/FileSystem/FileSystemParameters.cs:45)
+
+        YooAsset.InitializationOperation:InternalUpdate
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/ResourcePackage/Operation/InitializationOperation.cs:87)
+
+        YooAsset.AsyncOperationBase:UpdateOperation
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/AsyncOperationBase.cs:178)
+
+        YooAsset.OperationSystem:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/OperationSystem.cs:108)
+
+        YooAsset.YooAssets:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:96)
+
+        YooAsset.YooAssetsDriver:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssetsDriver.cs:21)
+
+        Log'
+      - 'FsmInitializePackage --> FsmRequestPackageVersionUnityEngine.Debug:Log (object)
+
+        UniFramework.Machine.UniLogger:Log
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/UniLogger.cs:10)
+
+        UniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:130)
+
+        UniFramework.Machine.StateMachine:ChangeState<FsmRequestPackageVersion>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)
+
+        FsmInitializePackage/<InitPackage>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmInitializePackage.cs:98)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - "\u8BF7\u6C42\u8D44\u6E90\u7248\u672C !UnityEngine.Debug:Log (object)\nPatchWindow:OnHandleEventMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/PatchLogic/PatchWindow.cs:101)\nUniFramework.Event.UniEvent:SendMessage
+        (int,UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:179)\nUniFramework.Event.UniEvent:SendMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:162)\nPatchEventDefine/PatchStepsChange:SendEventMessage
+        (string) (at Assets/AOT/Scripts/EventDefine/PatchEventDefine.cs:29)\nFsmRequestPackageVersion:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmRequestPackageVersion.cs:17)\nUniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)\nUniFramework.Machine.StateMachine:ChangeState<FsmRequestPackageVersion>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)\nFsmInitializePackage/<InitPackage>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmInitializePackage.cs:98)\nUnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)\nLog"
+      - 'Request package version : SimulateUnityEngine.Debug:Log (object)
+
+        FsmRequestPackageVersion/<UpdatePackageVersion>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmRequestPackageVersion.cs:41)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - 'FsmRequestPackageVersion --> FsmUpdatePackageManifestUnityEngine.Debug:Log
+        (object)
+
+        UniFramework.Machine.UniLogger:Log (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/UniLogger.cs:10)
+
+        UniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:130)
+
+        UniFramework.Machine.StateMachine:ChangeState<FsmUpdatePackageManifest>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)
+
+        FsmRequestPackageVersion/<UpdatePackageVersion>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmRequestPackageVersion.cs:43)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - "\u66F4\u65B0\u8D44\u6E90\u6E05\u5355\uFF01UnityEngine.Debug:Log (object)\nPatchWindow:OnHandleEventMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/PatchLogic/PatchWindow.cs:101)\nUniFramework.Event.UniEvent:SendMessage
+        (int,UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:179)\nUniFramework.Event.UniEvent:SendMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:162)\nPatchEventDefine/PatchStepsChange:SendEventMessage
+        (string) (at Assets/AOT/Scripts/EventDefine/PatchEventDefine.cs:29)\nFsmUpdatePackageManifest:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs:17)\nUniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)\nUniFramework.Machine.StateMachine:ChangeState<FsmUpdatePackageManifest>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)\nFsmRequestPackageVersion/<UpdatePackageVersion>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmRequestPackageVersion.cs:43)\nUnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)\nLog"
+      - 'FsmUpdatePackageManifest --> FsmCreateDownloaderUnityEngine.Debug:Log (object)
+
+        UniFramework.Machine.UniLogger:Log
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/UniLogger.cs:10)
+
+        UniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:130)
+
+        UniFramework.Machine.StateMachine:ChangeState<FsmCreateDownloader>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)
+
+        FsmUpdatePackageManifest/<UpdateManifest>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs:43)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - "\u521B\u5EFA\u8D44\u6E90\u4E0B\u8F7D\u5668\uFF01UnityEngine.Debug:Log (object)\nPatchWindow:OnHandleEventMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/PatchLogic/PatchWindow.cs:101)\nUniFramework.Event.UniEvent:SendMessage
+        (int,UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:179)\nUniFramework.Event.UniEvent:SendMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:162)\nPatchEventDefine/PatchStepsChange:SendEventMessage
+        (string) (at Assets/AOT/Scripts/EventDefine/PatchEventDefine.cs:29)\nFsmCreateDownloader:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:17)\nUniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)\nUniFramework.Machine.StateMachine:ChangeState<FsmCreateDownloader>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)\nFsmUpdatePackageManifest/<UpdateManifest>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs:43)\nUnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)\nLog"
+      - 'Not found any download files !UnityEngine.Debug:Log (object)
+
+        FsmCreateDownloader:CreateDownloader
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:38)
+
+        FsmCreateDownloader:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:18)
+
+        UniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)
+
+        UniFramework.Machine.StateMachine:ChangeState<FsmCreateDownloader>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)
+
+        FsmUpdatePackageManifest/<UpdateManifest>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs:43)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - 'FsmCreateDownloader --> FsmStartGameUnityEngine.Debug:Log (object)
+
+        UniFramework.Machine.UniLogger:Log
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/UniLogger.cs:10)
+
+        UniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:130)
+
+        UniFramework.Machine.StateMachine:ChangeState<FsmStartGame>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)
+
+        FsmCreateDownloader:CreateDownloader
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:39)
+
+        FsmCreateDownloader:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:18)
+
+        UniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)
+
+        UniFramework.Machine.StateMachine:ChangeState<FsmCreateDownloader>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)
+
+        FsmUpdatePackageManifest/<UpdateManifest>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs:43)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - "\u5F00\u59CB\u6E38\u620F\uFF01UnityEngine.Debug:Log (object)\nPatchWindow:OnHandleEventMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/PatchLogic/PatchWindow.cs:101)\nUniFramework.Event.UniEvent:SendMessage
+        (int,UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:179)\nUniFramework.Event.UniEvent:SendMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:162)\nPatchEventDefine/PatchStepsChange:SendEventMessage
+        (string) (at Assets/AOT/Scripts/EventDefine/PatchEventDefine.cs:29)\nFsmStartGame:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmStartGame.cs:16)\nUniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)\nUniFramework.Machine.StateMachine:ChangeState<FsmStartGame>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)\nFsmCreateDownloader:CreateDownloader
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:39)\nFsmCreateDownloader:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:18)\nUniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)\nUniFramework.Machine.StateMachine:ChangeState<FsmCreateDownloader>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)\nFsmUpdatePackageManifest/<UpdateManifest>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs:43)\nUnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)\nLog"
+      - 'Package DefaultPackage patch done !UnityEngine.Debug:Log (object)
+
+        PatchOperation:SetFinish
+        () (at Assets/AOT/Scripts/PatchLogic/PatchOperation.cs:69)
+
+        FsmStartGame:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmStartGame.cs:17)
+
+        UniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)
+
+        UniFramework.Machine.StateMachine:ChangeState<FsmStartGame>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)
+
+        FsmCreateDownloader:CreateDownloader
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:39)
+
+        FsmCreateDownloader:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:18)
+
+        UniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)
+
+        UniFramework.Machine.StateMachine:ChangeState<FsmCreateDownloader>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)
+
+        FsmUpdatePackageManifest/<UpdateManifest>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs:43)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - "\u6B63\u5728\u52A0\u8F7D\u7A0B\u5E8F\u96C6\uFF1AHotUpdate.dllUnityEngine.Debug:Log
+        (object)\nBoot/<LoadDlls>d__9:MoveNext () (at Assets/AOT/Scripts/Boot.cs:75)\nUnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)\nLog"
+      - "\u7A0B\u5E8F\u96C6\u52A0\u8F7D\u6210\u529F\uFF1AHotUpdate.dll, \u5927\u5C0F\uFF1A12288
+        \u5B57\u8282UnityEngine.Debug:Log (object)\nBoot/<LoadDlls>d__9:MoveNext
+        () (at Assets/AOT/Scripts/Boot.cs:83)\nUnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)\nLog"
+      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nProcedureService run => PreloadUnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
+        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:29)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
+        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
+        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
+        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:9)\nLauncher:Start
+        () (at Assets/HotUpdate/Scripts/Launcher.cs:98)\nLog"
+      - "ThreadId: 1 \n\u9884\u7F16\u8BD1 Shader..UnityEngine.Debug:LogWarningFormat
+        (string,object[])\nLLogger:Warning (object) (at Assets/Services/Logger/LLogger.cs:35)\nProcedurePreload:IProcedure.Run
+        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedurePreload.cs:9)\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
+        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:30)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
+        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
+        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
+        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:9)\nLauncher:Start
+        () (at Assets/HotUpdate/Scripts/Launcher.cs:98)\nWarning"
+      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nProcedureService run => StartUnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
+        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:29)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
+        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
+        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
+        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:9)\nProcedurePreload:IProcedure.Run
+        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedurePreload.cs:11)\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
+        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:30)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
+        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
+        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
+        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:9)\nLauncher:Start
+        () (at Assets/HotUpdate/Scripts/Launcher.cs:98)\nLog"
+      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nStartView \u521B\u5EFA\u6210\u529F\uFF01\uFF01UnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nViewService/<ShowAsync_Internal>d__8:MoveNext
+        () (at Assets/Services/Window/Implement/ViewService.cs:104)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewService/<ShowAsync_Internal>d__8,
+        IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<object>:TrySetResult
+        (object)\nYooAsset.AsyncOperationBase:UpdateOperation () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/AsyncOperationBase.cs:195)\nYooAsset.OperationSystem:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/OperationSystem.cs:108)\nYooAsset.YooAssets:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:96)\nYooAsset.YooAssetsDriver:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssetsDriver.cs:21)\nLog"
+      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nProcedureService run => SelectRoleUnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
+        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:29)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
+        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
+        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
+        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:9)\nStartViewModel:Start
+        () (at Assets/HotUpdate/Scripts/Window/ViewModel/StartViewModel.cs:18)\nCommunityToolkit.Mvvm.Input.RelayCommand:Execute
+        (object)\nStartView:<BindUI>b__6_0 () (at Assets/HotUpdate/Scripts/Window/View/StartView.cs:20)\nUnityEngine.EventSystems.EventSystem:Update
+        () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)\nLog"
+      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nSelectRoleView \u521B\u5EFA\u6210\u529F\uFF01\uFF01UnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nViewService/<ShowAsync_Internal>d__8:MoveNext
+        () (at Assets/Services/Window/Implement/ViewService.cs:104)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewService/<ShowAsync_Internal>d__8,
+        IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<object>:TrySetResult
+        (object)\nYooAsset.AsyncOperationBase:UpdateOperation () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/AsyncOperationBase.cs:195)\nYooAsset.OperationSystem:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/OperationSystem.cs:108)\nYooAsset.YooAssets:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:96)\nYooAsset.YooAssetsDriver:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssetsDriver.cs:21)\nLog"
+      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nProcedureService run => InitUnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
+        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:29)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
+        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
+        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
+        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:9)\nSelectRoleViewModel/<CommunityToolkit-Mvvm-Messaging-IRecipient<EventDefine-SelectedRoleArchiveEvent>-Receive>d__4:MoveNext
+        () (at Assets/HotUpdate/Scripts/Window/ViewModel/SelectRoleViewModel.cs:38)\nSystem.Runtime.CompilerServices.AsyncMethodBuilderCore/MoveNextRunner:Run
+        ()\nCysharp.Threading.Tasks.AwaiterActions:Continuation (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveAccountLevelAsync>d__4`1<AccountModel>,
+        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nMessengerExtensions/<SendDataSaveAccountLevelAsync>d__4`1<AccountModel>:MoveNext
+        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:33)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveAccountLevelAsync>d__4`1<AccountModel>,
+        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<bool>:SetResult
+        (bool)\nCysharp.Threading.Tasks.UniTaskExtensions/<>c__2`1<bool>:<AsTask>b__2_0
+        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskExtensions.cs:111)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
+        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nLevelDataService/<SaveAsync>d__5:MoveNext
+        () (at Assets/Services/Data/Implement/LevelDataService.cs:74)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
+        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nUnityEngine.UnitySynchronizationContext:ExecuteTasks
+        ()\nLog"
+      - "ThreadId: 1 \n\u521D\u59CB\u5316\u7EC4\u4EF6 Test Start.. UnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:Log (object) (at Assets/Services/Logger/LLogger.cs:33)\nProcedureInit/<IProcedure-Run>d__2:MoveNext
+        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedureInit.cs:17)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder:Start<ProcedureInit/<IProcedure-Run>d__2>
+        (ProcedureInit/<IProcedure-Run>d__2&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:111)\nProcedureInit:IProcedure.Run
+        ()\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
+        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:30)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
+        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
+        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
+        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:9)\nSelectRoleViewModel/<CommunityToolkit-Mvvm-Messaging-IRecipient<EventDefine-SelectedRoleArchiveEvent>-Receive>d__4:MoveNext
+        () (at Assets/HotUpdate/Scripts/Window/ViewModel/SelectRoleViewModel.cs:38)\nSystem.Runtime.CompilerServices.AsyncMethodBuilderCore/MoveNextRunner:Run
+        ()\nCysharp.Threading.Tasks.AwaiterActions:Continuation (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveAccountLevelAsync>d__4`1<AccountModel>,
+        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nMessengerExtensions/<SendDataSaveAccountLevelAsync>d__4`1<AccountModel>:MoveNext
+        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:33)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveAccountLevelAsync>d__4`1<AccountModel>,
+        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<bool>:SetResult
+        (bool)\nCysharp.Threading.Tasks.UniTaskExtensions/<>c__2`1<bool>:<AsTask>b__2_0
+        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskExtensions.cs:111)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
+        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nLevelDataService/<SaveAsync>d__5:MoveNext
+        () (at Assets/Services/Data/Implement/LevelDataService.cs:74)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
+        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nUnityEngine.UnitySynchronizationContext:ExecuteTasks
+        ()\nLog"
+      - "ThreadId: 1 \n\u521D\u59CB\u5316\u7EC4\u4EF6 Test End.. UnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:Log (object) (at Assets/Services/Logger/LLogger.cs:33)\nProcedureInit/<IProcedure-Run>d__2:MoveNext
+        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedureInit.cs:22)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`1<ProcedureInit/<IProcedure-Run>d__2>:Run
+        () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:189)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
+        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveRoleLevelAsync>d__5`1<RoleModel>,
+        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nMessengerExtensions/<SendDataSaveRoleLevelAsync>d__5`1<RoleModel>:MoveNext
+        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:37)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveRoleLevelAsync>d__5`1<RoleModel>,
+        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<bool>:SetResult
+        (bool)\nCysharp.Threading.Tasks.UniTaskExtensions/<>c__2`1<bool>:<AsTask>b__2_0
+        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskExtensions.cs:111)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
+        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nLevelDataService/<SaveAsync>d__5:MoveNext
+        () (at Assets/Services/Data/Implement/LevelDataService.cs:74)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
+        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nUnityEngine.UnitySynchronizationContext:ExecuteTasks
+        ()\nLog"
+      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nProcedureService run => MainUnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
+        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:29)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
+        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
+        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
+        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:9)\nProcedureInit/<IProcedure-Run>d__2:MoveNext
+        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedureInit.cs:24)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`1<ProcedureInit/<IProcedure-Run>d__2>:Run
+        () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:189)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
+        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveRoleLevelAsync>d__5`1<RoleModel>,
+        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nMessengerExtensions/<SendDataSaveRoleLevelAsync>d__5`1<RoleModel>:MoveNext
+        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:37)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveRoleLevelAsync>d__5`1<RoleModel>,
+        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<bool>:SetResult
+        (bool)\nCysharp.Threading.Tasks.UniTaskExtensions/<>c__2`1<bool>:<AsTask>b__2_0
+        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskExtensions.cs:111)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
+        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nLevelDataService/<SaveAsync>d__5:MoveNext
+        () (at Assets/Services/Data/Implement/LevelDataService.cs:74)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
+        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nUnityEngine.UnitySynchronizationContext:ExecuteTasks
+        ()\nLog"
+      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \n\u8FDB\u5165 Main \u573A\u666FUnityEngine.Debug:LogWarningFormat
+        (string,object[])\nLLogger:FrameWarning (object) (at Assets/Services/Logger/LLogger.cs:26)\nProcedureMain/<IProcedure-Run>d__0:MoveNext
+        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedureMain.cs:9)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder:Start<ProcedureMain/<IProcedure-Run>d__0>
+        (ProcedureMain/<IProcedure-Run>d__0&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:111)\nProcedureMain:IProcedure.Run
+        ()\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
+        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:30)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
+        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
+        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
+        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:9)\nProcedureInit/<IProcedure-Run>d__2:MoveNext
+        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedureInit.cs:24)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`1<ProcedureInit/<IProcedure-Run>d__2>:Run
+        () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:189)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
+        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveRoleLevelAsync>d__5`1<RoleModel>,
+        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nMessengerExtensions/<SendDataSaveRoleLevelAsync>d__5`1<RoleModel>:MoveNext
+        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:37)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveRoleLevelAsync>d__5`1<RoleModel>,
+        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<bool>:SetResult
+        (bool)\nCysharp.Threading.Tasks.UniTaskExtensions/<>c__2`1<bool>:<AsTask>b__2_0
+        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskExtensions.cs:111)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
+        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
+        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nLevelDataService/<SaveAsync>d__5:MoveNext
+        () (at Assets/Services/Data/Implement/LevelDataService.cs:74)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
+        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nUnityEngine.UnitySynchronizationContext:ExecuteTasks
+        ()\nWarning"
+      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nMainView \u521B\u5EFA\u6210\u529F\uFF01\uFF01UnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nViewService/<ShowAsync_Internal>d__8:MoveNext
+        () (at Assets/Services/Window/Implement/ViewService.cs:104)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewService/<ShowAsync_Internal>d__8,
+        IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<object>:TrySetResult
+        (object)\nYooAsset.AsyncOperationBase:UpdateOperation () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/AsyncOperationBase.cs:195)\nYooAsset.OperationSystem:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/OperationSystem.cs:108)\nYooAsset.YooAssets:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:96)\nYooAsset.YooAssetsDriver:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssetsDriver.cs:21)\nLog"
+      serializeValueList:
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      logFilter:
+        collapse: 1
+        showTime: 1
+        showLog: 1
+        showWarning: 1
+        showError: 1
+        searchWithRegex: 0
+        searchText: 
+      selectedLogIndex: -1
+      intermediaryEditor: {fileID: 0}
+      _analysisDataManager:
+        poolInstance:
+          _itemPool:
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+        _root:
+          Row: 0
+    - serializeKeyList: []
+      serializeValueList: []
+      logFilter:
+        collapse: 0
+        showTime: 1
+        showLog: 1
+        showWarning: 0
+        showError: 1
+        searchWithRegex: 0
+        searchText: 
+      selectedLogIndex: -1
+      intermediaryEditor: {fileID: 0}
+      _analysisDataManager:
+        poolInstance:
+          _itemPool:
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+        _root:
+          Row: 0
+    - serializeKeyList: []
+      serializeValueList: []
+      logFilter:
+        collapse: 0
+        showTime: 0
+        showLog: 1
+        showWarning: 1
+        showError: 1
+        searchWithRegex: 0
+        searchText: 
+      selectedLogIndex: -1
+      intermediaryEditor: {fileID: 0}
+      _analysisDataManager:
+        poolInstance:
+          _itemPool:
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+        _root:
+          Row: 0
+    - serializeKeyList: []
+      serializeValueList: []
+      logFilter:
+        collapse: 0
+        showTime: 1
+        showLog: 1
+        showWarning: 0
+        showError: 1
+        searchWithRegex: 0
+        searchText: 
+      selectedLogIndex: -1
+      intermediaryEditor: {fileID: 0}
+      _analysisDataManager:
+        poolInstance:
+          _itemPool:
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+        _root:
+          Row: 0
+  logFilter:
+    collapse: 1
+    showTime: 1
+    showLog: 1
+    showWarning: 1
+    showError: 1
+    searchWithRegex: 0
+    searchText: 
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -788,9 +1884,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 930
+    x: 875
     y: 0
-    width: 163
+    width: 243
     height: 939
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -820,9 +1916,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 931
-    y: 19
-    width: 161
+    x: 875
+    y: 73
+    width: 241
     height: 918
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -837,23 +1933,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 04820000
+      m_SelectedIDs: dc8f0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 20fbffff
+      m_ExpandedIDs: 9696f9ff9a96f9ffa096f9ffba96f9ffaa98f9ffb498f9ffcc98f9ffce98f9fff2c8f9ffeccaf9ff04cbf9ff06cbf9fff60cfaff340efaffa680faff5886faffce96fafff05afbff9061fbff0eb7fbfff8b7fbffaa14fcff103bfcfffea3fcfff0e4fcffd0e6fcff6a0bfdff8a33fdff665afdff6e5cfdff886cfdff926cfdffb46cfdffe473fdff3074fdff5274fdff1a7bfdff3c7bfdffc280fdffe480fdff4288fdff6488fdfffc90fdff4891fdff6a91fdffca9cfdffd49cfdfff69cfdff62b1fdffaeb1fdffd0b1fdffd2b1fdff20fbfffff4fffffff28c0000188d00002a8d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Cube(Clone)
+        m_OriginalName: Cube(Clone)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -420238
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 11}
       m_SearchString: 
@@ -878,9 +1974,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1093
+    x: 1118
     y: 0
-    width: 476
+    width: 463
     height: 939
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
@@ -910,9 +2006,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1094
-    y: 19
-    width: 474
+    x: 1118
+    y: 73
+    width: 461
     height: 918
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -935,7 +2031,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Services/Window/Implement
+    - Assets/HotUpdate/Prefabs/Model
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -943,30 +2039,30 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Services/Window/Implement
+  - Assets/HotUpdate/Prefabs/Model
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\UnityProject\LLL\Client
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 300}
-    m_SelectedIDs: 88740000
-    m_LastClickedID: 29832
-    m_ExpandedIDs: 00000000a6720000a8720000aa720000ac720000ae720000b0720000b2720000b4720000b6720000b8720000ba720000bc720000be720000c2720000c4720000c6720000c8720000ca720000cc720000ce720000d0720000d2720000d4720000d6720000da720000dc720000de720000e0720000e2720000e4720000ea720000ec7200006a7400007274000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 102}
+    m_SelectedIDs: d0970000
+    m_LastClickedID: 38864
+    m_ExpandedIDs: 00000000a6720000a8720000aa720000ac720000ae720000b0720000b2720000b8720000ba720000c2720000c4720000c6720000c8720000ca720000cc720000ce720000d0720000d2720000d4720000d6720000da720000dc720000de720000e0720000e2720000e4720000ea720000ec7200007274000076740000ae740000d274000086810000888100008a810000a0860000a697000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Materials
+      m_OriginalName: Materials
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 33156
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 13}
     m_SearchString: 
@@ -980,7 +2076,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a6720000a8720000aa720000ac720000ae720000b0720000b2720000b4720000b6720000b8720000ba720000bc720000be720000c0720000c2720000c4720000c6720000c8720000ca720000cc720000ce720000d0720000d2720000d4720000d6720000d8720000da720000dc720000de720000e0720000e2720000e4720000e6720000e8720000ea720000ec720000
+    m_ExpandedIDs: 00000000a6720000a8720000aa720000ac720000ae720000b0720000b2720000b4720000b6720000b8720000ba720000bc720000be720000c2720000c4720000c6720000c8720000ca720000cc720000ce720000d0720000d2720000d4720000d6720000da720000dc720000de720000e0720000e2720000e4720000ea720000ec7200007274000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1005,24 +2101,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 04820000
-    m_LastClickedInstanceID: 33284
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: dc8f0000
+    m_LastClickedInstanceID: 36828
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: d2630000785600007c610000c86100002c9d00009aa20000a6a20000aaa20000f447000060810000b464000038680000526800003c6b00001e68000062670000146500000a6e0000e46d00000e4f0000e2c600001e7a000002700000ac6b00003c700000000000007e7000001a72000042760000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: LLogerConfigure
-      m_OriginalName: LLogerConfigure
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 33554
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 13}
     m_CreateAssetUtility:
@@ -1035,7 +2131,7 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 16
   m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 241
+  m_DirectoriesAreaWidth: 239
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1051,19 +2147,67 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1569
+    x: 1581
     y: 0
-    width: 351
+    width: 339
     height: 939
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 2}
+  m_ActualView: {fileID: 16}
   m_Panes:
-  - {fileID: 2}
   - {fileID: 16}
+  - {fileID: 17}
   m_Selected: 0
   m_LastSelected: 1
 --- !u!114 &16
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12019, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Inspector
+    m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1581
+    y: 73
+    width: 338
+    height: 918
+  m_SerializedDataModeController:
+    m_DataMode: 0
+    m_PreferredDataMode: 0
+    m_SupportedDataModes: 
+    isAutomatic: 1
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+  m_ObjectsLockedBeforeSerialization: []
+  m_InstanceIDsLockedBeforeSerialization: 
+  m_PreviewResizer:
+    m_CachedPref: 151
+    m_ControlHash: -371814159
+    m_PrefName: Preview_InspectorPreview
+  m_LastInspectedObjectInstanceID: -1
+  m_LastVerticalScrollValue: 0
+  m_GlobalObjectId: 
+  m_InspectorMode: 0
+  m_LockTracker:
+    m_IsLocked: 0
+  m_PreviewWindow: {fileID: 0}
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1083,9 +2227,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1569
+    x: 1468
     y: 73
-    width: 350
+    width: 451
     height: 918
   m_SerializedDataModeController:
     m_DataMode: 0

@@ -102,7 +102,7 @@ public class Launcher : MonoBehaviour
         where TView : IView 
         where TViewModel: class, IViewModel
     {
-        services.AddSingleton<TViewModel>();
+        services.AddTransient<TViewModel>();
         return typeof(TView);
     }
     private static Type AddView<TView, TViewModel, TModel>(IServiceCollection services) 
@@ -110,7 +110,7 @@ public class Launcher : MonoBehaviour
         where TViewModel: class, IViewModel
         where TModel: class, new()
     {
-        services.AddSingleton<TViewModel>();
+        services.AddTransient<TViewModel>();
         services.AddRoleLevelModel<TModel>();
         return typeof(TView);
     }
@@ -119,7 +119,7 @@ public class Launcher : MonoBehaviour
         where TViewModel: class, IViewModel
         where TModel: class, IAccountLevelModel, new()
     {
-        services.AddSingleton<TViewModel>();
+        services.AddTransient<TViewModel>();
         services.AddAccountLevelModel<TModel>();
         return typeof(TView);
     }

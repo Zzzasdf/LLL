@@ -58,6 +58,7 @@
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\CreateRoleView.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\StackContainer.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureInit.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\TestUnityEvent.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Event\MessengerExtensions.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Asset\PhotographyLoader.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Locator\LayerLocator.cs" />

@@ -9,12 +9,7 @@ public class StartView : ViewBase<StartViewModel>
     [SerializeField] private Button btnHelp;
     [SerializeField] private Button btnQuit;
 
-    private void Start()
-    {
-        BindUI();
-    }
-
-    private void BindUI()
+    protected override void BindUI()
     {
         // 绑定命令到按钮
         btnStart.onClick.AddListener(() => viewModel.StartCommand.Execute(null));
@@ -24,7 +19,7 @@ public class StartView : ViewBase<StartViewModel>
         btnQuit.onClick.AddListener(() => viewModel.QuitCommand.Execute(null));
     }
     
-    private void OnDestroy()
+    protected override void UnBindUI()
     {
         // 清理按钮事件
         btnStart.onClick.RemoveAllListeners();
