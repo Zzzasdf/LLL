@@ -803,7 +803,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Standalone: DOTWEEN;FRAME_ERROR;FRAME_WARNING;FRAME_LOG;ERROR;WARNING;LOG;POOLED_EXCEPTION
+    Standalone: DOTWEEN;FRAME_ERROR;FRAME_WARNING;ERROR;WARNING;LOG;POOLED_EXCEPTION;FRAME_LOG
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

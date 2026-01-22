@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
+using Cysharp.Threading.Tasks;
 
 public class ProcedureService: ObservableRecipient, IRecipient<GameStateMessage>
 {
@@ -25,6 +26,7 @@ public class ProcedureService: ObservableRecipient, IRecipient<GameStateMessage>
 
     void IRecipient<GameStateMessage>.Receive(GameStateMessage message)
     {
-        procedures[message.GameState].Run();
+        LLogger.FrameLog($"{nameof(ProcedureService)} run => {message.GameState}");
+        procedures[message.GameState].Run().Forget();
     }
 }

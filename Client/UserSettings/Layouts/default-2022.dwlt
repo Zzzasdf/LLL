@@ -20,37 +20,11 @@ MonoBehaviour:
     height: 989
   m_ShowMode: 4
   m_Title: Project
-  m_RootView: {fileID: 3}
+  m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneHierarchyWindow
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 940
-    y: 0
-    width: 225
-    height: 939
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 19}
-  m_Panes:
-  - {fileID: 19}
-  m_Selected: 0
-  m_LastSelected: 0
---- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,9 +37,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 4}
-  - {fileID: 6}
+  - {fileID: 3}
   - {fileID: 5}
+  - {fileID: 4}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -78,7 +52,7 @@ MonoBehaviour:
   m_TopViewHeight: 30
   m_UseBottomView: 1
   m_BottomViewHeight: 20
---- !u!114 &4
+--- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
---- !u!114 &5
+--- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +95,7 @@ MonoBehaviour:
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
---- !u!114 &6
+--- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 7}
+  - {fileID: 6}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -144,7 +118,34 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 150}
   m_MaxSize: {x: 32384, y: 24288}
   vertical: 1
-  controlID: 15
+  controlID: 178
+--- !u!114 &6
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 7}
+  - {fileID: 11}
+  - {fileID: 12}
+  - {fileID: 13}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1920
+    height: 939
+  m_MinSize: {x: 400, y: 150}
+  m_MaxSize: {x: 32384, y: 24288}
+  vertical: 0
+  controlID: 179
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -159,46 +160,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 8}
-  - {fileID: 2}
-  - {fileID: 12}
-  - {fileID: 13}
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1920
-    height: 939
-  m_MinSize: {x: 400, y: 150}
-  m_MaxSize: {x: 32384, y: 24288}
-  vertical: 0
-  controlID: 16
---- !u!114 &8
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children:
   - {fileID: 9}
   - {fileID: 10}
-  - {fileID: 11}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 940
+    width: 930
     height: 939
   m_MinSize: {x: 100, y: 150}
   m_MaxSize: {x: 8096, y: 24288}
   vertical: 1
-  controlID: 17
---- !u!114 &9
+  controlID: 26
+--- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,16 +189,16 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 940
+    width: 930
     height: 190
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 15}
   m_Panes:
-  - {fileID: 16}
+  - {fileID: 15}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &10
+--- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,14 +215,41 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 190
-    width: 940
-    height: 400
+    width: 930
+    height: 368
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 16}
+  m_Panes:
+  - {fileID: 16}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &10
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: UnityDebugViewerWindow
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 558
+    width: 930
+    height: 381
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 17}
-  m_Selected: 0
+  - {fileID: 14}
+  m_Selected: 1
   m_LastSelected: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -260,17 +261,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: SceneHierarchyWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 0
-    y: 590
-    width: 940
-    height: 349
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+    x: 930
+    y: 0
+    width: 163
+    height: 939
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -291,15 +292,15 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1165
+    x: 1093
     y: 0
-    width: 385
+    width: 476
     height: 939
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
-  m_ActualView: {fileID: 15}
+  m_ActualView: {fileID: 19}
   m_Panes:
-  - {fileID: 15}
+  - {fileID: 19}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &13
@@ -312,23 +313,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: InspectorWindow
+  m_Name: MacroDefinerWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1550
+    x: 1569
     y: 0
-    width: 370
+    width: 351
     height: 939
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 20}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 20}
-  - {fileID: 14}
-  m_Selected: 0
-  m_LastSelected: 1
+  - {fileID: 21}
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -338,21 +339,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 332ee1f86d8ebfa4cad0687b018142d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c8e4b80446fa33478a4453912913f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: "\u8BBE\u7F6E\u5168\u5C40\u5B8F"
+    m_Text: Debug Viewer
     m_Image: {fileID: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1529
-    y: 73
-    width: 390
-    height: 918
+    x: 0
+    y: 631
+    width: 929
+    height: 360
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -363,154 +364,1120 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
+  editorManager:
+    activeModeIndex: 0
+    serializeKeyList:
+    - Editor
+    - ADB Forward
+    - ADB Logcat
+    - Log File
+    serializeValueList:
+    - serializeKeyList:
+      - "\u8D44\u6E90\u7CFB\u7EDF\u8FD0\u884C\u6A21\u5F0F\uFF1AEditorSimulateModeUnityEngine.Debug:Log
+        (object)\nBoot:Awake () (at Assets/AOT/Scripts/Boot.cs:37)\nLog"
+      - 'UniEvent initalize !UnityEngine.Debug:Log (object)
+
+        UniFramework.Event.UniLogger:Log
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniLogger.cs:10)
+
+        UniFramework.Event.UniEvent:Initalize
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:44)
+
+        Boot/<Start>d__8:MoveNext
+        () (at Assets/AOT/Scripts/Boot.cs:48)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - 'YooAssets initialize !UnityEngine.Debug:Log (object)
+
+        YooAsset.YooLogger:Log
+        (string) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/Utility/YooLogger.cs:32)
+
+        YooAsset.YooAssets:Initialize
+        (YooAsset.ILogger) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:55)
+
+        Boot/<Start>d__8:MoveNext
+        () (at Assets/AOT/Scripts/Boot.cs:51)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - "\u521D\u59CB\u5316\u8D44\u6E90\u5305\uFF01UnityEngine.Debug:Log (object)\nPatchWindow:OnHandleEventMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/PatchLogic/PatchWindow.cs:101)\nUniFramework.Event.UniEvent:SendMessage
+        (int,UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:179)\nUniFramework.Event.UniEvent:SendMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:162)\nPatchEventDefine/PatchStepsChange:SendEventMessage
+        (string) (at Assets/AOT/Scripts/EventDefine/PatchEventDefine.cs:29)\nFsmInitializePackage:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmInitializePackage.cs:19)\nUniFramework.Machine.StateMachine:Run
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:73)\nUniFramework.Machine.StateMachine:Run<FsmInitializePackage>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:58)\nPatchOperation:OnStart
+        () (at Assets/AOT/Scripts/PatchLogic/PatchOperation.cs:48)\nYooAsset.GameAsyncOperation:InternalStart
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/GameAsyncOperation.cs:8)\nYooAsset.AsyncOperationBase:StartOperation
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/AsyncOperationBase.cs:163)\nYooAsset.OperationSystem:StartOperation
+        (string,YooAsset.AsyncOperationBase) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/OperationSystem.cs:157)\nYooAsset.YooAssets:StartOperation
+        (YooAsset.GameAsyncOperation) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:210)\nBoot/<Start>d__8:MoveNext
+        () (at Assets/AOT/Scripts/Boot.cs:59)\nUnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)\nLog"
+      - 'Create resource package : DefaultPackageUnityEngine.Debug:Log (object)
+
+        YooAsset.YooLogger:Log
+        (string) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/Utility/YooLogger.cs:32)
+
+        YooAsset.YooAssets:CreatePackage
+        (string) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:122)
+
+        FsmInitializePackage/<InitPackage>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmInitializePackage.cs:37)
+
+        UnityEngine.MonoBehaviour:StartCoroutine
+        (System.Collections.IEnumerator)
+
+        GameManager:StartCoroutine (System.Collections.IEnumerator)
+        (at Assets/AOT/Scripts/GameManager.cs:40)
+
+        FsmInitializePackage:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmInitializePackage.cs:20)
+
+        UniFramework.Machine.StateMachine:Run
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:73)
+
+        UniFramework.Machine.StateMachine:Run<FsmInitializePackage>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:58)
+
+        PatchOperation:OnStart
+        () (at Assets/AOT/Scripts/PatchLogic/PatchOperation.cs:48)
+
+        YooAsset.GameAsyncOperation:InternalStart
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/GameAsyncOperation.cs:8)
+
+        YooAsset.AsyncOperationBase:StartOperation
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/AsyncOperationBase.cs:163)
+
+        YooAsset.OperationSystem:StartOperation
+        (string,YooAsset.AsyncOperationBase) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/OperationSystem.cs:157)
+
+        YooAsset.YooAssets:StartOperation
+        (YooAsset.GameAsyncOperation) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:210)
+
+        Boot/<Start>d__8:MoveNext
+        () (at Assets/AOT/Scripts/Boot.cs:59)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - 'YooAsset use user settings.UnityEngine.Debug:Log (object)
+
+        YooAsset.YooLogger:Log
+        (string) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/Utility/YooLogger.cs:32)
+
+        YooAsset.YooAssetSettingsData:LoadSettingData
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/Settings/YooAssetSettingsData.cs:40)
+
+        YooAsset.YooAssetSettingsData:get_Setting
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/Settings/YooAssetSettingsData.cs:22)
+
+        YooAsset.YooAssetSettingsData:GetYooDefaultBuildinRoot
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/Settings/YooAssetSettingsData.cs:196)
+
+        YooAsset.Editor.AssetBundleBuilderHelper:GetStreamingAssetsRoot
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Editor/AssetBundleBuilder/AssetBundleBuilderHelper.cs:25)
+
+        YooAsset.Editor.AssetBundleSimulateBuilder:SimulateBuild
+        (YooAsset.PackageInvokeBuildParam) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Editor/AssetBundleBuilder/AssetBundleSimulateBuilder.cs:20)
+
+        System.Reflection.MethodBase:Invoke
+        (object,object[])
+
+        YooAsset.PackageInvokeBuilder:InvokePublicStaticMethod
+        (System.Type,string,object[]) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/PackageInvokeBuilder/PackageInvokeBuilder.cs:28)
+
+        YooAsset.PackageInvokeBuilder:InvokeBuilder
+        (YooAsset.PackageInvokeBuildParam) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/PackageInvokeBuilder/PackageInvokeBuilder.cs:17)
+
+        YooAsset.EditorSimulateModeHelper:SimulateBuild
+        (string) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/ResourcePackage/PlayMode/EditorSimulateModeHelper.cs:13)
+
+        FsmInitializePackage/<InitPackage>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmInitializePackage.cs:43)
+
+        UnityEngine.MonoBehaviour:StartCoroutine
+        (System.Collections.IEnumerator)
+
+        GameManager:StartCoroutine (System.Collections.IEnumerator)
+        (at Assets/AOT/Scripts/GameManager.cs:40)
+
+        FsmInitializePackage:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmInitializePackage.cs:20)
+
+        UniFramework.Machine.StateMachine:Run
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:73)
+
+        UniFramework.Machine.StateMachine:Run<FsmInitializePackage>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:58)
+
+        PatchOperation:OnStart
+        () (at Assets/AOT/Scripts/PatchLogic/PatchOperation.cs:48)
+
+        YooAsset.GameAsyncOperation:InternalStart
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/GameAsyncOperation.cs:8)
+
+        YooAsset.AsyncOperationBase:StartOperation
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/AsyncOperationBase.cs:163)
+
+        YooAsset.OperationSystem:StartOperation
+        (string,YooAsset.AsyncOperationBase) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/OperationSystem.cs:157)
+
+        YooAsset.YooAssets:StartOperation
+        (YooAsset.GameAsyncOperation) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:210)
+
+        Boot/<Start>d__8:MoveNext
+        () (at Assets/AOT/Scripts/Boot.cs:59)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - 'The package DefaultPackage create file system : YooAsset.DefaultEditorFileSystemUnityEngine.Debug:Log
+        (object)
+
+        YooAsset.YooLogger:Log (string) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/Utility/YooLogger.cs:32)
+
+        YooAsset.FileSystemParameters:CreateFileSystem
+        (string) (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/FileSystem/FileSystemParameters.cs:45)
+
+        YooAsset.InitializationOperation:InternalUpdate
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/ResourcePackage/Operation/InitializationOperation.cs:87)
+
+        YooAsset.AsyncOperationBase:UpdateOperation
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/AsyncOperationBase.cs:178)
+
+        YooAsset.OperationSystem:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/OperationSystem.cs:108)
+
+        YooAsset.YooAssets:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:96)
+
+        YooAsset.YooAssetsDriver:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssetsDriver.cs:21)
+
+        Log'
+      - 'FsmInitializePackage --> FsmRequestPackageVersionUnityEngine.Debug:Log (object)
+
+        UniFramework.Machine.UniLogger:Log
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/UniLogger.cs:10)
+
+        UniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:130)
+
+        UniFramework.Machine.StateMachine:ChangeState<FsmRequestPackageVersion>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)
+
+        FsmInitializePackage/<InitPackage>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmInitializePackage.cs:98)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - "\u8BF7\u6C42\u8D44\u6E90\u7248\u672C !UnityEngine.Debug:Log (object)\nPatchWindow:OnHandleEventMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/PatchLogic/PatchWindow.cs:101)\nUniFramework.Event.UniEvent:SendMessage
+        (int,UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:179)\nUniFramework.Event.UniEvent:SendMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:162)\nPatchEventDefine/PatchStepsChange:SendEventMessage
+        (string) (at Assets/AOT/Scripts/EventDefine/PatchEventDefine.cs:29)\nFsmRequestPackageVersion:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmRequestPackageVersion.cs:17)\nUniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)\nUniFramework.Machine.StateMachine:ChangeState<FsmRequestPackageVersion>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)\nFsmInitializePackage/<InitPackage>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmInitializePackage.cs:98)\nUnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)\nLog"
+      - 'Request package version : SimulateUnityEngine.Debug:Log (object)
+
+        FsmRequestPackageVersion/<UpdatePackageVersion>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmRequestPackageVersion.cs:41)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - 'FsmRequestPackageVersion --> FsmUpdatePackageManifestUnityEngine.Debug:Log
+        (object)
+
+        UniFramework.Machine.UniLogger:Log (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/UniLogger.cs:10)
+
+        UniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:130)
+
+        UniFramework.Machine.StateMachine:ChangeState<FsmUpdatePackageManifest>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)
+
+        FsmRequestPackageVersion/<UpdatePackageVersion>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmRequestPackageVersion.cs:43)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - "\u66F4\u65B0\u8D44\u6E90\u6E05\u5355\uFF01UnityEngine.Debug:Log (object)\nPatchWindow:OnHandleEventMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/PatchLogic/PatchWindow.cs:101)\nUniFramework.Event.UniEvent:SendMessage
+        (int,UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:179)\nUniFramework.Event.UniEvent:SendMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:162)\nPatchEventDefine/PatchStepsChange:SendEventMessage
+        (string) (at Assets/AOT/Scripts/EventDefine/PatchEventDefine.cs:29)\nFsmUpdatePackageManifest:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs:17)\nUniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)\nUniFramework.Machine.StateMachine:ChangeState<FsmUpdatePackageManifest>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)\nFsmRequestPackageVersion/<UpdatePackageVersion>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmRequestPackageVersion.cs:43)\nUnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)\nLog"
+      - 'FsmUpdatePackageManifest --> FsmCreateDownloaderUnityEngine.Debug:Log (object)
+
+        UniFramework.Machine.UniLogger:Log
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/UniLogger.cs:10)
+
+        UniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:130)
+
+        UniFramework.Machine.StateMachine:ChangeState<FsmCreateDownloader>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)
+
+        FsmUpdatePackageManifest/<UpdateManifest>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs:43)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - "\u521B\u5EFA\u8D44\u6E90\u4E0B\u8F7D\u5668\uFF01UnityEngine.Debug:Log (object)\nPatchWindow:OnHandleEventMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/PatchLogic/PatchWindow.cs:101)\nUniFramework.Event.UniEvent:SendMessage
+        (int,UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:179)\nUniFramework.Event.UniEvent:SendMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:162)\nPatchEventDefine/PatchStepsChange:SendEventMessage
+        (string) (at Assets/AOT/Scripts/EventDefine/PatchEventDefine.cs:29)\nFsmCreateDownloader:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:17)\nUniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)\nUniFramework.Machine.StateMachine:ChangeState<FsmCreateDownloader>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)\nFsmUpdatePackageManifest/<UpdateManifest>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs:43)\nUnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)\nLog"
+      - 'Not found any download files !UnityEngine.Debug:Log (object)
+
+        FsmCreateDownloader:CreateDownloader
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:38)
+
+        FsmCreateDownloader:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:18)
+
+        UniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)
+
+        UniFramework.Machine.StateMachine:ChangeState<FsmCreateDownloader>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)
+
+        FsmUpdatePackageManifest/<UpdateManifest>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs:43)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - 'FsmCreateDownloader --> FsmStartGameUnityEngine.Debug:Log (object)
+
+        UniFramework.Machine.UniLogger:Log
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/UniLogger.cs:10)
+
+        UniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:130)
+
+        UniFramework.Machine.StateMachine:ChangeState<FsmStartGame>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)
+
+        FsmCreateDownloader:CreateDownloader
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:39)
+
+        FsmCreateDownloader:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:18)
+
+        UniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)
+
+        UniFramework.Machine.StateMachine:ChangeState<FsmCreateDownloader>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)
+
+        FsmUpdatePackageManifest/<UpdateManifest>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs:43)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - "\u5F00\u59CB\u6E38\u620F\uFF01UnityEngine.Debug:Log (object)\nPatchWindow:OnHandleEventMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/PatchLogic/PatchWindow.cs:101)\nUniFramework.Event.UniEvent:SendMessage
+        (int,UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:179)\nUniFramework.Event.UniEvent:SendMessage
+        (UniFramework.Event.IEventMessage) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniEvent/Runtime/UniEvent.cs:162)\nPatchEventDefine/PatchStepsChange:SendEventMessage
+        (string) (at Assets/AOT/Scripts/EventDefine/PatchEventDefine.cs:29)\nFsmStartGame:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmStartGame.cs:16)\nUniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)\nUniFramework.Machine.StateMachine:ChangeState<FsmStartGame>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)\nFsmCreateDownloader:CreateDownloader
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:39)\nFsmCreateDownloader:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:18)\nUniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)\nUniFramework.Machine.StateMachine:ChangeState<FsmCreateDownloader>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)\nFsmUpdatePackageManifest/<UpdateManifest>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs:43)\nUnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)\nLog"
+      - 'Package DefaultPackage patch done !UnityEngine.Debug:Log (object)
+
+        PatchOperation:SetFinish
+        () (at Assets/AOT/Scripts/PatchLogic/PatchOperation.cs:69)
+
+        FsmStartGame:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmStartGame.cs:17)
+
+        UniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)
+
+        UniFramework.Machine.StateMachine:ChangeState<FsmStartGame>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)
+
+        FsmCreateDownloader:CreateDownloader
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:39)
+
+        FsmCreateDownloader:UniFramework.Machine.IStateNode.OnEnter
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmCreateDownloader.cs:18)
+
+        UniFramework.Machine.StateMachine:ChangeState
+        (string) (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:134)
+
+        UniFramework.Machine.StateMachine:ChangeState<FsmCreateDownloader>
+        () (at Assets/AOT/Scripts/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs:111)
+
+        FsmUpdatePackageManifest/<UpdateManifest>d__5:MoveNext
+        () (at Assets/AOT/Scripts/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs:43)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)
+
+        Log'
+      - "\u6B63\u5728\u52A0\u8F7D\u7A0B\u5E8F\u96C6\uFF1AHotUpdate.dllUnityEngine.Debug:Log
+        (object)\nBoot/<LoadDlls>d__9:MoveNext () (at Assets/AOT/Scripts/Boot.cs:75)\nUnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)\nLog"
+      - "\u7A0B\u5E8F\u96C6\u52A0\u8F7D\u6210\u529F\uFF1AHotUpdate.dll, \u5927\u5C0F\uFF1A12288
+        \u5B57\u8282UnityEngine.Debug:Log (object)\nBoot/<LoadDlls>d__9:MoveNext
+        () (at Assets/AOT/Scripts/Boot.cs:83)\nUnityEngine.SetupCoroutine:InvokeMoveNext
+        (System.Collections.IEnumerator,intptr)\nLog"
+      - "\u9884\u7F16\u8BD1 Shader..UnityEngine.Debug:LogWarning (object)\nLogService:ILogService.Warning
+        (string) (at Assets/Services/Log/Implement/LogService.cs:12)\nProcedurePreload:IProcedure.Run
+        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedurePreload.cs:16)\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
+        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:28)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
+        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
+        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
+        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:9)\nLauncher:Start
+        () (at Assets/HotUpdate/Scripts/Launcher.cs:100)\nWarning"
+      - "StartView \u521B\u5EFA\u6210\u529F\uFF01\uFF01UnityEngine.Debug:Log (object)\nLogService:ILogService.Debug
+        (string) (at Assets/Services/Log/Implement/LogService.cs:7)\nViewService/<ShowAsync_Internal>d__9:MoveNext
+        () (at Assets/Services/Window/Implement/ViewService.cs:108)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewService/<ShowAsync_Internal>d__9,
+        IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<object>:TrySetResult
+        (object)\nYooAsset.AsyncOperationBase:UpdateOperation () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/AsyncOperationBase.cs:195)\nYooAsset.OperationSystem:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/OperationSystem.cs:108)\nYooAsset.YooAssets:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:96)\nYooAsset.YooAssetsDriver:Update
+        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssetsDriver.cs:21)\nLog"
+      - 'null texture passed to GUI.DrawTextureUnityEngine.GUI:DrawTexture (UnityEngine.Rect,UnityEngine.Texture)
+
+        UnityDebugViewer.UnityDebugViewerWindow:DrawLogBox
+        (UnityDebugViewer.LogData,UnityEngine.Rect,int,bool) (at Assets/Services/Log/Implement/UnityDebugViewer/Editor/UnityDebugViewerWindow.cs:445)
+
+        UnityDebugViewer.UnityDebugViewerWindow:DrawUpperPanel
+        () (at Assets/Services/Log/Implement/UnityDebugViewer/Editor/UnityDebugViewerWindow.cs:364)
+
+        UnityDebugViewer.UnityDebugViewerWindow:OnGUI
+        () (at Assets/Services/Log/Implement/UnityDebugViewer/Editor/UnityDebugViewerWindow.cs:228)
+
+        UnityEngine.GUIUtility:ProcessEvent
+        (int,intptr,bool&)
+
+        Warning'
+      serializeValueList:
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 214
+      logFilter:
+        collapse: 0
+        showTime: 1
+        showLog: 1
+        showWarning: 1
+        showError: 0
+        searchWithRegex: 0
+        searchText: 
+      selectedLogIndex: -1
+      intermediaryEditor: {fileID: 0}
+      _analysisDataManager:
+        poolInstance:
+          _itemPool:
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+        _root:
+          Row: 0
+    - serializeKeyList: []
+      serializeValueList: []
+      logFilter:
+        collapse: 0
+        showTime: 1
+        showLog: 1
+        showWarning: 0
+        showError: 1
+        searchWithRegex: 0
+        searchText: 
+      selectedLogIndex: -1
+      intermediaryEditor: {fileID: 0}
+      _analysisDataManager:
+        poolInstance:
+          _itemPool:
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+        _root:
+          Row: 0
+    - serializeKeyList: []
+      serializeValueList: []
+      logFilter:
+        collapse: 0
+        showTime: 0
+        showLog: 1
+        showWarning: 1
+        showError: 1
+        searchWithRegex: 0
+        searchText: 
+      selectedLogIndex: -1
+      intermediaryEditor: {fileID: 0}
+      _analysisDataManager:
+        poolInstance:
+          _itemPool:
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+        _root:
+          Row: 0
+    - serializeKeyList: []
+      serializeValueList: []
+      logFilter:
+        collapse: 0
+        showTime: 1
+        showLog: 1
+        showWarning: 0
+        showError: 1
+        searchWithRegex: 0
+        searchText: 
+      selectedLogIndex: -1
+      intermediaryEditor: {fileID: 0}
+      _analysisDataManager:
+        poolInstance:
+          _itemPool:
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+        _root:
+          Row: 0
+  logFilter:
+    collapse: 0
+    showTime: 1
+    showLog: 1
+    showWarning: 1
+    showError: 0
+    searchWithRegex: 0
+    searchText: 
 --- !u!114 &15
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12014, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 230, y: 250}
-  m_MaxSize: {x: 10000, y: 10000}
-  m_TitleContent:
-    m_Text: Project
-    m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000,
-      type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 1165
-    y: 73
-    width: 383
-    height: 918
-  m_SerializedDataModeController:
-    m_DataMode: 0
-    m_PreferredDataMode: 0
-    m_SupportedDataModes: 
-    isAutomatic: 1
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-    m_OverlaysVisible: 1
-  m_SearchFilter:
-    m_NameFilter: 
-    m_ClassNames: []
-    m_AssetLabels: []
-    m_AssetBundleNames: []
-    m_ReferencingInstanceIDs: 
-    m_SceneHandles: 
-    m_ShowAllHits: 0
-    m_SkipHidden: 0
-    m_SearchArea: 1
-    m_Folders:
-    - Assets/Services/Data/Interface
-    m_Globs: []
-    m_OriginalText: 
-    m_ImportLogFlags: 0
-    m_FilterByTypeIntersection: 0
-  m_ViewMode: 1
-  m_StartGridSize: 16
-  m_LastFolders:
-  - Assets/Services/Data/Interface
-  m_LastFoldersGridSize: 16
-  m_LastProjectPath: C:\UnityProject\LLL\Client
-  m_LockTracker:
-    m_IsLocked: 0
-  m_FolderTreeState:
-    scrollPos: {x: 0, y: 6}
-    m_SelectedIDs: 60740000
-    m_LastClickedID: 29792
-    m_ExpandedIDs: 000000005c7200005e720000627200006472000066720000687200006a7200006e7200007072000076720000787200007a7200007c7200007e7200008272000086720000887200008c7200008e720000927200009472000096720000987200009a7200009c720000407400006a74000072740000d47800001a8f00001e8f0000228f0000268f000000ca9a3bffffff7f
-    m_RenameOverlay:
-      m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
-      m_EditFieldRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      m_UserData: 0
-      m_IsWaitingForDelay: 0
-      m_IsRenaming: 0
-      m_OriginalEventType: 11
-      m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 12}
-    m_SearchString: 
-    m_CreateAssetUtility:
-      m_EndAction: {fileID: 0}
-      m_InstanceID: 0
-      m_Path: 
-      m_Icon: {fileID: 0}
-      m_ResourceFile: 
-  m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 000000005c7200005e72000060720000627200006472000066720000687200006a7200006c7200006e72000070720000727200007472000076720000787200007a7200007c7200007e72000080720000827200008472000086720000887200008a7200008c7200008e72000090720000927200009472000096720000987200009a7200009c720000
-    m_RenameOverlay:
-      m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
-      m_EditFieldRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      m_UserData: 0
-      m_IsWaitingForDelay: 0
-      m_IsRenaming: 0
-      m_OriginalEventType: 11
-      m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
-    m_SearchString: 
-    m_CreateAssetUtility:
-      m_EndAction: {fileID: 0}
-      m_InstanceID: 0
-      m_Path: 
-      m_Icon: {fileID: 0}
-      m_ResourceFile: 
-  m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: d2630000785600007c610000c86100002c9d00009aa20000a6a20000aaa20000f447000060810000b464000038680000526800003c6b00001e68000062670000146500000a6e0000e46d00000e4f0000e2c600001e7a000002700000ac6b00003c700000000000007e7000001a72000042760000
-    m_RenameOverlay:
-      m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
-      m_EditFieldRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      m_UserData: 0
-      m_IsWaitingForDelay: 0
-      m_IsRenaming: 0
-      m_OriginalEventType: 11
-      m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 12}
-    m_CreateAssetUtility:
-      m_EndAction: {fileID: 0}
-      m_InstanceID: 0
-      m_Path: 
-      m_Icon: {fileID: 0}
-      m_ResourceFile: 
-    m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
-    m_GridSize: 16
-  m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 215
---- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -533,7 +1500,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 939
+    width: 929
     height: 169
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -946,7 +1913,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &17
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -969,8 +1936,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 263
-    width: 939
-    height: 379
+    width: 929
+    height: 347
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1023,29 +1990,29 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 939
-      height: 358
-    m_Scale: {x: 0.3314815, y: 0.3314815}
-    m_Translation: {x: 469.5, y: 179}
+      width: 929
+      height: 326
+    m_Scale: {x: 0.30185184, y: 0.30185184}
+    m_Translation: {x: 464.5, y: 163}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -1416.3687
+      x: -1538.8345
       y: -540
-      width: 2832.7373
+      width: 3077.669
       height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.3314815
-  m_LastWindowPixelSize: {x: 939, y: 379}
+  m_defaultScale: 0.30185184
+  m_LastWindowPixelSize: {x: 929, y: 347}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &18
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1067,9 +2034,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 663
-    width: 939
-    height: 328
+    y: 631
+    width: 929
+    height: 360
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1080,7 +2047,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
---- !u!114 &19
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1101,9 +2068,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 940
+    x: 930
     y: 73
-    width: 223
+    width: 161
     height: 918
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1120,23 +2087,23 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: e406fcffee06fcff1007fcff986afcffa26afcffc46afcffba7ffcffdc7ffcff48d5fcff6ad5fcff6cd5fcfff654fdfff854fdff6c5cfdff745cfdff825cfdff485dfdff6a5dfdffc073fdff7876fdffaa8afdff20a8fdff24adfdff48b3fdff7eeefdffb4fbfdff083afeff0e3afeff9453feff2e57feffbe6cfeff328efeff9292fefffeb4feffbab5feffe6b5feff9a0cffffa427fffff027ffff1228ffff1428ffff6cc7ffff6ec7ffffc8eaffffd6eaffff22ebffff44ebffffb0fafffff4ffffff18720000b2a00000c0a00000caa00000d8a00000e4a00000fca000000ea100000ea2000018a20000
+      m_ExpandedIDs: 24faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: btnReturn
-        m_OriginalName: btnReturn
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -221246
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 2}
+        m_ClientGUIView: {fileID: 11}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1144,6 +2111,153 @@ MonoBehaviour:
       m_IsLocked: 1
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 2b71cf0fb17554d48b87f27f1f15cf51
+--- !u!114 &19
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12014, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
+  m_TitleContent:
+    m_Text: Project
+    m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1093
+    y: 73
+    width: 474
+    height: 918
+  m_SerializedDataModeController:
+    m_DataMode: 0
+    m_PreferredDataMode: 0
+    m_SupportedDataModes: 
+    isAutomatic: 1
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+  m_SearchFilter:
+    m_NameFilter: 
+    m_ClassNames: []
+    m_AssetLabels: []
+    m_AssetBundleNames: []
+    m_ReferencingInstanceIDs: 
+    m_SceneHandles: 
+    m_ShowAllHits: 0
+    m_SkipHidden: 0
+    m_SearchArea: 1
+    m_Folders:
+    - Assets/Editor/Macro
+    m_Globs: []
+    m_OriginalText: 
+    m_ImportLogFlags: 0
+    m_FilterByTypeIntersection: 0
+  m_ViewMode: 1
+  m_StartGridSize: 16
+  m_LastFolders:
+  - Assets/Editor/Macro
+  m_LastFoldersGridSize: 16
+  m_LastProjectPath: C:\UnityProject\LLL\Client
+  m_LockTracker:
+    m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: fc740000
+    m_LastClickedID: 29948
+    m_ExpandedIDs: 00000000c8720000ca720000cc720000ce720000d0720000d2720000d4720000d6720000d8720000da720000dc720000de720000e0720000e2720000e4720000e6720000e8720000ea720000ec720000ee720000f0720000f2720000f4720000f6720000f8720000fa720000fc720000fe72000000730000027300000473000006730000087300000a7300000c7300000e7300009074000000ca9a3bffffff7f
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 12}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_AssetTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 00000000c8720000ca720000cc720000ce720000d0720000d2720000d4720000d6720000d8720000da720000dc720000de720000e0720000e2720000e4720000e6720000e8720000ea720000ec720000ee720000f0720000f2720000f4720000f6720000f8720000fa720000fc720000fe72000000730000027300000473000006730000087300000a7300000c7300000e730000
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 0}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_ListAreaState:
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: d2630000785600007c610000c86100002c9d00009aa20000a6a20000aaa20000f447000060810000b464000038680000526800003c6b00001e68000062670000146500000a6e0000e46d00000e4f0000e2c600001e7a000002700000ac6b00003c700000000000007e7000001a72000042760000
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 12}
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+    m_NewAssetIndexInList: -1
+    m_ScrollPosition: {x: 0, y: 0}
+    m_GridSize: 16
+  m_SkipHiddenPackages: 0
+  m_DirectoriesAreaWidth: 241
 --- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1165,9 +2279,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1550
+    x: 1617
     y: 73
-    width: 369
+    width: 302
     height: 918
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1192,3 +2306,37 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
+--- !u!114 &21
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 332ee1f86d8ebfa4cad0687b018142d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: "\u8BBE\u7F6E\u5168\u5C40\u5B8F"
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1569
+    y: 73
+    width: 350
+    height: 918
+  m_SerializedDataModeController:
+    m_DataMode: 0
+    m_PreferredDataMode: 0
+    m_SupportedDataModes: 
+    isAutomatic: 1
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1

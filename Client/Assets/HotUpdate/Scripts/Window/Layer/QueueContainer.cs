@@ -2,10 +2,9 @@ using System.Collections.Generic;
 using CommunityToolkit.Mvvm.Messaging;
 using Cysharp.Threading.Tasks;
 
-public class QueueContainer : ILayerContainer
+public class QueueContainer<TViewHelper> : ILayerContainer
+    where TViewHelper: ViewHelperBase
 {
-    private ILogService logService;
-    
     private ViewLayer viewLayer;
     private int capacity;
     
@@ -13,11 +12,6 @@ public class QueueContainer : ILayerContainer
 
     private IViewService viewService;
     private ILayerLocator layerLocator;
-    
-    public QueueContainer(ILogService logService)
-    {
-        this.logService = logService;
-    }
     
     public ILayerContainer BindParam(ViewLayer viewLayer, int capacity)
     {
@@ -45,6 +39,7 @@ public class QueueContainer : ILayerContainer
         {
             await WeakReferenceMessenger.Default.SendViewHideAsync(container.Peek());
         }
+        view.GameObject().AddComponent<TViewHelper>();
         container.Enqueue(view);
     }
 
@@ -53,12 +48,12 @@ public class QueueContainer : ILayerContainer
     {
         if (container.Count == 0)
         {
-            logService.Warning($"{viewLayer} {nameof(QueueContainer)} 的数量为 0， HideAsync 无效");
+            LLogger.FrameError($"{viewLayer} {nameof(QueueContainer<TViewHelper>)} 的数量为 0， HideAsync 无效");
             return UniTask.FromResult(false);
         }
         if (view != container.Peek())
         {
-            logService.Warning($"{viewLayer} {nameof(QueueContainer)} 的 Peek 对象非请求关闭的 {nameof(view)}， HideAsync 无效");
+            LLogger.FrameError($"{viewLayer} {nameof(QueueContainer<TViewHelper>)} 的 Peek 对象非请求关闭的 {nameof(view)}， HideAsync 无效");
             return UniTask.FromResult(false);
         }
         container.Dequeue();

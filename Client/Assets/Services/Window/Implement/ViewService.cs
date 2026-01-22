@@ -12,8 +12,6 @@ public class ViewService : ObservableRecipient,
     IRecipient<ViewHideAsyncRequestEvent>,
     IRecipient<ViewAllHideAsyncRequestEvent>
 {
-    private ILogService logService;
-    
     private Dictionary<ViewLayer, ILayerContainer> layerContainers;
     private Dictionary<Type, ViewLayer> viewLayers;
     private Dictionary<int, IView> uniqueIdCache;
@@ -21,10 +19,8 @@ public class ViewService : ObservableRecipient,
 
     private IUICanvasLocator uiCanvasLocator;
     
-    public ViewService(Dictionary<ViewLayer, ILayerContainer> layerContainers, Dictionary<ViewLayer, List<Type>> viewLayers, ILogService logService)
+    public ViewService(Dictionary<ViewLayer, ILayerContainer> layerContainers, Dictionary<ViewLayer, List<Type>> viewLayers)
     {
-        this.logService = logService;
-        
         this.layerContainers = layerContainers;
         this.viewLayers = new Dictionary<Type, ViewLayer>();
         foreach (var pair  in viewLayers)
@@ -55,12 +51,12 @@ public class ViewService : ObservableRecipient,
     {
         if (!viewLayers.TryGetValue(type, out ViewLayer viewLayer))
         {
-            logService.Error($"{type} 未指定 {typeof(ViewLayer)}");
+            LLogger.FrameError($"{type} 未指定 {typeof(ViewLayer)}");
             return await new UniTask<IView>(default);
         }
         if (!layerContainers.TryGetValue(viewLayer, out ILayerContainer windowContainer))
         {
-            logService.Error($"未支持的层级类型 {viewLayer}");
+            LLogger.FrameError($"未支持的层级类型 {viewLayer}");
             return await new UniTask<IView>(default);
         }
         
@@ -68,31 +64,31 @@ public class ViewService : ObservableRecipient,
         var handle = YooAssets.LoadAssetAsync<GameObject>(name);
         await handle.Task;
         
+        if (handle.Status != EOperationStatus.Succeed)
+        {
+            LLogger.FrameError($"未找到该资源 {name}");
+            return await new UniTask<IView>(default);
+        }
+        
         GameObject assetObject = handle.AssetObject as GameObject;
         if (assetObject == null)
         {
-            logService.Error($"加载的资源不是 GameObject: {name}");
-            return await new UniTask<IView>(default);
-        }
-
-        if (handle.Status != EOperationStatus.Succeed)
-        {
-
-            logService.Error($"未找到该资源 {name}");
+            LLogger.FrameError($"加载的资源不是 GameObject: {name}");
             return await new UniTask<IView>(default);
         }
 
         GameObject instantiatedObject = UnityEngine.Object.Instantiate(assetObject);
         if (instantiatedObject == null)
         {
-            logService.Error($"实例化失败: {name}");
+            LLogger.FrameError($"实例化失败: {name}");
             return await new UniTask<IView>(default);
         }
         
         int uniqueId = CreateUniqueId();
         IView window = instantiatedObject.GetComponent<IView>();
         window.Init(viewLayer, uniqueId);
-        RectTransform windowRt = window.GameObject().GetComponent<RectTransform>();
+        GameObject windowGo = window.GameObject();
+        RectTransform windowRt = windowGo.GetComponent<RectTransform>();
         ILayerLocator layerLocator = uiCanvasLocator.GetLayerLocator(viewLayer);
         windowRt.SetParent(layerLocator.GetRectTransform());
         windowRt.localPosition = Vector3.zero;
@@ -105,7 +101,7 @@ public class ViewService : ObservableRecipient,
             
         uniqueIdCache.Add(uniqueId, window);
         await windowContainer.AddAsync(window);
-        logService.Debug($"{name} 创建成功！！");
+        LLogger.FrameLog($"{name} 创建成功！！");
         return window;
     }
 
@@ -127,7 +123,7 @@ public class ViewService : ObservableRecipient,
         ViewLayer viewLayer = view.GetLayer();
         if (!layerContainers.TryGetValue(viewLayer, out ILayerContainer windowContainer))
         {
-            logService.Error($"未支持的层级类型 {viewLayer}");
+            LLogger.FrameError($"未支持的层级类型 {viewLayer}");
             return false;
         }
         bool result = await windowContainer.RemoveAsync(view);
@@ -138,7 +134,7 @@ public class ViewService : ObservableRecipient,
         int uniqueId = view.GetUniqueId();
         if (!uniqueIdCache.ContainsKey(uniqueId))
         {
-            logService.Error($"无效的 {nameof(view)} UniqueId:{uniqueId}");
+            LLogger.FrameError($"无效的 {nameof(view)} UniqueId:{uniqueId}");
             return false;
         }
         uniqueIdCache.Remove(uniqueId);

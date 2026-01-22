@@ -11,6 +11,7 @@ public class LayerLocator : MonoBehaviour, ILayerLocator
     {
         this.viewLayer = viewLayer;
         thisRt = gameObject.AddComponent<RectTransform>();
+       
         
         // 设置全屏拉伸
         thisRt.anchorMin = Vector2.zero;

@@ -21,26 +21,25 @@ public class Launcher : MonoBehaviour
         services.AddDataService();
         services.AddDeviceService();
         services.AddHardwareService();
-        services.AddLogService();
 
         services
-            .AddTransient<StackContainer>()
-            .AddTransient<QueueContainer>()
-            .AddTransient<PopupContainer>()
             .AddWindowService(sp => new Dictionary<ViewLayer, ILayerContainer>
                 {
-                    [ViewLayer.Bg] = sp.GetRequiredService<StackContainer>().BindParam(ViewLayer.Bg, 8),
-                    [ViewLayer.Permanent] = sp.GetRequiredService<PopupContainer>().BindParam(ViewLayer.Permanent, -1),
-                    [ViewLayer.FullScreen] = sp.GetRequiredService<StackContainer>().BindParam(ViewLayer.FullScreen, 8),
-                    [ViewLayer.Window] = sp.GetRequiredService<StackContainer>().BindParam(ViewLayer.Window, 8),
-                    [ViewLayer.Popup] = sp.GetRequiredService<PopupContainer>().BindParam(ViewLayer.Popup, 8),
-                    [ViewLayer.Tip] = sp.GetRequiredService<PopupContainer>().BindParam(ViewLayer.Tip, 8),
-                    [ViewLayer.System] = sp.GetRequiredService<QueueContainer>().BindParam(ViewLayer.System, 1),
+                    [ViewLayer.Bg] = new StackContainer<ViewHelper>().BindParam(ViewLayer.Bg, 8),
+                    [ViewLayer.Permanent] = new PopupContainer<ViewHelper>().BindParam(ViewLayer.Permanent, -1),
+                    [ViewLayer.FullScreen] = new StackContainer<ViewHelper>().BindParam(ViewLayer.FullScreen, 8),
+                    [ViewLayer.Window] = new StackContainer<ViewHelper>().BindParam(ViewLayer.Window, 8),
+                    [ViewLayer.Popup] = new PopupContainer<ViewHelper>().BindParam(ViewLayer.Popup, 8),
+                    [ViewLayer.Tip] = new PopupContainer<ViewHelper>().BindParam(ViewLayer.Tip, 8),
+                    [ViewLayer.System] = new QueueContainer<ViewHelper>().BindParam(ViewLayer.System, 1),
                 
                 }, new Dictionary<ViewLayer, List<Type>>
                 {
                     [ViewLayer.Bg] = new List<Type> { },
-                    [ViewLayer.Permanent] = new List<Type> { },
+                    [ViewLayer.Permanent] = new List<Type>
+                    {
+                        AddView<MainView, MainViewModel>(services),
+                    },
                     [ViewLayer.FullScreen] = new List<Type>
                     {
                         AddView<StartView, StartViewModel>(services),
@@ -58,8 +57,7 @@ public class Launcher : MonoBehaviour
                     {
                         AddView<LoadingView, LoadingViewModel>(services),
                     },
-                }, 
-                sp => sp.GetRequiredService<ILogService>()
+                }
             );
         
         services
@@ -104,7 +102,7 @@ public class Launcher : MonoBehaviour
         where TView : IView 
         where TViewModel: class, IViewModel
     {
-        services.AddTransient<TViewModel>();
+        services.AddSingleton<TViewModel>();
         return typeof(TView);
     }
     private static Type AddView<TView, TViewModel, TModel>(IServiceCollection services) 
@@ -112,7 +110,7 @@ public class Launcher : MonoBehaviour
         where TViewModel: class, IViewModel
         where TModel: class, new()
     {
-        services.AddTransient<TViewModel>();
+        services.AddSingleton<TViewModel>();
         services.AddRoleLevelModel<TModel>();
         return typeof(TView);
     }
@@ -121,7 +119,7 @@ public class Launcher : MonoBehaviour
         where TViewModel: class, IViewModel
         where TModel: class, IAccountLevelModel, new()
     {
-        services.AddTransient<TViewModel>();
+        services.AddSingleton<TViewModel>();
         services.AddAccountLevelModel<TModel>();
         return typeof(TView);
     }

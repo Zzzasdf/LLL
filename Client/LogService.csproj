@@ -46,8 +46,8 @@
     <Analyzer Include="C:\UnityEditor\2022.3.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Services\Log\Implement\LogService.cs" />
-    <None Include="Assets\Services\Log\Implement\LogService.asmdef" />
+    <Compile Include="Assets\Services\Dump\Dump.cs" />
+    <None Include="Assets\Services\Dump\DumpService.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>C:\UnityEditor\2022.3.15f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -743,10 +743,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="ILogService.csproj">
-      <Project>{b5eb0962-bc2b-590c-55ce-ca8b3c0d4169}</Project>
-      <Name>ILogService</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{aa10a73a-0fb6-07c5-fcce-bc576a35745b}</Project>
       <Name>UnityEditor.UI</Name>

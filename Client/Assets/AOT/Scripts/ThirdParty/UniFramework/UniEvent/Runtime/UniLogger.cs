@@ -1,10 +1,7 @@
-﻿using System.Diagnostics;
-
-namespace UniFramework.Event
+﻿namespace UniFramework.Event
 {
 	internal static class UniLogger
 	{
-		[Conditional("DEBUG")]
 		public static void Log(string info)
 		{
 			UnityEngine.Debug.Log(info);

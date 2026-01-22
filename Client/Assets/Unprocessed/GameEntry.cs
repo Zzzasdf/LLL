@@ -9,9 +9,6 @@ public class GameEntry : MonoBehaviour
     /// 时间
     public static SystemTime SystemTime { get; private set; }
     
-    /// 事件
-    public static EventManager EventManager { get; private set; }
-    
     /// 定时器
     public static TimerManager TimerManager { get; private set; }
     /// 定频更新
@@ -33,8 +30,6 @@ public class GameEntry : MonoBehaviour
     private void Awake()
     {
         playerLoops = new PlayerLoopCollections();
-        
-        playerLoops.Add(EventManager = new EventManager());
         
         playerLoops.Add(TimerManager = new TimerManager());
         playerLoops.Add(FixedFrequencyManager = new FixedFrequencyManager());

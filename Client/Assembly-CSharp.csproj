@@ -26,7 +26,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\Assembly-CSharp\</OutputPath>
-    <DefineConstants>UNITY_2022_3_15;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_INITIALIZES_MEMORY_MANAGER_EXPLICITLY;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;DOTWEEN;FRAME_ERROR;FRAME_WARNING;FRAME_LOG;ERROR;WARNING;LOG;POOLED_EXCEPTION;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2022_3_15;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_INITIALIZES_MEMORY_MANAGER_EXPLICITLY;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;DOTWEEN;FRAME_ERROR;FRAME_WARNING;ERROR;WARNING;LOG;POOLED_EXCEPTION;FRAME_LOG;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169,0649</NoWarn>
@@ -57,13 +57,11 @@
     <Compile Include="Assets\Unprocessed\UI\Chat\View\UIChatRoomLoopScrollRect.cs" />
     <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Map\MapIntIntConverter.cs" />
     <Compile Include="Assets\AOT\Scripts\EventDefine\SceneEventDefine.cs" />
-    <Compile Include="Assets\Unprocessed\UI\MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Int\Conveter\DailyRedPointManager.cs" />
     <Compile Include="Assets\Unprocessed\Condition\Integration\ConditionManager.Responder.cs" />
     <Compile Include="Assets\Unprocessed\UI\Chat\View\UIChatMessageLoopScrollRect.cs" />
     <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Map\MapLongLongConverter.cs" />
     <Compile Include="Assets\Unprocessed\CustomCollections\Heap.cs" />
-    <Compile Include="Assets\Unprocessed\UI\MVVM\View\ViewBase.cs" />
     <Compile Include="Assets\Unprocessed\Condition\Element\ConditionManager.Responder.cs" />
     <Compile Include="Assets\AOT\CustomRP\Examples\MeshBall.cs" />
     <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Bitmap\BitmapReverseConverter.cs" />
@@ -75,6 +73,7 @@
     <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Collections\ListIntConverter.cs" />
     <Compile Include="Assets\AOT\Scripts\PatchLogic\FsmNode\FsmCreateDownloader.cs" />
     <Compile Include="Assets\AOT\Scripts\PatchLogic\FsmNode\FsmUpdatePackageManifest.cs" />
+    <Compile Include="Assets\Unprocessed\Helper\IOHelper.cs" />
     <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\IConverter.cs" />
     <Compile Include="Assets\AOT\Scripts\PatchLogic\FsmNode\FsmStartGame.cs" />
     <Compile Include="Assets\Unprocessed\Converter\Sealed\ListLongConverter.cs" />
@@ -83,8 +82,6 @@
     <Compile Include="Assets\Unprocessed\Converter\ClientConverterCollectorSystem.cs" />
     <Compile Include="Assets\AOT\Scripts\Boot.cs" />
     <Compile Include="Assets\Unprocessed\Time\TimerManager.cs" />
-    <Compile Include="Assets\Unprocessed\UI\MVVM\Model\LoginModel.cs" />
-    <Compile Include="Assets\Unprocessed\Utility\Helper\CopyHelper.cs" />
     <Compile Include="Assets\AOT\Scripts\GameManager.cs" />
     <Compile Include="Assets\Unprocessed\Converter\Sealed\MapLongIntConverter.cs" />
     <Compile Include="Assets\AOT\CustomRP\Runtime\Lighting.cs" />
@@ -102,6 +99,7 @@
     <Compile Include="Assets\Unprocessed\Time\FixedFrequencyManager.Format.cs" />
     <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Variant\TimingReset\BitmapTimingResetConverter.cs" />
     <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Collector\IConverterCollector.cs" />
+    <Compile Include="Assets\Unprocessed\Helper\CopyHelper.cs" />
     <Compile Include="Assets\Unprocessed\Converter\Sealed\BitmapConverter.cs" />
     <Compile Include="Assets\Unprocessed\UI\RedPoint\RedPointTreeManager.Configure.cs" />
     <Compile Include="Assets\AOT\CustomRP\Runtime\CustomRenderPipelineAsset.cs" />
@@ -124,9 +122,7 @@
     <Compile Include="Assets\AOT\Scripts\PatchLogic\PatchWindow.cs" />
     <Compile Include="Assets\Unprocessed\UI\Chat\TestChatData.cs" />
     <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Int\Conveter\Bitmap\BitmapConverter.cs" />
-    <Compile Include="Assets\Unprocessed\UI\MVVM\ViewModel\LoginController.cs" />
     <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Map\MapLongBitConverter.cs" />
-    <Compile Include="Assets\Unprocessed\Utility\Helper\IOHelper.cs" />
     <Compile Include="Assets\Unprocessed\Converter\Sealed\MapLongBitConverter.cs" />
     <Compile Include="Assets\AOT\CustomRP\Settings\ShadowSettings.cs" />
     <Compile Include="Assets\Unprocessed\UI\Chat\Model\Room\ChatMessageEntityBase.cs" />
@@ -138,7 +134,6 @@
     <Compile Include="Assets\Unprocessed\Extensions\System\Collections\Generic\HashSetExtensions.cs" />
     <Compile Include="Assets\AOT\Scripts\EventDefine\PatchEventDefine.cs" />
     <Compile Include="Assets\Unprocessed\Pooled\Test\PooledTest.cs" />
-    <Compile Include="Assets\Unprocessed\Event\EventManager.cs" />
     <Compile Include="Assets\Unprocessed\GameEntry.cs" />
     <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\HashSet\HashSetIntReverseConverter.cs" />
     <Compile Include="Assets\AOT\Scripts\PatchLogic\FsmNode\FsmClearCacheBundle.cs" />
@@ -148,19 +143,17 @@
     <Compile Include="Assets\Unprocessed\Converter\Sealed\HashSetIntConverter.cs" />
     <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Map\MapLongBitReverseConverter.cs" />
     <Compile Include="Assets\Unprocessed\UI\RedPoint\IRedPointLinkNode.cs" />
-    <Compile Include="Assets\Unprocessed\UI\MVVM\View\LoginView.cs" />
     <Compile Include="Assets\Unprocessed\Pooled\MonitoredObjectPool.cs" />
     <Compile Include="Assets\Unprocessed\Condition\Element\Test\ConditionTest.cs" />
     <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\HashSet\HashSetLongConverter.cs" />
-    <Compile Include="Assets\Unprocessed\Utility\Helper\CrcHelper.cs" />
     <Compile Include="Assets\Unprocessed\Converter\SourceCode\List\Long\Conveter\Map\MapLongIntConverter.cs" />
+    <Compile Include="Assets\Unprocessed\Helper\CrcHelper.cs" />
     <Compile Include="Assets\Unprocessed\CDebug\CDebug.cs" />
     <Compile Include="Assets\Unprocessed\Converter\Sealed\MapIntBitReverseConverter.cs" />
     <Compile Include="Assets\AOT\CustomRP\Runtime\CameraRenderer.cs" />
     <Compile Include="Assets\Unprocessed\Condition\Element\ConditionManager.Fire.cs" />
     <Compile Include="Assets\Unprocessed\UI\Chat\Model\Room\ChatMessageEntity.cs" />
     <Compile Include="Assets\Unprocessed\UI\RedPoint\RedPointTreeManager.cs" />
-    <Compile Include="Assets\Unprocessed\UI\MVVM\View\MainView.cs" />
     <Compile Include="Assets\Unprocessed\Time\SystemTime.cs" />
     <Compile Include="Assets\Unprocessed\Condition\Element\DisplayConditionBase.cs" />
     <Compile Include="Assets\Unprocessed\UI\Chat\ChatManager.cs" />
@@ -1025,6 +1018,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{8e399d07-fc4a-7ecd-7881-f923d075ebd1}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="UniFramework.Machine.csproj">
       <Project>{10673f21-7ad3-1e2f-c73f-bb9413dc72d2}</Project>
       <Name>UniFramework.Machine</Name>

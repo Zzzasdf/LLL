@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 
-public class PopupContainer : ILayerContainer
+public class PopupContainer<TViewHelper> : ILayerContainer
+    where TViewHelper: ViewHelperBase
 {
-    private ILogService logService;
-    
     private ViewLayer viewLayer;
     private int warmCapacity;
     
@@ -12,11 +11,6 @@ public class PopupContainer : ILayerContainer
     
     private IViewService viewService;
     private ILayerLocator layerLocator;
-
-    public PopupContainer(ILogService logService)
-    {
-        this.logService = logService;
-    }
     
     public ILayerContainer BindParam(ViewLayer viewLayer, int warmCapacity)
     {
@@ -42,9 +36,10 @@ public class PopupContainer : ILayerContainer
     {
         if (container.Count == warmCapacity)
         {
-            logService.Warning($"{viewLayer} {nameof(StackContainer)} 的容量已超过预警值：{warmCapacity}");
+            LLogger.FrameWarning($"{viewLayer} {nameof(PopupContainer<TViewHelper>)} 的容量已超过预警值：{warmCapacity}");
         }
         container.Add(view.GetUniqueId(), view);
+        view.GameObject().AddComponent<TViewHelper>();
         return UniTask.CompletedTask;
     }
 
@@ -53,13 +48,13 @@ public class PopupContainer : ILayerContainer
     {
         if (container.Count == 0)
         {
-            logService.Warning($"{viewLayer} {nameof(PopupContainer)} 的数量为 0， HideAsync 无效");
+            LLogger.FrameError($"{viewLayer} {nameof(PopupContainer<TViewHelper>)} 的数量为 0， HideAsync 无效");
             return UniTask.FromResult(false);
         }
         int uniqueId = view.GetUniqueId();
         if (container.Remove(uniqueId))
         {
-            logService.Warning($"{viewLayer} {nameof(QueueContainer)} 的 Peek 对象非请求关闭的 {nameof(view)}， HideAsync 无效");
+            LLogger.FrameError($"{viewLayer} {nameof(PopupContainer<TViewHelper>)} 的 Peek 对象非请求关闭的 {nameof(view)}， HideAsync 无效");
             return UniTask.FromResult(false);
         }
         container.Remove(uniqueId);

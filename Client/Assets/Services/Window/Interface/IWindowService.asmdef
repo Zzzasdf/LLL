@@ -2,7 +2,6 @@
     "name": "IWindowService",
     "rootNamespace": "",
     "references": [
-        "GUID:686dbc22b06a65e4c9361f0ca68ef3b5",
         "GUID:f51ebe6a0ceec4240a699833d6309b23"
     ],
     "includePlatforms": [],
