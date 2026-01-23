@@ -23,15 +23,18 @@ public class Launcher : MonoBehaviour
         services.AddHardwareService();
 
         services
+            .AddTransient<StackContainer>()
+            .AddTransient<QueueContainer>()
+            .AddTransient<PopupContainer>()
             .AddWindowService(sp => new Dictionary<ViewLayer, ILayerContainer>
                 {
-                    [ViewLayer.Bg] = new StackContainer<ViewHelper>().BindParam(ViewLayer.Bg, 8),
-                    [ViewLayer.Permanent] = new PopupContainer<ViewHelper>().BindParam(ViewLayer.Permanent, -1),
-                    [ViewLayer.FullScreen] = new StackContainer<ViewHelper>().BindParam(ViewLayer.FullScreen, 8),
-                    [ViewLayer.Window] = new StackContainer<ViewHelper>().BindParam(ViewLayer.Window, 8),
-                    [ViewLayer.Popup] = new PopupContainer<ViewHelper>().BindParam(ViewLayer.Popup, 8),
-                    [ViewLayer.Tip] = new PopupContainer<ViewHelper>().BindParam(ViewLayer.Tip, 8),
-                    [ViewLayer.System] = new QueueContainer<ViewHelper>().BindParam(ViewLayer.System, 1),
+                    [ViewLayer.Bg] = new StackContainer(8),
+                    [ViewLayer.Permanent] = new PopupContainer(-1),
+                    [ViewLayer.FullScreen] = new StackContainer(8),
+                    [ViewLayer.Window] = new StackContainer(8),
+                    [ViewLayer.Popup] = new PopupContainer(8),
+                    [ViewLayer.Tip] = new PopupContainer(8),
+                    [ViewLayer.System] = new QueueContainer(1),
                 
                 }, new Dictionary<ViewLayer, List<Type>>
                 {

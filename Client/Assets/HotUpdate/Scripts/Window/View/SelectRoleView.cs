@@ -6,6 +6,7 @@ public class SelectRoleView : ViewBase<SelectRoleViewModel>
 {
     [SerializeField] private List<RoleArchiveItem> roleArchiveItems;
     [SerializeField] private Button btnReturn;
+    [SerializeField] private Button btnClose;
 
     protected override void BindUI()
     {
@@ -17,10 +18,12 @@ public class SelectRoleView : ViewBase<SelectRoleViewModel>
         }
         
         btnReturn.onClick.AddListener(()=> viewModel.ReturnCommand.Execute(null));
+        btnClose.onClick.AddListener(() => viewModel.CloseCommand.Execute(this));
     }
 
     protected override void UnBindUI()
     {
         btnReturn.onClick.RemoveAllListeners();
+        btnClose.onClick.RemoveAllListeners();
     }
 }

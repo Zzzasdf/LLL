@@ -1,74 +1,86 @@
+using System;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
 
-public class StackContainer<TViewHelper> : ILayerContainer
-    where TViewHelper: ViewHelperBase
+public class StackContainer: ILayerContainer
 {
-    private ViewLayer viewLayer;
-    private int warmCapacity;
+    private readonly int warmCapacity;
+    
+    private Stack<int> uniqueIds;
+    private Dictionary<int, Stack<int>> storageDict;
 
-    private Stack<IView> container;
-
-    private IViewService viewService;
     private ILayerLocator layerLocator;
-
-    public ILayerContainer BindParam(ViewLayer viewLayer, int warmCapacity)
+    private Func<int, IView> getViewFunc;
+    
+    public StackContainer(int warmCapacity)
     {
-        this.viewLayer = viewLayer;
         this.warmCapacity = warmCapacity;
-        
-        container = new Stack<IView>();
-        return this;
+        uniqueIds = new Stack<int>();
+        storageDict = new Dictionary<int, Stack<int>>();
     }
+    
+    void ILayerContainer.BindLocator(ILayerLocator layerLocator) => this.layerLocator = layerLocator;
+    ILayerLocator ILayerContainer.GetLocator() => layerLocator;
+    void ILayerContainer.BindGetView(Func<int, IView> getViewFunc) => this.getViewFunc = getViewFunc;
 
-    void ILayerContainer.BindService(IViewService viewService)
+    bool ILayerContainer.AddAndTryOutRemoveId(int uniqueId, out int removeId)
     {
-        this.viewService = viewService;
-    }
-
-    void ILayerContainer.BindLocator(ILayerLocator layerLocator)
-    {
-        this.layerLocator = layerLocator;
-    }
-
-    UniTask ILayerContainer.AddAsync<T>(T view) => AddAsync_Internal(view);
-    private UniTask AddAsync_Internal<T>(T view) where T: class, IView
-    {
-        if (container.Count == warmCapacity)
+        removeId = 0;
+        if (uniqueIds.Count == warmCapacity)
         {
-            LLogger.FrameWarning($"{viewLayer} {nameof(StackContainer<TViewHelper>)} 的容量已超过预警值：{warmCapacity}");
+            LLogger.FrameWarning($"{nameof(StackContainer)} 的容量已超过预警值：{warmCapacity}");
         }
-        container.Push(view);
-        view.GameObject().AddComponent<TViewHelper>();
-        return UniTask.CompletedTask;
+        if (uniqueIds.Count > 0)
+        {
+            int hideId = uniqueIds.Peek();
+            IView view = getViewFunc.Invoke(hideId);
+            view.Hide();
+        }
+        uniqueIds.Push(uniqueId);
+        return false;
     }
-
-    UniTask<bool> ILayerContainer.RemoveAsync<T>(T view) => RemoveAsync_Internal(view);
-    private UniTask<bool> RemoveAsync_Internal<T>(T view) where T: class, IView
+    bool ILayerContainer.RemoveAndTryPopId(int uniqueId, out int popId)
     {
-        if (container.Count == 0)
+        popId = 0;
+        if (uniqueIds.Peek() != uniqueId)
         {
-            LLogger.FrameError($"{viewLayer} {nameof(StackContainer<TViewHelper>)} 的数量为 0， HideAsync 无效");
-            return UniTask.FromResult(false);
+            return false;
         }
-        if (view != container.Peek())
+        uniqueIds.Pop();
+        if (uniqueIds.Count == 0)
         {
-            LLogger.FrameError($"{viewLayer} {nameof(StackContainer<TViewHelper>)} 的 Peek 对象非请求关闭的 {nameof(view)}， HideAsync 无效");
-            return UniTask.FromResult(false);
+            return false;
         }
-        container.Pop();
-        return UniTask.FromResult(true);
+        popId = uniqueIds.Pop();
+        return true;
     }
-
-    UniTask<bool> ILayerContainer.TryPop(out IView view) => TryPop_Internal(out view);
-    private UniTask<bool> TryPop_Internal(out IView view)
+    
+    void ILayerContainer.PushStorage(int uniqueId)
     {
-        view = null;
-        if (container.Count == 0)
+        if (uniqueIds.Count == 0) return;
+        if (!storageDict.TryGetValue(uniqueId, out Stack<int> stack))
         {
-            return UniTask.FromResult(false);
+            storageDict.Add(uniqueId, stack = new Stack<int>());
         }
-        view = container.Peek();
-        return UniTask.FromResult(true);
+        foreach (int id in uniqueIds)
+        {
+            IView view = getViewFunc.Invoke(id);
+            view.Hide();
+            stack.Push(id);
+        }
+        uniqueIds.Clear();
+    }
+    bool ILayerContainer.TryPopStorage(int uniqueId, out Queue<int> storage)
+    {
+        storage = null;
+        if (!storageDict.Remove(uniqueId, out Stack<int> stack))
+        {
+            return false;
+        }
+        storage = new Queue<int>();
+        foreach (int id in stack)
+        {
+            storage.Enqueue(id);
+        }
+        return true;
     }
 }

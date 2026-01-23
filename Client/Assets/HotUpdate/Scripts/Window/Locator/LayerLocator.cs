@@ -2,16 +2,13 @@ using UnityEngine;
 
 public class LayerLocator : MonoBehaviour, ILayerLocator
 {
-    private ViewLayer viewLayer;
     private ILayerContainer layerContainer;
 
     private RectTransform thisRt;
     
-    public void Build(ViewLayer viewLayer)
+    public void Build()
     {
-        this.viewLayer = viewLayer;
         thisRt = gameObject.AddComponent<RectTransform>();
-       
         
         // 设置全屏拉伸
         thisRt.anchorMin = Vector2.zero;
@@ -24,11 +21,6 @@ public class LayerLocator : MonoBehaviour, ILayerLocator
         canvasGroup.alpha = 1f;
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
-    }
-
-    public void BindContainer(ILayerContainer layerContainer)
-    {
-        this.layerContainer = layerContainer;
     }
 
     RectTransform ILayerLocator.GetRectTransform() => thisRt;

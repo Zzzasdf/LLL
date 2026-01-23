@@ -1,6 +1,8 @@
+using System;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using Cysharp.Threading.Tasks;
 
 public partial class SelectRoleViewModel : ObservableRecipient,
     IViewModel,
@@ -17,6 +19,13 @@ public partial class SelectRoleViewModel : ObservableRecipient,
     private void Return()
     {
         WeakReferenceMessenger.Default.SendProcedureSwap(ProcedureService.GameState.Start);
+    }
+
+    [RelayCommand]
+    private void Close(IView view) => CloseAsync(view).Forget();
+    private async UniTask CloseAsync(IView view)
+    {
+        await WeakReferenceMessenger.Default.SendViewHideAsync(view);
     }
     
     public AccountRoleSimpleModel GetOrAddRoleModel(int index)

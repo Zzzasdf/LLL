@@ -2,9 +2,18 @@ using UnityEngine;
 
 public interface IView
 {
-    public void Init(ViewLayer viewLayer, int uniqueId);
+    void BindLayer(ViewLayer viewLayer);
+    ViewLayer GetLayer();
+    
+    void RefIncrement();
+    void RefReduction();
+    int GetRefCount();
+    
+    void BindUniqueId(int uniqueId);
+    int GetUniqueId();
+    
+    GameObject GameObject();
 
-    public ViewLayer GetLayer();
-    public int GetUniqueId();
-    public GameObject GameObject();
+    void Show();
+    void Hide();
 }

@@ -1,27 +1,28 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using YooAsset;
 
-public class ViewService : ObservableRecipient,
+public class ViewService: ObservableRecipient,
     IViewService,
     IRecipient<ViewShowAsyncRequestEvent>,
     IRecipient<ViewHideAsyncRequestEvent>,
     IRecipient<ViewAllHideAsyncRequestEvent>
 {
-    private Dictionary<ViewLayer, ILayerContainer> layerContainers;
     private Dictionary<Type, ViewLayer> viewLayers;
-    private Dictionary<int, IView> uniqueIdCache;
-    private int incrementId;
+    private UniqueIdGenerator uniqueIdGenerator;
 
-    private IUICanvasLocator uiCanvasLocator;
+    private Dictionary<Type, IView> viewDict;
+    private Dictionary<int, IView> uniqueViewDict;
     
+    private Dictionary<ViewLayer, ILayerContainer> layerContainers;
+
     public ViewService(Dictionary<ViewLayer, ILayerContainer> layerContainers, Dictionary<ViewLayer, List<Type>> viewLayers)
     {
-        this.layerContainers = layerContainers;
         this.viewLayers = new Dictionary<Type, ViewLayer>();
         foreach (var pair  in viewLayers)
         {
@@ -33,135 +34,202 @@ public class ViewService : ObservableRecipient,
                 this.viewLayers.Add(type, viewLayer);
             }
         }
-        uniqueIdCache = new Dictionary<int, IView>();
-        IsActive = true;
-    }
-
-    void IViewService.BindLocator(IUICanvasLocator uiCanvasLocator)
-    {
-        this.uiCanvasLocator = uiCanvasLocator;
-    }
-
-    Dictionary<ViewLayer, ILayerContainer> IViewService.GetLayerContainers()
-    {
-        return layerContainers;
-    }
-
-    private async UniTask<IView> ShowAsync_Internal(Type type)
-    {
-        if (!viewLayers.TryGetValue(type, out ViewLayer viewLayer))
-        {
-            LLogger.FrameError($"{type} 未指定 {typeof(ViewLayer)}");
-            return await new UniTask<IView>(default);
-        }
-        if (!layerContainers.TryGetValue(viewLayer, out ILayerContainer windowContainer))
-        {
-            LLogger.FrameError($"未支持的层级类型 {viewLayer}");
-            return await new UniTask<IView>(default);
-        }
+        uniqueIdGenerator = new UniqueIdGenerator();
         
-        string name = type.Name;
-        var handle = YooAssets.LoadAssetAsync<GameObject>(name);
-        await handle.Task;
-        
-        if (handle.Status != EOperationStatus.Succeed)
-        {
-            LLogger.FrameError($"未找到该资源 {name}");
-            return await new UniTask<IView>(default);
-        }
-        
-        GameObject assetObject = handle.AssetObject as GameObject;
-        if (assetObject == null)
-        {
-            LLogger.FrameError($"加载的资源不是 GameObject: {name}");
-            return await new UniTask<IView>(default);
-        }
-
-        GameObject instantiatedObject = UnityEngine.Object.Instantiate(assetObject);
-        if (instantiatedObject == null)
-        {
-            LLogger.FrameError($"实例化失败: {name}");
-            return await new UniTask<IView>(default);
-        }
-        
-        int uniqueId = CreateUniqueId();
-        IView window = instantiatedObject.GetComponent<IView>();
-        window.Init(viewLayer, uniqueId);
-        GameObject windowGo = window.GameObject();
-        RectTransform windowRt = windowGo.GetComponent<RectTransform>();
-        ILayerLocator layerLocator = uiCanvasLocator.GetLayerLocator(viewLayer);
-        windowRt.SetParent(layerLocator.GetRectTransform());
-        windowRt.localPosition = Vector3.zero;
-        windowRt.localScale = Vector3.one;
-        windowRt.anchoredPosition = Vector2.zero;
-        windowRt.anchorMin = Vector2.zero;
-        windowRt.anchorMax = Vector2.one;
-        windowRt.offsetMin = Vector2.zero;
-        windowRt.offsetMax = Vector2.zero;
-            
-        uniqueIdCache.Add(uniqueId, window);
-        await windowContainer.AddAsync(window);
-        LLogger.FrameLog($"{name} 创建成功！！");
-        return window;
-    }
-
-    private async UniTask<bool> HideAllAsync_Internal()
-    {
+        viewDict = new Dictionary<Type, IView>();
+        uniqueViewDict = new Dictionary<int, IView>();
+        this.layerContainers = layerContainers;
         foreach (var pair in layerContainers)
         {
             ILayerContainer layerContainer = pair.Value;
-            if (await layerContainer.TryPop(out IView view))
+            layerContainer.BindGetView(GetView);
+        }
+        IsActive = true;
+        return;
+
+        IView GetView(int uniqueId) => uniqueViewDict[uniqueId];
+    }
+
+    Dictionary<ViewLayer, ILayerContainer> IViewService.GetLayerContainers() => layerContainers;
+    
+    private async UniTask<IView> ShowAsync_Internal(Type type)
+    {
+        ViewLayer viewLayer = viewLayers[type];
+        
+        // 资源获取
+        if (!viewDict.TryGetValue(type, out IView view))
+        {
+            string name = type.Name;
+            var handle = YooAssets.LoadAssetAsync<GameObject>(name);
+            await handle.Task;
+            
+            if (handle.Status != EOperationStatus.Succeed)
             {
-                await HideAsync_Internal(view);
+                LLogger.FrameError($"未找到该资源 {name}");
+                return await new UniTask<IView>(default);
             }
+            GameObject assetObject = handle.AssetObject as GameObject;
+            if (assetObject == null)
+            {
+                LLogger.FrameError($"加载的资源不是 GameObject: {name}");
+                return await new UniTask<IView>(default);
+            }
+            GameObject instantiatedObject = UnityEngine.Object.Instantiate(assetObject);
+            if (instantiatedObject == null)
+            {
+                LLogger.FrameError($"实例化失败: {name}");
+                return await new UniTask<IView>(default);
+            }
+            view = instantiatedObject.GetComponent<IView>();
+            view.BindLayer(viewLayer);  
+            RectTransform windowRt = instantiatedObject.GetComponent<RectTransform>();
+            if (!layerContainers.TryGetValue(viewLayer, out ILayerContainer container))
+            {
+                LLogger.FrameError($"未支持的层级容器类型 {viewLayer}");
+                return await new UniTask<IView>(default);
+            }
+            windowRt.SetParent(container.GetLocator().GetRectTransform());
+            windowRt.localPosition = Vector3.zero;
+            windowRt.localScale = Vector3.one;
+            windowRt.anchoredPosition = Vector2.zero;
+            windowRt.anchorMin = Vector2.zero;
+            windowRt.anchorMax = Vector2.one;
+            windowRt.offsetMin = Vector2.zero;
+            windowRt.offsetMax = Vector2.zero;
+            viewDict.Add(type, view);
+        }
+
+        // 装配
+        int uniqueId = uniqueIdGenerator.CreateUniqueId();
+        view.BindUniqueId(uniqueId);
+        view.RefIncrement();
+        uniqueViewDict.Add(uniqueId, view);
+        
+        // 层级集合
+        if (!layerContainers.TryGetValue(viewLayer, out ILayerContainer layerContainer))
+        {
+            LLogger.FrameError($"未支持的层级容器类型 {viewLayer}");
+            return await new UniTask<IView>(default);
+        }
+        if(layerContainer.AddAndTryOutRemoveId(uniqueId, out int removeId))
+        {
+            ClearUpperLayerStorage(removeId);
+        }
+
+        // 上层界面遮挡暂存
+        foreach (var item in Enum.GetValues(typeof(ViewLayer)))
+        {
+            ViewLayer layer = (ViewLayer)item;
+            if (layer <= viewLayer) continue;
+            ILayerContainer container = layerContainers[layer];
+            container.PushStorage(uniqueId);
+        }
+        view.Show();
+        return view;
+    }
+    // 清空关联的上层界面遮挡暂存 ！！
+    private void ClearUpperLayerStorage(int uniqueId)
+    {
+        IView view = uniqueViewDict[uniqueId];
+        uniqueViewDict.Remove(uniqueId);
+        uniqueIdGenerator.DeleteUniqueId(uniqueId);
+
+        Type type = view.GetType();
+        view.RefReduction();
+        if (view.GetRefCount() == 0)
+        {
+            viewDict.Remove(type);
+            view.Hide();
+        }
+        
+        ViewLayer viewLayer = view.GetLayer();
+        foreach (var item in Enum.GetValues(typeof(ViewLayer)))
+        {
+            ViewLayer layer = (ViewLayer)item;
+            if (layer <= viewLayer) continue;
+            ILayerContainer container = layerContainers[layer];
+            if (!container.TryPopStorage(uniqueId, out Queue<int> storage)) continue;
+            foreach (var removeUniqueId in storage)
+            {
+                ClearUpperLayerStorage(removeUniqueId);
+            }
+        }
+    }
+
+    private UniTask<bool> HideAsync_Internal(IView view)
+    {
+        int uniqueId = view.GetUniqueId();
+        uniqueViewDict.Remove(uniqueId);
+        uniqueIdGenerator.DeleteUniqueId(uniqueId);
+        
+        view.RefReduction();
+        if (view.GetRefCount() == 0)
+        {
+            Type type = view.GetType();
+            viewDict.Remove(type);
+        }
+        view.Hide();
+        
+        ViewLayer viewLayer = view.GetLayer();
+        ILayerContainer layerContainer = layerContainers[viewLayer];
+        if (layerContainer.RemoveAndTryPopId(uniqueId, out int popId))
+        {
+            PopShow(popId);
+        }
+        
+        foreach (var item in Enum.GetValues(typeof(ViewLayer)))
+        {
+            ViewLayer layer = (ViewLayer)item;
+            if (layer <= viewLayer) continue;
+            ILayerContainer container = layerContainers[layer];
+            if (!container.TryPopStorage(uniqueId, out Queue<int> storage)) continue;
+            foreach (var showUniqueId in storage)
+            {
+                PopShow(showUniqueId);
+            }
+        }
+        return UniTask.FromResult(true);
+    }
+    private void PopShow(int uniqueId)
+    {
+        IView view = uniqueViewDict[uniqueId];
+        Type type = view.GetType();
+        
+        // 装配
+        ViewLayer viewLayer = viewLayers[type];
+        view.BindUniqueId(uniqueId);
+        view.Show();
+        
+        // 层级集合
+        if (!layerContainers.TryGetValue(viewLayer, out ILayerContainer layerContainer))
+        {
+            LLogger.FrameError($"未支持的层级容器类型 {viewLayer}");
+            return;
+        }
+        if(layerContainer.AddAndTryOutRemoveId(uniqueId, out int removeId))
+        {
+            ClearUpperLayerStorage(removeId);
+        }
+    }
+    
+    private async UniTask<bool> HideAllAsync_Internal()
+    {
+        List<IView> views = uniqueViewDict.Values.ToList();
+        foreach (var view in views)
+        {
+            await HideAsync_Internal(view);
         }
         return await UniTask.FromResult(true);
     }
-
-    private async UniTask<bool> HideAsync_Internal(IView view)
-    {
-        ViewLayer viewLayer = view.GetLayer();
-        if (!layerContainers.TryGetValue(viewLayer, out ILayerContainer windowContainer))
-        {
-            LLogger.FrameError($"未支持的层级类型 {viewLayer}");
-            return false;
-        }
-        bool result = await windowContainer.RemoveAsync(view);
-        if (!result)
-        {
-            return false;
-        }
-        int uniqueId = view.GetUniqueId();
-        if (!uniqueIdCache.ContainsKey(uniqueId))
-        {
-            LLogger.FrameError($"无效的 {nameof(view)} UniqueId:{uniqueId}");
-            return false;
-        }
-        uniqueIdCache.Remove(uniqueId);
-        UnityEngine.Object.Destroy(view.GameObject());
-        return true;
-    }
     
-    /// 生成唯一 id
-    private int CreateUniqueId()
-    {
-        do
-        {
-            incrementId++;
-        } while (uniqueIdCache.ContainsKey(incrementId));
-        return incrementId;
-    }
-
     void IRecipient<ViewShowAsyncRequestEvent>.Receive(ViewShowAsyncRequestEvent message)
     {
         message.Reply(ShowAsync_Internal(message.Type).AsTask());
     }
-
     void IRecipient<ViewHideAsyncRequestEvent>.Receive(ViewHideAsyncRequestEvent message)
     {
         message.Reply(HideAsync_Internal(message.View).AsTask());
     }
-
     void IRecipient<ViewAllHideAsyncRequestEvent>.Receive(ViewAllHideAsyncRequestEvent message)
     {
         message.Reply(HideAllAsync_Internal().AsTask());

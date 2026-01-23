@@ -13,7 +13,6 @@ public class UICanvasLocator : MonoBehaviour, IUICanvasLocator
     public void Build(IViewService viewService)
     {
         this.viewService = viewService;
-        viewService.BindLocator(this);
         
         canvasRt = gameObject.AddComponent<RectTransform>();
         canvas = gameObject.AddComponent<Canvas>();
@@ -46,12 +45,11 @@ public class UICanvasLocator : MonoBehaviour, IUICanvasLocator
         {
             ViewLayer viewLayer = pair.Key;
             var layerContainer = pair.Value;
-            layerContainer.BindService(viewService);
             GameObject go = new GameObject(viewLayer.ToString());
             go.transform.SetParent(canvasRt);
             var layerLocator = go.AddComponent<LayerLocator>();
-            layerLocator.Build(viewLayer);
-            layerLocator.BindContainer(layerContainer);
+            layerLocator.Build();
+            layerContainer.BindLocator(layerLocator);
             layerLocators.Add(viewLayer, layerLocator);
         }
     }

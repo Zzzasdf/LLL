@@ -8,6 +8,7 @@ public class StartView : ViewBase<StartViewModel>
     [SerializeField] private Button btnSettings;
     [SerializeField] private Button btnHelp;
     [SerializeField] private Button btnQuit;
+    [SerializeField] private Button btnClose;
 
     protected override void BindUI()
     {
@@ -17,6 +18,7 @@ public class StartView : ViewBase<StartViewModel>
         btnSettings.onClick.AddListener(() => viewModel.SettingsCommand.Execute(null));
         btnHelp.onClick.AddListener(() => viewModel.HelpCommand.Execute(null));
         btnQuit.onClick.AddListener(() => viewModel.QuitCommand.Execute(null));
+        btnClose.onClick.AddListener(() => viewModel.CloseCommand.Execute(this));
     }
     
     protected override void UnBindUI()
@@ -27,5 +29,6 @@ public class StartView : ViewBase<StartViewModel>
         btnSettings.onClick.RemoveAllListeners();
         btnHelp.onClick.RemoveAllListeners();
         btnQuit.onClick.RemoveAllListeners();
+        btnClose.onClick.RemoveAllListeners();
     }
 }

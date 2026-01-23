@@ -78,7 +78,6 @@
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\StartView.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\MainViewModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Model\ModelServiceCollectionServiceExtensions.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\ViewHelper.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewBase.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\HelpViewModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureSelectRole.cs" />

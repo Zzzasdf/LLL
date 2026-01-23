@@ -1,74 +1,64 @@
+using System;
 using System.Collections.Generic;
-using CommunityToolkit.Mvvm.Messaging;
-using Cysharp.Threading.Tasks;
 
-public class QueueContainer<TViewHelper> : ILayerContainer
-    where TViewHelper: ViewHelperBase
+public class QueueContainer : ILayerContainer
 {
-    private ViewLayer viewLayer;
-    private int capacity;
+    private readonly int capacity;
     
-    private Queue<IView> container;
+    private LinkedList<int> uniqueIds;
+    private Dictionary<int, Queue<int>> storageDict;
 
-    private IViewService viewService;
     private ILayerLocator layerLocator;
-    
-    public ILayerContainer BindParam(ViewLayer viewLayer, int capacity)
+    private Func<int, IView> getViewFunc;
+
+    public QueueContainer(int capacity)
     {
-        this.viewLayer = viewLayer;
         this.capacity = capacity;
-
-        container = capacity > 0 ? new Queue<IView>(capacity) : new Queue<IView>();
-        return this;
-    }
-    
-    void ILayerContainer.BindService(IViewService viewService)
-    {
-        this.viewService = viewService;
-    }
-    
-    void ILayerContainer.BindLocator(ILayerLocator layerLocator)
-    {
-        this.layerLocator = layerLocator;
+        uniqueIds = new LinkedList<int>();
+        storageDict = new Dictionary<int, Queue<int>>();
     }
 
-    async UniTask ILayerContainer.AddAsync<T>(T view) => await AddAsync_Internal(view);
-    private async UniTask AddAsync_Internal<T>(T view) where T: class, IView
-    {
-        if (container.Count == capacity)
-        {
-            await WeakReferenceMessenger.Default.SendViewHideAsync(container.Peek());
-        }
-        view.GameObject().AddComponent<TViewHelper>();
-        container.Enqueue(view);
-    }
+    void ILayerContainer.BindLocator(ILayerLocator layerLocator) => this.layerLocator = layerLocator;
+    ILayerLocator ILayerContainer.GetLocator() => layerLocator;
+    void ILayerContainer.BindGetView(Func<int, IView> getViewFunc) => this.getViewFunc = getViewFunc;
 
-    UniTask<bool> ILayerContainer.RemoveAsync<T>(T view) => RemoveAsync_Internal(view);
-    private UniTask<bool> RemoveAsync_Internal<T>(T view) where T: class, IView
+    bool ILayerContainer.AddAndTryOutRemoveId(int uniqueId, out int removeId)
     {
-        if (container.Count == 0)
+        bool result = false;
+        removeId = 0;
+        if (uniqueIds.Count == capacity)
         {
-            LLogger.FrameError($"{viewLayer} {nameof(QueueContainer<TViewHelper>)} 的数量为 0， HideAsync 无效");
-            return UniTask.FromResult(false);
+            removeId = uniqueIds.First.Value;
+            uniqueIds.RemoveFirst();
+            result = true;
         }
-        if (view != container.Peek())
-        {
-            LLogger.FrameError($"{viewLayer} {nameof(QueueContainer<TViewHelper>)} 的 Peek 对象非请求关闭的 {nameof(view)}， HideAsync 无效");
-            return UniTask.FromResult(false);
-        }
-        container.Dequeue();
-        return UniTask.FromResult(true);
+        uniqueIds.AddLast(uniqueId);
+        return result;
+    }
+    bool ILayerContainer.RemoveAndTryPopId(int uniqueId, out int popId)
+    {
+        popId = 0;
+        uniqueIds.RemoveFirst();
+        return false;
     }
     
-    UniTask<bool> ILayerContainer.TryPop(out IView view) => TryPop_Internal(out view);
-    private UniTask<bool> TryPop_Internal(out IView view)
+    void ILayerContainer.PushStorage(int uniqueId)
     {
-        view = null;
-        if (container.Count == 0)
+        if (uniqueIds.Count == 0) return;
+        if (!storageDict.TryGetValue(uniqueId, out Queue<int> queue))
         {
-            return UniTask.FromResult(false);
+            storageDict.Add(uniqueId, queue = new Queue<int>());
         }
-        view = container.Peek();
-        return UniTask.FromResult(true);
+        foreach (int id in uniqueIds)
+        { 
+            IView view = getViewFunc.Invoke(id);
+            view.Hide();
+            queue.Enqueue(id);
+        }
+        uniqueIds.Clear();
+    }
+    bool ILayerContainer.TryPopStorage(int uniqueId, out Queue<int> storage)
+    {
+        return storageDict.Remove(uniqueId, out storage);
     }
 }
