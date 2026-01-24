@@ -56,13 +56,13 @@ public class Launcher : MonoBehaviour
                     },
                     [ViewLayer.Popup] = new List<Type>
                     {
+                        AddView<HelpView, HelpViewModel>(services),
                     },
                     [ViewLayer.Tip] = new List<Type>
                     {
                     },
                     [ViewLayer.System] = new List<Type>
                     {
-                        AddView<HelpView, HelpViewModel>(services),
                         AddView<LoadingView, LoadingViewModel>(services),
                     },
                 }

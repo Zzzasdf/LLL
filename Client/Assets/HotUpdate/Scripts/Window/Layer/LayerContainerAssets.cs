@@ -84,7 +84,7 @@ public class LayerContainerAssets
         return true;
     }
 
-    public void HideView(int uniqueId)
+    public void HideView(int uniqueId, int? popId)
     {
         if (uniqueViewDict.Count == 0) return;
         IView view = uniqueViewDict[uniqueId];
@@ -94,6 +94,11 @@ public class LayerContainerAssets
             Type type = view.GetType();
             viewDict.Remove(type);
             view.Hide();
+        }
+        else if(popId.HasValue)
+        {
+            view.BindUniqueId(popId.Value);
+            view.Show();
         }
         uniqueViewDict.Remove(uniqueId);
         uniqueIdGenerator.DeleteUniqueId(uniqueId);

@@ -2,64 +2,110 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 public class QueueContainer : ILayerContainer
 {
     private readonly LayerContainerAssets layerContainerAssets;
     private readonly int capacity;
     
-    private LinkedList<int> uniqueIds;
+    private List<int> uniqueIds;
     private Dictionary<int, Queue<int>> stashDict;
 
     public QueueContainer(ViewLayer viewLayer, int capacity)
     {
         layerContainerAssets = new LayerContainerAssets(viewLayer, isMultiple: false);
         this.capacity = capacity;
-        uniqueIds = new LinkedList<int>();
+        uniqueIds = new List<int>();
         stashDict = new Dictionary<int, Queue<int>>();
     }
     
     void ILayerContainer.BindLocator(ILayerLocator layerLocator) => layerContainerAssets.BindLocator(layerLocator);
     
-    UniTask<IView> ILayerContainer.ShowViewAsync(Type type) => layerContainerAssets.ShowViewAsync(type);
-    void ILayerContainer.HideView(int uniqueId) => layerContainerAssets.HideView(uniqueId);
+    async UniTask<(IView view, int? removeId)> ILayerContainer.ShowViewAndTryRemoveAsync(Type type)
+    {
+        IView view = await layerContainerAssets.ShowViewAsync(type);
+        int uniqueId = view.GetUniqueId();
+        int? popId = PushAndTryPop(uniqueId);
+        return (view, popId);
+    }
+    int? ILayerContainer.PopViewAndTryRemove(int uniqueId)
+    {
+        if (!layerContainerAssets.TryPopView(uniqueId))
+        {
+            return null;
+        }
+        return PushAndTryPop(uniqueId);
+    }
+    private int? PushAndTryPop(int uniqueId)
+    {
+        int? popId = null;
+        if (uniqueIds.Count == capacity)
+        {
+            popId = uniqueIds[0];
+        }
+        uniqueIds.Add(uniqueId);
+        return popId;
+    }
 
-    bool ILayerContainer.TryPopView(int uniqueId) => layerContainerAssets.TryPopView(uniqueId);
-
-    
+    int? ILayerContainer.HideViewTryPop(int uniqueId)
+    {
+        int? popId = PopAndTryPush(uniqueId);
+        layerContainerAssets.HideView(uniqueId, popId);
+        return null;
+    }
     void ILayerContainer.HideAllView()
     {
         while (uniqueIds.Count != 0)
         {
             int uniqueId = uniqueIds.First();
             ILayerContainer layerContainer = this;
-            layerContainer.PopAndTryPush(uniqueId, out _);
-            layerContainer.HideView(uniqueId);
+            PopAndTryPush(uniqueId);
+            layerContainer.HideViewTryPop(uniqueId);
         }
         stashDict.Clear();
     }
-    
-    bool ILayerContainer.PushAndTryPop(int uniqueId, out int popId)
+    private int? PopAndTryPush(int uniqueId)
     {
-        bool result = false;
-        popId = 0;
-        if (uniqueIds.Count == capacity)
+        int index = uniqueIds.IndexOf(uniqueId);
+        uniqueIds.RemoveAt(index);
+        IView removeView = layerContainerAssets.GetView(uniqueId);
+        
+        // 判断后面是否有同界面资源在启用，如有则不处理
+        for (int i = index; i < uniqueIds.Count; i++)
         {
-            popId = uniqueIds.First.Value;
-            uniqueIds.RemoveFirst();
-            result = true;
+            int nextUniqueId = uniqueIds[i];
+            IView nextView = layerContainerAssets.GetView(nextUniqueId);
+            if (removeView != nextView) continue;
+            return null;
         }
-        uniqueIds.AddLast(uniqueId);
-        return result;
-    }
-    bool ILayerContainer.PopAndTryPush(int uniqueId, out int pushId)
-    {
-        pushId = 0;
-        uniqueIds.RemoveFirst();
-        return false;
+        // 判断前面是否有同界面资源在启用，如有则设置到对应位置
+        Transform removeViewTra = removeView.GameObject().transform;
+        int removeSiblingIndex = removeViewTra.GetSiblingIndex();
+        HashSet<IView> hashSet = new HashSet<IView>();
+        for (int i = index - 1; i >= 0; i--)
+        {
+            int previousUniqueId = uniqueIds[i];
+            IView previousView = layerContainerAssets.GetView(previousUniqueId);
+            if (removeView != previousView)
+            {
+                hashSet.Add(previousView);
+            }
+            else
+            {
+                removeViewTra.SetSiblingIndex(removeSiblingIndex - hashSet.Count);
+                return previousUniqueId;
+            }
+        }
+        if (removeView.GetRefCount() - 1 > 0)
+        {
+            // 在贮藏有存在
+            removeView.Hide();
+        }
+        return null;
     }
     
-    void ILayerContainer.StashPush(int uniqueId)
+    void ILayerContainer.Stash(int uniqueId)
     {
         if (uniqueIds.Count == 0) return;
         if (!stashDict.TryGetValue(uniqueId, out Queue<int> queue))

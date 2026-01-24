@@ -21,40 +21,54 @@ public class PopupContainer: ILayerContainer
 
     void ILayerContainer.BindLocator(ILayerLocator layerLocator) => layerContainerAssets.BindLocator(layerLocator);
 
-    UniTask<IView> ILayerContainer.ShowViewAsync(Type type) => layerContainerAssets.ShowViewAsync(type);
-    void ILayerContainer.HideView(int uniqueId) => layerContainerAssets.HideView(uniqueId);
-    bool ILayerContainer.TryPopView(int uniqueId) => layerContainerAssets.TryPopView(uniqueId);
+    async UniTask<(IView view, int? removeId)> ILayerContainer.ShowViewAndTryRemoveAsync(Type type)
+    {
+        IView view = await layerContainerAssets.ShowViewAsync(type);
+        int uniqueId = view.GetUniqueId();
+        PushAndTryPop(uniqueId);
+        return (view, null);
+    }
+    int? ILayerContainer.PopViewAndTryRemove(int uniqueId)
+    {
+        if (!layerContainerAssets.TryPopView(uniqueId))
+        {
+            return null;
+        }
+        PushAndTryPop(uniqueId);
+        return null;
+    }
+    private void PushAndTryPop(int uniqueId)
+    {
+        if (uniqueIds.Count == warmCapacity)
+        {
+            LLogger.FrameWarning($"{nameof(StackContainer)} 的容量已超过预警值：{warmCapacity}");
+        }
+        uniqueIds.Add(uniqueId);
+    }
 
+    int? ILayerContainer.HideViewTryPop(int uniqueId)
+    {
+        PopAndTryPush(uniqueId);
+        layerContainerAssets.HideView(uniqueId, null);
+        return null;
+    }
     void ILayerContainer.HideAllView()
     {
         List<int> uniqueIds = this.uniqueIds.ToList();
         foreach (var uniqueId in uniqueIds)
         {
             ILayerContainer layerContainer = this;
-            layerContainer.PopAndTryPush(uniqueId, out _);
-            layerContainer.HideView(uniqueId);
+            PopAndTryPush(uniqueId);
+            layerContainer.HideViewTryPop(uniqueId);
         }
         stashDict.Clear();
     }
-    
-    bool ILayerContainer.PushAndTryPop(int uniqueId, out int popId)
+    private void PopAndTryPush(int uniqueId)
     {
-        popId = 0;
-        if (uniqueIds.Count == warmCapacity)
-        {
-            LLogger.FrameWarning($"{nameof(StackContainer)} 的容量已超过预警值：{warmCapacity}");
-        }
-        uniqueIds.Add(uniqueId);
-        return false;
-    }
-    bool ILayerContainer.PopAndTryPush(int uniqueId, out int pushId)
-    {
-        pushId = 0;
         uniqueIds.Remove(uniqueId);
-        return false;
     }
     
-    void ILayerContainer.StashPush(int uniqueId)
+    void ILayerContainer.Stash(int uniqueId)
     {
         if (uniqueIds.Count == 0) return;
         if (!stashDict.TryGetValue(uniqueId, out Queue<int> stack))
