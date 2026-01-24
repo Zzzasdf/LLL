@@ -63,11 +63,11 @@ public class ViewService: ObservableRecipient,
         int uniqueId = view.GetUniqueId();
         layerContainer.HideView(uniqueId);
         
-        if (layerContainer.PopAndTryPush(uniqueId, out int pushId))
+        if (!layerContainer.PopAndTryPush(uniqueId, out int pushId))
         {
-            PopShow(viewLayer, pushId);
+            return UniTask.FromResult(true);
         }
-        
+        PopShow(viewLayer, pushId);
         foreach (var item in Enum.GetValues(typeof(ViewLayer)))
         {
             ViewLayer layer = (ViewLayer)item;

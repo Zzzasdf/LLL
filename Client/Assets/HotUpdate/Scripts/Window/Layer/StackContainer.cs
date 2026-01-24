@@ -1,31 +1,42 @@
+using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 
-public class StackContainer: SingleLayerContainerBase
+public class StackContainer: ILayerContainer
 {
+    private readonly LayerContainerAssets layerContainerAssets;
     private readonly int warmCapacity;
     
     private Stack<int> uniqueIds;
     private Dictionary<int, Stack<int>> stashDict;
 
-    public StackContainer(int warmCapacity): base()
+    public StackContainer(ViewLayer viewLayer, int warmCapacity)
     {
+        layerContainerAssets = new LayerContainerAssets(viewLayer, isMultiple: false);
         this.warmCapacity = warmCapacity;
         uniqueIds = new Stack<int>();
         stashDict = new Dictionary<int, Stack<int>>();
     }
-    
-    public override void HideAllView()
+
+    void ILayerContainer.BindLocator(ILayerLocator layerLocator) => layerContainerAssets.BindLocator(layerLocator);
+
+    UniTask<IView> ILayerContainer.ShowViewAsync(Type type) => layerContainerAssets.ShowViewAsync(type);
+    void ILayerContainer.HideView(int uniqueId) => layerContainerAssets.HideView(uniqueId);
+    bool ILayerContainer.TryPopView(int uniqueId) => layerContainerAssets.TryPopView(uniqueId);
+
+    void ILayerContainer.HideAllView()
     {
         while (uniqueIds.Count != 0)
         {
             int uniqueId = uniqueIds.Pop();
-            PopAndTryPush(uniqueId, out _);
-            HideView(uniqueId);
+            ILayerContainer layerContainer = this;
+            layerContainer.PopAndTryPush(uniqueId, out _);
+            layerContainer.HideView(uniqueId);
         }
         stashDict.Clear();
     }
-    
-    public override bool PushAndTryPop(int uniqueId, out int popId)
+
+    bool ILayerContainer.PushAndTryPop(int uniqueId, out int popId)
     {
         popId = 0;
         if (uniqueIds.Count == warmCapacity)
@@ -35,13 +46,13 @@ public class StackContainer: SingleLayerContainerBase
         if (uniqueIds.Count > 0)
         {
             int hideId = uniqueIds.Peek();
-            IView view = uniqueViewDict[hideId];
+            IView view = layerContainerAssets.GetView(hideId);
             view.Hide();
         }
         uniqueIds.Push(uniqueId);
         return false;
     }
-    public override bool PopAndTryPush(int uniqueId, out int pushId)
+    bool ILayerContainer.PopAndTryPush(int uniqueId, out int pushId)
     {
         pushId = 0;
         if (uniqueIds.Count == 0
@@ -58,7 +69,7 @@ public class StackContainer: SingleLayerContainerBase
         return true;
     }
     
-    public override void StashPush(int uniqueId)
+    void ILayerContainer.StashPush(int uniqueId)
     {
         if (uniqueIds.Count == 0) return;
         if (!stashDict.TryGetValue(uniqueId, out Stack<int> stack))
@@ -67,13 +78,13 @@ public class StackContainer: SingleLayerContainerBase
         }
         foreach (int id in uniqueIds)
         {
-            IView view = uniqueViewDict[id];
+            IView view = layerContainerAssets.GetView(id);
             view.Hide();
             stack.Push(id);
         }
         uniqueIds.Clear();
     }
-    public override bool TryStashPop(int uniqueId, out Queue<int> popIds)
+    bool ILayerContainer.TryStashPop(int uniqueId, out Queue<int> popIds)
     {
         popIds = null;
         if (!stashDict.Remove(uniqueId, out Stack<int> stack))

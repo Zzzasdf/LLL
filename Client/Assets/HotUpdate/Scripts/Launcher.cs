@@ -28,17 +28,18 @@ public class Launcher : MonoBehaviour
             .AddTransient<PopupContainer>()
             .AddWindowService(sp => new Dictionary<ViewLayer, ILayerContainer>
                 {
-                    [ViewLayer.Bg] = new StackContainer(warmCapacity: 8),
-                    [ViewLayer.Permanent] = new PopupContainer(warmCapacity: -1),
-                    [ViewLayer.FullScreen] = new StackContainer(warmCapacity: 8),
-                    [ViewLayer.Window] = new StackContainer(warmCapacity: 8),
-                    [ViewLayer.Popup] = new PopupContainer(warmCapacity: 8),
-                    [ViewLayer.Tip] = new PopupContainer(warmCapacity: 8),
-                    [ViewLayer.System] = new QueueContainer(capacity: 1),
-                
+                    [ViewLayer.Bg] = new StackContainer(ViewLayer.Bg, warmCapacity: 8),
+                    [ViewLayer.Permanent] = new PopupContainer(ViewLayer.Permanent, warmCapacity: -1),
+                    [ViewLayer.FullScreen] = new StackContainer(ViewLayer.FullScreen, warmCapacity: 8),
+                    [ViewLayer.Window] = new StackContainer(ViewLayer.Window, warmCapacity: 8),
+                    [ViewLayer.Popup] = new PopupContainer(ViewLayer.Popup, warmCapacity: 8),
+                    [ViewLayer.Tip] = new PopupContainer(ViewLayer.Tip, warmCapacity: 8),
+                    [ViewLayer.System] = new QueueContainer(ViewLayer.System, capacity: 2),
                 }, new Dictionary<ViewLayer, List<Type>>
                 {
-                    [ViewLayer.Bg] = new List<Type> { },
+                    [ViewLayer.Bg] = new List<Type>
+                    {
+                    },
                     [ViewLayer.Permanent] = new List<Type>
                     {
                         AddView<MainView, MainViewModel>(services),
@@ -52,12 +53,16 @@ public class Launcher : MonoBehaviour
                     },
                     [ViewLayer.Window] = new List<Type>
                     {
-                        AddView<HelpView, HelpViewModel>(services),
                     },
-                    [ViewLayer.Popup] = new List<Type> { },
-                    [ViewLayer.Tip] = new List<Type> { },
+                    [ViewLayer.Popup] = new List<Type>
+                    {
+                    },
+                    [ViewLayer.Tip] = new List<Type>
+                    {
+                    },
                     [ViewLayer.System] = new List<Type>
                     {
+                        AddView<HelpView, HelpViewModel>(services),
                         AddView<LoadingView, LoadingViewModel>(services),
                     },
                 }

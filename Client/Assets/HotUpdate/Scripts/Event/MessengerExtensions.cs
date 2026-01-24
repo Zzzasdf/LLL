@@ -19,9 +19,10 @@ public static class MessengerExtensions
     {
         return await messenger.Send(new ViewHideAsyncRequestEvent(view));
     }
-    public static async UniTask<bool> SendViewAllHideAsync(this IMessenger messenger)
+    public static UniTask<bool> SendViewAllHideAsync(this IMessenger messenger)
     {
-        return await messenger.Send(new ViewAllHideAsyncRequestEvent());
+        return UniTask.FromResult(true);
+        // return await messenger.Send(new ViewAllHideAsyncRequestEvent());
     }
 #endregion
 

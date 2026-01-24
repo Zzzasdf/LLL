@@ -4,29 +4,31 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using YooAsset;
 
-public abstract class SingleLayerContainerBase : ILayerContainer
+public class LayerContainerAssets
 {
     private readonly ViewLayer viewLayer;
+    private readonly bool isMultiple;
+    private ILayerLocator layerLocator;
     private readonly UniqueIdGenerator uniqueIdGenerator;
 
     private readonly Dictionary<Type, IView> viewDict;
-    protected readonly Dictionary<int, IView> uniqueViewDict;
-
-    private ILayerLocator layerLocator;
+    private readonly Dictionary<int, IView> uniqueViewDict;
     
-    protected SingleLayerContainerBase()
+    public LayerContainerAssets(ViewLayer viewLayer, bool isMultiple)
     {
+        this.viewLayer = viewLayer;
+        this.isMultiple = isMultiple;
         uniqueIdGenerator = new UniqueIdGenerator();
         viewDict = new Dictionary<Type, IView>();
         uniqueViewDict = new Dictionary<int, IView>();
     }
+    
+    public void BindLocator(ILayerLocator layerLocator) => this.layerLocator = layerLocator;
 
-    void ILayerContainer.BindLocator(ILayerLocator layerLocator) => this.layerLocator = layerLocator;
-
-    async UniTask<IView> ILayerContainer.ShowViewAsync(Type type)
+    public async UniTask<IView> ShowViewAsync(Type type)
     {
         // 资源获取
-        if (!viewDict.TryGetValue(type, out IView view))
+        if (isMultiple || !viewDict.TryGetValue(type, out IView view))
         {
             string name = type.Name;
             var handle = YooAssets.LoadAssetAsync<GameObject>(name);
@@ -60,7 +62,7 @@ public abstract class SingleLayerContainerBase : ILayerContainer
             windowRt.anchorMax = Vector2.one;
             windowRt.offsetMin = Vector2.zero;
             windowRt.offsetMax = Vector2.zero;
-            viewDict.Add(type, view);
+            viewDict.TryAdd(type, view);
         }
         // 装配
         int uniqueId = uniqueIdGenerator.CreateUniqueId();
@@ -71,23 +73,7 @@ public abstract class SingleLayerContainerBase : ILayerContainer
         return view;
     }
 
-    public void HideView(int uniqueId)
-    {
-        IView view = uniqueViewDict[uniqueId];
-        view.RefReduction();
-        if (view.GetRefCount() == 0)
-        {
-            Type type = view.GetType();
-            viewDict.Remove(type);
-        }
-        uniqueViewDict.Remove(uniqueId);
-        uniqueIdGenerator.DeleteUniqueId(uniqueId);
-        view.Hide();
-    }
-
-    public abstract void HideAllView();
-
-    bool ILayerContainer.TryPopView(int uniqueId)
+    public bool TryPopView(int uniqueId)
     {
         if (!uniqueViewDict.TryGetValue(uniqueId, out IView view))
         {
@@ -98,9 +84,20 @@ public abstract class SingleLayerContainerBase : ILayerContainer
         return true;
     }
 
-    public abstract bool PushAndTryPop(int uniqueId, out int popId);
-    public abstract bool PopAndTryPush(int uniqueId, out int pushId);
+    public void HideView(int uniqueId)
+    {
+        if (uniqueViewDict.Count == 0) return;
+        IView view = uniqueViewDict[uniqueId];
+        view.RefReduction();
+        if (view.GetRefCount() == 0)
+        {
+            Type type = view.GetType();
+            viewDict.Remove(type);
+            view.Hide();
+        }
+        uniqueViewDict.Remove(uniqueId);
+        uniqueIdGenerator.DeleteUniqueId(uniqueId);
+    }
 
-    public abstract void StashPush(int uniqueId);
-    public abstract bool TryStashPop(int uniqueId, out Queue<int> popIds);
+    public IView GetView(int uniqueId) => uniqueViewDict[uniqueId];
 }
