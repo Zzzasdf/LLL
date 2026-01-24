@@ -54,14 +54,17 @@
     <Compile Include="Assets\HotUpdate\Scripts\Launcher.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\IProcedure.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\CreateRoleViewModel.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\SingleLayerContainerBase.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureMain.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\CreateRoleView.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\StackContainer.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureInit.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\TestUnityEvent.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Event\MessengerExtensions.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Utility\UniqueIdGenerator.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Asset\PhotographyLoader.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Locator\LayerLocator.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\MultiLayerContainerBase.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Event\EventDefine.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureCreateRole.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Asset\Photography.cs" />

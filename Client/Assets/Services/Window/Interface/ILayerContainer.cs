@@ -1,16 +1,18 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 
 public interface ILayerContainer
 {
     void BindLocator(ILayerLocator layerLocator);
-    ILayerLocator GetLocator();
+    UniTask<IView> ShowViewAsync(Type type);
+    void HideView(int uniqueId);
+    void HideAllView();
+    bool TryPopView(int uniqueId);
 
-    void BindGetView(Func<int, IView> getViewFunc);
+    bool PushAndTryPop(int uniqueId, out int popId);
+    bool PopAndTryPush(int uniqueId, out int pushId);
     
-    bool AddAndTryOutRemoveId(int uniqueId, out int removeId);
-    bool RemoveAndTryPopId(int uniqueId, out int popId);
-    
-    void PushStorage(int uniqueId);
-    bool TryPopStorage(int uniqueId, out Queue<int> storage);
+    void StashPush(int uniqueId);
+    bool TryStashPop(int uniqueId, out Queue<int> popIds);
 }

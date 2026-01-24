@@ -28,13 +28,13 @@ public class Launcher : MonoBehaviour
             .AddTransient<PopupContainer>()
             .AddWindowService(sp => new Dictionary<ViewLayer, ILayerContainer>
                 {
-                    [ViewLayer.Bg] = new StackContainer(8),
-                    [ViewLayer.Permanent] = new PopupContainer(-1),
-                    [ViewLayer.FullScreen] = new StackContainer(8),
-                    [ViewLayer.Window] = new StackContainer(8),
-                    [ViewLayer.Popup] = new PopupContainer(8),
-                    [ViewLayer.Tip] = new PopupContainer(8),
-                    [ViewLayer.System] = new QueueContainer(1),
+                    [ViewLayer.Bg] = new StackContainer(warmCapacity: 8),
+                    [ViewLayer.Permanent] = new PopupContainer(warmCapacity: -1),
+                    [ViewLayer.FullScreen] = new StackContainer(warmCapacity: 8),
+                    [ViewLayer.Window] = new StackContainer(warmCapacity: 8),
+                    [ViewLayer.Popup] = new PopupContainer(warmCapacity: 8),
+                    [ViewLayer.Tip] = new PopupContainer(warmCapacity: 8),
+                    [ViewLayer.System] = new QueueContainer(capacity: 1),
                 
                 }, new Dictionary<ViewLayer, List<Type>>
                 {

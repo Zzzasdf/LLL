@@ -46,7 +46,6 @@
     <Analyzer Include="C:\UnityEditor\2022.3.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Services\Window\Implement\UniqueIdGenerator.cs" />
     <Compile Include="Assets\Services\Window\Implement\ViewService.cs" />
     <None Include="Assets\Services\Window\Implement\WindowService.asmdef" />
     <Reference Include="UnityEngine">

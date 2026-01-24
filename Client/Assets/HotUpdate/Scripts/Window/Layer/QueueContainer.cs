@@ -1,64 +1,68 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 
-public class QueueContainer : ILayerContainer
+public class QueueContainer : SingleLayerContainerBase
 {
     private readonly int capacity;
     
     private LinkedList<int> uniqueIds;
-    private Dictionary<int, Queue<int>> storageDict;
+    private Dictionary<int, Queue<int>> stashDict;
 
-    private ILayerLocator layerLocator;
-    private Func<int, IView> getViewFunc;
-
-    public QueueContainer(int capacity)
+    public QueueContainer(int capacity): base()
     {
         this.capacity = capacity;
         uniqueIds = new LinkedList<int>();
-        storageDict = new Dictionary<int, Queue<int>>();
+        stashDict = new Dictionary<int, Queue<int>>();
     }
-
-    void ILayerContainer.BindLocator(ILayerLocator layerLocator) => this.layerLocator = layerLocator;
-    ILayerLocator ILayerContainer.GetLocator() => layerLocator;
-    void ILayerContainer.BindGetView(Func<int, IView> getViewFunc) => this.getViewFunc = getViewFunc;
-
-    bool ILayerContainer.AddAndTryOutRemoveId(int uniqueId, out int removeId)
+    
+    public override void HideAllView()
+    {
+        while (uniqueIds.Count != 0)
+        {
+            int uniqueId = uniqueIds.First();
+            PopAndTryPush(uniqueId, out _);
+            HideView(uniqueId);
+        }
+        stashDict.Clear();
+    }
+    
+    public override bool PushAndTryPop(int uniqueId, out int popId)
     {
         bool result = false;
-        removeId = 0;
+        popId = 0;
         if (uniqueIds.Count == capacity)
         {
-            removeId = uniqueIds.First.Value;
+            popId = uniqueIds.First.Value;
             uniqueIds.RemoveFirst();
             result = true;
         }
         uniqueIds.AddLast(uniqueId);
         return result;
     }
-    bool ILayerContainer.RemoveAndTryPopId(int uniqueId, out int popId)
+    public override bool PopAndTryPush(int uniqueId, out int pushId)
     {
-        popId = 0;
+        pushId = 0;
         uniqueIds.RemoveFirst();
         return false;
     }
     
-    void ILayerContainer.PushStorage(int uniqueId)
+    public override void StashPush(int uniqueId)
     {
         if (uniqueIds.Count == 0) return;
-        if (!storageDict.TryGetValue(uniqueId, out Queue<int> queue))
+        if (!stashDict.TryGetValue(uniqueId, out Queue<int> queue))
         {
-            storageDict.Add(uniqueId, queue = new Queue<int>());
+            stashDict.Add(uniqueId, queue = new Queue<int>());
         }
         foreach (int id in uniqueIds)
         { 
-            IView view = getViewFunc.Invoke(id);
+            IView view = uniqueViewDict[id];
             view.Hide();
             queue.Enqueue(id);
         }
         uniqueIds.Clear();
     }
-    bool ILayerContainer.TryPopStorage(int uniqueId, out Queue<int> storage)
+    public override bool TryStashPop(int uniqueId, out Queue<int> popIds)
     {
-        return storageDict.Remove(uniqueId, out storage);
+        return stashDict.Remove(uniqueId, out popIds);
     }
 }

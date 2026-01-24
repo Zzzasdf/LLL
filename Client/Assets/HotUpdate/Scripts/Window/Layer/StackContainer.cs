@@ -1,30 +1,33 @@
-using System;
 using System.Collections.Generic;
 
-public class StackContainer: ILayerContainer
+public class StackContainer: SingleLayerContainerBase
 {
     private readonly int warmCapacity;
     
     private Stack<int> uniqueIds;
-    private Dictionary<int, Stack<int>> storageDict;
+    private Dictionary<int, Stack<int>> stashDict;
 
-    private ILayerLocator layerLocator;
-    private Func<int, IView> getViewFunc;
-    
-    public StackContainer(int warmCapacity)
+    public StackContainer(int warmCapacity): base()
     {
         this.warmCapacity = warmCapacity;
         uniqueIds = new Stack<int>();
-        storageDict = new Dictionary<int, Stack<int>>();
+        stashDict = new Dictionary<int, Stack<int>>();
     }
     
-    void ILayerContainer.BindLocator(ILayerLocator layerLocator) => this.layerLocator = layerLocator;
-    ILayerLocator ILayerContainer.GetLocator() => layerLocator;
-    void ILayerContainer.BindGetView(Func<int, IView> getViewFunc) => this.getViewFunc = getViewFunc;
-
-    bool ILayerContainer.AddAndTryOutRemoveId(int uniqueId, out int removeId)
+    public override void HideAllView()
     {
-        removeId = 0;
+        while (uniqueIds.Count != 0)
+        {
+            int uniqueId = uniqueIds.Pop();
+            PopAndTryPush(uniqueId, out _);
+            HideView(uniqueId);
+        }
+        stashDict.Clear();
+    }
+    
+    public override bool PushAndTryPop(int uniqueId, out int popId)
+    {
+        popId = 0;
         if (uniqueIds.Count == warmCapacity)
         {
             LLogger.FrameWarning($"{nameof(StackContainer)} 的容量已超过预警值：{warmCapacity}");
@@ -32,16 +35,17 @@ public class StackContainer: ILayerContainer
         if (uniqueIds.Count > 0)
         {
             int hideId = uniqueIds.Peek();
-            IView view = getViewFunc.Invoke(hideId);
+            IView view = uniqueViewDict[hideId];
             view.Hide();
         }
         uniqueIds.Push(uniqueId);
         return false;
     }
-    bool ILayerContainer.RemoveAndTryPopId(int uniqueId, out int popId)
+    public override bool PopAndTryPush(int uniqueId, out int pushId)
     {
-        popId = 0;
-        if (uniqueIds.Peek() != uniqueId)
+        pushId = 0;
+        if (uniqueIds.Count == 0
+            || uniqueIds.Peek() != uniqueId)
         {
             return false;
         }
@@ -50,36 +54,36 @@ public class StackContainer: ILayerContainer
         {
             return false;
         }
-        popId = uniqueIds.Pop();
+        pushId = uniqueIds.Pop();
         return true;
     }
     
-    void ILayerContainer.PushStorage(int uniqueId)
+    public override void StashPush(int uniqueId)
     {
         if (uniqueIds.Count == 0) return;
-        if (!storageDict.TryGetValue(uniqueId, out Stack<int> stack))
+        if (!stashDict.TryGetValue(uniqueId, out Stack<int> stack))
         {
-            storageDict.Add(uniqueId, stack = new Stack<int>());
+            stashDict.Add(uniqueId, stack = new Stack<int>());
         }
         foreach (int id in uniqueIds)
         {
-            IView view = getViewFunc.Invoke(id);
+            IView view = uniqueViewDict[id];
             view.Hide();
             stack.Push(id);
         }
         uniqueIds.Clear();
     }
-    bool ILayerContainer.TryPopStorage(int uniqueId, out Queue<int> storage)
+    public override bool TryStashPop(int uniqueId, out Queue<int> popIds)
     {
-        storage = null;
-        if (!storageDict.Remove(uniqueId, out Stack<int> stack))
+        popIds = null;
+        if (!stashDict.Remove(uniqueId, out Stack<int> stack))
         {
             return false;
         }
-        storage = new Queue<int>();
+        popIds = new Queue<int>();
         foreach (int id in stack)
         {
-            storage.Enqueue(id);
+            popIds.Enqueue(id);
         }
         return true;
     }
