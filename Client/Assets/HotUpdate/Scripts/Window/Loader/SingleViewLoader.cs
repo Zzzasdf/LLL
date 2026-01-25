@@ -6,13 +6,20 @@ using YooAsset;
 
 public class SingleViewLoader : IViewLoader
 {
+    private List<Type> iteration;
     private Dictionary<Type, IView> pools;
     private Dictionary<Type, IView> actives;
 
     public SingleViewLoader()
     {
+        iteration = new List<Type>();
         pools = new Dictionary<Type, IView>();
         actives = new Dictionary<Type, IView>();
+    }
+    IViewLoader IViewLoader.SetCapacity(int capacity)
+    {
+        iteration = new List<Type>(capacity);
+        return this;
     }
 
     bool IViewLoader.TryGetActiveView(Type type, out IView view)
@@ -24,6 +31,7 @@ public class SingleViewLoader : IViewLoader
     {
         if (pools.Remove(type, out view))
         {
+            iteration.Remove(type);
             actives.Add(type, view);
             return true;
         }
@@ -62,6 +70,15 @@ public class SingleViewLoader : IViewLoader
     {
         Type type = view.GetType();
         actives.Remove(type);
+        if (iteration.Count == iteration.Capacity)
+        {
+            Type removeType = iteration[0];
+            iteration.RemoveAt(0);
+            IView removeView = pools[removeType];
+            pools.Remove(removeType);
+            UnityEngine.Object.Destroy(removeView.GameObject());
+        }
+        iteration.Add(type);
         pools.Add(type, view);
     }
 }

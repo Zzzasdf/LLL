@@ -93,7 +93,6 @@
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\LoadingViewModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\LoadingView.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\ILayerContainerAssets.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\ViewRefCountCollector.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\HelpView.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\ProcedureService.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\SettingsView.cs" />

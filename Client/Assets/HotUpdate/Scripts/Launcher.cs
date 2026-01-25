@@ -23,15 +23,14 @@ public class Launcher : MonoBehaviour
         services.AddHardwareService();
 
         services
-            .AddSingleton<ViewRefCountCollector>()
             .AddWindowService(sp => new Dictionary<ViewLayer, ILayerContainer>
                 {
-                    [ViewLayer.Bg] = new StackLayerContainer<LayerLocator, ViewLocator, SingleViewLoader>(ViewLayer.Bg, warmCapacity: 8),
-                    [ViewLayer.Permanent] = new PopupLayerContainer<LayerLocator, ViewLocator, SingleViewLoader>(ViewLayer.Permanent, warmCapacity: -1),
-                    [ViewLayer.FullScreen] = new StackLayerContainer<LayerLocator, ViewLocator, UnitViewLoader>(ViewLayer.FullScreen, warmCapacity: 8),
-                    [ViewLayer.Window] = new StackLayerContainer<LayerLocator, ViewLocator, SingleViewLoader>(ViewLayer.Window, warmCapacity: 8),
-                    [ViewLayer.Popup] = new PopupLayerContainer<LayerLocator, ViewLocator, MultipleViewLoader>(ViewLayer.Popup, warmCapacity: 8),
-                    [ViewLayer.Tip] = new PopupLayerContainer<LayerLocator, ViewLocator, MultipleViewLoader>(ViewLayer.Tip, warmCapacity: 8),
+                    [ViewLayer.Bg] = new StackLayerContainer<LayerLocator, ViewLocator, SingleViewLoader>(ViewLayer.Bg, capacity: 8),
+                    [ViewLayer.Permanent] = new PopupLayerContainer<LayerLocator, ViewLocator, SingleViewLoader>(ViewLayer.Permanent, capacity: -1),
+                    [ViewLayer.FullScreen] = new StackLayerContainer<LayerLocator, ViewLocator, UnitViewLoader>(ViewLayer.FullScreen, capacity: 8),
+                    [ViewLayer.Window] = new StackLayerContainer<LayerLocator, ViewLocator, SingleViewLoader>(ViewLayer.Window, capacity: 8),
+                    [ViewLayer.Popup] = new PopupLayerContainer<LayerLocator, ViewLocator, MultipleViewLoader>(ViewLayer.Popup, capacity: 8),
+                    [ViewLayer.Tip] = new PopupLayerContainer<LayerLocator, ViewLocator, MultipleViewLoader>(ViewLayer.Tip, capacity: 8),
                     [ViewLayer.System] = new QueueLayerContainer<LayerLocator, ViewLocator, SingleViewLoader>(ViewLayer.System, capacity: 2),
                 }, new Dictionary<ViewLayer, List<Type>>
                 {

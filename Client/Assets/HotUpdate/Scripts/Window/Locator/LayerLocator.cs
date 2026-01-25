@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class LayerLocator : MonoBehaviour, ILayerLocator
 {
-    private ViewRefCountCollector viewRefCountCollector;
-    
     private ILayerContainer layerContainer;
     private ViewLayer viewLayer;
     private IViewLoader viewLoader;
@@ -20,8 +18,6 @@ public class LayerLocator : MonoBehaviour, ILayerLocator
     
     public void Build(ILayerContainer layerContainer, IUICanvasLocator uiCanvasLocator)
     {
-        viewRefCountCollector = Ioc.Default.GetRequiredService<ViewRefCountCollector>();
-        
         this.layerContainer = layerContainer;
         viewLayer = layerContainer.GetViewLayer();
         viewLoader = layerContainer.GetViewLoader();
@@ -78,7 +74,6 @@ public class LayerLocator : MonoBehaviour, ILayerLocator
             view.Hide();
         }
         int uniqueId = UniqueIdGenerator.Default.Create();
-        viewRefCountCollector.RefIncrement(type);
         uniqueTypeDict.Add(uniqueId, type);
         
         uniqueViewDict.Add(uniqueId, view);
@@ -133,7 +128,6 @@ public class LayerLocator : MonoBehaviour, ILayerLocator
             return;
         }
         UniqueIdGenerator.Default.Delete(uniqueId);
-        viewRefCountCollector.RefReduction(type);
 
         if (uniqueViewDict.Remove(uniqueId, out IView view))
         {

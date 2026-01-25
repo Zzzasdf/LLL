@@ -9,7 +9,6 @@ public class StackLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILay
     where TViewLoader: IViewLoader, new()
 {
     private readonly ViewLayer viewLayer;
-    private readonly int warmCapacity;
     private IViewLoader viewLoader;
 
     private TLayerLocator layerLocator;
@@ -17,11 +16,10 @@ public class StackLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILay
     private Stack<int> uniqueIds;
     private Dictionary<int, Stack<int>> stashDict;
     
-    public StackLayerContainer(ViewLayer viewLayer, int warmCapacity)
+    public StackLayerContainer(ViewLayer viewLayer, int capacity)
     {
         this.viewLayer = viewLayer;
-        this.warmCapacity = warmCapacity;
-        viewLoader = new TViewLoader();
+        viewLoader = new TViewLoader().SetCapacity(capacity);
         uniqueIds = new Stack<int>();
         stashDict = new Dictionary<int, Stack<int>>();
     }
@@ -48,10 +46,6 @@ public class StackLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILay
     }
     private void PushAndTryPop(int uniqueId)
     {
-        if (uniqueIds.Count == warmCapacity)
-        {
-            LLogger.FrameWarning($"{nameof(StackLayerContainer<TLayerLocator, TViewLocator, TViewLoader>)} 的容量已超过预警值：{warmCapacity}");
-        }
         if (uniqueIds.Count > 0)
         {
             int hideId = uniqueIds.Peek();

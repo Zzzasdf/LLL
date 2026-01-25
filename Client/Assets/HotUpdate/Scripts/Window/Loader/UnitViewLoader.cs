@@ -5,6 +5,8 @@ using YooAsset;
 
 public class UnitViewLoader : IViewLoader
 {
+    IViewLoader IViewLoader.SetCapacity(int capacity) => this;
+
     bool IViewLoader.TryGetActiveView(Type type, out IView view)
     {
         view = default;

@@ -22,7 +22,7 @@ public class QueueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILay
     {
         this.viewLayer = viewLayer;
         this.capacity = capacity;
-        viewLoader = new TViewLoader();
+        viewLoader = new TViewLoader().SetCapacity(capacity);
         uniqueIds = new List<int>();
         stashDict = new Dictionary<int, Queue<int>>();
     }
