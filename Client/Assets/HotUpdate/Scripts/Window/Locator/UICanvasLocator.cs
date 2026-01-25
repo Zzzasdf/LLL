@@ -4,38 +4,36 @@ using UnityEngine.UI;
 
 public class UICanvasLocator : MonoBehaviour, IUICanvasLocator
 {
-    private Transform canvasRt;
-    private Canvas canvas;
-
     private IViewService viewService;
-    private Dictionary<ViewLayer, LayerLocator> layerLocators;
+    private Dictionary<ViewLayer, ILayerLocator> layerLocators;
+
+    private GameObject go;
+    private Transform rt;
+    private Canvas canvas;
+    private GraphicRaycaster graphicRaycaster;
+    private CanvasScaler canvasScaler;
     
     public void Build(IViewService viewService)
     {
         this.viewService = viewService;
+        layerLocators = new Dictionary<ViewLayer, ILayerLocator>();
+
+        go = gameObject;
+        rt = go.AddComponent<RectTransform>();
         
-        canvasRt = gameObject.AddComponent<RectTransform>();
-        canvas = gameObject.AddComponent<Canvas>();
-        layerLocators = new Dictionary<ViewLayer, LayerLocator>();
-
-        DontDestroyOnLoad(gameObject);
-        BindComponent();
-        CreateLayerLocators();
-    }
-
-    private void BindComponent()
-    {
-        // Canvas 渲染模式
+        canvas = go.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         
-        // 添加必要组件
-        gameObject.AddComponent<GraphicRaycaster>();
-        var scaler = gameObject.AddComponent<CanvasScaler>();
+        graphicRaycaster = go.AddComponent<GraphicRaycaster>();
         
-        // 配置CanvasScaler（适配方案）
-        scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        scaler.referenceResolution = new Vector2(1920, 1080);
-        scaler.matchWidthOrHeight = 0.5f;
+        canvasScaler = go.AddComponent<CanvasScaler>();
+        canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        canvasScaler.referenceResolution = new Vector2(1920, 1080);
+        canvasScaler.matchWidthOrHeight = 0.5f;
+        
+        DontDestroyOnLoad(go);
+        
+        CreateLayerLocators();
     }
 
     private void CreateLayerLocators()
@@ -45,11 +43,11 @@ public class UICanvasLocator : MonoBehaviour, IUICanvasLocator
         {
             ViewLayer viewLayer = pair.Key;
             var layerContainer = pair.Value;
-            GameObject go = new GameObject(viewLayer.ToString());
-            go.transform.SetParent(canvasRt);
-            var layerLocator = go.AddComponent<LayerLocator>();
-            layerLocator.Build();
-            layerContainer.BindLocator(layerLocator);
+            GameObject goLocator = new GameObject(viewLayer.ToString());
+            goLocator.transform.SetParent(rt);
+            
+            var layerLocator = layerContainer.AddLocator(goLocator);
+            layerLocator.Build(layerContainer, this);
             layerLocators.Add(viewLayer, layerLocator);
         }
     }

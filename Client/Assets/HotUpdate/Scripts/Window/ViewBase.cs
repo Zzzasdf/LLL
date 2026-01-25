@@ -7,31 +7,22 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
 {
     private bool unityEvent;
     private bool viewEvent;
-    private bool isShow;
+    private bool isActive;
+
+    private ViewLayer viewLayer;
     
+    private int uniqueId;
     protected TViewModel viewModel { get; private set; }
-    [SerializeField] private ViewLayer viewLayer;
-    [SerializeField] private int refCount;
-    [SerializeField] private int uniqueId;
 
     void IView.BindLayer(ViewLayer viewLayer)
     {
         this.viewLayer = viewLayer;
-        viewModel = Ioc.Default.GetRequiredService<TViewModel>();
     }
 
     ViewLayer IView.GetLayer() => viewLayer;
-    
-    void IView.RefIncrement() => refCount++;
-    void IView.RefReduction() => refCount--;
-    public int GetRefCount() => refCount;
 
-    void IView.BindUniqueId(int uniqueId)
-    {
-        this.uniqueId = uniqueId;
-        IsActive(false);
-        IsActive(true);
-    }
+    void IView.BindUniqueId(int uniqueId) => this.uniqueId = uniqueId;
+
     int IView.GetUniqueId() => uniqueId;
 
     GameObject IView.GameObject() => gameObject;
@@ -46,47 +37,42 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
         viewEvent = true;
         Show_Internal();
     }
-    private void Show_Internal() => IsActive(true);
+    private void Show_Internal()
+    {
+        if (!unityEvent || !viewEvent) return;
+        if (isActive) return;
+        isActive = true;
+        
+        viewModel = ViewModelGenerator.Default.GetOrAdd<TViewModel>(uniqueId);
+        if (viewModel is ObservableRecipient observableRecipient)
+        {
+            observableRecipient.IsActive = isActive;
+            LLogger.Log($"{typeof(TViewModel).Name} IsActive: {isActive}");
+        }
+        BindUI();
+        
+        gameObject.SetActive(true);
+    }
 
     private void OnDestroy() => Hide_Internal();
     void IView.Hide() => Hide_Internal();
-    private void Hide_Internal() => IsActive(false);
-    
-    private void IsActive(bool value)
+    private void Hide_Internal()
     {
         if (!unityEvent || !viewEvent || viewModel == null) return;
+        if (!isActive) return;
+        isActive = false;
+        
+        UnBindUI();
         if (viewModel is ObservableRecipient observableRecipient)
         {
-            observableRecipient.IsActive = value;
-            LLogger.Log($"{typeof(TViewModel).Name} IsActive: {value}");
+            observableRecipient.IsActive = isActive;
+            LLogger.Log($"{typeof(TViewModel).Name} IsActive: {isActive}");
         }
-        if (isShow != value)
-        {
-            isShow = value;
-            if (value)
-            {
-                gameObject.SetActive(true);
-                transform.SetAsLastSibling();
-                BindUI();
-            }
-            else
-            {
-                UnBindUI();
-                gameObject.SetActive(false);
-                if (refCount == 0)
-                {
-                    Destroy(gameObject);
-                }
-            }
-        }
+        viewModel = null;
+        
+        gameObject.SetActive(false);
     }
 
-    protected virtual void BindUI()
-    {
-        
-    }
-    protected virtual void UnBindUI()
-    {
-        
-    }
+    protected abstract void BindUI();
+    protected abstract void UnBindUI();
 }

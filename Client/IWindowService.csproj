@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Services\Window\Interface\ILayerContainer.cs" />
+    <Compile Include="Assets\Services\Window\Interface\IViewLoader.cs" />
     <Compile Include="Assets\Services\Window\Interface\IViewModel.cs" />
+    <Compile Include="Assets\Services\Window\Interface\IViewLocator.cs" />
     <Compile Include="Assets\Services\Window\Interface\IView.cs" />
     <Compile Include="Assets\Services\Window\Interface\IUICanvasLocator.cs" />
     <Compile Include="Assets\Services\Window\Interface\ViewEventDefine.cs" />

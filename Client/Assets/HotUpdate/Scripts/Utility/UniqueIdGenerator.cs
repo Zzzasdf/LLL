@@ -2,15 +2,16 @@ using System.Collections.Generic;
 
 public class UniqueIdGenerator
 {
+    private static UniqueIdGenerator _default = new UniqueIdGenerator();
+    public static UniqueIdGenerator Default => _default;
+    
     private HashSet<int> uniqueIds;
     private int incrementId;
-
-    public UniqueIdGenerator()
+    private UniqueIdGenerator()
     {
         uniqueIds = new HashSet<int>();
     }
-    
-    public int CreateUniqueId()
+    public int Create()
     {
         do
         {
@@ -19,8 +20,7 @@ public class UniqueIdGenerator
         uniqueIds.Add(incrementId);
         return incrementId;
     }
-
-    public bool DeleteUniqueId(int uniqueId)
+    public bool Delete(int uniqueId)
     {
         if (!uniqueIds.Remove(uniqueId))
         {

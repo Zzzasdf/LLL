@@ -1,3 +1,4 @@
+using System;
 using CommunityToolkit.Mvvm.Messaging;
 using Cysharp.Threading.Tasks;
 
@@ -23,6 +24,13 @@ public static class MessengerExtensions
     {
         return UniTask.FromResult(true);
         // return await messenger.Send(new ViewAllHideAsyncRequestEvent());
+    }
+
+    public static async UniTask<ConfirmAgainView> SendViewConfirmAgainShowAsync(this IMessenger messenger, string content, Func<UniTask> confirmFunc)
+    {
+        ConfirmAgainView view = await messenger.SendViewShowAsync<ConfirmAgainView>();
+        messenger.Send(new EventDefine.ConfirmAgainViewEvent(content, confirmFunc));
+        return view;
     }
 #endregion
 

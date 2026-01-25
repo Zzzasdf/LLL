@@ -55,7 +55,7 @@ public class ViewService: ObservableRecipient,
         return view;
     }
 
-    private UniTask<bool> HideAsync_Internal(IView view)
+    private async UniTask<bool> HideAsync_Internal(IView view)
     {
         ViewLayer viewLayer = view.GetLayer();
         ILayerContainer layerContainer = layerContainers[viewLayer];
@@ -63,9 +63,9 @@ public class ViewService: ObservableRecipient,
         int? popId = layerContainer.HideViewTryPop(uniqueId);
         if (!popId.HasValue)
         {
-            return UniTask.FromResult(true);
+            return true;
         }
-        PopShow(viewLayer, popId.Value);
+        await PopShow(viewLayer, popId.Value);
         foreach (var item in Enum.GetValues(typeof(ViewLayer)))
         {
             ViewLayer layer = (ViewLayer)item;
@@ -74,15 +74,15 @@ public class ViewService: ObservableRecipient,
             if (!container.TryStashPop(uniqueId, out Queue<int> storage)) continue;
             foreach (var showUniqueId in storage)
             {
-                PopShow(layer, showUniqueId);
+                await PopShow(layer, showUniqueId);
             }
         }
-        return UniTask.FromResult(true);
+        return true;
     }
-    private void PopShow(ViewLayer viewLayer, int uniqueId)
+    private async UniTask PopShow(ViewLayer viewLayer, int uniqueId)
     {
         ILayerContainer layerContainer = layerContainers[viewLayer];
-        int? removeId = layerContainer.PopViewAndTryRemove(uniqueId);
+        int? removeId = await layerContainer.PopViewAndTryRemove(uniqueId);
         if (!removeId.HasValue) return;
         ClearUpperLayerStash(viewLayer, removeId.Value);
     }

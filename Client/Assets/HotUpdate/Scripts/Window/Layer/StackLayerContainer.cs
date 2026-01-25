@@ -1,38 +1,48 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
-public class StackContainer: ILayerContainer
+public class StackLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILayerContainer
+    where TLayerLocator: MonoBehaviour, ILayerLocator
+    where TViewLocator: MonoBehaviour, IViewLocator
+    where TViewLoader: IViewLoader, new()
 {
-    private readonly LayerContainerAssets layerContainerAssets;
+    private readonly ViewLayer viewLayer;
     private readonly int warmCapacity;
-    
+    private IViewLoader viewLoader;
+
+    private TLayerLocator layerLocator;
+
     private Stack<int> uniqueIds;
     private Dictionary<int, Stack<int>> stashDict;
-
-    public StackContainer(ViewLayer viewLayer, int warmCapacity)
+    
+    public StackLayerContainer(ViewLayer viewLayer, int warmCapacity)
     {
-        layerContainerAssets = new LayerContainerAssets(viewLayer, isMultiple: false);
+        this.viewLayer = viewLayer;
         this.warmCapacity = warmCapacity;
+        viewLoader = new TViewLoader();
         uniqueIds = new Stack<int>();
         stashDict = new Dictionary<int, Stack<int>>();
     }
 
-    void ILayerContainer.BindLocator(ILayerLocator layerLocator) => layerContainerAssets.BindLocator(layerLocator);
+    ILayerLocator ILayerContainer.AddLocator(GameObject goLocator)
+    {
+        layerLocator = goLocator.AddComponent<TLayerLocator>();
+        return layerLocator;
+    }
 
     async UniTask<(IView view, int? removeId)> ILayerContainer.ShowViewAndTryRemoveAsync(Type type)
     {
-        IView view = await layerContainerAssets.ShowViewAsync(type);
+        IView view = await layerLocator.ShowViewAsync(type);
         int uniqueId = view.GetUniqueId();
         PushAndTryPop(uniqueId);
         return (view, null);
     }
-    int? ILayerContainer.PopViewAndTryRemove(int uniqueId)
+    async UniTask<int?> ILayerContainer.PopViewAndTryRemove(int uniqueId)
     {
-        if (!layerContainerAssets.TryPopView(uniqueId))
-        {
-            return null;
-        }
+        bool result = await layerLocator.TryPopViewAsync(uniqueId);
+        if (!result) return null;
         PushAndTryPop(uniqueId);
         return null;
     }
@@ -40,13 +50,12 @@ public class StackContainer: ILayerContainer
     {
         if (uniqueIds.Count == warmCapacity)
         {
-            LLogger.FrameWarning($"{nameof(StackContainer)} 的容量已超过预警值：{warmCapacity}");
+            LLogger.FrameWarning($"{nameof(StackLayerContainer<TLayerLocator, TViewLocator, TViewLoader>)} 的容量已超过预警值：{warmCapacity}");
         }
         if (uniqueIds.Count > 0)
         {
             int hideId = uniqueIds.Peek();
-            IView view = layerContainerAssets.GetView(hideId);
-            view.Hide();
+            layerLocator.PushHideView(hideId);
         }
         uniqueIds.Push(uniqueId);
     }
@@ -54,7 +63,7 @@ public class StackContainer: ILayerContainer
     int? ILayerContainer.HideViewTryPop(int uniqueId)
     {
         int? popId = RemoveAndTryPop(uniqueId);
-        layerContainerAssets.HideView(uniqueId, popId);
+        layerLocator.HideView(uniqueId);
         return popId;
     }
     void ILayerContainer.HideAllView()
@@ -63,7 +72,6 @@ public class StackContainer: ILayerContainer
         {
             int uniqueId = uniqueIds.Pop();
             ILayerContainer layerContainer = this;
-            RemoveAndTryPop(uniqueId);
             layerContainer.HideViewTryPop(uniqueId);
         }
         stashDict.Clear();
@@ -92,8 +100,7 @@ public class StackContainer: ILayerContainer
         }
         foreach (int id in uniqueIds)
         {
-            IView view = layerContainerAssets.GetView(id);
-            view.Hide();
+            layerLocator.PushHideView(id);
             stack.Push(id);
         }
         uniqueIds.Clear();
@@ -112,4 +119,9 @@ public class StackContainer: ILayerContainer
         }
         return true;
     }
+
+    ViewLayer ILayerContainer.GetViewLayer() => viewLayer;
+    IViewLoader ILayerContainer.GetViewLoader() => viewLoader;
+    ILayerLocator ILayerContainer.GetLocator() => layerLocator;
+    void ILayerContainer.AddViewLocator(GameObject goView) => goView.AddComponent<TViewLocator>();
 }

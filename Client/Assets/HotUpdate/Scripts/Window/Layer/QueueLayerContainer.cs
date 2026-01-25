@@ -4,37 +4,46 @@ using System.Linq;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class QueueContainer : ILayerContainer
+public class QueueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILayerContainer
+    where TLayerLocator: MonoBehaviour, ILayerLocator
+    where TViewLocator: MonoBehaviour, IViewLocator
+    where TViewLoader: IViewLoader, new()
 {
-    private readonly LayerContainerAssets layerContainerAssets;
-    private readonly int capacity;
+    private readonly ViewLayer viewLayer;
+    private int capacity;
+    private IViewLoader viewLoader;
     
+    private TLayerLocator layerLocator;
+
     private List<int> uniqueIds;
     private Dictionary<int, Queue<int>> stashDict;
-
-    public QueueContainer(ViewLayer viewLayer, int capacity)
+    
+    public QueueLayerContainer(ViewLayer viewLayer, int capacity)
     {
-        layerContainerAssets = new LayerContainerAssets(viewLayer, isMultiple: false);
+        this.viewLayer = viewLayer;
         this.capacity = capacity;
+        viewLoader = new TViewLoader();
         uniqueIds = new List<int>();
         stashDict = new Dictionary<int, Queue<int>>();
     }
     
-    void ILayerContainer.BindLocator(ILayerLocator layerLocator) => layerContainerAssets.BindLocator(layerLocator);
+    ILayerLocator ILayerContainer.AddLocator(GameObject goLocator)
+    {
+        layerLocator = goLocator.AddComponent<TLayerLocator>();
+        return layerLocator;
+    }
     
     async UniTask<(IView view, int? removeId)> ILayerContainer.ShowViewAndTryRemoveAsync(Type type)
     {
-        IView view = await layerContainerAssets.ShowViewAsync(type);
+        IView view = await layerLocator.ShowViewAsync(type);
         int uniqueId = view.GetUniqueId();
         int? popId = PushAndTryPop(uniqueId);
         return (view, popId);
     }
-    int? ILayerContainer.PopViewAndTryRemove(int uniqueId)
+    async UniTask<int?> ILayerContainer.PopViewAndTryRemove(int uniqueId)
     {
-        if (!layerContainerAssets.TryPopView(uniqueId))
-        {
-            return null;
-        }
+        bool result = await layerLocator.TryPopViewAsync(uniqueId);
+        if (!result) return null;
         return PushAndTryPop(uniqueId);
     }
     private int? PushAndTryPop(int uniqueId)
@@ -50,9 +59,9 @@ public class QueueContainer : ILayerContainer
 
     int? ILayerContainer.HideViewTryPop(int uniqueId)
     {
-        int? popId = PopAndTryPush(uniqueId);
-        layerContainerAssets.HideView(uniqueId, popId);
-        return null;
+        int? popId = RemoveAndTryPop(uniqueId);
+        layerLocator.HideView(uniqueId);
+        return popId;
     }
     void ILayerContainer.HideAllView()
     {
@@ -60,47 +69,34 @@ public class QueueContainer : ILayerContainer
         {
             int uniqueId = uniqueIds.First();
             ILayerContainer layerContainer = this;
-            PopAndTryPush(uniqueId);
             layerContainer.HideViewTryPop(uniqueId);
         }
         stashDict.Clear();
     }
-    private int? PopAndTryPush(int uniqueId)
+    private int? RemoveAndTryPop(int uniqueId)
     {
         int index = uniqueIds.IndexOf(uniqueId);
         uniqueIds.RemoveAt(index);
-        IView removeView = layerContainerAssets.GetView(uniqueId);
         
+        Type removeType = layerLocator.GetViewType(uniqueId);
         // 判断后面是否有同界面资源在启用，如有则不处理
         for (int i = index; i < uniqueIds.Count; i++)
         {
             int nextUniqueId = uniqueIds[i];
-            IView nextView = layerContainerAssets.GetView(nextUniqueId);
-            if (removeView != nextView) continue;
+            Type nextType = layerLocator.GetViewType(nextUniqueId);
+            if (removeType != nextType) continue;
+            if (!layerLocator.ExistInstantiate(nextUniqueId)) continue;
             return null;
         }
-        // 判断前面是否有同界面资源在启用，如有则设置到对应位置
-        Transform removeViewTra = removeView.GameObject().transform;
-        int removeSiblingIndex = removeViewTra.GetSiblingIndex();
-        HashSet<IView> hashSet = new HashSet<IView>();
+        // 判断前面是否有同界面资源在启用
         for (int i = index - 1; i >= 0; i--)
         {
             int previousUniqueId = uniqueIds[i];
-            IView previousView = layerContainerAssets.GetView(previousUniqueId);
-            if (removeView != previousView)
-            {
-                hashSet.Add(previousView);
-            }
-            else
-            {
-                removeViewTra.SetSiblingIndex(removeSiblingIndex - hashSet.Count);
-                return previousUniqueId;
-            }
-        }
-        if (removeView.GetRefCount() - 1 > 0)
-        {
-            // 在贮藏有存在
-            removeView.Hide();
+            Type previousType = layerLocator.GetViewType(previousUniqueId);
+            if (removeType != previousType) continue;
+            if (layerLocator.ExistInstantiate(previousUniqueId)) return null;
+            uniqueIds.RemoveAt(i);
+            return previousUniqueId;
         }
         return null;
     }
@@ -114,8 +110,7 @@ public class QueueContainer : ILayerContainer
         }
         foreach (int id in uniqueIds)
         { 
-            IView view = layerContainerAssets.GetView(id);
-            view.Hide();
+            layerLocator.PushHideView(id);
             queue.Enqueue(id);
         }
         uniqueIds.Clear();
@@ -124,4 +119,9 @@ public class QueueContainer : ILayerContainer
     {
         return stashDict.Remove(uniqueId, out popIds);
     }
+    
+    ViewLayer ILayerContainer.GetViewLayer() => viewLayer;
+    IViewLoader ILayerContainer.GetViewLoader() => viewLoader;
+    ILayerLocator ILayerContainer.GetLocator() => layerLocator;
+    void ILayerContainer.AddViewLocator(GameObject goView) => goView.AddComponent<TViewLocator>();
 }

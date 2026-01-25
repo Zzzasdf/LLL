@@ -23,18 +23,16 @@ public class Launcher : MonoBehaviour
         services.AddHardwareService();
 
         services
-            .AddTransient<StackContainer>()
-            .AddTransient<QueueContainer>()
-            .AddTransient<PopupContainer>()
+            .AddSingleton<ViewRefCountCollector>()
             .AddWindowService(sp => new Dictionary<ViewLayer, ILayerContainer>
                 {
-                    [ViewLayer.Bg] = new StackContainer(ViewLayer.Bg, warmCapacity: 8),
-                    [ViewLayer.Permanent] = new PopupContainer(ViewLayer.Permanent, warmCapacity: -1),
-                    [ViewLayer.FullScreen] = new StackContainer(ViewLayer.FullScreen, warmCapacity: 8),
-                    [ViewLayer.Window] = new StackContainer(ViewLayer.Window, warmCapacity: 8),
-                    [ViewLayer.Popup] = new PopupContainer(ViewLayer.Popup, warmCapacity: 8),
-                    [ViewLayer.Tip] = new PopupContainer(ViewLayer.Tip, warmCapacity: 8),
-                    [ViewLayer.System] = new QueueContainer(ViewLayer.System, capacity: 2),
+                    [ViewLayer.Bg] = new StackLayerContainer<LayerLocator, ViewLocator, SingleViewLoader>(ViewLayer.Bg, warmCapacity: 8),
+                    [ViewLayer.Permanent] = new PopupLayerContainer<LayerLocator, ViewLocator, SingleViewLoader>(ViewLayer.Permanent, warmCapacity: -1),
+                    [ViewLayer.FullScreen] = new StackLayerContainer<LayerLocator, ViewLocator, UnitViewLoader>(ViewLayer.FullScreen, warmCapacity: 8),
+                    [ViewLayer.Window] = new StackLayerContainer<LayerLocator, ViewLocator, SingleViewLoader>(ViewLayer.Window, warmCapacity: 8),
+                    [ViewLayer.Popup] = new PopupLayerContainer<LayerLocator, ViewLocator, MultipleViewLoader>(ViewLayer.Popup, warmCapacity: 8),
+                    [ViewLayer.Tip] = new PopupLayerContainer<LayerLocator, ViewLocator, MultipleViewLoader>(ViewLayer.Tip, warmCapacity: 8),
+                    [ViewLayer.System] = new QueueLayerContainer<LayerLocator, ViewLocator, SingleViewLoader>(ViewLayer.System, capacity: 2),
                 }, new Dictionary<ViewLayer, List<Type>>
                 {
                     [ViewLayer.Bg] = new List<Type>
@@ -56,13 +54,14 @@ public class Launcher : MonoBehaviour
                     },
                     [ViewLayer.Popup] = new List<Type>
                     {
-                        AddView<HelpView, HelpViewModel>(services),
+                        AddView<ConfirmAgainView, ConfirmAgainViewModel>(services),
                     },
                     [ViewLayer.Tip] = new List<Type>
                     {
                     },
                     [ViewLayer.System] = new List<Type>
                     {
+                        AddView<HelpView, HelpViewModel>(services),
                         AddView<LoadingView, LoadingViewModel>(services),
                     },
                 }

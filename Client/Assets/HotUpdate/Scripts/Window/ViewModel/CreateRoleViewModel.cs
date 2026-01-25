@@ -32,11 +32,14 @@ public partial class CreateRoleViewModel : ObservableRecipient,
     private void Confirm() => ConfirmAsync().Forget();
     private async UniTask ConfirmAsync()
     {
-        var accountRoleSimpleModel = accountModel.GetSelectedAccountRoleSimpleModel();
-        accountRoleSimpleModel.Id = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-        accountRoleSimpleModel.Name = roleName;
-        accountRoleSimpleModel.Level = 1;
-        await WeakReferenceMessenger.Default.SendDataSaveAccountLevelAsync(accountModel);
-        WeakReferenceMessenger.Default.SendProcedureSwap(ProcedureService.GameState.Init);
+        await WeakReferenceMessenger.Default.SendViewConfirmAgainShowAsync("Are you sure?", async () =>
+        {
+            var accountRoleSimpleModel = accountModel.GetSelectedAccountRoleSimpleModel();
+            accountRoleSimpleModel.Id = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            accountRoleSimpleModel.Name = roleName;
+            accountRoleSimpleModel.Level = 1;
+            await WeakReferenceMessenger.Default.SendDataSaveAccountLevelAsync(accountModel);
+            WeakReferenceMessenger.Default.SendProcedureSwap(ProcedureService.GameState.Init);
+        });
     }
 }
