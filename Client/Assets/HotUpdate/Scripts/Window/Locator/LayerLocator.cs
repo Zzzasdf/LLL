@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -129,7 +130,25 @@ public class LayerLocator : MonoBehaviour, ILayerLocator
         view.Show();
         return true;
     }
-    
+
+    async UniTask<bool> ILayerLocator.TryPopViewAsync(Queue<int> uniqueIds)
+    {
+        ILayerLocator layerLocator = this;
+        HashSet<Type> viewTypes = new HashSet<Type>();
+        foreach (var uniqueId in uniqueIds)
+        {
+            if (uniqueViewDict.TryGetValue(uniqueId, out IView view))
+            {
+                viewTypes.Add(view.GetType());
+                continue;
+            }
+            Type type = uniqueTypeDict[uniqueId];
+            if (!viewTypes.Add(type)) continue;
+            await layerLocator.TryPopViewAsync(uniqueId, 0);
+        }
+        return true;
+    }
+
     void ILayerLocator.HideView(int uniqueId)
     {
         if (!uniqueTypeDict.Remove(uniqueId))

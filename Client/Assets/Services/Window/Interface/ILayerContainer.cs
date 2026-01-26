@@ -9,6 +9,7 @@ public interface ILayerContainer
     
     UniTask<(IView view, int? removeId)> ShowViewAndTryRemoveAsync(Type type);
     UniTask<int?> PopViewAndTryRemove(int uniqueId, int siblingIndex);
+    UniTask<int?> PopViewAndTryRemove(Queue<int> uniqueIds);
 
     (int? popId, int siblingIndex) HideViewTryPop(int uniqueId);
     /// 隐藏所有激活 + 暂存界面

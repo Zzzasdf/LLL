@@ -48,6 +48,11 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
         await layerLocator.TryPopViewAsync(uniqueId, siblingIndex);
         return null;
     }
+    async UniTask<int?> ILayerContainer.PopViewAndTryRemove(Queue<int> uniqueIds)
+    {
+        await layerLocator.TryPopViewAsync(uniqueIds);
+        return null;
+    }
 
     (int? popId, int siblingIndex) ILayerContainer.HideViewTryPop(int uniqueId)
     {
@@ -125,11 +130,6 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
         if (!stashDict.Remove(uniqueId, out Stack<int> stack))
         {
             return false;
-        }
-        if (uniqueIds.Count > 0)
-        {
-            int id = uniqueIds.Peek();
-            layerLocator.PushHideView(id);
         }
         popIds = new Queue<int>();
         while (stack.Count > 0)

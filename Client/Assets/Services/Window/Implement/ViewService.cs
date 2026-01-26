@@ -80,11 +80,8 @@ public class ViewService: ObservableRecipient,
             ViewLayer layer = (ViewLayer)item;
             if (layer <= viewLayer) continue;
             ILayerContainer container = layerContainers[layer];
-            if (!container.TryStashPop(uniqueId, out Queue<int> storage)) continue;
-            foreach (var showUniqueId in storage)
-            {
-                await PopShow(layer, showUniqueId, -1);
-            }
+            if (!container.TryStashPop(uniqueId, out Queue<int> stashIds)) continue;
+            await PopShow(layer, stashIds);
         }
         return true;
     }
@@ -92,6 +89,13 @@ public class ViewService: ObservableRecipient,
     {
         ILayerContainer layerContainer = layerContainers[viewLayer];
         int? removeId = await layerContainer.PopViewAndTryRemove(uniqueId, siblingIndex);
+        if (!removeId.HasValue) return;
+        await ClearUpperLayerStash(viewLayer, removeId.Value);
+    }
+    private async UniTask PopShow(ViewLayer viewLayer, Queue<int> stashIds)
+    {
+        ILayerContainer layerContainer = layerContainers[viewLayer];
+        int? removeId = await layerContainer.PopViewAndTryRemove(stashIds);
         if (!removeId.HasValue) return;
         await ClearUpperLayerStash(viewLayer, removeId.Value);
     }
@@ -106,10 +110,7 @@ public class ViewService: ObservableRecipient,
             if (layer <= viewLayer) continue;
             ILayerContainer container = layerContainers[layer];
             if (!container.TryStashPop(uniqueId, out Queue<int> stashIds)) continue;
-            foreach (var stashId in stashIds)
-            {
-                await ClearUpperLayerStash(layer, stashId);
-            }
+            await PopShow(layer, stashIds);
         }
         (int? popId, int siblingIndex) = layerContainer.HideViewTryPop(uniqueId);
         if (popId.HasValue)

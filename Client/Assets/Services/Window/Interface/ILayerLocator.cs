@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 
 public interface ILayerLocator
@@ -13,6 +14,8 @@ public interface ILayerLocator
     
     UniTask<IView> ShowViewAsync(Type type);
     UniTask<bool> TryPopViewAsync(int uniqueId, int siblingIndex);
+    UniTask<bool> TryPopViewAsync(Queue<int> uniqueIds);
+
     void HideView(int uniqueId);
     void PushHideView(int uniqueId);
 }

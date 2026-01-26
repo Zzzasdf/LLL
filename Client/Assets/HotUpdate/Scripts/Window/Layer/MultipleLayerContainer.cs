@@ -15,14 +15,14 @@ public class MultipleLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: I
     private TLayerLocator layerLocator;
 
     private List<int> uniqueIds;
-    private Dictionary<int, Queue<int>> stashDict;
+    private Dictionary<int, Stack<int>> stashDict;
 
     public MultipleLayerContainer(ViewLayer viewLayer, int poolCapacity)
     {
         this.viewLayer = viewLayer;
         viewLoader = new TViewLoader().SetCapacity(poolCapacity);
         uniqueIds = new List<int>();
-        stashDict = new Dictionary<int, Queue<int>>();
+        stashDict = new Dictionary<int, Stack<int>>();
     }
     
     ILayerLocator ILayerContainer.AddLocator(GameObject goLocator)
@@ -43,7 +43,12 @@ public class MultipleLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: I
         await layerLocator.TryPopViewAsync(uniqueId, siblingIndex);
         return null;
     }
-
+    async UniTask<int?> ILayerContainer.PopViewAndTryRemove(Queue<int> uniqueIds)
+    {
+        await layerLocator.TryPopViewAsync(uniqueIds);
+        return null;
+    }
+    
     (int? popId, int siblingIndex) ILayerContainer.HideViewTryPop(int uniqueId)
     {
         if (!TryRemoveAndTryPop(uniqueId, out (int? popId, int siblingIndex) pop))
@@ -75,8 +80,8 @@ public class MultipleLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: I
     {
         foreach (var pair in stashDict)
         {
-            Queue<int> queue = pair.Value;
-            foreach (var uniqueId in queue)
+            Stack<int> stack = pair.Value;
+            foreach (var uniqueId in stack)
             {
                 layerLocator.HideView(uniqueId);
             }
@@ -125,45 +130,34 @@ public class MultipleLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: I
     void ILayerContainer.Stash(int uniqueId)
     {
         if (uniqueIds.Count == 0) return;
-        if (!stashDict.TryGetValue(uniqueId, out Queue<int> stack))
+        if (!stashDict.TryGetValue(uniqueId, out Stack<int> stack))
         {
-            stashDict.Add(uniqueId, stack = new Queue<int>());
+            stashDict.Add(uniqueId, stack = new Stack<int>());
         }
         foreach (int id in uniqueIds)
         {
             layerLocator.PushHideView(id);
-            stack.Enqueue(id);
+            stack.Push(id);
         }
         uniqueIds.Clear();
     }
     bool ILayerContainer.TryStashPop(int uniqueId, out Queue<int> popIds)
     {
         popIds = null;
-        if (!stashDict.Remove(uniqueId, out Queue<int> queue))
+        if (!stashDict.Remove(uniqueId, out Stack<int> stack))
         {
             return false;
         }
+        popIds = new Queue<int>();
         for (int i = uniqueIds.Count - 1; i >= 0; i--)
         {
             int id = uniqueIds[i];
-            if (!layerLocator.ExistInstantiate(id)) continue;
-            layerLocator.PushHideView(id);
-        }
-        popIds = new Queue<int>();
-        while (queue.Count > 0)
-        {
-            int id = queue.Dequeue();
             popIds.Enqueue(id);
         }
-        for (int i = 0; i < uniqueIds.Count; i++)
+        foreach (var id in stack)
         {
-            int id = uniqueIds[i];
             popIds.Enqueue(id);
-        }
-        uniqueIds.Clear();
-        foreach (var id in popIds)
-        {
-            uniqueIds.Add(id);
+            uniqueIds.Insert(0, id);
         }
         return true;
     }

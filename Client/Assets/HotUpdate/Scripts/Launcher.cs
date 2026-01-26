@@ -44,7 +44,6 @@ public class Launcher : MonoBehaviour
                     [ViewLayer.FullScreen] = new List<Type>
                     {
                         AddView<StartView, StartViewModel>(services),
-                        AddViewWithAccount<SettingsView, SettingsViewModel, GlobalSettingsModel>(services),
                         AddViewWithAccount<SelectRoleView, SelectRoleViewModel, AccountModel>(services),
                         AddViewWithAccount<CreateRoleView, CreateRoleViewModel, AccountModel>(services),
                     },
@@ -55,6 +54,7 @@ public class Launcher : MonoBehaviour
                     {
                         AddView<ConfirmAgainView, ConfirmAgainViewModel>(services),
                         AddView<HelpView, HelpViewModel>(services),
+                        AddViewWithAccount<SettingsView, SettingsViewModel, GlobalSettingsModel>(services),
                     },
                     [ViewLayer.Tip] = new List<Type>
                     {
