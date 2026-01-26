@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using YooAsset;
 
 public class MultipleViewLoader : IViewLoader
 {
+    private int capacity;
     private List<Type> iteration;
     private Dictionary<Type, Queue<IView>> pools;
 
@@ -15,7 +17,8 @@ public class MultipleViewLoader : IViewLoader
     }
     IViewLoader IViewLoader.SetCapacity(int capacity)
     {
-        iteration = new List<Type>(capacity);
+        this.capacity = capacity;
+        iteration = capacity > 0 ? new List<Type>(capacity) : new List<Type>();
         return this;
     }
     
@@ -67,7 +70,13 @@ public class MultipleViewLoader : IViewLoader
     void IViewLoader.ReleaseView(IView view)
     {
         Type type = view.GetType();
-        if (iteration.Count == iteration.Capacity)
+        iteration.Add(type);
+        if (!pools.TryGetValue(type, out Queue<IView> queue))
+        {
+            pools.Add(type, queue = new Queue<IView>());
+        }
+        queue.Enqueue(view);
+        if (iteration.Count > capacity)
         {
             Type removeType = iteration[0];
             iteration.RemoveAt(0);
@@ -79,10 +88,35 @@ public class MultipleViewLoader : IViewLoader
             }
             UnityEngine.Object.Destroy(removeView.GameObject());
         }
-        if (!pools.TryGetValue(type, out Queue<IView> queue))
+    }
+    
+    string IViewLoader.ToString()
+    {
+        StringBuilder sb = new StringBuilder(GetType().Name);
+        sb.AppendLine($" capacity => {capacity}");
+
+        int index = 0;
+        sb.AppendLine($"iteration => ");
+        foreach (var item in iteration)
         {
-            pools.Add(type, queue = new Queue<IView>());
+            sb.AppendLine($"[{index}] => {item}");
+            index++;
         }
-        queue.Enqueue(view);
+        
+        index = 0;
+        sb.AppendLine("pools => ");
+        foreach (var pair in pools)
+        {
+            int queueIndex = 0;
+            StringBuilder sbQueue = new StringBuilder();
+            foreach (var uniqueId in pair.Value)
+            {
+                sbQueue.Append($"[{queueIndex}] => {uniqueId}");
+                queueIndex++;
+            }
+            sb.AppendLine($"[{index}] => key: {pair.Key}, value: {sbQueue}");
+            index++;
+        }
+        return sb.ToString();
     }
 }

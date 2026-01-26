@@ -1,16 +1,19 @@
-using System.Collections.Generic;
+using System;
 using CommunityToolkit.Mvvm.DependencyInjection;
+using UnityEngine;
 
+[Serializable]
 public class ViewModelGenerator
 {
     private static ViewModelGenerator _default = new ViewModelGenerator();
     public static ViewModelGenerator Default => _default;
     
-    private Dictionary<int, IViewModel> viewModels;
+    [SerializeField]
+    private SerializableDictionary<int, IViewModel> viewModels;
 
     private ViewModelGenerator()
     {
-        viewModels = new Dictionary<int, IViewModel>();
+        viewModels = new SerializableDictionary<int, IViewModel>();
     }
     
     public TViewModel GetOrAdd<TViewModel>(int uniqueId) where TViewModel: class, IViewModel
@@ -22,7 +25,7 @@ public class ViewModelGenerator
         }
         return viewModel as TViewModel;
     }
-    public bool Remove(int uniqueId)
+    public bool Delete(int uniqueId)
     {
         if (!viewModels.Remove(uniqueId))
         {

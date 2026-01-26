@@ -25,13 +25,13 @@ public class Launcher : MonoBehaviour
         services
             .AddWindowService(sp => new Dictionary<ViewLayer, ILayerContainer>
                 {
-                    [ViewLayer.Bg] = new StackLayerContainer<LayerLocator, ViewLocator, SingleViewLoader>(ViewLayer.Bg, capacity: 8),
-                    [ViewLayer.Permanent] = new PopupLayerContainer<LayerLocator, ViewLocator, SingleViewLoader>(ViewLayer.Permanent, capacity: -1),
-                    [ViewLayer.FullScreen] = new StackLayerContainer<LayerLocator, ViewLocator, UnitViewLoader>(ViewLayer.FullScreen, capacity: 8),
-                    [ViewLayer.Window] = new StackLayerContainer<LayerLocator, ViewLocator, SingleViewLoader>(ViewLayer.Window, capacity: 8),
-                    [ViewLayer.Popup] = new PopupLayerContainer<LayerLocator, ViewLocator, MultipleViewLoader>(ViewLayer.Popup, capacity: 8),
-                    [ViewLayer.Tip] = new PopupLayerContainer<LayerLocator, ViewLocator, MultipleViewLoader>(ViewLayer.Tip, capacity: 8),
-                    [ViewLayer.System] = new QueueLayerContainer<LayerLocator, ViewLocator, SingleViewLoader>(ViewLayer.System, capacity: 2),
+                    [ViewLayer.Bg] = new UniqueLayerContainer<LayerLocator, ViewLocator, UniqueViewLoader>(ViewLayer.Bg, poolCapacity: 1),
+                    [ViewLayer.Permanent] = new MultipleLayerContainer<LayerLocator, ViewLocator, UniqueViewLoader>(ViewLayer.Permanent, poolCapacity: 1),
+                    [ViewLayer.FullScreen] = new UniqueLayerContainer<LayerLocator, ViewLocator, UniqueViewLoader>(ViewLayer.FullScreen, poolCapacity: 1),
+                    [ViewLayer.Window] = new UniqueLayerContainer<LayerLocator, ViewLocator, UniqueViewLoader>(ViewLayer.Window, poolCapacity: 1),
+                    [ViewLayer.Popup] = new MultipleLayerContainer<LayerLocator, ViewLocator, UniqueViewLoader>(ViewLayer.Popup, poolCapacity: 1),
+                    [ViewLayer.Tip] = new MultipleLayerContainer<LayerLocator, ViewLocator, UniqueViewLoader>(ViewLayer.Tip, poolCapacity: 1),
+                    [ViewLayer.System] = new UniqueLayerContainer<LayerLocator, ViewLocator, UniqueViewLoader>(ViewLayer.System, poolCapacity: 1),
                 }, new Dictionary<ViewLayer, List<Type>>
                 {
                     [ViewLayer.Bg] = new List<Type>
@@ -54,13 +54,13 @@ public class Launcher : MonoBehaviour
                     [ViewLayer.Popup] = new List<Type>
                     {
                         AddView<ConfirmAgainView, ConfirmAgainViewModel>(services),
+                        AddView<HelpView, HelpViewModel>(services),
                     },
                     [ViewLayer.Tip] = new List<Type>
                     {
                     },
                     [ViewLayer.System] = new List<Type>
                     {
-                        AddView<HelpView, HelpViewModel>(services),
                         AddView<LoadingView, LoadingViewModel>(services),
                     },
                 }

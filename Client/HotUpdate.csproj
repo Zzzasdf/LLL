@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\StartViewModel.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\DataStructures\SerializableStack.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Asset\AssetBaseLoader.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Model\RoleModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Loader\MultipleViewLoader.cs" />
@@ -58,7 +59,6 @@
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\CreateRoleView.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureInit.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\TestUnityEvent.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\Loader\SingleViewLoader.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Event\MessengerExtensions.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Utility\UniqueIdGenerator.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Asset\PhotographyLoader.cs" />
@@ -71,32 +71,32 @@
     <Compile Include="Assets\HotUpdate\Scripts\Message.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Context.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureStart.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\MultipleLayerContainer.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\Loader\UniqueViewLoader.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\MainView.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\PopupLayerContainer.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\UniqueLayerContainer.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Locator\UICanvasLocator.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\StackLayerContainer.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureBattle.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\SettingsViewModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\SelectRoleViewModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedurePreload.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\StartView.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\MainViewModel.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\DataStructures\SerializableHashSet.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Loader\UnitViewLoader.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Locator\ViewLocator.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\LayerContainerAssets.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Model\ModelServiceCollectionServiceExtensions.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewBase.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\HelpViewModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureSelectRole.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\DataStructures\SerializableDictionary.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\ConfirmAgainView.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\SelectRoleView.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\LoadingViewModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\LoadingView.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\ILayerContainerAssets.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\HelpView.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\ProcedureService.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\SettingsView.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\Layer\QueueLayerContainer.cs" />
     <None Include="Assets\HotUpdate\Scripts\HotUpdate.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>C:\UnityEditor\2022.3.15f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

@@ -11,7 +11,7 @@ public class CreateRoleView : ViewBase<CreateRoleViewModel>
     protected override void BindUI()
     {
         ifName.onEndEdit.AddListener(roleName => viewModel.SetRoleNameCommand.Execute(roleName));
-        btnCancel.onClick.AddListener(() => viewModel.CancelCommand.Execute(null));
+        btnCancel.onClick.AddListener(() => viewModel.CancelCommand.Execute(this));
         btnConfirm.onClick.AddListener(() => viewModel.ConfirmCommand.Execute(null));
     }
 

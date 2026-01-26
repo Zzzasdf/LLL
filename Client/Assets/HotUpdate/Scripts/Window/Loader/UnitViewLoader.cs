@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using YooAsset;
@@ -48,5 +49,11 @@ public class UnitViewLoader : IViewLoader
     void IViewLoader.ReleaseView(IView view)
     {
         UnityEngine.Object.Destroy(view.GameObject());
+    }
+
+    string IViewLoader.ToString()
+    {
+        StringBuilder sb = new StringBuilder(GetType().Name);
+        return sb.ToString();
     }
 }

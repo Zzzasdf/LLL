@@ -1,5 +1,4 @@
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.DependencyInjection;
 using UnityEngine;
 
 public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
@@ -9,8 +8,9 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
     private bool viewEvent;
     private bool isActive;
 
+    [SerializeField]
     private ViewLayer viewLayer;
-    
+    [SerializeField]
     private int uniqueId;
     protected TViewModel viewModel { get; private set; }
 
@@ -21,7 +21,10 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
 
     ViewLayer IView.GetLayer() => viewLayer;
 
-    void IView.BindUniqueId(int uniqueId) => this.uniqueId = uniqueId;
+    void IView.BindUniqueId(int uniqueId)
+    {
+        this.uniqueId = uniqueId;
+    }
 
     int IView.GetUniqueId() => uniqueId;
 

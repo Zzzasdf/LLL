@@ -1,16 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using YooAsset;
 
-public class SingleViewLoader : IViewLoader
+public class UniqueViewLoader : IViewLoader
 {
+    private int capacity;
     private List<Type> iteration;
     private Dictionary<Type, IView> pools;
     private Dictionary<Type, IView> actives;
 
-    public SingleViewLoader()
+    public UniqueViewLoader()
     {
         iteration = new List<Type>();
         pools = new Dictionary<Type, IView>();
@@ -18,7 +20,8 @@ public class SingleViewLoader : IViewLoader
     }
     IViewLoader IViewLoader.SetCapacity(int capacity)
     {
-        iteration = new List<Type>(capacity);
+        this.capacity = capacity;
+        iteration = capacity > 0 ? new List<Type>(capacity) : new List<Type>();
         return this;
     }
 
@@ -70,7 +73,9 @@ public class SingleViewLoader : IViewLoader
     {
         Type type = view.GetType();
         actives.Remove(type);
-        if (iteration.Count == iteration.Capacity)
+        iteration.Add(type);
+        pools.Add(type, view);
+        if (iteration.Count > capacity)
         {
             Type removeType = iteration[0];
             iteration.RemoveAt(0);
@@ -78,7 +83,36 @@ public class SingleViewLoader : IViewLoader
             pools.Remove(removeType);
             UnityEngine.Object.Destroy(removeView.GameObject());
         }
-        iteration.Add(type);
-        pools.Add(type, view);
+    }
+    
+    string IViewLoader.ToString()
+    {
+        StringBuilder sb = new StringBuilder(GetType().Name);
+        sb.AppendLine($" capacity => {capacity}");
+
+        int index = 0;
+        sb.AppendLine($"iteration => ");
+        foreach (var item in iteration)
+        {
+            sb.AppendLine($"[{index}] => {item}");
+            index++;
+        }
+        
+        index = 0;
+        sb.AppendLine("pools => ");
+        foreach (var pair in pools)
+        {
+            sb.AppendLine($"[{index}] => key: {pair.Key}, value: {pair.Value}");
+            index++;
+        }
+
+        index = 0;
+        sb.AppendLine("actives => ");
+        foreach (var pair in actives)
+        {
+            sb.AppendLine($"[{index}] => key: {pair.Key}, value: {pair.Value}");
+            index++;
+        }
+        return sb.ToString();
     }
 }

@@ -1,4 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using Cysharp.Threading.Tasks;
 
 public partial class SettingsViewModel : ObservableObject, IViewModel
 {
@@ -8,5 +11,12 @@ public partial class SettingsViewModel : ObservableObject, IViewModel
     public SettingsViewModel(IDataService dataService, GlobalSettingsModel globalSettingsModel)
     {
         
+    }
+    
+    [RelayCommand]
+    private void Close(IView view) => CloseAsync(view).Forget();
+    private async UniTask CloseAsync(IView view)
+    {
+        await WeakReferenceMessenger.Default.SendViewHideAsync(view);
     }
 }

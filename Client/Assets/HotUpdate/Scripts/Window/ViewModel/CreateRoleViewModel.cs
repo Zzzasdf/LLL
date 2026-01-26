@@ -23,9 +23,10 @@ public partial class CreateRoleViewModel : ObservableRecipient,
     }
 
     [RelayCommand]
-    private void Cancel()
+    private void Cancel(IView view) => CancelAsync(view).Forget();
+    private async UniTask CancelAsync(IView view)
     {
-        WeakReferenceMessenger.Default.SendProcedureSwap(ProcedureService.GameState.SelectRole);
+        await WeakReferenceMessenger.Default.SendViewHideAsync(view);
     }
 
     [RelayCommand]

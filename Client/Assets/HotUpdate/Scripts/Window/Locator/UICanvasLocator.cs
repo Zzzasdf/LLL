@@ -13,6 +13,9 @@ public class UICanvasLocator : MonoBehaviour, IUICanvasLocator
     private GraphicRaycaster graphicRaycaster;
     private CanvasScaler canvasScaler;
     
+    [SerializeField]
+    private ViewModelGenerator viewModelGenerator = ViewModelGenerator.Default;
+    
     public void Build(IViewService viewService)
     {
         this.viewService = viewService;

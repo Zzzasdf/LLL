@@ -8,4 +8,6 @@ public interface IViewLoader
     bool TryGetPoolView(Type type, out IView view);
     UniTask<IView> CreateView(Type type);
     void ReleaseView(IView view);
+
+    string ToString();
 }
