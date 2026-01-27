@@ -5,7 +5,7 @@ namespace MacroDefinerModule
 {
     public enum EMacroDefiner
     {
-        DOTWEEN = 1,
+        UNITASK_DOTWEEN_SUPPORT = 1,
 
         FRAME_ERROR = 10001,
         FRAME_WARNING = 10002,
@@ -24,7 +24,7 @@ namespace MacroDefinerModule
         (
             new Dictionary<EMacroDefiner, DefineNode>
             {
-                [EMacroDefiner.DOTWEEN] = new DefineNode(EMacroDefiner.DOTWEEN, "Tween"),
+                [EMacroDefiner.UNITASK_DOTWEEN_SUPPORT] = new DefineNode(EMacroDefiner.UNITASK_DOTWEEN_SUPPORT, "UniTask Tween  支持"),
 
                 [EMacroDefiner.FRAME_ERROR] = new DefineNode(EMacroDefiner.FRAME_ERROR, "框架_Error"),
                 [EMacroDefiner.FRAME_WARNING] = new DefineNode(EMacroDefiner.FRAME_WARNING, "框架_Warning"),
@@ -53,7 +53,7 @@ namespace MacroDefinerModule
         /// 固定宏
         private List<EMacroDefiner> fixedDefines = new List<EMacroDefiner>
         {
-            EMacroDefiner.DOTWEEN,
+            EMacroDefiner.UNITASK_DOTWEEN_SUPPORT,
         };
         // 可选宏
         private List<EMacroDefiner> optionalDefines = new List<EMacroDefiner>
@@ -75,14 +75,14 @@ namespace MacroDefinerModule
             {
                 [EMode.Development] = ("开发模式", new List<EMacroDefiner>
                 {
-                    EMacroDefiner.DOTWEEN,
+                    EMacroDefiner.UNITASK_DOTWEEN_SUPPORT,
                     EMacroDefiner.FRAME_LOG,
                     EMacroDefiner.LOG,
                     EMacroDefiner.POOLED_EXCEPTION,
                 }),
                 [EMode.Releases] = ("发布模式", new List<EMacroDefiner>
                 {
-                    EMacroDefiner.DOTWEEN,
+                    EMacroDefiner.UNITASK_DOTWEEN_SUPPORT,
                     EMacroDefiner.FRAME_ERROR,
                     EMacroDefiner.ERROR,
                 }),

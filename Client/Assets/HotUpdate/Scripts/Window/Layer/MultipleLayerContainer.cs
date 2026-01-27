@@ -107,7 +107,7 @@ public class MultipleLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: I
         }
         foreach (int id in uniqueIds)
         {
-            layerLocator.PushHideView(id);
+            layerLocator.PushHideView(id).Forget();
             list.Add(id);
         }
         uniqueIds.Clear();
@@ -141,7 +141,7 @@ public class MultipleLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: I
     ViewLayer ILayerContainer.GetViewLayer() => viewLayer;
     IViewLoader ILayerContainer.GetViewLoader() => viewLoader;
     ILayerLocator ILayerContainer.GetLocator() => layerLocator;
-    void ILayerContainer.AddViewLocator(GameObject goView) => goView.AddComponent<TViewLocator>();
+    IViewLocator ILayerContainer.AddViewLocator(GameObject goView) => goView.AddComponent<TViewLocator>();
 
     string ILayerContainer.ToString()
     {

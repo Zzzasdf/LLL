@@ -5,13 +5,13 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using YooAsset;
 
-public class MultipleViewLoader : IViewLoader
+public class ViewMultipleLoader : IViewLoader
 {
     private int capacity;
     private List<Type> iteration;
     private Dictionary<Type, Queue<IView>> pools;
 
-    public MultipleViewLoader()
+    public ViewMultipleLoader()
     {
         pools = new Dictionary<Type, Queue<IView>>();
     }

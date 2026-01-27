@@ -10,6 +10,13 @@ public class StartView : ViewBase<StartViewModel>
     [SerializeField] private Button btnQuit;
     [SerializeField] private Button btnClose;
 
+    protected override void InitUI()
+    {
+    }
+    protected override void DestroyUI()
+    {
+    }
+
     protected override void BindUI()
     {
         // 绑定命令到按钮

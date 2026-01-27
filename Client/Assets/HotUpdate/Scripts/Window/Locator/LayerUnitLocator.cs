@@ -24,7 +24,11 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
         viewLoader = layerContainer.GetViewLoader();
         
         this.uiCanvasLocator = uiCanvasLocator;
-        thisRt = gameObject.AddComponent<RectTransform>();
+        thisRt = gameObject.GetComponent<RectTransform>();
+        if (thisRt == null)
+        {
+            thisRt = gameObject.AddComponent<RectTransform>();
+        }
 
         uniqueTypeDict = new SerializableDictionary<int, Type>();
         uniqueViewDict = new SerializableDictionary<int, IView>();
@@ -63,7 +67,9 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
                 windowRt.anchorMax = Vector2.one;
                 windowRt.offsetMin = Vector2.zero;
                 windowRt.offsetMax = Vector2.zero;
-                layerContainer.AddViewLocator(goView);
+                IViewLocator viewLocator = layerContainer.AddViewLocator(goView);
+                view.BindLocator(viewLocator);
+                await UniTask.WaitUntil(() => viewLocator.AnimationInit);
             }
         }
         else
@@ -128,7 +134,9 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
                 windowRt.anchorMax = Vector2.one;
                 windowRt.offsetMin = Vector2.zero;
                 windowRt.offsetMax = Vector2.zero;
-                layerContainer.AddViewLocator(goView);
+                IViewLocator viewLocator = layerContainer.AddViewLocator(goView);
+                view.BindLocator(viewLocator);
+                await UniTask.WaitUntil(() => viewLocator.AnimationInit);
             }
         }
         else
@@ -146,7 +154,7 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
         return true;
     }
 
-    void ILayerLocator.HideView(int uniqueId)
+    async UniTask ILayerLocator.HideView(int uniqueId)
     {
         if (!uniqueTypeDict.Remove(uniqueId))
         {
@@ -164,7 +172,7 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
         CheckUniqueViewDictCount();
     }
 
-    void ILayerLocator.PushHideView(int uniqueId)
+    async UniTask ILayerLocator.PushHideView(int uniqueId)
     {
         if (!uniqueViewDict.Remove(uniqueId, out IView view))
         {

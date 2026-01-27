@@ -25,12 +25,11 @@ public class RoleArchiveItem : MonoBehaviour
         lbLv.SetText(accountRoleSimpleModel.Level.ToString());
     }
 
-    private void BindUI()
+    public void BindUI()
     {
         btnSelected.onClick.AddListener(OnBtnSelectedClick);
     }
-
-    private void OnDestroy()
+    public void UnBindUI()
     {
         btnSelected.onClick.RemoveAllListeners();
     }

@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using TMPro;
 using UnityEngine;
@@ -9,16 +10,22 @@ public class ConfirmAgainView : ViewBase<ConfirmAgainViewModel>
     [SerializeField] private Button btnCancel;
     [SerializeField] private Button btnConfirm;
 
-    protected override void BindUI()
+    protected override void InitUI()
     {
         viewModel.PropertyChanged += PropertyChanged;
+    }
+    protected override void DestroyUI()
+    {
+        viewModel.PropertyChanged -= PropertyChanged;
+    }
+
+    protected override void BindUI()
+    {
         btnCancel.onClick.AddListener(() => viewModel.CancelCommand.Execute(this));
         btnConfirm.onClick.AddListener(() => viewModel.ConfirmCommand.Execute(this));
     }
-
     protected override void UnBindUI()
     {
-        viewModel.PropertyChanged -= PropertyChanged;
         btnCancel.onClick.RemoveAllListeners();
         btnConfirm.onClick.RemoveAllListeners();
     }

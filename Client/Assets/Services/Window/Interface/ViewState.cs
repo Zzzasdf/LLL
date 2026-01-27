@@ -1,0 +1,14 @@
+public enum ViewState
+{
+    NONE,
+    
+    VISIBLE,
+    ENTER_ANIMATION_BEGIN,
+    ENTER_ANIMATION_END,
+    ACTIVATED,
+    
+    PASSIVATED,
+    EXIT_ANIMATION_BEGIN,
+    EXIT_ANIMATION_END,
+    INVISIBLE,
+}

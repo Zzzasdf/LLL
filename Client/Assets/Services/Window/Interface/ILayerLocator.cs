@@ -11,6 +11,6 @@ public interface ILayerLocator
     UniTask<IView> ShowViewAsync(Type type);
     UniTask<bool> TryPopViewAsync(List<int> uniqueIds);
 
-    void HideView(int uniqueId);
-    void PushHideView(int uniqueId);
+    UniTask HideView(int uniqueId);
+    UniTask PushHideView(int uniqueId);
 }

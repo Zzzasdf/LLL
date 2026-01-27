@@ -7,7 +7,7 @@ public class LayerRaycastBlockingLocator : LayerUnitLocator
     protected RectTransform rtMask;
     protected Image imgMask;
     
-    protected void Awake()
+    protected virtual void Awake()
     {
         goMask = new GameObject("LayerMask");
         goMask.SetActive(false);

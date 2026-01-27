@@ -7,7 +7,7 @@ public class ViewMaskTransparentClickLocator : ViewRaycastBlockingLocator
     private IView view;
     private Button btnMask;
     
-    private new void Awake()
+    protected override void Awake()
     {
         base.Awake();
 
@@ -18,12 +18,14 @@ public class ViewMaskTransparentClickLocator : ViewRaycastBlockingLocator
     }
     private void OnDestroy()
     {
+        if (btnMask == null) return;
         btnMask.onClick.RemoveAllListeners();
     }
 
     private void OnBtnCloseClick() => OnBtnCloseClickAsync().Forget();
     private async UniTask OnBtnCloseClickAsync()
     {
+        if (view.GetViewState() != ViewState.ACTIVATED) return;
         await WeakReferenceMessenger.Default.SendViewHideAsync(view);
     }
 }

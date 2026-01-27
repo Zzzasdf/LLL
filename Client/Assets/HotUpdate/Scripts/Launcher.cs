@@ -25,13 +25,13 @@ public class Launcher : MonoBehaviour
         services
             .AddWindowService(sp => new Dictionary<ViewLayer, ILayerContainer>
                 {
-                    [ViewLayer.Bg] = new UniqueLayerContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, UniqueViewLoader>(ViewLayer.Bg, poolCapacity: 1),
-                    [ViewLayer.Permanent] = new MultipleLayerContainer<LayerUnitLocator, ViewUnitLocator, UniqueViewLoader>(ViewLayer.Permanent, poolCapacity: 1),
-                    [ViewLayer.FullScreen] = new UniqueLayerContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, UniqueViewLoader>(ViewLayer.FullScreen, poolCapacity: 1),
-                    [ViewLayer.Window] = new UniqueLayerContainer<LayerMaskBlackLocator, ViewMaskTransparentClickLocator, UniqueViewLoader>(ViewLayer.Window, poolCapacity: 1),
-                    [ViewLayer.Popup] = new MultipleLayerContainer<LayerMaskBlackLocator, ViewMaskTransparentClickLocator, UniqueViewLoader>(ViewLayer.Popup, poolCapacity: 1),
-                    [ViewLayer.Tip] = new MultipleLayerContainer<LayerUnitLocator, ViewUnitLocator, UniqueViewLoader>(ViewLayer.Tip, poolCapacity: 1),
-                    [ViewLayer.System] = new UniqueLayerContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, UnitViewLoader>(ViewLayer.System, poolCapacity: 1),
+                    [ViewLayer.Bg] = new UniqueLayerContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, ViewUniqueLoader>(ViewLayer.Bg, poolCapacity: 1),
+                    [ViewLayer.Permanent] = new MultipleLayerContainer<LayerUnitLocator, ViewUnitLocator, ViewUniqueLoader>(ViewLayer.Permanent, poolCapacity: 1),
+                    [ViewLayer.FullScreen] = new UniqueLayerContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, ViewUniqueLoader>(ViewLayer.FullScreen, poolCapacity: 1),
+                    [ViewLayer.Window] = new UniqueLayerContainer<LayerMaskBlackLocator, ViewMaskTransparentClickLocator, ViewUniqueLoader>(ViewLayer.Window, poolCapacity: 1),
+                    [ViewLayer.Popup] = new UniqueLayerContainer<LayerMaskBlackLocator, ViewMaskBlackClickLocator, ViewUniqueLoader>(ViewLayer.Popup, poolCapacity: 1),
+                    [ViewLayer.Tip] = new MultipleLayerContainer<LayerUnitLocator, ViewUnitLocator, ViewUniqueLoader>(ViewLayer.Tip, poolCapacity: 1),
+                    [ViewLayer.System] = new UniqueLayerContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, ViewUnitLoader>(ViewLayer.System, poolCapacity: 1),
                 }, new Dictionary<ViewLayer, List<Type>>
                 {
                     [ViewLayer.Bg] = new List<Type>

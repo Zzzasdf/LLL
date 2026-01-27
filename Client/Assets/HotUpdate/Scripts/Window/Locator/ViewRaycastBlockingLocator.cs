@@ -7,7 +7,7 @@ public class ViewRaycastBlockingLocator : ViewUnitLocator
     protected RectTransform rtMask;
     protected Image imgMask;
     
-    protected new void Awake()
+    protected override void Awake()
     {
         base.Awake();
         

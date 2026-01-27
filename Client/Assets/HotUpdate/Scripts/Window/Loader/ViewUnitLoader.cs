@@ -5,7 +5,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using YooAsset;
 
-public class UnitViewLoader : IViewLoader
+public class ViewUnitLoader : IViewLoader
 {
     IViewLoader IViewLoader.SetCapacity(int capacity) => this;
 

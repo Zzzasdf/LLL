@@ -33,13 +33,13 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
 
     async UniTask<(IView view, int? removeId)> ILayerContainer.ShowViewAndTryRemoveAsync(Type type)
     {
-        IView view = await layerLocator.ShowViewAsync(type);
-        int uniqueId = view.GetUniqueId();
         if (uniqueIds.Count > 0)
         {
             int hideId = uniqueIds[^1];
-            layerLocator.PushHideView(hideId);
+            await layerLocator.PushHideView(hideId);
         }
+        IView view = await layerLocator.ShowViewAsync(type);
+        int uniqueId = view.GetUniqueId();
         uniqueIds.Add(uniqueId);
         return (view, null);
     }
@@ -119,7 +119,7 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
         }
         foreach (var id in uniqueIds)
         {
-            layerLocator.PushHideView(id);
+            layerLocator.PushHideView(id).Forget();
             list.Add(id);
         }
         uniqueIds.Clear();
@@ -149,8 +149,8 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
     ViewLayer ILayerContainer.GetViewLayer() => viewLayer;
     IViewLoader ILayerContainer.GetViewLoader() => viewLoader;
     ILayerLocator ILayerContainer.GetLocator() => layerLocator;
-    void ILayerContainer.AddViewLocator(GameObject goView) => goView.AddComponent<TViewLocator>();
-    
+    IViewLocator ILayerContainer.AddViewLocator(GameObject goView) => goView.AddComponent<TViewLocator>();
+
     string ILayerContainer.ToString()
     {
         StringBuilder sb = new StringBuilder();

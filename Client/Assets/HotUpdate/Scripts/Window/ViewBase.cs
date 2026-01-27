@@ -1,4 +1,5 @@
 using CommunityToolkit.Mvvm.ComponentModel;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
@@ -6,8 +7,10 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
 {
     private bool unityEvent;
     private bool viewEvent;
-    private bool isActive;
+    private ViewState viewState;
 
+    [SerializeField]
+    private IViewLocator viewLocator;
     [SerializeField]
     private ViewLayer viewLayer;
     [SerializeField]
@@ -18,8 +21,13 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
     {
         this.viewLayer = viewLayer;
     }
+    void IView.BindLocator(IViewLocator viewLocator)
+    {
+        this.viewLocator = viewLocator;
+    }
 
     ViewLayer IView.GetLayer() => viewLayer;
+    ViewState IView.GetViewState() => viewState;
 
     void IView.BindUniqueId(int uniqueId)
     {
@@ -33,49 +41,73 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
     private void Awake()
     {
         unityEvent = true;
-        Show_Internal();
+        Show_Internal().Forget();
     }
     void IView.Show()
     {
         viewEvent = true;
-        Show_Internal();
+        Show_Internal().Forget();
     }
-    private void Show_Internal()
+    private async UniTask Show_Internal()
     {
         if (!unityEvent || !viewEvent) return;
-        if (isActive) return;
-        isActive = true;
-        
-        viewModel = ViewModelGenerator.Default.GetOrAdd<TViewModel>(uniqueId);
-        if (viewModel is ObservableRecipient observableRecipient)
+        if (viewState is ViewState.NONE or ViewState.INVISIBLE)
         {
-            observableRecipient.IsActive = isActive;
-            LLogger.Log($"{typeof(TViewModel).Name} IsActive: {isActive}");
+            viewModel = ViewModelGenerator.Default.GetOrAdd<TViewModel>(uniqueId);
+            if (viewModel is ObservableRecipient observableRecipient)
+            {
+                observableRecipient.IsActive = true;
+                LLogger.Log($"{typeof(TViewModel).Name} IsActive: {viewState}");
+            }
+            InitUI();
+            gameObject.SetActive(true);
+            viewState = ViewState.VISIBLE;
+            
+            viewState = ViewState.ENTER_ANIMATION_BEGIN;
+            if (viewLocator.EnterAnimation != null)
+            {
+                await viewLocator.EnterAnimation.DOPlayAsync();
+            }
+            viewState = ViewState.ENTER_ANIMATION_END;
+            BindUI();
+            viewState = ViewState.ACTIVATED;
         }
-        BindUI();
-        
-        gameObject.SetActive(true);
     }
 
-    private void OnDestroy() => Hide_Internal();
-    void IView.Hide() => Hide_Internal();
-    private void Hide_Internal()
+    private void OnDestroy() => Hide_Internal().Forget();
+    async UniTask IView.Hide()
+    {
+        await Hide_Internal();
+    }
+
+    private async UniTask Hide_Internal()
     {
         if (!unityEvent || !viewEvent || viewModel == null) return;
-        if (!isActive) return;
-        isActive = false;
-        
-        UnBindUI();
-        if (viewModel is ObservableRecipient observableRecipient)
+        if (viewState is ViewState.ACTIVATED)
         {
-            observableRecipient.IsActive = isActive;
-            LLogger.Log($"{typeof(TViewModel).Name} IsActive: {isActive}");
+            UnBindUI();
+            DestroyUI();
+            if (viewModel is ObservableRecipient observableRecipient)
+            {
+                observableRecipient.IsActive = false;
+                LLogger.Log($"{typeof(TViewModel).Name} IsActive: {viewState}");
+            }
+            viewModel = null;
+            viewState = ViewState.PASSIVATED;
+            
+            viewState = ViewState.EXIT_ANIMATION_BEGIN;
+            if (viewLocator.ExitAnimation != null)
+            {
+                await viewLocator.ExitAnimation.DOPlayAsync();
+            }
+            viewState = ViewState.EXIT_ANIMATION_END;
+            gameObject.SetActive(false);
+            viewState = ViewState.INVISIBLE;
         }
-        viewModel = null;
-        
-        gameObject.SetActive(false);
     }
 
+    protected abstract void InitUI();
+    protected abstract void DestroyUI();
     protected abstract void BindUI();
     protected abstract void UnBindUI();
 }

@@ -8,7 +8,7 @@ public class SelectRoleView : ViewBase<SelectRoleViewModel>
     [SerializeField] private Button btnReturn;
     [SerializeField] private Button btnClose;
 
-    protected override void BindUI()
+    protected override void InitUI()
     {
         for (int i = 0; i < roleArchiveItems.Count; i++)
         {
@@ -16,13 +16,28 @@ public class SelectRoleView : ViewBase<SelectRoleViewModel>
             AccountRoleSimpleModel accountRoleSimpleModel = viewModel.GetOrAddRoleModel(i);
             roleArchiveItem.BindData(accountRoleSimpleModel);
         }
-        
+    }
+    protected override void DestroyUI()
+    {
+    }
+
+    protected override void BindUI()
+    {
+        for (int i = 0; i < roleArchiveItems.Count; i++)
+        {
+            RoleArchiveItem roleArchiveItem = roleArchiveItems[i];
+            roleArchiveItem.BindUI();
+        }
         btnReturn.onClick.AddListener(()=> viewModel.ReturnCommand.Execute(null));
         btnClose.onClick.AddListener(() => viewModel.CloseCommand.Execute(this));
     }
-
     protected override void UnBindUI()
     {
+        for (int i = 0; i < roleArchiveItems.Count; i++)
+        {
+            RoleArchiveItem roleArchiveItem = roleArchiveItems[i];
+            roleArchiveItem.UnBindUI();
+        }
         btnReturn.onClick.RemoveAllListeners();
         btnClose.onClick.RemoveAllListeners();
     }

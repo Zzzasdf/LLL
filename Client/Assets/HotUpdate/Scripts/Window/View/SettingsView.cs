@@ -7,9 +7,16 @@ public class SettingsView : ViewBase<SettingsViewModel>
     [SerializeField] private TextMeshProUGUI lbContent;
     [SerializeField] private Button btnClose;
 
-    protected override void BindUI()
+    protected override void InitUI()
     {
         lbContent.SetText(((IView)this).GetUniqueId().ToString());
+    }
+    protected override void DestroyUI()
+    {
+    }
+
+    protected override void BindUI()
+    {
         btnClose.onClick.AddListener(()=> viewModel.CloseCommand.Execute(this));
     }
     

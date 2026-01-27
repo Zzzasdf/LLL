@@ -1,19 +1,18 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using YooAsset;
 
-public class UniqueViewLoader : IViewLoader
+public class ViewUniqueLoader : IViewLoader
 {
     private int capacity;
     private List<Type> iteration;
     private Dictionary<Type, IView> pools;
     private Dictionary<Type, IView> actives;
 
-    public UniqueViewLoader()
+    public ViewUniqueLoader()
     {
         iteration = new List<Type>();
         pools = new Dictionary<Type, IView>();
