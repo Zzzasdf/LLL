@@ -166,7 +166,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 860
+    width: 735
     height: 939
   m_MinSize: {x: 100, y: 150}
   m_MaxSize: {x: 8096, y: 24288}
@@ -189,10 +189,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 860
-    height: 219
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+    width: 735
+    height: 211
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -214,9 +214,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 219
-    width: 860
-    height: 567
+    y: 211
+    width: 735
+    height: 407
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
@@ -240,9 +240,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 786
-    width: 860
-    height: 153
+    y: 618
+    width: 735
+    height: 321
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
@@ -266,12 +266,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 860
+    x: 735
     y: 0
-    width: 213
+    width: 411
     height: 939
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -292,9 +292,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1073
+    x: 1146
     y: 0
-    width: 515
+    width: 439
     height: 939
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
@@ -318,9 +318,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1588
+    x: 1585
     y: 0
-    width: 332
+    width: 335
     height: 939
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
@@ -352,9 +352,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 859
-    width: 859
-    height: 132
+    y: 691
+    width: 734
+    height: 300
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -388,8 +388,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 859
-    height: 198
+    width: 734
+    height: 190
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -722,9 +722,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 960, y: 540, z: 0}
+    m_Target: {x: 1166.6641, y: 459.0712, z: 2.2650368}
     speed: 2
-    m_Value: {x: 960, y: 540, z: 0}
+    m_Value: {x: 1166.6641, y: 459.0712, z: 2.2650368}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -774,9 +774,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1101.4536
+    m_Target: 874.9497
     speed: 2
-    m_Value: 1101.4536
+    m_Value: 874.9497
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -823,9 +823,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 292
-    width: 859
-    height: 546
+    y: 284
+    width: 734
+    height: 386
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -878,23 +878,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 859
-      height: 525
-    m_Scale: {x: 0.44739583, y: 0.44739583}
-    m_Translation: {x: 429.5, y: 262.5}
+      width: 734
+      height: 365
+    m_Scale: {x: 0.33796296, y: 0.33796296}
+    m_Translation: {x: 367, y: 182.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -960
-      y: -586.72876
-      width: 1920
-      height: 1173.4575
+      x: -1085.9178
+      y: -540
+      width: 2171.8357
+      height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.44739583
-  m_LastWindowPixelSize: {x: 859, y: 546}
+  m_defaultScale: 0.33796296
+  m_LastWindowPixelSize: {x: 734, y: 386}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -1380,54 +1380,87 @@ MonoBehaviour:
         () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)\nLog"
       - "ThreadId: 1 \nSelectRoleViewModel IsActive: TrueUnityEngine.Debug:LogFormat
         (string,object[])\nLLogger:Log (object) (at Assets/Services/Logger/LLogger.cs:33)\nViewBase`1<SelectRoleViewModel>:Show_Internal
-        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:50)\nViewBase`1<SelectRoleViewModel>:IView.Show
-        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:38)\nLayerLocator/<ILayerLocator-ShowViewAsync>d__12:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/Locator/LayerLocator.cs:82)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LayerLocator/<ILayerLocator-ShowViewAsync>d__12,
+        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:53)\nViewBase`1<SelectRoleViewModel>:IView.Show
+        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:41)\nLayerLocator/<ILayerLocator-ShowViewAsync>d__13:MoveNext
+        () (at Assets/HotUpdate/Scripts/Window/Locator/LayerLocator.cs:85)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LayerLocator/<ILayerLocator-ShowViewAsync>d__13,
         IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
         (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<IView>:TrySetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<SingleViewLoader/<IViewLoader-CreateView>d__8,
-        IView>:SetResult (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nSingleViewLoader/<IViewLoader-CreateView>d__8:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/Loader/SingleViewLoader.cs:69)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<SingleViewLoader/<IViewLoader-CreateView>d__8,
+        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<UniqueViewLoader/<IViewLoader-CreateView>d__8,
+        IView>:SetResult (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<IView>:SetResult
+        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nUniqueViewLoader/<IViewLoader-CreateView>d__8:MoveNext
+        () (at Assets/HotUpdate/Scripts/Window/Loader/UniqueViewLoader.cs:70)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<UniqueViewLoader/<IViewLoader-CreateView>d__8,
         IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<object>:TrySetResult
         (object)\nYooAsset.AsyncOperationBase:UpdateOperation () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/AsyncOperationBase.cs:195)\nYooAsset.OperationSystem:Update
         () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/OperationSystem.cs:108)\nYooAsset.YooAssets:Update
         () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:96)\nYooAsset.YooAssetsDriver:Update
         () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssetsDriver.cs:21)\nLog"
+      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nProcedureService run => StartUnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
+        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:29)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
+        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
+        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
+        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:10)\nSelectRoleViewModel:Return
+        () (at Assets/HotUpdate/Scripts/Window/ViewModel/SelectRoleViewModel.cs:20)\nCommunityToolkit.Mvvm.Input.RelayCommand:Execute
+        (object)\nSelectRoleView:<BindUI>b__3_0 () (at Assets/HotUpdate/Scripts/Window/View/SelectRoleView.cs:20)\nUnityEngine.EventSystems.EventSystem:Update
+        () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)\nLog"
       - "ThreadId: 1 \nSelectRoleViewModel IsActive: FalseUnityEngine.Debug:LogFormat
         (string,object[])\nLLogger:Log (object) (at Assets/Services/Logger/LLogger.cs:33)\nViewBase`1<SelectRoleViewModel>:Hide_Internal
-        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:69)\nViewBase`1<SelectRoleViewModel>:IView.Hide
-        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:58)\nLayerLocator:ILayerLocator.HideView
-        (int) (at Assets/HotUpdate/Scripts/Window/Locator/LayerLocator.cs:134)\nStackLayerContainer`3<LayerLocator,
-        ViewLocator, SingleViewLoader>:ILayerContainer.HideViewTryPop (int) (at Assets/HotUpdate/Scripts/Window/Layer/StackLayerContainer.cs:60)\nViewService/<HideAsync_Internal>d__5:MoveNext
-        () (at Assets/Services/Window/Implement/ViewService.cs:63)\nViewService:HideAsync_Internal
-        (IView)\nViewService:CommunityToolkit.Mvvm.Messaging.IRecipient<ViewHideAsyncRequestEvent>.Receive
-        (ViewHideAsyncRequestEvent) (at Assets/Services/Window/Implement/ViewService.cs:128)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<ViewHideAsyncRequestEvent>
-        (System.ReadOnlySpan`1<object>,int,ViewHideAsyncRequestEvent)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<ViewHideAsyncRequestEvent,
-        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (ViewHideAsyncRequestEvent,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<ViewHideAsyncRequestEvent>
-        (CommunityToolkit.Mvvm.Messaging.IMessenger,ViewHideAsyncRequestEvent)\nMessengerExtensions/<SendViewHideAsync>d__2:MoveNext
-        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:21)\nMessengerExtensions:SendViewHideAsync
-        (CommunityToolkit.Mvvm.Messaging.IMessenger,IView)\nSelectRoleViewModel/<CloseAsync>d__4:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/ViewModel/SelectRoleViewModel.cs:28)\nSelectRoleViewModel:CloseAsync
-        (IView)\nSelectRoleViewModel:Close (IView) (at Assets/HotUpdate/Scripts/Window/ViewModel/SelectRoleViewModel.cs:25)\nCommunityToolkit.Mvvm.Input.RelayCommand`1<IView>:Execute
-        (IView)\nSelectRoleView:<BindUI>b__3_1 () (at Assets/HotUpdate/Scripts/Window/View/SelectRoleView.cs:21)\nUnityEngine.EventSystems.EventSystem:Update
+        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:72)\nViewBase`1<SelectRoleViewModel>:IView.Hide
+        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:61)\nLayerLocator:ILayerLocator.PushHideView
+        (int) (at Assets/HotUpdate/Scripts/Window/Locator/LayerLocator.cs:175)\nUniqueLayerContainer`3/<ILayerContainer-ShowViewAndTryRemoveAsync>d__7<LayerLocator,
+        ViewLocator, UniqueViewLoader>:MoveNext () (at Assets/HotUpdate/Scripts/Window/Layer/UniqueLayerContainer.cs:41)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<System.ValueTuple`2<IView,
+        System.Nullable`1<int>>>:Start<UniqueLayerContainer`3/<ILayerContainer-ShowViewAndTryRemoveAsync>d__7<LayerLocator,
+        ViewLocator, UniqueViewLoader>> (UniqueLayerContainer`3/<ILayerContainer-ShowViewAndTryRemoveAsync>d__7<LayerLocator,
+        ViewLocator, UniqueViewLoader>&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:242)\nUniqueLayerContainer`3<LayerLocator,
+        ViewLocator, UniqueViewLoader>:ILayerContainer.ShowViewAndTryRemoveAsync
+        (System.Type)\nViewService/<ShowAsync_Internal>d__4:MoveNext () (at Assets/Services/Window/Implement/ViewService.cs:39)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<IView>:Start<ViewService/<ShowAsync_Internal>d__4>
+        (ViewService/<ShowAsync_Internal>d__4&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:242)\nViewService:ShowAsync_Internal
+        (System.Type)\nViewService:CommunityToolkit.Mvvm.Messaging.IRecipient<ViewShowAsyncRequestEvent>.Receive
+        (ViewShowAsyncRequestEvent) (at Assets/Services/Window/Implement/ViewService.cs:134)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<ViewShowAsyncRequestEvent>
+        (System.ReadOnlySpan`1<object>,int,ViewShowAsyncRequestEvent)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<ViewShowAsyncRequestEvent,
+        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (ViewShowAsyncRequestEvent,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<ViewShowAsyncRequestEvent>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,ViewShowAsyncRequestEvent)\nMessengerExtensions/<SendViewShowAsync>d__1`1<StartView>:MoveNext
+        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:17)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<StartView>:Start<MessengerExtensions/<SendViewShowAsync>d__1`1<StartView>>
+        (MessengerExtensions/<SendViewShowAsync>d__1`1<StartView>&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:242)\nMessengerExtensions:SendViewShowAsync<StartView>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger)\nProcedureStart/<IProcedure-Run>d__0:MoveNext
+        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedureStart.cs:9)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder:Start<ProcedureStart/<IProcedure-Run>d__0>
+        (ProcedureStart/<IProcedure-Run>d__0&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:111)\nProcedureStart:IProcedure.Run
+        ()\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
+        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:30)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
+        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
+        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
+        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:10)\nSelectRoleViewModel:Return
+        () (at Assets/HotUpdate/Scripts/Window/ViewModel/SelectRoleViewModel.cs:20)\nCommunityToolkit.Mvvm.Input.RelayCommand:Execute
+        (object)\nSelectRoleView:<BindUI>b__3_0 () (at Assets/HotUpdate/Scripts/Window/View/SelectRoleView.cs:20)\nUnityEngine.EventSystems.EventSystem:Update
         () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)\nLog"
       - "ThreadId: 1 \nSelectRoleViewModel IsActive: TrueUnityEngine.Debug:LogFormat
         (string,object[])\nLLogger:Log (object) (at Assets/Services/Logger/LLogger.cs:33)\nViewBase`1<SelectRoleViewModel>:Show_Internal
-        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:50)\nViewBase`1<SelectRoleViewModel>:IView.Show
-        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:38)\nLayerLocator/<ILayerLocator-ShowViewAsync>d__12:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/Locator/LayerLocator.cs:82)\nLayerLocator:ILayerLocator.ShowViewAsync
-        (System.Type)\nStackLayerContainer`3/<ILayerContainer-ShowViewAndTryRemoveAsync>d__7<LayerLocator,
-        ViewLocator, SingleViewLoader>:MoveNext () (at Assets/HotUpdate/Scripts/Window/Layer/StackLayerContainer.cs:35)\nStackLayerContainer`3<LayerLocator,
-        ViewLocator, SingleViewLoader>:ILayerContainer.ShowViewAndTryRemoveAsync
-        (System.Type)\nViewService/<ShowAsync_Internal>d__4:MoveNext () (at Assets/Services/Window/Implement/ViewService.cs:39)\nViewService:ShowAsync_Internal
+        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:53)\nViewBase`1<SelectRoleViewModel>:IView.Show
+        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:41)\nLayerLocator/<ILayerLocator-ShowViewAsync>d__13:MoveNext
+        () (at Assets/HotUpdate/Scripts/Window/Locator/LayerLocator.cs:85)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<IView>:Start<LayerLocator/<ILayerLocator-ShowViewAsync>d__13>
+        (LayerLocator/<ILayerLocator-ShowViewAsync>d__13&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:242)\nLayerLocator:ILayerLocator.ShowViewAsync
+        (System.Type)\nUniqueLayerContainer`3/<ILayerContainer-ShowViewAndTryRemoveAsync>d__7<LayerLocator,
+        ViewLocator, UniqueViewLoader>:MoveNext () (at Assets/HotUpdate/Scripts/Window/Layer/UniqueLayerContainer.cs:36)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<System.ValueTuple`2<IView,
+        System.Nullable`1<int>>>:Start<UniqueLayerContainer`3/<ILayerContainer-ShowViewAndTryRemoveAsync>d__7<LayerLocator,
+        ViewLocator, UniqueViewLoader>> (UniqueLayerContainer`3/<ILayerContainer-ShowViewAndTryRemoveAsync>d__7<LayerLocator,
+        ViewLocator, UniqueViewLoader>&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:242)\nUniqueLayerContainer`3<LayerLocator,
+        ViewLocator, UniqueViewLoader>:ILayerContainer.ShowViewAndTryRemoveAsync
+        (System.Type)\nViewService/<ShowAsync_Internal>d__4:MoveNext () (at Assets/Services/Window/Implement/ViewService.cs:39)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<IView>:Start<ViewService/<ShowAsync_Internal>d__4>
+        (ViewService/<ShowAsync_Internal>d__4&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:242)\nViewService:ShowAsync_Internal
         (System.Type)\nViewService:CommunityToolkit.Mvvm.Messaging.IRecipient<ViewShowAsyncRequestEvent>.Receive
-        (ViewShowAsyncRequestEvent) (at Assets/Services/Window/Implement/ViewService.cs:124)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<ViewShowAsyncRequestEvent>
+        (ViewShowAsyncRequestEvent) (at Assets/Services/Window/Implement/ViewService.cs:134)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<ViewShowAsyncRequestEvent>
         (System.ReadOnlySpan`1<object>,int,ViewShowAsyncRequestEvent)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<ViewShowAsyncRequestEvent,
         CommunityToolkit.Mvvm.Messaging.Internals.Unit> (ViewShowAsyncRequestEvent,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<ViewShowAsyncRequestEvent>
         (CommunityToolkit.Mvvm.Messaging.IMessenger,ViewShowAsyncRequestEvent)\nMessengerExtensions/<SendViewShowAsync>d__1`1<SelectRoleView>:MoveNext
-        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:17)\nMessengerExtensions:SendViewShowAsync<SelectRoleView>
+        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:17)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<SelectRoleView>:Start<MessengerExtensions/<SendViewShowAsync>d__1`1<SelectRoleView>>
+        (MessengerExtensions/<SendViewShowAsync>d__1`1<SelectRoleView>&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:242)\nMessengerExtensions:SendViewShowAsync<SelectRoleView>
         (CommunityToolkit.Mvvm.Messaging.IMessenger)\nProcedureSelectRole/<IProcedure-Run>d__0:MoveNext
-        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedureSelectRole.cs:9)\nProcedureSelectRole:IProcedure.Run
+        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedureSelectRole.cs:9)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder:Start<ProcedureSelectRole/<IProcedure-Run>d__0>
+        (ProcedureSelectRole/<IProcedure-Run>d__0&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:111)\nProcedureSelectRole:IProcedure.Run
         ()\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
         (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:30)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
         (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
@@ -1438,11 +1471,69 @@ MonoBehaviour:
         () (at Assets/HotUpdate/Scripts/Window/ViewModel/StartViewModel.cs:19)\nCommunityToolkit.Mvvm.Input.RelayCommand:Execute
         (object)\nStartView:<BindUI>b__6_0 () (at Assets/HotUpdate/Scripts/Window/View/StartView.cs:16)\nUnityEngine.EventSystems.EventSystem:Update
         () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)\nLog"
-      - 'warning CS0108: ''Photography.camera'' hides inherited member ''Component.camera''.
-        Use the new keyword if hiding was intended.UnknowClass:UnknowMethod() (at
-        C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Asset\Photography.cs:9)Warning'
-      - 'warning CS0414: The field ''AssetBaseLoader<TObject>.loadState'' is assigned
-        but its value is never usedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Asset\AssetBaseLoader.cs:10)Warning'
+      - "ThreadId: 1 \nSelectRoleViewModel IsActive: FalseUnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:Log (object) (at Assets/Services/Logger/LLogger.cs:33)\nViewBase`1<SelectRoleViewModel>:Hide_Internal
+        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:72)\nViewBase`1<SelectRoleViewModel>:IView.Hide
+        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:61)\nLayerLocator:ILayerLocator.HideView
+        (int) (at Assets/HotUpdate/Scripts/Window/Locator/LayerLocator.cs:164)\nUniqueLayerContainer`3<LayerLocator,
+        ViewLocator, UniqueViewLoader>:ILayerContainer.HideViewTryPop (int) (at Assets/HotUpdate/Scripts/Window/Layer/UniqueLayerContainer.cs:65)\nViewService/<HideAsync_Internal>d__5:MoveNext
+        () (at Assets/Services/Window/Implement/ViewService.cs:72)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:Start<ViewService/<HideAsync_Internal>d__5>
+        (ViewService/<HideAsync_Internal>d__5&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:242)\nViewService:HideAsync_Internal
+        (IView)\nViewService:CommunityToolkit.Mvvm.Messaging.IRecipient<ViewHideAsyncRequestEvent>.Receive
+        (ViewHideAsyncRequestEvent) (at Assets/Services/Window/Implement/ViewService.cs:138)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<ViewHideAsyncRequestEvent>
+        (System.ReadOnlySpan`1<object>,int,ViewHideAsyncRequestEvent)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<ViewHideAsyncRequestEvent,
+        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (ViewHideAsyncRequestEvent,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<ViewHideAsyncRequestEvent>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,ViewHideAsyncRequestEvent)\nMessengerExtensions/<SendViewHideAsync>d__2:MoveNext
+        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:21)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:Start<MessengerExtensions/<SendViewHideAsync>d__2>
+        (MessengerExtensions/<SendViewHideAsync>d__2&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:242)\nMessengerExtensions:SendViewHideAsync
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,IView)\nSelectRoleViewModel/<CloseAsync>d__4:MoveNext
+        () (at Assets/HotUpdate/Scripts/Window/ViewModel/SelectRoleViewModel.cs:27)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder:Start<SelectRoleViewModel/<CloseAsync>d__4>
+        (SelectRoleViewModel/<CloseAsync>d__4&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:111)\nSelectRoleViewModel:CloseAsync
+        (IView)\nSelectRoleViewModel:Close (IView) (at Assets/HotUpdate/Scripts/Window/ViewModel/SelectRoleViewModel.cs:24)\nCommunityToolkit.Mvvm.Input.RelayCommand`1<IView>:Execute
+        (IView)\nSelectRoleView:<BindUI>b__3_1 () (at Assets/HotUpdate/Scripts/Window/View/SelectRoleView.cs:21)\nUnityEngine.EventSystems.EventSystem:Update
+        () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)\nLog"
+      - "ThreadId: 1 \nSelectRoleViewModel IsActive: TrueUnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:Log (object) (at Assets/Services/Logger/LLogger.cs:33)\nViewBase`1<SelectRoleViewModel>:Show_Internal
+        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:53)\nViewBase`1<SelectRoleViewModel>:IView.Show
+        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:41)\nLayerLocator/<ILayerLocator-TryPopViewAsync>d__14:MoveNext
+        () (at Assets/HotUpdate/Scripts/Window/Locator/LayerLocator.cs:130)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:Start<LayerLocator/<ILayerLocator-TryPopViewAsync>d__14>
+        (LayerLocator/<ILayerLocator-TryPopViewAsync>d__14&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:242)\nLayerLocator:ILayerLocator.TryPopViewAsync
+        (int,int)\nUniqueLayerContainer`3/<ILayerContainer-PopViewAndTryRemove>d__8<LayerLocator,
+        ViewLocator, UniqueViewLoader>:MoveNext () (at Assets/HotUpdate/Scripts/Window/Layer/UniqueLayerContainer.cs:48)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<System.Nullable`1<int>>:Start<UniqueLayerContainer`3/<ILayerContainer-PopViewAndTryRemove>d__8<LayerLocator,
+        ViewLocator, UniqueViewLoader>> (UniqueLayerContainer`3/<ILayerContainer-PopViewAndTryRemove>d__8<LayerLocator,
+        ViewLocator, UniqueViewLoader>&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:242)\nUniqueLayerContainer`3<LayerLocator,
+        ViewLocator, UniqueViewLoader>:ILayerContainer.PopViewAndTryRemove (int,int)\nViewService/<PopShow>d__6:MoveNext
+        () (at Assets/Services/Window/Implement/ViewService.cs:91)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder:Start<ViewService/<PopShow>d__6>
+        (ViewService/<PopShow>d__6&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:111)\nViewService:PopShow
+        (ViewLayer,int,int)\nViewService/<HideAsync_Internal>d__5:MoveNext () (at
+        Assets/Services/Window/Implement/ViewService.cs:77)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:Start<ViewService/<HideAsync_Internal>d__5>
+        (ViewService/<HideAsync_Internal>d__5&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:242)\nViewService:HideAsync_Internal
+        (IView)\nViewService:CommunityToolkit.Mvvm.Messaging.IRecipient<ViewHideAsyncRequestEvent>.Receive
+        (ViewHideAsyncRequestEvent) (at Assets/Services/Window/Implement/ViewService.cs:138)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<ViewHideAsyncRequestEvent>
+        (System.ReadOnlySpan`1<object>,int,ViewHideAsyncRequestEvent)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<ViewHideAsyncRequestEvent,
+        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (ViewHideAsyncRequestEvent,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<ViewHideAsyncRequestEvent>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,ViewHideAsyncRequestEvent)\nMessengerExtensions/<SendViewHideAsync>d__2:MoveNext
+        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:21)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:Start<MessengerExtensions/<SendViewHideAsync>d__2>
+        (MessengerExtensions/<SendViewHideAsync>d__2&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:242)\nMessengerExtensions:SendViewHideAsync
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,IView)\nStartViewModel/<CloseAsync>d__8:MoveNext
+        () (at Assets/HotUpdate/Scripts/Window/ViewModel/StartViewModel.cs:49)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder:Start<StartViewModel/<CloseAsync>d__8>
+        (StartViewModel/<CloseAsync>d__8&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:111)\nStartViewModel:CloseAsync
+        (IView)\nStartViewModel:Close (IView) (at Assets/HotUpdate/Scripts/Window/ViewModel/StartViewModel.cs:46)\nCommunityToolkit.Mvvm.Input.RelayCommand`1<IView>:Execute
+        (IView)\nStartView:<BindUI>b__6_5 () (at Assets/HotUpdate/Scripts/Window/View/StartView.cs:21)\nUnityEngine.EventSystems.EventSystem:Update
+        () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)\nLog"
+      - "ThreadId: 1 \nuniqueIds Count => 0\r\nstashDict Count => 0\r\nUnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:Log (object) (at Assets/Services/Logger/LLogger.cs:33)\nLayerLocator:LayerContainerDebug
+        () (at Assets/HotUpdate/Scripts/Window/Locator/LayerLocator.cs:182)\nLog"
+      - "ThreadId: 1 \nUniqueViewLoader capacity => 1\r\niteration => \r\n[0] =>
+        SettingsView\r\npools => \r\n[0] => key: SettingsView, value: SettingsView(Clone)
+        (SettingsView)\r\nactives => \r\nUnityEngine.Debug:LogFormat (string,object[])\nLLogger:Log
+        (object) (at Assets/Services/Logger/LLogger.cs:33)\nLayerLocator:ViewLoaderDebug
+        () (at Assets/HotUpdate/Scripts/Window/Locator/LayerLocator.cs:188)\nLog"
+      - "ThreadId: 1 \nUniqueViewLoader capacity => 1\r\niteration => \r\n[0] =>
+        StartView\r\npools => \r\n[0] => key: StartView, value: StartView(Clone)
+        (StartView)\r\nactives => \r\nUnityEngine.Debug:LogFormat (string,object[])\nLLogger:Log
+        (object) (at Assets/Services/Logger/LLogger.cs:33)\nLayerLocator:ViewLoaderDebug
+        () (at Assets/HotUpdate/Scripts/Window/Locator/LayerLocator.cs:188)\nLog"
       serializeValueList:
       - count: 1
       - count: 1
@@ -1469,10 +1560,14 @@ MonoBehaviour:
       - count: 1
       - count: 2
       - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
       - count: 2
       - count: 1
-      - count: 4
-      - count: 4
+      - count: 2
+      - count: 1
+      - count: 1
       logFilter:
         collapse: 0
         showTime: 1
@@ -1486,6 +1581,42 @@ MonoBehaviour:
       _analysisDataManager:
         poolInstance:
           _itemPool:
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
           - Row: 0
           - Row: 0
           - Row: 0
@@ -1615,6 +1746,42 @@ MonoBehaviour:
       _analysisDataManager:
         poolInstance:
           _itemPool:
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
           - Row: 0
           - Row: 0
           - Row: 0
@@ -1856,6 +2023,42 @@ MonoBehaviour:
           - Row: 0
           - Row: 0
           - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
         _root:
           Row: 0
     - serializeKeyList: []
@@ -1873,6 +2076,42 @@ MonoBehaviour:
       _analysisDataManager:
         poolInstance:
           _itemPool:
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
           - Row: 0
           - Row: 0
           - Row: 0
@@ -2016,9 +2255,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 860
+    x: 735
     y: 73
-    width: 211
+    width: 409
     height: 918
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -2035,21 +2274,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: e6caffff92f4ffffa6f4ffffc8f4ffff14fbfffff4ffffff
+      m_ExpandedIDs: 6af0f8ff7ef0f8ffa0f0f8ff7cfdf8ffb2fdf8ffb207f9ffd811f9ffec11f9ff0e12f9ff5421f9ff6821f9ff8a21f9ffd02ef9ffe42ef9ff062ff9ff6a38f9ff7e38f9ffa038f9ff6452f9ff7852f9ff9a52f9ff7a6bf9ff8e6bf9ffb06bf9fff085f9ff0486f9ff2686f9fffaa0f9ff0ea1f9ff30a1f9ff5ab4f9ff7cb4f9ff5ec2f9ff72c2f9ff94c2f9ffd0d6f9ffe4d6f9ff06d7f9ff26e8f9ff3ae8f9ff5ce8f9ffd2f1f9ffe6f1f9ff08f2f9ff56fbf9ff6afbf9ff8cfbf9ffa406faffb806faffda06faffd01bfaff061cfaff1a24faff5024faff2833faff3c33faff5e33faffea3efaff223ffaff363ffaff583ffaff8254faffb854faff3e69faff7469faff1c74faff5274faff228afaff588afaffa697faffba97faffdc97faff84a8faff98a8faffbaa8faffd4b3faffe8b3faff0ab4fafff4d4faff04e0fafff8f1faff0cf2faff2ef2faff6afefaff7efefaffa0fefaff320bfbff680bfbff6a1efbffa01efbff682afbff8a2afbff823bfbffa43bfbffca43fbffde43fbff0044fbffd054fbff0655fbffaa5efbffee67fbffe86ffbffe679fbff0081fbff3681fbff028afbff168afbff388afbff7ca3fbff28a9fbff5ea9fbffdeb5fbff14b6fbff1cbcfbff52bcfbfffcd3fbff32d4fbff6ae1fbffa0e1fbffb2fcfbff6604fcff9c04fcff6e0afcff820afcffa40afcff1213fcff4813fcff761afcffac1afcffde28fcff1429fcff6835fcff9e35fcffe63efcff1c3ffcff7e4bfcffb44bfcffaa56fcffbe56fcffe056fcff7a67fcffb267fcffc667fcffe867fcffa07ffcffb47ffcffd67ffcff728cfcff868cfcffa88cfcff909bfcff3ea8fcff52a8fcff74a8fcffceb6fcff04b7fcff5ed3fcff94d3fcffbae0fcffcee0fcfff0e0fcff04f0fcff3af0fcff3600fdff4a00fdff6c00fdff860bfdff0221fdff1621fdff3821fdff6635fdff7a35fdff9c35fdff5c40fdff7040fdff9240fdffb84afdff8a53fdff9e53fdffc053fdff2261fdff5861fdff7676fdffac76fdff6482fdff6e8dfdffa48dfdff5699fdff6a99fdff8c99fdff76aefdff8aaefdffacaefdff6acefdff8ccefdff16dafdff2adafdff4cdafdff08eafdff3eeafdfff0f5fdff26f6fdff1e06feff4006feffa01afeffb41afeffd61afeffd225feffe625feff0826feff4652feff885bfeffe664feffd66ffeff0c70feff4479feff7a79feff8695feffbc95fefff29efeff069ffeff289ffeff6ca8feff80a8feffa2a8feffe8b8feff0ab9feff82c2feff96c2feffb8c2feffb4cdfeffc8cdfeffeacdfeffb4d8feffd6d8feff5803ffffa00fffffb40fffffd60fffff001dffff141dffff361dffff502effff642effff862effffe43ffffff83fffff1a40ffffa265ffffb665ffffd865ffff346dffff486dffff6a6dffff0473ffffc279fffff879fffff27fffff0680ffff2880ffff628effff848effff209affff429afffffea4ffff20a5fffffaacffff1cadffff26b4ffff3ab4ffff5cb4ffff06bbffff28bbffffcec3ffffbacbffff72d3ffff0cdcffff20fbfffff4ffffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Permanent
-        m_OriginalName: Permanent
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -2896
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 11}
       m_SearchString: 
@@ -2080,9 +2319,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1073
+    x: 1146
     y: 73
-    width: 513
+    width: 437
     height: 918
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -2105,7 +2344,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/HotUpdate/Scripts/Window/Loader
+    - Assets/HotUpdate/Scripts/Window/Layer
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -2113,16 +2352,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/HotUpdate/Scripts/Window/Loader
+  - Assets/HotUpdate/Scripts/Window/Layer
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\UnityProject\LLL\Client
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a0740000
-    m_LastClickedID: 29856
-    m_ExpandedIDs: 00000000bc720000be720000c0720000c2720000c4720000c6720000c8720000ca720000cc720000ce720000d0720000d2720000d4720000d6720000d8720000da720000dc720000de720000e0720000e2720000e4720000e6720000e8720000ea720000ec720000ee720000f0720000f2720000f4720000f6720000f8720000fa720000fc720000fe72000000730000027300000473000000ca9a3bffffff7f
+    m_SelectedIDs: 9c740000
+    m_LastClickedID: 29852
+    m_ExpandedIDs: 00000000ba720000bc720000be720000c0720000c2720000c4720000c6720000c8720000ca720000cc720000ce720000d0720000d2720000d4720000d6720000d8720000da720000dc720000de720000e0720000e2720000e4720000e6720000e8720000ea720000ec720000ee720000f0720000f2720000f4720000f6720000f8720000fa720000fc720000fe72000000730000027300008874000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2150,7 +2389,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000bc720000be720000c0720000c2720000c4720000c6720000c8720000ca720000cc720000ce720000d0720000d2720000d4720000d6720000d8720000da720000dc720000de720000e0720000e2720000e4720000e6720000e8720000ea720000ec720000ee720000f0720000f2720000f4720000f6720000f8720000fa720000fc720000fe720000007300000273000004730000
+    m_ExpandedIDs: 00000000ba720000bc720000be720000c0720000c2720000c4720000c6720000c8720000ca720000cc720000ce720000d0720000d2720000d4720000d6720000d8720000da720000dc720000de720000e0720000e2720000e4720000e6720000e8720000ea720000ec720000ee720000f0720000f2720000f4720000f6720000f8720000fa720000fc720000fe7200000073000002730000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2177,22 +2416,22 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: d2630000785600007c610000c86100002c9d00009aa20000a6a20000aaa20000f447000060810000b464000038680000526800003c6b00001e68000062670000146500000a6e0000e46d00000e4f0000e2c600001e7a000002700000ac6b00003c700000000000007e7000001a72000042760000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: PopupLayerContainer
+      m_OriginalName: PopupLayerContainer
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 26210
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 12}
     m_CreateAssetUtility:
@@ -2227,9 +2466,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1588
+    x: 1585
     y: 73
-    width: 331
+    width: 334
     height: 918
   m_SerializedDataModeController:
     m_DataMode: 0

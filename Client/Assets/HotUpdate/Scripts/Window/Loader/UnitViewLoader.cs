@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -18,6 +19,11 @@ public class UnitViewLoader : IViewLoader
     {
         view = default;
         return false;
+    }
+
+    List<int>IViewLoader.BatchAddFilter(List<Type> types, List<int> uniqueIds)
+    {
+        return uniqueIds;
     }
 
     async UniTask<IView> IViewLoader.CreateView(Type type)

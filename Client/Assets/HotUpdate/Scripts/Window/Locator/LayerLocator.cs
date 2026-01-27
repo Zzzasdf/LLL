@@ -44,10 +44,6 @@ public class LayerLocator : MonoBehaviour, ILayerLocator
 
     ILayerContainer ILayerLocator.GetContainer() => layerContainer;
     IUICanvasLocator ILayerLocator.GetCanvasLocator() => uiCanvasLocator;
-    Type ILayerLocator.GetViewType(int uniqueId) => uniqueTypeDict[uniqueId];
-    public IView GetView(int uniqueId) => uniqueViewDict[uniqueId];
-
-    public bool ExistInstantiate(int uniqueId) => uniqueViewDict.ContainsKey(uniqueId);
 
     async UniTask<IView> ILayerLocator.ShowViewAsync(Type type)
     {
@@ -85,8 +81,31 @@ public class LayerLocator : MonoBehaviour, ILayerLocator
         view.Show();
         return view;
     }
-    
-    async UniTask<bool> ILayerLocator.TryPopViewAsync(int uniqueId, int siblingIndex)
+
+    async UniTask<bool> ILayerLocator.TryPopViewAsync(List<int> uniqueIds)
+    {
+        List<Type> types = new List<Type>();
+        foreach (var uniqueId in uniqueIds)
+        {
+            types.Add(uniqueTypeDict[uniqueId]);
+        }
+        uniqueIds = viewLoader.BatchAddFilter(types, uniqueIds);
+        
+        for (int i = 0; i < uniqueIds.Count; i++)
+        {
+            int uniqueId = uniqueIds[i];
+            if (uniqueViewDict.TryGetValue(uniqueId, out IView view))
+            {
+                view.GameObject().transform.SetAsLastSibling();
+            }
+            else
+            {
+                await TryPopViewAsync(uniqueId);
+            }
+        }
+        return true;
+    }
+    private async UniTask<bool> TryPopViewAsync(int uniqueId)
     {
         if (!uniqueTypeDict.TryGetValue(uniqueId, out Type type))
         {
@@ -117,35 +136,11 @@ public class LayerLocator : MonoBehaviour, ILayerLocator
             uniqueViewDict.Remove(oldUniqueId);
             view.Hide();
         }
-        if (!uniqueViewDict.TryAdd(uniqueId, view))
-        {
-            view.Hide();
-        }
+        uniqueViewDict.Add(uniqueId, view);
         view.BindUniqueId(uniqueId);
         Transform viewTra = view.GameObject().transform;
-        if (siblingIndex < 0)
-            viewTra.SetAsLastSibling();
-        else
-            viewTra.SetSiblingIndex(siblingIndex);
+        viewTra.SetAsLastSibling();
         view.Show();
-        return true;
-    }
-
-    async UniTask<bool> ILayerLocator.TryPopViewAsync(Queue<int> uniqueIds)
-    {
-        ILayerLocator layerLocator = this;
-        HashSet<Type> viewTypes = new HashSet<Type>();
-        foreach (var uniqueId in uniqueIds)
-        {
-            if (uniqueViewDict.TryGetValue(uniqueId, out IView view))
-            {
-                viewTypes.Add(view.GetType());
-                continue;
-            }
-            Type type = uniqueTypeDict[uniqueId];
-            if (!viewTypes.Add(type)) continue;
-            await layerLocator.TryPopViewAsync(uniqueId, 0);
-        }
         return true;
     }
 

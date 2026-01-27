@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -40,6 +41,26 @@ public class UniqueViewLoader : IViewLoader
         }
         view = default;
         return false;
+    }
+
+    List<int> IViewLoader.BatchAddFilter(List<Type> types, List<int> uniqueIds)
+    {
+        List<Type> newTypes = new List<Type>();
+        List<int> newUniqueIds = new List<int>();
+        for (int i = 0; i < types.Count; i++)
+        {
+            Type type = types[i];
+            int uniqueId = uniqueIds[i];
+            if (newTypes.Contains(type))
+            {
+                int index = newTypes.IndexOf(type);
+                newTypes.RemoveAt(index);
+                newUniqueIds.RemoveAt(index);
+            }
+            newTypes.Add(type);
+            newUniqueIds.Add(uniqueId);
+        }
+        return newUniqueIds;
     }
 
     async UniTask<IView> IViewLoader.CreateView(Type type)

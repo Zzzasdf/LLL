@@ -31,7 +31,7 @@ public class Launcher : MonoBehaviour
                     [ViewLayer.Window] = new UniqueLayerContainer<LayerLocator, ViewLocator, UniqueViewLoader>(ViewLayer.Window, poolCapacity: 1),
                     [ViewLayer.Popup] = new MultipleLayerContainer<LayerLocator, ViewLocator, UniqueViewLoader>(ViewLayer.Popup, poolCapacity: 1),
                     [ViewLayer.Tip] = new MultipleLayerContainer<LayerLocator, ViewLocator, UniqueViewLoader>(ViewLayer.Tip, poolCapacity: 1),
-                    [ViewLayer.System] = new UniqueLayerContainer<LayerLocator, ViewLocator, UniqueViewLoader>(ViewLayer.System, poolCapacity: 1),
+                    [ViewLayer.System] = new UniqueLayerContainer<LayerLocator, ViewLocator, UnitViewLoader>(ViewLayer.System, poolCapacity: 1),
                 }, new Dictionary<ViewLayer, List<Type>>
                 {
                     [ViewLayer.Bg] = new List<Type>
@@ -44,6 +44,7 @@ public class Launcher : MonoBehaviour
                     [ViewLayer.FullScreen] = new List<Type>
                     {
                         AddView<StartView, StartViewModel>(services),
+                        AddViewWithAccount<SettingsView, SettingsViewModel, GlobalSettingsModel>(services),
                         AddViewWithAccount<SelectRoleView, SelectRoleViewModel, AccountModel>(services),
                         AddViewWithAccount<CreateRoleView, CreateRoleViewModel, AccountModel>(services),
                     },
@@ -54,7 +55,6 @@ public class Launcher : MonoBehaviour
                     {
                         AddView<ConfirmAgainView, ConfirmAgainViewModel>(services),
                         AddView<HelpView, HelpViewModel>(services),
-                        AddViewWithAccount<SettingsView, SettingsViewModel, GlobalSettingsModel>(services),
                     },
                     [ViewLayer.Tip] = new List<Type>
                     {

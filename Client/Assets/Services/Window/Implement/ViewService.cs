@@ -41,7 +41,7 @@ public class ViewService: ObservableRecipient,
         // 同层界面推入 弹出处理
         if(removeId.HasValue)
         {
-            await ClearUpperLayerStash(viewLayer, removeId.Value);
+            ClearUpperLayerStash(viewLayer, removeId.Value);
         }
         // 上层界面遮挡暂存
         int uniqueId = view.GetUniqueId();
@@ -69,53 +69,41 @@ public class ViewService: ObservableRecipient,
         }
         
         int uniqueId = view.GetUniqueId();
-        (int? popId, int siblingIndex) = layerContainer.HideViewTryPop(uniqueId);
-        if (!popId.HasValue)
+        List<int> popIds = layerContainer.HideViewTryPop(uniqueId);
+        if (popIds is { Count: > 0 })
         {
-            return true;
+            await PopShow(viewLayer, popIds);
         }
-        await PopShow(viewLayer, popId.Value, siblingIndex);
         foreach (var item in Enum.GetValues(typeof(ViewLayer)))
         {
             ViewLayer layer = (ViewLayer)item;
             if (layer <= viewLayer) continue;
             ILayerContainer container = layerContainers[layer];
-            if (!container.TryStashPop(uniqueId, out Queue<int> stashIds)) continue;
-            await PopShow(layer, stashIds);
+            if (!container.TryStashPop(uniqueId, out List<int> ids)) continue;
+            await PopShow(layer, ids);
         }
         return true;
     }
-    private async UniTask PopShow(ViewLayer viewLayer, int uniqueId, int siblingIndex)
+    private async UniTask PopShow(ViewLayer viewLayer, List<int> popIds)
     {
         ILayerContainer layerContainer = layerContainers[viewLayer];
-        int? removeId = await layerContainer.PopViewAndTryRemove(uniqueId, siblingIndex);
-        if (!removeId.HasValue) return;
-        await ClearUpperLayerStash(viewLayer, removeId.Value);
-    }
-    private async UniTask PopShow(ViewLayer viewLayer, Queue<int> stashIds)
-    {
-        ILayerContainer layerContainer = layerContainers[viewLayer];
-        int? removeId = await layerContainer.PopViewAndTryRemove(stashIds);
-        if (!removeId.HasValue) return;
-        await ClearUpperLayerStash(viewLayer, removeId.Value);
+        List<int> removeIds = await layerContainer.PopViewAndTryRemove(popIds);
+        if (removeIds == null) return;
+        foreach (var removeId in removeIds)
+        {
+            ClearUpperLayerStash(viewLayer, removeId);
+        }
     }
     
     // 清空关联的上层界面遮挡暂存 ！！
-    private async UniTask ClearUpperLayerStash(ViewLayer viewLayer, int uniqueId)
+    private void ClearUpperLayerStash(ViewLayer viewLayer, int uniqueId)
     {
-        ILayerContainer layerContainer = layerContainers[viewLayer];
         foreach (var item in Enum.GetValues(typeof(ViewLayer)))
         {
             ViewLayer layer = (ViewLayer)item;
             if (layer <= viewLayer) continue;
             ILayerContainer container = layerContainers[layer];
-            if (!container.TryStashPop(uniqueId, out Queue<int> stashIds)) continue;
-            await PopShow(layer, stashIds);
-        }
-        (int? popId, int siblingIndex) = layerContainer.HideViewTryPop(uniqueId);
-        if (popId.HasValue)
-        {
-            await PopShow(viewLayer, popId.Value, siblingIndex);
+            container.StashClear(uniqueId);
         }
     }
     

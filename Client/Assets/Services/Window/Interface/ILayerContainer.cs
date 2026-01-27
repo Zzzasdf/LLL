@@ -8,10 +8,9 @@ public interface ILayerContainer
     ILayerLocator AddLocator(GameObject goLocator);
     
     UniTask<(IView view, int? removeId)> ShowViewAndTryRemoveAsync(Type type);
-    UniTask<int?> PopViewAndTryRemove(int uniqueId, int siblingIndex);
-    UniTask<int?> PopViewAndTryRemove(Queue<int> uniqueIds);
+    UniTask<List<int>> PopViewAndTryRemove(List<int> popIds);
 
-    (int? popId, int siblingIndex) HideViewTryPop(int uniqueId);
+    List<int> HideViewTryPop(int uniqueId);
     /// 隐藏所有激活 + 暂存界面
     void HideAllView();
     /// 隐藏所有激活界面
@@ -20,7 +19,8 @@ public interface ILayerContainer
     void HideAllStashView();
     
     void Stash(int uniqueId);
-    bool TryStashPop(int uniqueId, out Queue<int> popIds);
+    bool TryStashPop(int uniqueId, out List<int> popIds);
+    void StashClear(int uniqueId);
 
     ViewLayer GetViewLayer();
     IViewLoader GetViewLoader();

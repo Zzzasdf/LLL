@@ -41,6 +41,11 @@ public class MultipleViewLoader : IViewLoader
         return false;
     }
 
+    List<int> IViewLoader.BatchAddFilter(List<Type> types, List<int> uniqueIds)
+    {
+        return uniqueIds;
+    }
+
     async UniTask<IView> IViewLoader.CreateView(Type type)
     {
         string name = type.Name;

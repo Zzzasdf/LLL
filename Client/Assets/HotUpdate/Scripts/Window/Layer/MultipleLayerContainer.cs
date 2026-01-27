@@ -15,14 +15,14 @@ public class MultipleLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: I
     private TLayerLocator layerLocator;
 
     private List<int> uniqueIds;
-    private Dictionary<int, Stack<int>> stashDict;
+    private Dictionary<int, List<int>> stashDict;
 
     public MultipleLayerContainer(ViewLayer viewLayer, int poolCapacity)
     {
         this.viewLayer = viewLayer;
         viewLoader = new TViewLoader().SetCapacity(poolCapacity);
         uniqueIds = new List<int>();
-        stashDict = new Dictionary<int, Stack<int>>();
+        stashDict = new Dictionary<int, List<int>>();
     }
     
     ILayerLocator ILayerContainer.AddLocator(GameObject goLocator)
@@ -38,20 +38,15 @@ public class MultipleLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: I
         uniqueIds.Add(uniqueId);
         return (view, null);
     }
-    async UniTask<int?> ILayerContainer.PopViewAndTryRemove(int uniqueId, int siblingIndex)
+    async UniTask<List<int>> ILayerContainer.PopViewAndTryRemove(List<int> popIds)
     {
-        await layerLocator.TryPopViewAsync(uniqueId, siblingIndex);
-        return null;
-    }
-    async UniTask<int?> ILayerContainer.PopViewAndTryRemove(Queue<int> uniqueIds)
-    {
-        await layerLocator.TryPopViewAsync(uniqueIds);
+        await layerLocator.TryPopViewAsync(popIds);
         return null;
     }
     
-    (int? popId, int siblingIndex) ILayerContainer.HideViewTryPop(int uniqueId)
+    List<int> ILayerContainer.HideViewTryPop(int uniqueId)
     {
-        if (!TryRemoveAndTryPop(uniqueId, out (int? popId, int siblingIndex) pop))
+        if (!TryRemoveAndTryPop(uniqueId, out List<int> popIds))
         {
             LLogger.FrameError($"当前关闭的界面不存在！！当前请求 uniqueId => {uniqueId}");
         }
@@ -59,7 +54,7 @@ public class MultipleLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: I
         {
             layerLocator.HideView(uniqueId);
         }
-        return pop;
+        return popIds;
     }
     void ILayerContainer.HideAllView()
     {
@@ -80,49 +75,25 @@ public class MultipleLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: I
     {
         foreach (var pair in stashDict)
         {
-            Stack<int> stack = pair.Value;
-            foreach (var uniqueId in stack)
+            List<int> list = pair.Value;
+            for (int i = list.Count - 1; i >= 0; i--)
             {
+                int uniqueId = uniqueIds[i];
                 layerLocator.HideView(uniqueId);
             }
         }
         stashDict.Clear();
     }
 
-    private bool TryRemoveAndTryPop(int uniqueId, out (int? popId, int siblingIndex) pop)
+    private bool TryRemoveAndTryPop(int uniqueId, out List<int> popIds)
     {
-        pop = (null, -1);
-        int index = uniqueIds.IndexOf(uniqueId);
-        if (index < 0) return false;
-        uniqueIds.RemoveAt(index);
-        Type removeType = layerLocator.GetViewType(uniqueId);
-        int? nextUniqueId = null;
-        for (int i = uniqueIds.Count - 1; i >= 0; i--)
+        popIds = null;
+        uniqueIds.Remove(uniqueId);
+        if (uniqueIds.Count == 0) return true;
+        popIds = new List<int>();
+        for (int i = 0; i < uniqueIds.Count; i++)
         {
-            int previousUniqueId = uniqueIds[i];
-            Type previousType = layerLocator.GetViewType(previousUniqueId);
-            if (previousType != removeType)
-            {
-                if (layerLocator.ExistInstantiate(previousUniqueId))
-                {
-                    nextUniqueId = previousUniqueId;
-                }
-            }
-            else
-            {
-                if (!layerLocator.ExistInstantiate(previousUniqueId))
-                {
-                    if (!nextUniqueId.HasValue)
-                    {
-                        pop = (previousUniqueId, -1);
-                        return true;
-                    }
-                    layerLocator.GetView(uniqueId).GameObject().transform.SetAsLastSibling();
-                    int siblingIndex = layerLocator.GetView(nextUniqueId.Value).GameObject().transform.GetSiblingIndex();
-                    pop = (previousUniqueId, siblingIndex);
-                }
-                return true;
-            }
+            popIds.Add(uniqueIds[i]);
         }
         return true;
     }
@@ -130,36 +101,41 @@ public class MultipleLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: I
     void ILayerContainer.Stash(int uniqueId)
     {
         if (uniqueIds.Count == 0) return;
-        if (!stashDict.TryGetValue(uniqueId, out Stack<int> stack))
+        if (!stashDict.TryGetValue(uniqueId, out List<int> list))
         {
-            stashDict.Add(uniqueId, stack = new Stack<int>());
+            stashDict.Add(uniqueId, list = new List<int>());
         }
         foreach (int id in uniqueIds)
         {
             layerLocator.PushHideView(id);
-            stack.Push(id);
+            list.Add(id);
         }
         uniqueIds.Clear();
     }
-    bool ILayerContainer.TryStashPop(int uniqueId, out Queue<int> popIds)
+
+    bool ILayerContainer.TryStashPop(int uniqueId, out List<int> popIds)
     {
-        popIds = null;
-        if (!stashDict.Remove(uniqueId, out Stack<int> stack))
+        if (!stashDict.Remove(uniqueId, out popIds))
         {
             return false;
         }
-        popIds = new Queue<int>();
-        for (int i = uniqueIds.Count - 1; i >= 0; i--)
+        for (int i = 0; i < popIds.Count; i++)
+        {
+            int id = popIds[i];
+            uniqueIds.Insert(i, id);
+        }
+        popIds.Clear();
+        for (int i = 0; i < uniqueIds.Count; i++)
         {
             int id = uniqueIds[i];
-            popIds.Enqueue(id);
-        }
-        foreach (var id in stack)
-        {
-            popIds.Enqueue(id);
-            uniqueIds.Insert(0, id);
+            popIds.Add(id);
         }
         return true;
+    }
+
+    void ILayerContainer.StashClear(int uniqueId)
+    {
+        stashDict.Remove(uniqueId);
     }
 
     ViewLayer ILayerContainer.GetViewLayer() => viewLayer;

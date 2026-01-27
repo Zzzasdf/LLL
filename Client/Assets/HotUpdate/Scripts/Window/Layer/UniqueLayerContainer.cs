@@ -14,15 +14,15 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
 
     private TLayerLocator layerLocator;
     
-    private Stack<int> uniqueIds;
-    private Dictionary<int, Stack<int>> stashDict;
+    private List<int> uniqueIds;
+    private Dictionary<int, List<int>> stashDict;
     
     public UniqueLayerContainer(ViewLayer viewLayer, int poolCapacity)
     {
         this.viewLayer = viewLayer;
         viewLoader = new TViewLoader().SetCapacity(poolCapacity);
-        uniqueIds = new Stack<int>();
-        stashDict = new Dictionary<int, Stack<int>>();
+        uniqueIds = new List<int>();
+        stashDict = new Dictionary<int, List<int>>();
     }
 
     ILayerLocator ILayerContainer.AddLocator(GameObject goLocator)
@@ -37,34 +37,29 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
         int uniqueId = view.GetUniqueId();
         if (uniqueIds.Count > 0)
         {
-            int hideId = uniqueIds.Peek();
+            int hideId = uniqueIds[^1];
             layerLocator.PushHideView(hideId);
         }
-        uniqueIds.Push(uniqueId);
+        uniqueIds.Add(uniqueId);
         return (view, null);
     }
-    async UniTask<int?> ILayerContainer.PopViewAndTryRemove(int uniqueId, int siblingIndex)
+    async UniTask<List<int>> ILayerContainer.PopViewAndTryRemove(List<int> popIds)
     {
-        await layerLocator.TryPopViewAsync(uniqueId, siblingIndex);
-        return null;
-    }
-    async UniTask<int?> ILayerContainer.PopViewAndTryRemove(Queue<int> uniqueIds)
-    {
-        await layerLocator.TryPopViewAsync(uniqueIds);
+        await layerLocator.TryPopViewAsync(popIds);
         return null;
     }
 
-    (int? popId, int siblingIndex) ILayerContainer.HideViewTryPop(int uniqueId)
+    List<int> ILayerContainer.HideViewTryPop(int uniqueId)
     {
-        if (!TryRemoveAndTryPop(uniqueId, out (int? popId, int siblingIndex) pop))
+        if (!TryRemoveAndTryPop(uniqueId, out List<int> popIds))
         {
-            LLogger.FrameError($"请优先关闭栈顶的界面！！当前请求 uniqueId => {uniqueId}, 栈顶 uniqueId => {uniqueIds.Peek()}");
+            LLogger.FrameError($"请优先关闭栈顶的界面！！当前请求 uniqueId => {uniqueId}, 栈顶 uniqueId => {uniqueIds[^1]}");
         }
         else
         {
             layerLocator.HideView(uniqueId);
         }
-        return pop;
+        return popIds;
     }
     void ILayerContainer.HideAllView()
     {
@@ -74,89 +69,83 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
     }
     void ILayerContainer.HideAllActivateView()
     {
-        while (uniqueIds.Count != 0)
+        for (int i = uniqueIds.Count - 1; i >= 0; i--)
         {
-            int uniqueId = uniqueIds.Pop();
+            int uniqueId = uniqueIds[i];
             layerLocator.HideView(uniqueId);
         }
+        uniqueIds.Clear();
     }
     void ILayerContainer.HideAllStashView()
     {
         foreach (var pair in stashDict)
         {
-            Stack<int> stack = pair.Value;
-            foreach (var uniqueId in stack)
+            List<int> list = pair.Value;
+            for (int i = list.Count - 1; i >= 0; i--)
             {
+                int uniqueId = uniqueIds[i];
                 layerLocator.HideView(uniqueId);
             }
         }
         stashDict.Clear();
     }
 
-    private bool TryRemoveAndTryPop(int uniqueId, out (int? popId, int siblingIndex) pop)
+    private bool TryRemoveAndTryPop(int uniqueId, out List<int> popIds)
     {
-        pop = (null, -1);
+        popIds = null;
         if (uniqueIds.Count == 0
-            || uniqueIds.Peek() != uniqueId)
+            || uniqueIds[^1] != uniqueId)
         {
             return false;
         }
-        uniqueIds.Pop();
+        uniqueIds.RemoveAt(uniqueIds.Count - 1);
         if (uniqueIds.Count == 0)
         {
             return true;
         }
-        pop = (uniqueIds.Peek(), -1);
+        popIds = new List<int>
+        {
+            uniqueIds[^1]
+        };
         return true;
     }
     
     void ILayerContainer.Stash(int uniqueId)
     {
         if (uniqueIds.Count == 0) return;
-        if (!stashDict.TryGetValue(uniqueId, out Stack<int> stack))
+        if (!stashDict.TryGetValue(uniqueId, out List<int> list))
         {
-            stashDict.Add(uniqueId, stack = new Stack<int>());
-        }
-        while (uniqueIds.Count > 0)
-        {
-            int id = uniqueIds.Pop();
-            stack.Push(id);
-            layerLocator.PushHideView(id);
-        }
-    }
-    bool ILayerContainer.TryStashPop(int uniqueId, out Queue<int> popIds)
-    {
-        popIds = null;
-        if (!stashDict.Remove(uniqueId, out Stack<int> stack))
-        {
-            return false;
-        }
-        popIds = new Queue<int>();
-        while (stack.Count > 0)
-        {
-            int id = stack.Pop();
-            popIds.Enqueue(id);
+            stashDict.Add(uniqueId, list = new List<int>());
         }
         foreach (var id in uniqueIds)
         {
-            stack.Push(id);
-        }
-        while (stack.Count > 0)
-        {
-            int id = stack.Pop();
-            popIds.Enqueue(id);
+            layerLocator.PushHideView(id);
+            list.Add(id);
         }
         uniqueIds.Clear();
-        foreach (var id in popIds)
+    }
+    
+    bool ILayerContainer.TryStashPop(int uniqueId, out List<int> popIds)
+    {
+        if (!stashDict.Remove(uniqueId, out popIds))
         {
-            uniqueIds.Push(id);
+            return false;
         }
-        int popId = uniqueIds.Peek();
+        for (int i = 0; i < popIds.Count; i++)
+        {
+            int id = popIds[i];
+            uniqueIds.Insert(i, id);
+        }
         popIds.Clear();
-        popIds.Enqueue(popId);
-        return popIds.Count > 0;
+        popIds.Add(uniqueIds[^1]);
+        return true;
     }
 
+    void ILayerContainer.StashClear(int uniqueId)
+    {
+        stashDict.Remove(uniqueId);
+    }
+    
     ViewLayer ILayerContainer.GetViewLayer() => viewLayer;
     IViewLoader ILayerContainer.GetViewLoader() => viewLoader;
     ILayerLocator ILayerContainer.GetLocator() => layerLocator;
