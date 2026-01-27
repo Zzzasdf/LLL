@@ -175,7 +175,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewLayer: 0
-  refCount: 0
   uniqueId: 0
   lbContent: {fileID: 74745380549831531}
   btnCancel: {fileID: 9162479319214128862}

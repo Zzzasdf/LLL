@@ -38,6 +38,8 @@ public class SerializableDictionary<TKey, TValue> : ISerializationCallbackReceiv
         get { return dictionary[key]; }
         set { dictionary[key] = value; }
     }
+
+    public int Count => dictionary.Count;
     
     public bool ContainsKey(TKey key)
     {

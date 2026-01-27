@@ -46,14 +46,17 @@
     <Analyzer Include="C:\UnityEditor\2022.3.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\HotUpdate\Scripts\Window\Locator\LayerMaskBlackLocator.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\StartViewModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\DataStructures\SerializableStack.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Asset\AssetBaseLoader.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Model\RoleModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Loader\MultipleViewLoader.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\RoleArchiveItem.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\Locator\LayerUnitLocator.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Launcher.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\IProcedure.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\Locator\ViewUnitLocator.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\CreateRoleViewModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureMain.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\CreateRoleView.cs" />
@@ -61,11 +64,12 @@
     <Compile Include="Assets\HotUpdate\Scripts\TestUnityEvent.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Event\MessengerExtensions.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Utility\UniqueIdGenerator.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\Locator\ViewMaskTransparentClickLocator.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Asset\PhotographyLoader.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModelGenerator.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\Locator\LayerLocator.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\ConfirmAgainViewModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Event\EventDefine.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\Locator\LayerRaycastBlockingLocator.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureCreateRole.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Asset\Photography.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Message.cs" />
@@ -84,7 +88,6 @@
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\MainViewModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\DataStructures\SerializableHashSet.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Loader\UnitViewLoader.cs" />
-    <Compile Include="Assets\HotUpdate\Scripts\Window\Locator\ViewLocator.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Model\ModelServiceCollectionServiceExtensions.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewBase.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\HelpViewModel.cs" />
@@ -95,6 +98,7 @@
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\LoadingViewModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\LoadingView.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\HelpView.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\Locator\ViewRaycastBlockingLocator.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\ProcedureService.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\SettingsView.cs" />
     <None Include="Assets\HotUpdate\Scripts\HotUpdate.asmdef" />

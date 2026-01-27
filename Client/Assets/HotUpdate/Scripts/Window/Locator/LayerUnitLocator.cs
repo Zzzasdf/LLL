@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class LayerLocator : MonoBehaviour, ILayerLocator
+public class LayerUnitLocator : MonoBehaviour, ILayerLocator
 {
     private ILayerContainer layerContainer;
     private ViewLayer viewLayer;
@@ -17,7 +17,7 @@ public class LayerLocator : MonoBehaviour, ILayerLocator
     [SerializeField]
     private SerializableDictionary<int, IView> uniqueViewDict;
     
-    public void Build(ILayerContainer layerContainer, IUICanvasLocator uiCanvasLocator)
+    void ILayerLocator.Build(ILayerContainer layerContainer, IUICanvasLocator uiCanvasLocator)
     {
         this.layerContainer = layerContainer;
         viewLayer = layerContainer.GetViewLayer();
@@ -76,6 +76,7 @@ public class LayerLocator : MonoBehaviour, ILayerLocator
         uniqueTypeDict.Add(uniqueId, type);
         
         uniqueViewDict.Add(uniqueId, view);
+        CheckUniqueViewDictCount();
         view.BindUniqueId(uniqueId);
         view.GameObject().transform.SetAsLastSibling();
         view.Show();
@@ -90,7 +91,7 @@ public class LayerLocator : MonoBehaviour, ILayerLocator
             types.Add(uniqueTypeDict[uniqueId]);
         }
         uniqueIds = viewLoader.BatchAddFilter(types, uniqueIds);
-        
+
         for (int i = 0; i < uniqueIds.Count; i++)
         {
             int uniqueId = uniqueIds[i];
@@ -137,6 +138,7 @@ public class LayerLocator : MonoBehaviour, ILayerLocator
             view.Hide();
         }
         uniqueViewDict.Add(uniqueId, view);
+        CheckUniqueViewDictCount();
         view.BindUniqueId(uniqueId);
         Transform viewTra = view.GameObject().transform;
         viewTra.SetAsLastSibling();
@@ -159,16 +161,28 @@ public class LayerLocator : MonoBehaviour, ILayerLocator
             view.Hide();
             viewLoader.ReleaseView(view);
         }
+        CheckUniqueViewDictCount();
     }
 
     void ILayerLocator.PushHideView(int uniqueId)
     {
         if (!uniqueViewDict.Remove(uniqueId, out IView view))
         {
+            CheckUniqueViewDictCount();
             return;
         }
+        CheckUniqueViewDictCount();
         view.Hide();
         viewLoader.ReleaseView(view);
+    }
+
+    private void CheckUniqueViewDictCount()
+    {
+        CheckUniqueViewDictCount(uniqueViewDict.Count);
+    }
+    protected virtual void CheckUniqueViewDictCount(int count)
+    {
+        
     }
 
     [ContextMenu("LayerContainer Content")]

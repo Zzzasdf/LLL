@@ -173,7 +173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewLayer: 0
-  refCount: 0
   uniqueId: 0
   btnStart: {fileID: 6202644382045939029}
   btnShaderExamples: {fileID: 4294853606202721309}
