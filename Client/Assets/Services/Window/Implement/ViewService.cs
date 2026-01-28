@@ -4,129 +4,151 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using Cysharp.Threading.Tasks;
 
-public class ViewService: ObservableRecipient,
+public partial class ViewService: ObservableRecipient,
     IViewService,
     IRecipient<ViewShowAsyncRequestEvent>,
-    IRecipient<ViewHideAsyncRequestEvent>,
-    IRecipient<ViewAllHideAsyncRequestEvent>
+    IRecipient<ViewAKAShowAsyncRequestEvent>
 {
-    private Dictionary<Type, ViewLayer> viewLayers;
     private Dictionary<ViewLayer, ILayerContainer> layerContainers;
+    private Dictionary<Type, IViewConfigure> views;
     
-    public ViewService(Dictionary<ViewLayer, ILayerContainer> layerContainers, Dictionary<ViewLayer, List<Type>> viewLayers)
+    private Dictionary<Type, Type> sub2MainMaps;
+    private Dictionary<SubViewAKA, Type> subAka2MainMaps;
+
+    private Dictionary<Type, ISubViewConfigure> subViews;
+    private Dictionary<SubViewAKA, ISubViewConfigure> subViewAKAs;
+    
+    public ViewService(Dictionary<ViewLayer, ILayerContainer> layerContainers, 
+        Dictionary<ViewLayer, List<IViewConfigure>> views, 
+        IReadOnlyList<(Func<ISubViewContainer> subViewContainer, List<ISubViewConfigure> subViewConfigures)> subViews)
     {
-        this.viewLayers = new Dictionary<Type, ViewLayer>();
-        foreach (var pair  in viewLayers)
+        this.layerContainers = layerContainers;
+        this.views = new Dictionary<Type, IViewConfigure>();
+        sub2MainMaps = new Dictionary<Type, Type>();
+        subAka2MainMaps = new Dictionary<SubViewAKA, Type>();
+        foreach (var pair in views)
         {
             ViewLayer viewLayer = pair.Key;
-            List<Type> types = pair.Value;
-            for (int i = 0; i < types.Count; i++)
+            List<IViewConfigure> viewConfigures = pair.Value;
+            for (int i = 0; i < viewConfigures.Count; i++)
             {
-                Type type = types[i];
-                this.viewLayers.Add(type, viewLayer);
+                IViewConfigure viewConfigure = viewConfigures[i];
+                viewConfigure.Build(viewLayer);
+                
+                Type viewType = viewConfigure.GetViewType();
+                this.views.Add(viewType, viewConfigure);
+                
+                List<Type> subViewTypes = viewConfigure.GetSubViewTypes();
+                if (subViewTypes != null)
+                {
+                    for (int j = 0; j < subViewTypes.Count; j++)
+                    {
+                        Type subViewType = subViewTypes[j];
+                        sub2MainMaps.Add(subViewType, viewType);
+                    }
+                }
+                
+                List<SubViewAKA> subViewAKAs = viewConfigure.GetSubViewAKAs();
+                if (subViewAKAs != null)
+                {
+                    for (int j = 0; j < subViewAKAs.Count; j++)
+                    {
+                        SubViewAKA subViewAKA = subViewAKAs[j];
+                        subAka2MainMaps.Add(subViewAKA, viewType);
+                    }
+                }
             }
         }
-        this.layerContainers = layerContainers;
+
+        this.subViews = new Dictionary<Type, ISubViewConfigure>();
+        this.subViewAKAs = new Dictionary<SubViewAKA, ISubViewConfigure>();
+        for (int i = 0; i < subViews.Count; i++)
+        {
+            // TODO ZZZ
+            LLogger.Warning("!!!!!!!!!!!!!!");
+            (Func<ISubViewContainer> subViewContainer, List<ISubViewConfigure> subViewConfigures) = subViews[i];
+            for (int j = 0; j < subViewConfigures.Count; j++)
+            {
+                ISubViewConfigure subViewConfigure = subViewConfigures[j];
+                Type subViewType = subViewConfigure.GetSubViewType();
+                List<SubViewAKA> subViewAKAs = subViewConfigure.GetSubViewAKAs();
+
+                this.subViews.Add(subViewType, subViewConfigure);
+                for (int k = 0; k < subViewAKAs?.Count; k++)
+                {
+                    SubViewAKA subViewAka = subViewAKAs[k];
+                    this.subViewAKAs.Add(subViewAka, subViewConfigure);
+                }
+            }
+        }
         IsActive = true;
     }
-
     Dictionary<ViewLayer, ILayerContainer> IViewService.GetLayerContainers() => layerContainers;
-    
-    private async UniTask<IView> ShowAsync_Internal(Type type)
-    {
-        ViewLayer viewLayer = viewLayers[type];
-        ILayerContainer layerContainer = layerContainers[viewLayer];
-        (IView view, int? removeId) = await layerContainer.ShowViewAndTryRemoveAsync(type);
-        
-        // 同层界面推入 弹出处理
-        if(removeId.HasValue)
-        {
-            ClearUpperLayerStash(viewLayer, removeId.Value);
-        }
-        // 上层界面遮挡暂存
-        int uniqueId = view.GetUniqueId();
-        foreach (var item in Enum.GetValues(typeof(ViewLayer)))
-        {
-            ViewLayer layer = (ViewLayer)item;
-            if (layer <= viewLayer) continue;
-            ILayerContainer container = layerContainers[layer];
-            container.Stash(uniqueId);
-        }
-        return view;
-    }
 
-    private async UniTask<bool> HideAsync_Internal(IView view)
+    private async UniTask<bool> ShowAsync_Internal(Type type)
     {
-        ViewLayer viewLayer = view.GetLayer();
-        ILayerContainer layerContainer = layerContainers[viewLayer];
-        // 清空上层所有激活界面
-        foreach (var item in Enum.GetValues(typeof(ViewLayer)))
+        if (views.TryGetValue(type, out IViewConfigure viewConfigure))
         {
-            ViewLayer layer = (ViewLayer)item;
-            if (layer <= viewLayer) continue;
-            ILayerContainer container = layerContainers[layer];
-            container.HideAllActivateView();
+            if (!viewConfigure.IsFuncOpenWithTip())
+            {
+                return false;
+            }
+            await ShowMainAsync_Internal(viewConfigure);
+            return true;
         }
-        
-        int uniqueId = view.GetUniqueId();
-        List<int> popIds = layerContainer.HideViewTryPop(uniqueId);
-        if (popIds is { Count: > 0 })
+        if (subViews.TryGetValue(type, out ISubViewConfigure subViewConfigure))
         {
-            await PopShow(viewLayer, popIds);
+            if (!subViewConfigure.IsFuncOpenWithTip())
+            {
+                return false;
+            }
+            if (!sub2MainMaps.TryGetValue(type, out Type mainType))
+            {
+                LLogger.FrameError($"子界面：{type.Name} 未绑定主界面");
+                return false;
+            }
+            viewConfigure = views[mainType];
+            if (!viewConfigure.IsFuncOpenWithTip())
+            {
+                return false;
+            }
+            IView mainView = await ShowMainAsync_Internal(viewConfigure);
+            mainView.SetFirstSubView(type);
+            return true;
         }
-        foreach (var item in Enum.GetValues(typeof(ViewLayer)))
-        {
-            ViewLayer layer = (ViewLayer)item;
-            if (layer <= viewLayer) continue;
-            ILayerContainer container = layerContainers[layer];
-            if (!container.TryStashPop(uniqueId, out List<int> ids)) continue;
-            await PopShow(layer, ids);
-        }
-        return true;
+        return false;
     }
-    private async UniTask PopShow(ViewLayer viewLayer, List<int> popIds)
+    private async UniTask<bool> ShowAsync_Internal(SubViewAKA subViewAka)
     {
-        ILayerContainer layerContainer = layerContainers[viewLayer];
-        List<int> removeIds = await layerContainer.PopViewAndTryRemove(popIds);
-        if (removeIds == null) return;
-        foreach (var removeId in removeIds)
+        if (subViewAKAs.TryGetValue(subViewAka, out ISubViewConfigure subViewConfigure))
         {
-            ClearUpperLayerStash(viewLayer, removeId);
+            if (!subViewConfigure.IsFuncOpenWithTip())
+            {
+                return false;
+            }
+            if (!subAka2MainMaps.TryGetValue(subViewAka, out Type mainType))
+            {
+                LLogger.FrameError($"子界面 AKA：{subAka2MainMaps} 未绑定主界面");
+                return false;
+            }
+            IViewConfigure viewConfigure = views[mainType];
+            if (!viewConfigure.IsFuncOpenWithTip())
+            {
+                return false;
+            }
+            IView mainView = await ShowMainAsync_Internal(viewConfigure);
+            mainView.SetFirstSubView(subViewAka);
+            return true;
         }
-    }
-    
-    // 清空关联的上层界面遮挡暂存 ！！
-    private void ClearUpperLayerStash(ViewLayer viewLayer, int uniqueId)
-    {
-        foreach (var item in Enum.GetValues(typeof(ViewLayer)))
-        {
-            ViewLayer layer = (ViewLayer)item;
-            if (layer <= viewLayer) continue;
-            ILayerContainer container = layerContainers[layer];
-            container.StashClear(uniqueId);
-        }
-    }
-    
-    private async UniTask<bool> HideAllAsync_Internal()
-    {
-        foreach (var pair in layerContainers)
-        {
-            ILayerContainer layerContainer = pair.Value;
-            layerContainer.HideAllView();
-        }
-        return await UniTask.FromResult(true);
+        return false;
     }
     
     void IRecipient<ViewShowAsyncRequestEvent>.Receive(ViewShowAsyncRequestEvent message)
     {
         message.Reply(ShowAsync_Internal(message.Type).AsTask());
     }
-    void IRecipient<ViewHideAsyncRequestEvent>.Receive(ViewHideAsyncRequestEvent message)
+    void IRecipient<ViewAKAShowAsyncRequestEvent>.Receive(ViewAKAShowAsyncRequestEvent message)
     {
-        message.Reply(HideAsync_Internal(message.View).AsTask());
-    }
-    void IRecipient<ViewAllHideAsyncRequestEvent>.Receive(ViewAllHideAsyncRequestEvent message)
-    {
-        message.Reply(HideAllAsync_Internal().AsTask());
+        message.Reply(ShowAsync_Internal(message.SubViewAKA).AsTask());
     }
 }

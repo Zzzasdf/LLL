@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ViewUnitLocator: MonoBehaviour, IViewLocator
+public class ViewUnitHelper: MonoBehaviour, IViewHelper
 {
     public IAnimation EnterAnimation { get; set; }
     public IAnimation ExitAnimation { get; set; }

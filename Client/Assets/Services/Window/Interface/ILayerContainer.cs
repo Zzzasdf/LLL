@@ -25,7 +25,7 @@ public interface ILayerContainer
     ViewLayer GetViewLayer();
     IViewLoader GetViewLoader();
     ILayerLocator GetLocator();
-    IViewLocator AddViewLocator(GameObject goView);
+    IViewHelper AddViewLocator(GameObject goView);
 
     string ToString();
 }

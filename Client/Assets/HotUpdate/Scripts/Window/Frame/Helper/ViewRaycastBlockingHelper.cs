@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ViewRaycastBlockingLocator : ViewUnitLocator
+public class ViewRaycastBlockingHelper : ViewUnitHelper
 {
     protected GameObject goMask;
     protected RectTransform rtMask;

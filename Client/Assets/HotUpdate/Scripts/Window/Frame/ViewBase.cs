@@ -1,7 +1,9 @@
+using System;
 using System.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
     where TViewModel: class, IViewModel
@@ -10,8 +12,8 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
     private bool viewEvent;
     private ViewState viewState;
 
-    [SerializeField]
-    private IViewLocator viewLocator;
+    [FormerlySerializedAs("viewLocator")] [SerializeField]
+    private IViewHelper viewHelper;
     [SerializeField]
     private ViewLayer viewLayer;
     [SerializeField]
@@ -22,9 +24,9 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
     {
         this.viewLayer = viewLayer;
     }
-    void IView.BindLocator(IViewLocator viewLocator)
+    void IView.BindLocator(IViewHelper viewHelper)
     {
-        this.viewLocator = viewLocator;
+        this.viewHelper = viewHelper;
     }
 
     ViewLayer IView.GetLayer() => viewLayer;
@@ -65,7 +67,7 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
             viewState = ViewState.VISIBLE;
             
             viewState = ViewState.ENTER_ANIMATION_BEGIN;
-            if (viewLocator.EnterAnimation != null)
+            if (viewHelper.EnterAnimation != null)
             {
                 if (cts != null)
                 {
@@ -73,7 +75,7 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
                     cts.Dispose();
                     cts = null;
                 }
-                await viewLocator.EnterAnimation.DOPlayAsync();
+                await viewHelper.EnterAnimation.DOPlayAsync();
             }
             viewState = ViewState.ENTER_ANIMATION_END;
             BindUI();
@@ -94,6 +96,15 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
     }
 
     void IView.Hide() => Hide_Internal().Forget();
+    void IView.SetFirstSubView(Type subViewType)
+    {
+        throw new NotImplementedException();
+    }
+
+    void IView.SetFirstSubView(SubViewAKA subViewAka)
+    {
+        throw new NotImplementedException();
+    }
 
     private async UniTask Hide_Internal()
     {
@@ -111,10 +122,10 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
             viewState = ViewState.PASSIVATED;
             
             viewState = ViewState.EXIT_ANIMATION_BEGIN;
-            if (viewLocator.ExitAnimation != null)
+            if (viewHelper.ExitAnimation != null)
             {
                 cts = new CancellationTokenSource();
-                await viewLocator.ExitAnimation.DOPlayAsync(cts.Token);
+                await viewHelper.ExitAnimation.DOPlayAsync(cts.Token);
             }
             viewState = ViewState.EXIT_ANIMATION_END;
             gameObject.SetActive(false);

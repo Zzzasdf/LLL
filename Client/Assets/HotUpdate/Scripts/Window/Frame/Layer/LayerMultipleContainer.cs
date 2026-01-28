@@ -4,20 +4,20 @@ using System.Text;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILayerContainer
+public class LayerMultipleContainer<TLayerLocator, TViewLocator, TViewLoader>: ILayerContainer
     where TLayerLocator: MonoBehaviour, ILayerLocator
-    where TViewLocator: MonoBehaviour, IViewLocator
+    where TViewLocator: MonoBehaviour, IViewHelper
     where TViewLoader: IViewLoader
 {
     private readonly ViewLayer viewLayer;
     private IViewLoader viewLoader;
-
-    private TLayerLocator layerLocator;
     
+    private TLayerLocator layerLocator;
+
     private List<int> uniqueIds;
     private Dictionary<int, List<int>> stashDict;
-    
-    public UniqueLayerContainer(ViewLayer viewLayer, int poolCapacity, int preDestroyCapacity = 10, int preDestroyMillisecondsDelay = 10)
+
+    public LayerMultipleContainer(ViewLayer viewLayer, int poolCapacity, int preDestroyCapacity = 10, int preDestroyMillisecondsDelay = 1000)
     {
         this.viewLayer = viewLayer;
         viewLoader = (TViewLoader)Activator.CreateInstance(typeof(TViewLoader), new object[]
@@ -27,20 +27,15 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
         uniqueIds = new List<int>();
         stashDict = new Dictionary<int, List<int>>();
     }
-
+    
     ILayerLocator ILayerContainer.AddLocator(GameObject goLocator)
     {
         layerLocator = goLocator.AddComponent<TLayerLocator>();
         return layerLocator;
     }
-
+    
     async UniTask<(IView view, int? removeId)> ILayerContainer.ShowViewAndTryRemoveAsync(Type type)
     {
-        if (uniqueIds.Count > 0)
-        {
-            int hideId = uniqueIds[^1];
-            layerLocator.PushHideView(hideId);
-        }
         IView view = await layerLocator.ShowViewAsync(type);
         int uniqueId = view.GetUniqueId();
         uniqueIds.Add(uniqueId);
@@ -51,12 +46,12 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
         await layerLocator.TryPopViewAsync(popIds);
         return null;
     }
-
+    
     List<int> ILayerContainer.HideViewTryPop(int uniqueId)
     {
         if (!TryRemoveAndTryPop(uniqueId, out List<int> popIds))
         {
-            LLogger.FrameError($"请优先关闭栈顶的界面！！当前请求 uniqueId => {uniqueId}, 栈顶 uniqueId => {uniqueIds[^1]}");
+            LLogger.FrameError($"当前关闭的界面不存在！！当前请求 uniqueId => {uniqueId}");
         }
         else
         {
@@ -96,20 +91,13 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
     private bool TryRemoveAndTryPop(int uniqueId, out List<int> popIds)
     {
         popIds = null;
-        if (uniqueIds.Count == 0
-            || uniqueIds[^1] != uniqueId)
+        uniqueIds.Remove(uniqueId);
+        if (uniqueIds.Count == 0) return true;
+        popIds = new List<int>();
+        for (int i = 0; i < uniqueIds.Count; i++)
         {
-            return false;
+            popIds.Add(uniqueIds[i]);
         }
-        uniqueIds.RemoveAt(uniqueIds.Count - 1);
-        if (uniqueIds.Count == 0)
-        {
-            return true;
-        }
-        popIds = new List<int>
-        {
-            uniqueIds[^1]
-        };
         return true;
     }
     
@@ -120,14 +108,14 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
         {
             stashDict.Add(uniqueId, list = new List<int>());
         }
-        foreach (var id in uniqueIds)
+        foreach (int id in uniqueIds)
         {
             layerLocator.PushHideView(id);
             list.Add(id);
         }
         uniqueIds.Clear();
     }
-    
+
     bool ILayerContainer.TryStashPop(int uniqueId, out List<int> popIds)
     {
         if (!stashDict.Remove(uniqueId, out popIds))
@@ -140,7 +128,11 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
             uniqueIds.Insert(i, id);
         }
         popIds.Clear();
-        popIds.Add(uniqueIds[^1]);
+        for (int i = 0; i < uniqueIds.Count; i++)
+        {
+            int id = uniqueIds[i];
+            popIds.Add(id);
+        }
         return true;
     }
 
@@ -148,11 +140,11 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
     {
         stashDict.Remove(uniqueId);
     }
-    
+
     ViewLayer ILayerContainer.GetViewLayer() => viewLayer;
     IViewLoader ILayerContainer.GetViewLoader() => viewLoader;
     ILayerLocator ILayerContainer.GetLocator() => layerLocator;
-    IViewLocator ILayerContainer.AddViewLocator(GameObject goView) => goView.AddComponent<TViewLocator>();
+    IViewHelper ILayerContainer.AddViewLocator(GameObject goView) => goView.AddComponent<TViewLocator>();
 
     string ILayerContainer.ToString()
     {

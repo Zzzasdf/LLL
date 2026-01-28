@@ -1,10 +1,10 @@
-using Cysharp.Threading.Tasks;
+using System;
 using UnityEngine;
 
 public interface IView
 {
     void BindLayer(ViewLayer viewLayer);
-    void BindLocator(IViewLocator viewLocator);
+    void BindLocator(IViewHelper viewHelper);
     ViewLayer GetLayer();
     ViewState GetViewState();
 
@@ -15,4 +15,7 @@ public interface IView
 
     void Show();
     void Hide();
+
+    void SetFirstSubView(Type subViewType);
+    void SetFirstSubView(SubViewAKA subViewAka);
 }

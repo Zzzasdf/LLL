@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ViewMaskBlackClickLocator : ViewMaskTransparentClickLocator
+public class ViewMaskBlackClickHelper : ViewMaskTransparentClickHelper
 {
     protected override void Awake()
     {

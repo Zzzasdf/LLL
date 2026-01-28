@@ -6,9 +6,9 @@ public static class WindowServiceExtensions
 {
     public static void AddWindowService(this IServiceCollection services, 
         Func<IServiceProvider, Dictionary<ViewLayer, ILayerContainer>> layerContainersFunc, 
-        Dictionary<ViewLayer, List<Type>> viewLayers)
+        Dictionary<ViewLayer, List<IViewConfigure>> views, List<(Func<ISubViewContainer>, List<ISubViewConfigure>)> subViews)
     {
         services.AddSingleton<IViewService, ViewService>(sp => new ViewService
-            (layerContainersFunc(sp), viewLayers));
+            (layerContainersFunc(sp), views, subViews));
     }
 }

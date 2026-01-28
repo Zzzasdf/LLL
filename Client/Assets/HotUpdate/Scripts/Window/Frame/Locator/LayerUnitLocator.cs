@@ -67,8 +67,8 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
                 windowRt.anchorMax = Vector2.one;
                 windowRt.offsetMin = Vector2.zero;
                 windowRt.offsetMax = Vector2.zero;
-                IViewLocator viewLocator = layerContainer.AddViewLocator(goView);
-                view.BindLocator(viewLocator);
+                IViewHelper viewHelper = layerContainer.AddViewLocator(goView);
+                view.BindLocator(viewHelper);
             }
         }
         else
@@ -133,8 +133,8 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
                 windowRt.anchorMax = Vector2.one;
                 windowRt.offsetMin = Vector2.zero;
                 windowRt.offsetMax = Vector2.zero;
-                IViewLocator viewLocator = layerContainer.AddViewLocator(goView);
-                view.BindLocator(viewLocator);
+                IViewHelper viewHelper = layerContainer.AddViewLocator(goView);
+                view.BindLocator(viewHelper);
             }
         }
         else

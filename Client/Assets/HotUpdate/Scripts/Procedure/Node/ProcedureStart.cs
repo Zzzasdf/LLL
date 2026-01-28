@@ -5,7 +5,7 @@ public class ProcedureStart : IProcedure
 {
     async UniTask IProcedure.Run()
     {
-        await WeakReferenceMessenger.Default.SendViewAllHideAsync();
+        WeakReferenceMessenger.Default.SendViewAllHideAsync();
         await WeakReferenceMessenger.Default.SendViewShowAsync<StartView>();
     }
 }

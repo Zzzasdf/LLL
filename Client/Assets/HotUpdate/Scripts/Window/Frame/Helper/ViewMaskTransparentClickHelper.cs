@@ -2,7 +2,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using Cysharp.Threading.Tasks;
 using UnityEngine.UI;
 
-public class ViewMaskTransparentClickLocator : ViewRaycastBlockingLocator
+public class ViewMaskTransparentClickHelper : ViewRaycastBlockingHelper
 {
     private IView view;
     private Button btnMask;

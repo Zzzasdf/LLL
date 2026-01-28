@@ -25,44 +25,61 @@ public class Launcher : MonoBehaviour
         services
             .AddWindowService(sp => new Dictionary<ViewLayer, ILayerContainer>
                 {
-                    [ViewLayer.Bg] = new UniqueLayerContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, ViewUniqueLoader>(ViewLayer.Bg, poolCapacity: 1),
-                    [ViewLayer.Permanent] = new MultipleLayerContainer<LayerUnitLocator, ViewUnitLocator, ViewUniqueLoader>(ViewLayer.Permanent, poolCapacity: 1),
-                    [ViewLayer.FullScreen] = new UniqueLayerContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, ViewUniqueLoader>(ViewLayer.FullScreen, poolCapacity: 1),
-                    [ViewLayer.Window] = new UniqueLayerContainer<LayerMaskBlackLocator, ViewMaskTransparentClickLocator, ViewUniqueLoader>(ViewLayer.Window, poolCapacity: 1),
-                    [ViewLayer.Popup] = new UniqueLayerContainer<LayerMaskBlackLocator, ViewMaskBlackClickLocator, ViewUnitLoader>(ViewLayer.Popup, poolCapacity: 1),
-                    [ViewLayer.Tip] = new MultipleLayerContainer<LayerUnitLocator, ViewUnitLocator, ViewUniqueLoader>(ViewLayer.Tip, poolCapacity: 1),
-                    [ViewLayer.System] = new UniqueLayerContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, ViewUnitLoader>(ViewLayer.System, poolCapacity: 1),
-                }, new Dictionary<ViewLayer, List<Type>>
+                    [ViewLayer.Bg] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingHelper, ViewUniqueLoader>(ViewLayer.Bg, poolCapacity: 1),
+                    [ViewLayer.Permanent] = new LayerMultipleContainer<LayerUnitLocator, ViewUnitHelper, ViewUniqueLoader>(ViewLayer.Permanent, poolCapacity: 1),
+                    [ViewLayer.FullScreen] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingHelper, ViewUniqueLoader>(ViewLayer.FullScreen, poolCapacity: 1),
+                    [ViewLayer.Window] = new LayerUniqueContainer<LayerMaskBlackLocator, ViewMaskTransparentClickHelper, ViewUniqueLoader>(ViewLayer.Window, poolCapacity: 1),
+                    [ViewLayer.Popup] = new LayerUniqueContainer<LayerMaskBlackLocator, ViewMaskBlackClickHelper, ViewUnitLoader>(ViewLayer.Popup, poolCapacity: 1),
+                    [ViewLayer.Tip] = new LayerMultipleContainer<LayerUnitLocator, ViewUnitHelper, ViewUniqueLoader>(ViewLayer.Tip, poolCapacity: 1),
+                    [ViewLayer.System] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingHelper, ViewUnitLoader>(ViewLayer.System, poolCapacity: 1),
+                }, new Dictionary<ViewLayer, List<IViewConfigure>>
                 {
-                    [ViewLayer.Bg] = new List<Type>
+                    [ViewLayer.Bg] = new List<IViewConfigure>
                     {
                     },
-                    [ViewLayer.Permanent] = new List<Type>
+                    [ViewLayer.Permanent] = new List<IViewConfigure>
                     {
-                        AddView<MainView, MainViewModel>(services),
+                        AddView<MainView, MainViewModel>(services)
+                            .AddSubType<SubActivityView>(),
                     },
-                    [ViewLayer.FullScreen] = new List<Type>
+                    [ViewLayer.FullScreen] = new List<IViewConfigure>
                     {
                         AddView<StartView, StartViewModel>(services),
-                        AddViewWithAccount<SelectRoleView, SelectRoleViewModel, AccountModel>(services),
-                        AddViewWithAccount<CreateRoleView, CreateRoleViewModel, AccountModel>(services),
+                        AddView<SelectRoleView, SelectRoleViewModel>(services),
+                        AddView<CreateRoleView, CreateRoleViewModel>(services)
                     },
-                    [ViewLayer.Window] = new List<Type>
+                    [ViewLayer.Window] = new List<IViewConfigure>
                     {
                     },
-                    [ViewLayer.Popup] = new List<Type>
+                    [ViewLayer.Popup] = new List<IViewConfigure>
                     {
-                        AddViewWithAccount<SettingsView, SettingsViewModel, GlobalSettingsModel>(services),
+                        AddView<SettingsView, SettingsViewModel>(services),
                         AddView<HelpView, HelpViewModel>(services),
                         AddView<ConfirmAgainView, ConfirmAgainViewModel>(services),
                     },
-                    [ViewLayer.Tip] = new List<Type>
+                    [ViewLayer.Tip] = new List<IViewConfigure>
                     {
                     },
-                    [ViewLayer.System] = new List<Type>
+                    [ViewLayer.System] = new List<IViewConfigure>
                     {
                         AddView<LoadingView, LoadingViewModel>(services),
                     },
+                }, new List<(Func<ISubViewContainer>, List<ISubViewConfigure>)>
+                {
+                    // 同类型子界面只允许同时出现一个
+                    (()=> new SubViewUniqueContainer(),
+                        new List<ISubViewConfigure>
+                        {
+                            AddSubView<SubActivityView, SubActivityViewModel>(services)
+                                .AddCheck(new SubActivityCheck(1)),
+                        }
+                    ),
+                    // 同类型子界面允许出现多个
+                    (()=> new SubViewMultipleContainer(),
+                        new List<ISubViewConfigure>
+                        {
+                        }
+                    )
                 }
             );
         
@@ -86,9 +103,14 @@ public class Launcher : MonoBehaviour
                     [ProcedureService.GameState.Battle] = sp.GetRequiredService<ProcedureBattle>(),
                 }));
 
+        // 账号级别数据
+        services.AddAccountLevelModel<AccountModel>();
+        services.AddAccountLevelModel<GlobalSettingsModel>();
+        
+        // 角色级别数据
         services.AddRoleLevelModel<RoleModel>(sp => sp.GetRequiredService<IDataService>().Get<RoleModel>()
             .Bind(sp.GetRequiredService<IDataService>().AccountLevelGet<AccountModel>().GetSelectedAccountRoleSimpleModel()));
-        
+
         return services.BuildServiceProvider();
     }
 
@@ -104,29 +126,16 @@ public class Launcher : MonoBehaviour
         WeakReferenceMessenger.Default.SendProcedureSwap(ProcedureService.GameState.Preload);
     }
     
-    private static Type AddView<TView, TViewModel>(IServiceCollection services) 
+    private static ViewConfigure AddView<TView, TViewModel>(IServiceCollection services) 
         where TView : IView 
         where TViewModel: class, IViewModel
     {
-        services.AddTransient<TViewModel>();
-        return typeof(TView);
+        return new ViewConfigure(services).AddView<TView, TViewModel>();
     }
-    private static Type AddView<TView, TViewModel, TModel>(IServiceCollection services) 
+    private static SubViewConfigure AddSubView<TView, TViewModel>(IServiceCollection services)
         where TView : IView 
         where TViewModel: class, IViewModel
-        where TModel: class, new()
     {
-        services.AddTransient<TViewModel>();
-        services.AddRoleLevelModel<TModel>();
-        return typeof(TView);
-    }
-    private static Type AddViewWithAccount<TView, TViewModel, TModel>(IServiceCollection services) 
-        where TView : IView 
-        where TViewModel: class, IViewModel
-        where TModel: class, IAccountLevelModel, new()
-    {
-        services.AddTransient<TViewModel>();
-        services.AddAccountLevelModel<TModel>();
-        return typeof(TView);
+        return new SubViewConfigure(services).AddView<TView, TViewModel>();
     }
 }
