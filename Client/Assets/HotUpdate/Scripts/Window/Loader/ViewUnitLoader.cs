@@ -7,7 +7,9 @@ using YooAsset;
 
 public class ViewUnitLoader : IViewLoader
 {
-    IViewLoader IViewLoader.SetCapacity(int capacity) => this;
+    public ViewUnitLoader(int poolCapacity, int preDestroyCapacity, int preDestroyMillisecondsDelay)
+    {
+    }
 
     bool IViewLoader.TryGetActiveView(Type type, out IView view)
     {

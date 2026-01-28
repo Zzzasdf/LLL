@@ -1,3 +1,4 @@
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -11,5 +12,5 @@ public abstract class UIAnimation : MonoBehaviour, IAnimation
         set => animationType = value;
     }
 
-    public abstract UniTask DOPlayAsync();
+    public abstract UniTask DOPlayAsync(CancellationToken token = default);
 }

@@ -5,64 +5,16 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using YooAsset;
 
-public class ViewUniqueLoader : IViewLoader
+public class ViewUniqueLoader : ObjectPoolAsync<Type, IView>, IViewLoader
 {
-    private int capacity;
-    private List<Type> iteration;
-    private Dictionary<Type, IView> pools;
     private Dictionary<Type, IView> actives;
 
-    public ViewUniqueLoader()
+    public ViewUniqueLoader(int poolCapacity, int preDestroyCapacity, int preDestroyMillisecondsDelay)
+        : base(poolCapacity, preDestroyCapacity, preDestroyMillisecondsDelay, OnCreate, OnDestroy)
     {
-        iteration = new List<Type>();
-        pools = new Dictionary<Type, IView>();
         actives = new Dictionary<Type, IView>();
     }
-    IViewLoader IViewLoader.SetCapacity(int capacity)
-    {
-        this.capacity = capacity;
-        iteration = capacity > 0 ? new List<Type>(capacity) : new List<Type>();
-        return this;
-    }
-
-    bool IViewLoader.TryGetActiveView(Type type, out IView view)
-    {
-        return actives.TryGetValue(type, out view);
-    }
-
-    bool IViewLoader.TryGetPoolView(Type type, out IView view)
-    {
-        if (pools.Remove(type, out view))
-        {
-            iteration.Remove(type);
-            actives.Add(type, view);
-            return true;
-        }
-        view = default;
-        return false;
-    }
-
-    List<int> IViewLoader.BatchAddFilter(List<Type> types, List<int> uniqueIds)
-    {
-        List<Type> newTypes = new List<Type>();
-        List<int> newUniqueIds = new List<int>();
-        for (int i = 0; i < types.Count; i++)
-        {
-            Type type = types[i];
-            int uniqueId = uniqueIds[i];
-            if (newTypes.Contains(type))
-            {
-                int index = newTypes.IndexOf(type);
-                newTypes.RemoveAt(index);
-                newUniqueIds.RemoveAt(index);
-            }
-            newTypes.Add(type);
-            newUniqueIds.Add(uniqueId);
-        }
-        return newUniqueIds;
-    }
-
-    async UniTask<IView> IViewLoader.CreateView(Type type)
+    private static async UniTask<IView> OnCreate(Type type)
     {
         string name = type.Name;
         var handle = YooAssets.LoadAssetAsync<GameObject>(name);
@@ -85,6 +37,29 @@ public class ViewUniqueLoader : IViewLoader
             return default;
         }
         IView view = instantiatedObject.GetComponent(type) as IView;
+        return view;
+    }
+    private static void OnDestroy(IView view)
+    {
+        UnityEngine.Object.Destroy(view.GameObject());
+    }
+
+    bool IViewLoader.TryGetActiveView(Type type, out IView view)
+    {
+        return actives.TryGetValue(type, out view);
+    }
+    bool IViewLoader.TryGetPoolView(Type type, out IView view)
+    {
+        if (TryGetFromPool(type, out view))
+        {
+            actives.Add(type, view);
+            return true;
+        }
+        return false;
+    }
+    async UniTask<IView> IViewLoader.CreateView(Type type)
+    {
+        IView view = await Create(type);
         actives.Add(type, view);
         return view;
     }
@@ -93,46 +68,40 @@ public class ViewUniqueLoader : IViewLoader
     {
         Type type = view.GetType();
         actives.Remove(type);
-        iteration.Add(type);
-        pools.Add(type, view);
-        if (iteration.Count > capacity)
-        {
-            Type removeType = iteration[0];
-            iteration.RemoveAt(0);
-            IView removeView = pools[removeType];
-            pools.Remove(removeType);
-            UnityEngine.Object.Destroy(removeView.GameObject());
-        }
+        Release(type, view);
     }
-    
+
+    List<int> IViewLoader.BatchAddFilter(List<Type> types, List<int> uniqueIds)
+    {
+        List<Type> newTypes = new List<Type>();
+        List<int> newUniqueIds = new List<int>();
+        for (int i = 0; i < types.Count; i++)
+        {
+            Type type = types[i];
+            int uniqueId = uniqueIds[i];
+            if (newTypes.Contains(type))
+            {
+                int index = newTypes.IndexOf(type);
+                newTypes.RemoveAt(index);
+                newUniqueIds.RemoveAt(index);
+            }
+            newTypes.Add(type);
+            newUniqueIds.Add(uniqueId);
+        }
+        return newUniqueIds;
+    }
+
     string IViewLoader.ToString()
     {
+        string baseString = ToString();
         StringBuilder sb = new StringBuilder(GetType().Name);
-        sb.AppendLine($" capacity => {capacity}");
-
         int index = 0;
-        sb.AppendLine($"iteration => ");
-        foreach (var item in iteration)
-        {
-            sb.AppendLine($"[{index}] => {item}");
-            index++;
-        }
-        
-        index = 0;
-        sb.AppendLine("pools => ");
-        foreach (var pair in pools)
-        {
-            sb.AppendLine($"[{index}] => key: {pair.Key}, value: {pair.Value}");
-            index++;
-        }
-
-        index = 0;
         sb.AppendLine("actives => ");
         foreach (var pair in actives)
         {
             sb.AppendLine($"[{index}] => key: {pair.Key}, value: {pair.Value}");
             index++;
         }
-        return sb.ToString();
+        return $"{baseString}{sb}";
     }
 }

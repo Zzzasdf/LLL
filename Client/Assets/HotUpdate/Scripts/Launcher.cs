@@ -29,7 +29,7 @@ public class Launcher : MonoBehaviour
                     [ViewLayer.Permanent] = new MultipleLayerContainer<LayerUnitLocator, ViewUnitLocator, ViewUniqueLoader>(ViewLayer.Permanent, poolCapacity: 1),
                     [ViewLayer.FullScreen] = new UniqueLayerContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, ViewUniqueLoader>(ViewLayer.FullScreen, poolCapacity: 1),
                     [ViewLayer.Window] = new UniqueLayerContainer<LayerMaskBlackLocator, ViewMaskTransparentClickLocator, ViewUniqueLoader>(ViewLayer.Window, poolCapacity: 1),
-                    [ViewLayer.Popup] = new UniqueLayerContainer<LayerMaskBlackLocator, ViewMaskBlackClickLocator, ViewUniqueLoader>(ViewLayer.Popup, poolCapacity: 1),
+                    [ViewLayer.Popup] = new UniqueLayerContainer<LayerMaskBlackLocator, ViewMaskBlackClickLocator, ViewUnitLoader>(ViewLayer.Popup, poolCapacity: 1),
                     [ViewLayer.Tip] = new MultipleLayerContainer<LayerUnitLocator, ViewUnitLocator, ViewUniqueLoader>(ViewLayer.Tip, poolCapacity: 1),
                     [ViewLayer.System] = new UniqueLayerContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, ViewUnitLoader>(ViewLayer.System, poolCapacity: 1),
                 }, new Dictionary<ViewLayer, List<Type>>
@@ -44,7 +44,6 @@ public class Launcher : MonoBehaviour
                     [ViewLayer.FullScreen] = new List<Type>
                     {
                         AddView<StartView, StartViewModel>(services),
-                        AddViewWithAccount<SettingsView, SettingsViewModel, GlobalSettingsModel>(services),
                         AddViewWithAccount<SelectRoleView, SelectRoleViewModel, AccountModel>(services),
                         AddViewWithAccount<CreateRoleView, CreateRoleViewModel, AccountModel>(services),
                     },
@@ -53,8 +52,9 @@ public class Launcher : MonoBehaviour
                     },
                     [ViewLayer.Popup] = new List<Type>
                     {
-                        AddView<ConfirmAgainView, ConfirmAgainViewModel>(services),
+                        AddViewWithAccount<SettingsView, SettingsViewModel, GlobalSettingsModel>(services),
                         AddView<HelpView, HelpViewModel>(services),
+                        AddView<ConfirmAgainView, ConfirmAgainViewModel>(services),
                     },
                     [ViewLayer.Tip] = new List<Type>
                     {

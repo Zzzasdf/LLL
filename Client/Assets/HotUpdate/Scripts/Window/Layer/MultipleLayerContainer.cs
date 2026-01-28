@@ -7,7 +7,7 @@ using UnityEngine;
 public class MultipleLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILayerContainer
     where TLayerLocator: MonoBehaviour, ILayerLocator
     where TViewLocator: MonoBehaviour, IViewLocator
-    where TViewLoader: IViewLoader, new()
+    where TViewLoader: IViewLoader
 {
     private readonly ViewLayer viewLayer;
     private IViewLoader viewLoader;
@@ -17,10 +17,13 @@ public class MultipleLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: I
     private List<int> uniqueIds;
     private Dictionary<int, List<int>> stashDict;
 
-    public MultipleLayerContainer(ViewLayer viewLayer, int poolCapacity)
+    public MultipleLayerContainer(ViewLayer viewLayer, int poolCapacity, int preDestroyCapacity = 10, int preDestroyMillisecondsDelay = 1000)
     {
         this.viewLayer = viewLayer;
-        viewLoader = new TViewLoader().SetCapacity(poolCapacity);
+        viewLoader = (TViewLoader)Activator.CreateInstance(typeof(TViewLoader), new object[]
+        {
+            poolCapacity, preDestroyCapacity, preDestroyMillisecondsDelay
+        });
         uniqueIds = new List<int>();
         stashDict = new Dictionary<int, List<int>>();
     }
@@ -107,7 +110,7 @@ public class MultipleLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: I
         }
         foreach (int id in uniqueIds)
         {
-            layerLocator.PushHideView(id).Forget();
+            layerLocator.PushHideView(id);
             list.Add(id);
         }
         uniqueIds.Clear();

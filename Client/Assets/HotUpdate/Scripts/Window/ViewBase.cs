@@ -1,3 +1,4 @@
+using System.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -57,7 +58,7 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
             if (viewModel is ObservableRecipient observableRecipient)
             {
                 observableRecipient.IsActive = true;
-                LLogger.Log($"{typeof(TViewModel).Name} IsActive: {viewState}");
+                LLogger.FrameLog($"{typeof(TViewModel).Name} IsActive: {viewState}");
             }
             InitUI();
             gameObject.SetActive(true);
@@ -66,6 +67,12 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
             viewState = ViewState.ENTER_ANIMATION_BEGIN;
             if (viewLocator.EnterAnimation != null)
             {
+                if (cts != null)
+                {
+                    cts.Cancel();
+                    cts.Dispose();
+                    cts = null;
+                }
                 await viewLocator.EnterAnimation.DOPlayAsync();
             }
             viewState = ViewState.ENTER_ANIMATION_END;
@@ -74,11 +81,19 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
         }
     }
 
-    private void OnDestroy() => Hide_Internal().Forget();
-    async UniTask IView.Hide()
+    private CancellationTokenSource cts;
+    private void OnDestroy()
     {
-        await Hide_Internal();
+        if (cts != null)
+        {
+            cts.Cancel();
+            cts.Dispose();
+            cts = null;
+        }
+        Hide_Internal().Forget();
     }
+
+    void IView.Hide() => Hide_Internal().Forget();
 
     private async UniTask Hide_Internal()
     {
@@ -90,7 +105,7 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
             if (viewModel is ObservableRecipient observableRecipient)
             {
                 observableRecipient.IsActive = false;
-                LLogger.Log($"{typeof(TViewModel).Name} IsActive: {viewState}");
+                LLogger.FrameLog($"{typeof(TViewModel).Name} IsActive: {viewState}");
             }
             viewModel = null;
             viewState = ViewState.PASSIVATED;
@@ -98,7 +113,8 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
             viewState = ViewState.EXIT_ANIMATION_BEGIN;
             if (viewLocator.ExitAnimation != null)
             {
-                await viewLocator.ExitAnimation.DOPlayAsync();
+                cts = new CancellationTokenSource();
+                await viewLocator.ExitAnimation.DOPlayAsync(cts.Token);
             }
             viewState = ViewState.EXIT_ANIMATION_END;
             gameObject.SetActive(false);

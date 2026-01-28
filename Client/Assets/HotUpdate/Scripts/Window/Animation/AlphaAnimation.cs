@@ -1,3 +1,4 @@
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -21,9 +22,9 @@ public class AlphaAnimation : UIAnimation
         }
     }
     
-    public override async UniTask DOPlayAsync()
+    public override async UniTask DOPlayAsync(CancellationToken token = default)
     {
         CanvasGroup.alpha = from;
-        await CanvasGroup.DOFade(to, duration).ToUniTask();
+        await CanvasGroup.DOFade(to, duration).ToUniTask(cancellationToken: token);
     }
 }

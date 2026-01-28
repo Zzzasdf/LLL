@@ -7,7 +7,7 @@ using UnityEngine;
 public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILayerContainer
     where TLayerLocator: MonoBehaviour, ILayerLocator
     where TViewLocator: MonoBehaviour, IViewLocator
-    where TViewLoader: IViewLoader, new()
+    where TViewLoader: IViewLoader
 {
     private readonly ViewLayer viewLayer;
     private IViewLoader viewLoader;
@@ -17,10 +17,13 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
     private List<int> uniqueIds;
     private Dictionary<int, List<int>> stashDict;
     
-    public UniqueLayerContainer(ViewLayer viewLayer, int poolCapacity)
+    public UniqueLayerContainer(ViewLayer viewLayer, int poolCapacity, int preDestroyCapacity = 10, int preDestroyMillisecondsDelay = 10)
     {
         this.viewLayer = viewLayer;
-        viewLoader = new TViewLoader().SetCapacity(poolCapacity);
+        viewLoader = (TViewLoader)Activator.CreateInstance(typeof(TViewLoader), new object[]
+        {
+            poolCapacity, preDestroyCapacity, preDestroyMillisecondsDelay
+        });
         uniqueIds = new List<int>();
         stashDict = new Dictionary<int, List<int>>();
     }
@@ -36,7 +39,7 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
         if (uniqueIds.Count > 0)
         {
             int hideId = uniqueIds[^1];
-            await layerLocator.PushHideView(hideId);
+            layerLocator.PushHideView(hideId);
         }
         IView view = await layerLocator.ShowViewAsync(type);
         int uniqueId = view.GetUniqueId();
@@ -119,7 +122,7 @@ public class UniqueLayerContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
         }
         foreach (var id in uniqueIds)
         {
-            layerLocator.PushHideView(id).Forget();
+            layerLocator.PushHideView(id);
             list.Add(id);
         }
         uniqueIds.Clear();

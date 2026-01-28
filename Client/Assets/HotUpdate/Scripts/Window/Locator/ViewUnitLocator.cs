@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class ViewUnitLocator: MonoBehaviour, IViewLocator
 {
-    public bool AnimationInit { get; set; }
     public IAnimation EnterAnimation { get; set; }
     public IAnimation ExitAnimation { get; set; }
     
@@ -60,6 +59,5 @@ public class ViewUnitLocator: MonoBehaviour, IViewLocator
                 ExitAnimation = animation;
             }
         }
-        AnimationInit = true;
     }
 }

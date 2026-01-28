@@ -69,7 +69,6 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
                 windowRt.offsetMax = Vector2.zero;
                 IViewLocator viewLocator = layerContainer.AddViewLocator(goView);
                 view.BindLocator(viewLocator);
-                await UniTask.WaitUntil(() => viewLocator.AnimationInit);
             }
         }
         else
@@ -136,7 +135,6 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
                 windowRt.offsetMax = Vector2.zero;
                 IViewLocator viewLocator = layerContainer.AddViewLocator(goView);
                 view.BindLocator(viewLocator);
-                await UniTask.WaitUntil(() => viewLocator.AnimationInit);
             }
         }
         else
@@ -154,7 +152,7 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
         return true;
     }
 
-    async UniTask ILayerLocator.HideView(int uniqueId)
+    void ILayerLocator.HideView(int uniqueId)
     {
         if (!uniqueTypeDict.Remove(uniqueId))
         {
@@ -172,7 +170,7 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
         CheckUniqueViewDictCount();
     }
 
-    async UniTask ILayerLocator.PushHideView(int uniqueId)
+    void ILayerLocator.PushHideView(int uniqueId)
     {
         if (!uniqueViewDict.Remove(uniqueId, out IView view))
         {

@@ -1,52 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using YooAsset;
 
-public class ViewMultipleLoader : IViewLoader
+public class ViewMultipleLoader : ObjectPoolAsync<Type, IView>, IViewLoader
 {
-    private int capacity;
-    private List<Type> iteration;
-    private Dictionary<Type, Queue<IView>> pools;
-
-    public ViewMultipleLoader()
+    public ViewMultipleLoader(int poolCapacity, int preDestroyCapacity, int preDestroyMillisecondsDelay)
+        : base(poolCapacity, preDestroyCapacity, preDestroyMillisecondsDelay, OnCreate, OnDestroy)
     {
-        pools = new Dictionary<Type, Queue<IView>>();
     }
-    IViewLoader IViewLoader.SetCapacity(int capacity)
-    {
-        this.capacity = capacity;
-        iteration = capacity > 0 ? new List<Type>(capacity) : new List<Type>();
-        return this;
-    }
-    
-    bool IViewLoader.TryGetActiveView(Type type, out IView view)
-    {
-        view = default;
-        return false;
-    }
-
-    bool IViewLoader.TryGetPoolView(Type type, out IView view)
-    {
-        if (pools.TryGetValue(type, out Queue<IView> queue)
-            && queue.Count > 0)
-        {
-            iteration.Remove(type);
-            view = queue.Dequeue();
-            return true;
-        }
-        view = default;
-        return false;
-    }
-
-    List<int> IViewLoader.BatchAddFilter(List<Type> types, List<int> uniqueIds)
-    {
-        return uniqueIds;
-    }
-
-    async UniTask<IView> IViewLoader.CreateView(Type type)
+    private static async UniTask<IView> OnCreate(Type type)
     {
         string name = type.Name;
         var handle = YooAssets.LoadAssetAsync<GameObject>(name);
@@ -71,57 +35,24 @@ public class ViewMultipleLoader : IViewLoader
         IView view = instantiatedObject.GetComponent(type) as IView;
         return view;
     }
-
-    void IViewLoader.ReleaseView(IView view)
+    private static void OnDestroy(IView view)
     {
-        Type type = view.GetType();
-        iteration.Add(type);
-        if (!pools.TryGetValue(type, out Queue<IView> queue))
-        {
-            pools.Add(type, queue = new Queue<IView>());
-        }
-        queue.Enqueue(view);
-        if (iteration.Count > capacity)
-        {
-            Type removeType = iteration[0];
-            iteration.RemoveAt(0);
-            Queue<IView> removeQueue = pools[removeType];
-            IView removeView = removeQueue.Dequeue();
-            if (removeQueue.Count == 0)
-            {
-                pools.Remove(removeType);
-            }
-            UnityEngine.Object.Destroy(removeView.GameObject());
-        }
+        UnityEngine.Object.Destroy(view.GameObject());
     }
     
-    string IViewLoader.ToString()
+    bool IViewLoader.TryGetActiveView(Type type, out IView view)
     {
-        StringBuilder sb = new StringBuilder(GetType().Name);
-        sb.AppendLine($" capacity => {capacity}");
-
-        int index = 0;
-        sb.AppendLine($"iteration => ");
-        foreach (var item in iteration)
-        {
-            sb.AppendLine($"[{index}] => {item}");
-            index++;
-        }
-        
-        index = 0;
-        sb.AppendLine("pools => ");
-        foreach (var pair in pools)
-        {
-            int queueIndex = 0;
-            StringBuilder sbQueue = new StringBuilder();
-            foreach (var uniqueId in pair.Value)
-            {
-                sbQueue.Append($"[{queueIndex}] => {uniqueId}");
-                queueIndex++;
-            }
-            sb.AppendLine($"[{index}] => key: {pair.Key}, value: {sbQueue}");
-            index++;
-        }
-        return sb.ToString();
+        view = default;
+        return false;
     }
+    bool IViewLoader.TryGetPoolView(Type type, out IView view) => TryGetFromPool(type, out view);
+    UniTask<IView> IViewLoader.CreateView(Type type) => Create(type);
+    void IViewLoader.ReleaseView(IView view) => Release(view.GetType(), view);
+    
+    List<int> IViewLoader.BatchAddFilter(List<Type> types, List<int> uniqueIds)
+    {
+        return uniqueIds;
+    }
+    
+    string IViewLoader.ToString() => ToString();
 }

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 150}
   m_MaxSize: {x: 32384, y: 24288}
   vertical: 1
-  controlID: 172
+  controlID: 24
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 150}
   m_MaxSize: {x: 32384, y: 24288}
   vertical: 0
-  controlID: 173
+  controlID: 25
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,12 +166,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 734
+    width: 748
     height: 939
   m_MinSize: {x: 100, y: 150}
   m_MaxSize: {x: 8096, y: 24288}
   vertical: 1
-  controlID: 174
+  controlID: 26
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -189,8 +189,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 734
-    height: 213
+    width: 748
+    height: 231
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
@@ -214,9 +214,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 213
-    width: 734
-    height: 451
+    y: 231
+    width: 748
+    height: 453
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
@@ -240,9 +240,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 664
-    width: 734
-    height: 275
+    y: 684
+    width: 748
+    height: 255
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
@@ -266,12 +266,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 734
+    x: 748
     y: 0
-    width: 266
+    width: 252
     height: 939
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -294,7 +294,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1000
     y: 0
-    width: 468
+    width: 549
     height: 939
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
@@ -318,12 +318,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1468
+    x: 1549
     y: 0
-    width: 452
+    width: 371
     height: 939
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -386,9 +386,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 737
-    width: 733
-    height: 254
+    y: 757
+    width: 747
+    height: 234
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -422,8 +422,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 733
-    height: 192
+    width: 747
+    height: 210
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -756,9 +756,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1014.72394, y: 596.9262, z: 4.3404226}
+    m_Target: {x: 586.41016, y: 580.80554, z: 3.886957}
     speed: 2
-    m_Value: {x: 1014.72394, y: 596.9262, z: 4.3404226}
+    m_Value: {x: 586.41016, y: 580.80554, z: 3.886957}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -808,9 +808,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 667.41077
+    m_Target: 712.75806
     speed: 2
-    m_Value: 667.41077
+    m_Value: 712.75806
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -857,9 +857,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 286
-    width: 733
-    height: 430
+    y: 304
+    width: 747
+    height: 432
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -884,7 +884,7 @@ MonoBehaviour:
   m_UseMipMap: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
-  m_Stats: 0
+  m_Stats: 1
   m_SelectedSizes: 03000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
@@ -912,23 +912,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 733
-      height: 409
-    m_Scale: {x: 0.3787037, y: 0.3787037}
-    m_Translation: {x: 366.5, y: 204.5}
+      width: 747
+      height: 411
+    m_Scale: {x: 0.38055557, y: 0.38055557}
+    m_Translation: {x: 373.5, y: 205.50002}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -967.775
+      x: -981.45984
       y: -540
-      width: 1935.55
+      width: 1962.9197
       height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.3787037
-  m_LastWindowPixelSize: {x: 733, y: 430}
+  m_defaultScale: 0.38055557
+  m_LastWindowPixelSize: {x: 747, y: 432}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -1401,7 +1401,39 @@ MonoBehaviour:
         (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
         Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:10)\nLauncher:Start
         () (at Assets/HotUpdate/Scripts/Launcher.cs:104)\nLog"
+      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nProcedureService run => SelectRoleUnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
+        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:29)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
+        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
+        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
+        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
+        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:10)\nStartViewModel:Start
+        () (at Assets/HotUpdate/Scripts/Window/ViewModel/StartViewModel.cs:19)\nCommunityToolkit.Mvvm.Input.RelayCommand:Execute
+        (object)\nStartView:<BindUI>b__8_0 () (at Assets/HotUpdate/Scripts/Window/View/StartView.cs:23)\nUnityEngine.EventSystems.EventSystem:Update
+        () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)\nLog"
+      - "ThreadId: 1 \nSelectRoleViewModel IsActive: NONEUnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:Log (object) (at Assets/Services/Logger/LLogger.cs:33)\nViewBase`1/<Show_Internal>d__19<SelectRoleViewModel>:MoveNext
+        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:61)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder:Start<ViewBase`1/<Show_Internal>d__19<SelectRoleViewModel>>
+        (ViewBase`1/<Show_Internal>d__19<SelectRoleViewModel>&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:111)\nViewBase`1<SelectRoleViewModel>:Show_Internal
+        ()\nViewBase`1<SelectRoleViewModel>:IView.Show () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:50)\nLayerUnitLocator/<ILayerLocator-ShowViewAsync>d__10:MoveNext
+        () (at Assets/HotUpdate/Scripts/Window/Locator/LayerUnitLocator.cs:88)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LayerUnitLocator/<ILayerLocator-ShowViewAsync>d__10,
+        IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
+        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<object>:TrySetResult
+        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.UniTask/WaitUntilPromise:MoveNext
+        () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.WaitUntil.cs:159)\nCysharp.Threading.Tasks.Internal.PlayerLoopRunner:RunCore
+        () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/Internal/PlayerLoopRunner.cs:175)\nCysharp.Threading.Tasks.Internal.PlayerLoopRunner:Update
+        () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/Internal/PlayerLoopRunner.cs:145)\nCysharp.Threading.Tasks.Internal.PlayerLoopRunner:Run
+        () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/Internal/PlayerLoopRunner.cs:104)\nLog"
+      - "ThreadId: 1 \nSelectRoleViewModel IsActive: ACTIVATEDUnityEngine.Debug:LogFormat
+        (string,object[])\nLLogger:Log (object) (at Assets/Services/Logger/LLogger.cs:33)\nViewBase`1/<Hide_Internal>d__23<SelectRoleViewModel>:MoveNext
+        () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:108)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder:Start<ViewBase`1/<Hide_Internal>d__23<SelectRoleViewModel>>
+        (ViewBase`1/<Hide_Internal>d__23<SelectRoleViewModel>&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:111)\nViewBase`1<SelectRoleViewModel>:Hide_Internal
+        ()\nViewBase`1<SelectRoleViewModel>:OnDestroy () (at Assets/HotUpdate/Scripts/Window/ViewBase.cs:93)\nLog"
       serializeValueList:
+      - count: 1
+      - count: 1
+      - count: 1
       - count: 1
       - count: 1
       - count: 1
@@ -1514,6 +1546,17 @@ MonoBehaviour:
           - Row: 0
           - Row: 0
           - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
         _root:
           Row: 0
     - serializeKeyList: []
@@ -1531,6 +1574,17 @@ MonoBehaviour:
       _analysisDataManager:
         poolInstance:
           _itemPool:
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
           - Row: 0
           - Row: 0
           - Row: 0
@@ -1700,6 +1754,17 @@ MonoBehaviour:
           - Row: 0
           - Row: 0
           - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
         _root:
           Row: 0
     - serializeKeyList: []
@@ -1717,6 +1782,17 @@ MonoBehaviour:
       _analysisDataManager:
         poolInstance:
           _itemPool:
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
+          - Row: 0
           - Row: 0
           - Row: 0
           - Row: 0
@@ -1824,9 +1900,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 734
+    x: 748
     y: 73
-    width: 264
+    width: 250
     height: 918
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1841,9 +1917,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 6a480000
-      m_LastClickedID: 0
-      m_ExpandedIDs: e29cffff369dfffff2a8ffff46a9fffff8bdffffc8c0ffffdcc0ffff1cc1ffffd4c8fffff8cfffff0cd0ffff20d0ffff4cd0ffffccfafffff4ffffff
+      m_SelectedIDs: f628ffff
+      m_LastClickedID: -55050
+      m_ExpandedIDs: f628ffff2229ffffb630ffffe230ffffd844fffff644ffff0445ffffd852ffff0453ffff185bffff445bffff4e67ffff7a67ffff7270ffff9a70ffffc670fffffc9cffff289dffffa8aeffffd4aeffff8cbeffffb8beffffc4d4fffff0d4ffff26f0ffff4ef0ffff7af0ffff20fbfffff4ffffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1890,7 +1966,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1000
     y: 73
-    width: 466
+    width: 547
     height: 918
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1903,7 +1979,7 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_SearchFilter:
-    m_NameFilter: viewB
+    m_NameFilter: 
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -1913,38 +1989,38 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/HotUpdate/Scripts/Window
+    - Assets/HotUpdate/Scripts/Utility
     m_Globs: []
-    m_OriginalText: viewB
+    m_OriginalText: 
     m_ImportLogFlags: 0
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/HotUpdate/Scripts/Window
+  - Assets/HotUpdate/Scripts/Utility
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\UnityProject\LLL\Client
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 154}
-    m_SelectedIDs: 64730000
-    m_LastClickedID: 29540
-    m_ExpandedIDs: 000000004e73000050730000527300005473000056730000587300005a7300005c7300005e73000060730000627300006473000066730000687300006a7300006c7300006e73000070730000727300007473000076730000787300007a7300007c7300007e73000080730000827300008473000086730000887300008a7300008c7300008e73000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: c6740000
+    m_LastClickedID: 29894
+    m_ExpandedIDs: 00000000f0720000f2720000f4720000f6720000f8720000fa720000fc720000fe72000000730000027300000473000006730000087300000a7300000c7300000e73000010730000127300001473000016730000187300001a7300001c7300001e73000020730000227300002473000026730000287300002a7300002c7300002e7300003073000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Model
+      m_OriginalName: Model
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 29890
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 12}
     m_SearchString: 
@@ -1958,7 +2034,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004e73000050730000527300005473000056730000587300005a7300005c7300005e73000060730000627300006473000066730000687300006a7300006c7300006e73000070730000727300007473000076730000787300007a7300007c7300007e73000080730000827300008473000086730000887300008a7300008c7300008e730000
+    m_ExpandedIDs: 00000000f0720000f2720000f4720000f6720000f8720000fa720000fc720000fe72000000730000027300000473000006730000087300000a7300000c7300000e73000010730000127300001473000016730000187300001a7300001c7300001e73000020730000227300002473000026730000287300002a7300002c7300002e73000030730000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1989,15 +2065,15 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: d2630000785600007c610000c86100002c9d00009aa20000a6a20000aaa20000f447000060810000b464000038680000526800003c6b00001e68000062670000146500000a6e0000e46d00000e4f0000e2c600001e7a000002700000ac6b00003c700000000000007e7000001a72000042760000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: ViewBase
-      m_OriginalName: ViewBase
+      m_Name: AsyncObjectPool
+      m_OriginalName: AsyncObjectPool
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 18538
+      m_UserData: 30970
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -2013,7 +2089,7 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 16
   m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 189
+  m_DirectoriesAreaWidth: 242
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2035,9 +2111,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1468
+    x: 1549
     y: 73
-    width: 451
+    width: 370
     height: 918
   m_SerializedDataModeController:
     m_DataMode: 0

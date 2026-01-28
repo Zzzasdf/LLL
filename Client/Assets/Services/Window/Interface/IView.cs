@@ -14,5 +14,5 @@ public interface IView
     GameObject GameObject();
 
     void Show();
-    UniTask Hide();
+    void Hide();
 }
