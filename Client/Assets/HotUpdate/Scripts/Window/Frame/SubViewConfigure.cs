@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 public class SubViewConfigure: ISubViewConfigure
 {
     private IServiceCollection services;
+
+    private SubViewContainerType subViewContainerType;
     
     private Type subViewType;
     private IViewCheck subViewCheck;
@@ -49,8 +51,11 @@ public class SubViewConfigure: ISubViewConfigure
         return this;
     }
 
+    void ISubViewConfigure.AddSubViewContainerType(SubViewContainerType subViewContainerType) => this.subViewContainerType = subViewContainerType;
+    
     Type ISubViewConfigure.GetSubViewType() => subViewType;
     List<SubViewAKA> ISubViewConfigure.GetSubViewAKAs() => subViewTypes;
     bool ISubViewConfigure.IsFuncOpen() => subViewCheck?.IsFuncOpen() ?? true;
     bool ISubViewConfigure.IsFuncOpenWithTip() => subViewCheck?.IsFuncOpenWithTip() ?? true;
+    SubViewContainerType ISubViewConfigure.GetSubViewContainerType() => subViewContainerType;
 }

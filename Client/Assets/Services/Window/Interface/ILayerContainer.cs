@@ -5,6 +5,7 @@ using UnityEngine;
 
 public interface ILayerContainer
 {
+    void AddLayer(ViewLayer viewLayer);
     ILayerLocator AddLocator(GameObject goLocator);
     
     UniTask<(IView view, int? removeId)> ShowViewAndTryRemoveAsync(Type type);

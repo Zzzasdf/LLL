@@ -9,7 +9,7 @@ public class LayerUniqueContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
     where TViewLocator: MonoBehaviour, IViewHelper
     where TViewLoader: IViewLoader
 {
-    private readonly ViewLayer viewLayer;
+    private ViewLayer viewLayer;
     private IViewLoader viewLoader;
 
     private TLayerLocator layerLocator;
@@ -17,16 +17,17 @@ public class LayerUniqueContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
     private List<int> uniqueIds;
     private Dictionary<int, List<int>> stashDict;
     
-    public LayerUniqueContainer(ViewLayer viewLayer, int poolCapacity, int preDestroyCapacity = 10, int preDestroyMillisecondsDelay = 10)
+    public LayerUniqueContainer(int poolCapacity, int preDestroyCapacity = 10, int preDestroyMillisecondsDelay = 10)
     {
-        this.viewLayer = viewLayer;
-        viewLoader = (TViewLoader)Activator.CreateInstance(typeof(TViewLoader), new object[]
-        {
-            poolCapacity, preDestroyCapacity, preDestroyMillisecondsDelay
-        });
+        viewLoader = (TViewLoader)Activator.CreateInstance
+        (
+            typeof(TViewLoader), poolCapacity, preDestroyCapacity, preDestroyMillisecondsDelay
+        );
         uniqueIds = new List<int>();
         stashDict = new Dictionary<int, List<int>>();
     }
+
+    void ILayerContainer.AddLayer(ViewLayer viewLayer) => this.viewLayer = viewLayer;
 
     ILayerLocator ILayerContainer.AddLocator(GameObject goLocator)
     {

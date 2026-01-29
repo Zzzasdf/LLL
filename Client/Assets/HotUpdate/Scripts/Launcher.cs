@@ -23,15 +23,15 @@ public class Launcher : MonoBehaviour
         services.AddHardwareService();
 
         services
-            .AddWindowService(sp => new Dictionary<ViewLayer, ILayerContainer>
+            .AddWindowService(new Dictionary<ViewLayer, ILayerContainer>
                 {
-                    [ViewLayer.Bg] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingHelper, ViewUniqueLoader>(ViewLayer.Bg, poolCapacity: 1),
-                    [ViewLayer.Permanent] = new LayerMultipleContainer<LayerUnitLocator, ViewUnitHelper, ViewUniqueLoader>(ViewLayer.Permanent, poolCapacity: 1),
-                    [ViewLayer.FullScreen] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingHelper, ViewUniqueLoader>(ViewLayer.FullScreen, poolCapacity: 1),
-                    [ViewLayer.Window] = new LayerUniqueContainer<LayerMaskBlackLocator, ViewMaskTransparentClickHelper, ViewUniqueLoader>(ViewLayer.Window, poolCapacity: 1),
-                    [ViewLayer.Popup] = new LayerUniqueContainer<LayerMaskBlackLocator, ViewMaskBlackClickHelper, ViewUnitLoader>(ViewLayer.Popup, poolCapacity: 1),
-                    [ViewLayer.Tip] = new LayerMultipleContainer<LayerUnitLocator, ViewUnitHelper, ViewUniqueLoader>(ViewLayer.Tip, poolCapacity: 1),
-                    [ViewLayer.System] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingHelper, ViewUnitLoader>(ViewLayer.System, poolCapacity: 1),
+                    [ViewLayer.Bg] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingHelper, ViewUniqueLoader>(poolCapacity: 1),
+                    [ViewLayer.Permanent] = new LayerMultipleContainer<LayerUnitLocator, ViewUnitHelper, ViewUniqueLoader>(poolCapacity: 1),
+                    [ViewLayer.FullScreen] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingHelper, ViewUniqueLoader>(poolCapacity: 1),
+                    [ViewLayer.Window] = new LayerUniqueContainer<LayerMaskBlackLocator, ViewMaskTransparentClickHelper, ViewUniqueLoader>(poolCapacity: 1),
+                    [ViewLayer.Popup] = new LayerUniqueContainer<LayerMaskBlackLocator, ViewMaskBlackClickHelper, ViewUnitLoader>(poolCapacity: 1),
+                    [ViewLayer.Tip] = new LayerMultipleContainer<LayerUnitLocator, ViewUnitHelper, ViewUniqueLoader>(poolCapacity: 1),
+                    [ViewLayer.System] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingHelper, ViewUnitLoader>(poolCapacity: 1),
                 }, new Dictionary<ViewLayer, List<IViewConfigure>>
                 {
                     [ViewLayer.Bg] = new List<IViewConfigure>
@@ -64,22 +64,20 @@ public class Launcher : MonoBehaviour
                     {
                         AddView<LoadingView, LoadingViewModel>(services),
                     },
-                }, new List<(Func<ISubViewContainer>, List<ISubViewConfigure>)>
+                }, new Dictionary<SubViewContainerType, ISubViewContainer>
                 {
-                    // 同类型子界面只允许同时出现一个
-                    (()=> new SubViewUniqueContainer(),
-                        new List<ISubViewConfigure>
-                        {
-                            AddSubView<SubActivityView, SubActivityViewModel>(services)
-                                .AddCheck(new SubActivityCheck(1)),
-                        }
-                    ),
-                    // 同类型子界面允许出现多个
-                    (()=> new SubViewMultipleContainer(),
-                        new List<ISubViewConfigure>
-                        {
-                        }
-                    )
+                    [SubViewContainerType.Unique] = new SubViewUniqueContainer(),
+                    [SubViewContainerType.Multiple] = new SubViewMultipleContainer(),
+                }, new Dictionary<SubViewContainerType, List<ISubViewConfigure>>
+                {
+                    [SubViewContainerType.Unique] = new List<ISubViewConfigure>
+                    {
+                        AddSubView<SubActivityView, SubActivityViewModel>(services)
+                            .AddCheck(new SubActivityCheck(1)),
+                    },
+                    [SubViewContainerType.Multiple] = new List<ISubViewConfigure>
+                    {
+                    },
                 }
             );
         

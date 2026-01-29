@@ -59,7 +59,7 @@ public class ViewConfigure: IViewConfigure
         return this;
     }
     
-    void IViewConfigure.Build(ViewLayer viewLayer) => this.viewLayer = viewLayer;
+    void IViewConfigure.AddLayer(ViewLayer viewLayer) => this.viewLayer = viewLayer;
     List<Type> IViewConfigure.GetSubViewTypes() => subViewTypes;
     List<SubViewAKA> IViewConfigure.GetSubViewAKAs() => subViewAKAs;
 

@@ -7,6 +7,57 @@ public partial class ViewService:
     IRecipient<ViewHideAsyncRequestEvent>,
     IRecipient<ViewAllHideAsyncRequestEvent>
 {
+    private Dictionary<ViewLayer, ILayerContainer> layerContainers;
+    private Dictionary<Type, IViewConfigure> views;
+    
+    private void InitViews(Dictionary<ViewLayer, ILayerContainer> layerContainers, Dictionary<ViewLayer, List<IViewConfigure>> views)
+    {
+        foreach (var pair in layerContainers)
+        {
+            ViewLayer viewLayer = pair.Key;
+            ILayerContainer layerContainer = pair.Value;
+            layerContainer.AddLayer(viewLayer);
+        }
+        this.layerContainers = layerContainers;
+        
+        this.views = new Dictionary<Type, IViewConfigure>();
+        sub2MainMaps = new Dictionary<Type, Type>();
+        subAka2MainMaps = new Dictionary<SubViewAKA, Type>();
+        foreach (var pair in views)
+        {
+            ViewLayer viewLayer = pair.Key;
+            List<IViewConfigure> viewConfigures = pair.Value;
+            for (int i = 0; i < viewConfigures.Count; i++)
+            {
+                IViewConfigure viewConfigure = viewConfigures[i];
+                viewConfigure.AddLayer(viewLayer);
+                
+                Type viewType = viewConfigure.GetViewType();
+                this.views.Add(viewType, viewConfigure);
+                
+                List<Type> subViewTypes = viewConfigure.GetSubViewTypes();
+                if (subViewTypes != null)
+                {
+                    for (int j = 0; j < subViewTypes.Count; j++)
+                    {
+                        Type subViewType = subViewTypes[j];
+                        sub2MainMaps.Add(subViewType, viewType);
+                    }
+                }
+                
+                List<SubViewAKA> subViewAKAs = viewConfigure.GetSubViewAKAs();
+                if (subViewAKAs != null)
+                {
+                    for (int j = 0; j < subViewAKAs.Count; j++)
+                    {
+                        SubViewAKA subViewAKA = subViewAKAs[j];
+                        subAka2MainMaps.Add(subViewAKA, viewType);
+                    }
+                }
+            }
+        }
+    }
+    
     private async UniTask<IView> ShowMainAsync_Internal(IViewConfigure viewConfigure)
     {
         Type type = viewConfigure.GetViewType();

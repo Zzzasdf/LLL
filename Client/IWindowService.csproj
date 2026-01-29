@@ -64,6 +64,7 @@
     <Compile Include="Assets\Services\Window\Interface\ILayerLocator.cs" />
     <Compile Include="Assets\Services\Window\Interface\SubViewAKA.cs" />
     <Compile Include="Assets\Services\Window\Interface\IViewCheck.cs" />
+    <Compile Include="Assets\Services\Window\Interface\SubViewContainerType.cs" />
     <None Include="Assets\Services\Window\Interface\IWindowService.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>C:\UnityEditor\2022.3.15f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

@@ -3,7 +3,6 @@ using System.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
     where TViewModel: class, IViewModel
@@ -12,7 +11,7 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
     private bool viewEvent;
     private ViewState viewState;
 
-    [FormerlySerializedAs("viewLocator")] [SerializeField]
+    [SerializeField]
     private IViewHelper viewHelper;
     [SerializeField]
     private ViewLayer viewLayer;
@@ -98,12 +97,11 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
     void IView.Hide() => Hide_Internal().Forget();
     void IView.SetFirstSubView(Type subViewType)
     {
-        throw new NotImplementedException();
+        
     }
 
     void IView.SetFirstSubView(SubViewAKA subViewAka)
     {
-        throw new NotImplementedException();
     }
 
     private async UniTask Hide_Internal()
