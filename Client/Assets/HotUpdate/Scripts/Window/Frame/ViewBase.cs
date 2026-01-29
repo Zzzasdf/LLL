@@ -1,138 +1,45 @@
-using System;
-using System.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
     where TViewModel: class, IViewModel
 {
-    private bool unityEvent;
-    private bool viewEvent;
-    private ViewState viewState;
-
-    [SerializeField]
-    private IViewHelper viewHelper;
-    [SerializeField]
-    private ViewLayer viewLayer;
-    [SerializeField]
-    private int uniqueId;
+    private IViewLocator viewLocator;
     protected TViewModel viewModel { get; private set; }
+    protected IViewCheck viewCheck { get; private set; }
 
-    void IView.BindLayer(ViewLayer viewLayer)
-    {
-        this.viewLayer = viewLayer;
-    }
-    void IView.BindLocator(IViewHelper viewHelper)
-    {
-        this.viewHelper = viewHelper;
-    }
-
-    ViewLayer IView.GetLayer() => viewLayer;
-    ViewState IView.GetViewState() => viewState;
-
-    void IView.BindUniqueId(int uniqueId)
-    {
-        this.uniqueId = uniqueId;
-    }
-
-    int IView.GetUniqueId() => uniqueId;
-
+    void IView.BindLocator(IViewLocator viewLocator) => this.viewLocator = viewLocator;
+    IViewLocator IView.GetLocator() => viewLocator;
     GameObject IView.GameObject() => gameObject;
-    
-    private void Awake()
+
+    void IView.AddViewModel(int uniqueId)
     {
-        unityEvent = true;
-        Show_Internal().Forget();
-    }
-    void IView.Show()
-    {
-        viewEvent = true;
-        Show_Internal().Forget();
-    }
-    private async UniTask Show_Internal()
-    {
-        if (!unityEvent || !viewEvent) return;
-        if (viewState is ViewState.NONE or ViewState.INVISIBLE)
+        viewModel = ViewModelGenerator.Default.GetOrAdd<TViewModel>(uniqueId);
+        viewCheck = ViewCheckGenerator.Default.Get(uniqueId);
+        if (viewModel is ObservableRecipient observableRecipient)
         {
-            viewModel = ViewModelGenerator.Default.GetOrAdd<TViewModel>(uniqueId);
-            if (viewModel is ObservableRecipient observableRecipient)
-            {
-                observableRecipient.IsActive = true;
-                LLogger.FrameLog($"{typeof(TViewModel).Name} IsActive: {viewState}");
-            }
-            InitUI();
-            gameObject.SetActive(true);
-            viewState = ViewState.VISIBLE;
-            
-            viewState = ViewState.ENTER_ANIMATION_BEGIN;
-            if (viewHelper.EnterAnimation != null)
-            {
-                if (cts != null)
-                {
-                    cts.Cancel();
-                    cts.Dispose();
-                    cts = null;
-                }
-                await viewHelper.EnterAnimation.DOPlayAsync();
-            }
-            viewState = ViewState.ENTER_ANIMATION_END;
-            BindUI();
-            viewState = ViewState.ACTIVATED;
+            observableRecipient.IsActive = true;
+            LLogger.FrameLog($"{typeof(TViewModel).Name} IsActive: {observableRecipient.IsActive}");
         }
     }
 
-    private CancellationTokenSource cts;
-    private void OnDestroy()
+    void IView.RemoveViewModel()
     {
-        if (cts != null)
+        if (viewModel is ObservableRecipient observableRecipient)
         {
-            cts.Cancel();
-            cts.Dispose();
-            cts = null;
+            observableRecipient.IsActive = false;
+            LLogger.FrameLog($"{typeof(TViewModel).Name} IsActive: {observableRecipient.IsActive}");
         }
-        Hide_Internal().Forget();
+        viewModel = null;
+        viewCheck = null;
     }
 
-    void IView.Hide() => Hide_Internal().Forget();
-    void IView.SetFirstSubView(Type subViewType)
+    void IView.InitUI()
     {
-        
+        InitUI(viewCheck?.GetViewCheckValue());
     }
-
-    void IView.SetFirstSubView(SubViewAKA subViewAka)
-    {
-    }
-
-    private async UniTask Hide_Internal()
-    {
-        if (!unityEvent || !viewEvent || viewModel == null) return;
-        if (viewState is ViewState.ACTIVATED)
-        {
-            UnBindUI();
-            DestroyUI();
-            if (viewModel is ObservableRecipient observableRecipient)
-            {
-                observableRecipient.IsActive = false;
-                LLogger.FrameLog($"{typeof(TViewModel).Name} IsActive: {viewState}");
-            }
-            viewModel = null;
-            viewState = ViewState.PASSIVATED;
-            
-            viewState = ViewState.EXIT_ANIMATION_BEGIN;
-            if (viewHelper.ExitAnimation != null)
-            {
-                cts = new CancellationTokenSource();
-                await viewHelper.ExitAnimation.DOPlayAsync(cts.Token);
-            }
-            viewState = ViewState.EXIT_ANIMATION_END;
-            gameObject.SetActive(false);
-            viewState = ViewState.INVISIBLE;
-        }
-    }
-
-    protected abstract void InitUI();
-    protected abstract void DestroyUI();
-    protected abstract void BindUI();
-    protected abstract void UnBindUI();
+    public abstract void InitUI(object viewCheckValue);
+    public abstract void DestroyUI();
+    public abstract void BindUI();
+    public abstract void UnBindUI();
 }

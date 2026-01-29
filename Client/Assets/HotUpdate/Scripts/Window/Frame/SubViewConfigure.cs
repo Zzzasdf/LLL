@@ -6,24 +6,18 @@ public class SubViewConfigure: ISubViewConfigure
 {
     private IServiceCollection services;
 
-    private SubViewContainerType subViewContainerType;
-    
-    private Type subViewType;
-    private IViewCheck subViewCheck;
-    private List<SubViewAKA> subViewTypes;
+    private Type type;
+    private List<SubViewType> subViewTypes;
     
     public SubViewConfigure(IServiceCollection services)
     {
         this.services = services;
     }
-    
-    public SubViewConfigure AddView<TView, TViewModel>()
-        where TView : IView
-        where TViewModel : class, IViewModel
+    void ISubViewConfigure.AddView<TView, TViewModel>(List<SubViewType> subViewTypes)
     {
-        subViewType = typeof(TView);
+        type = typeof(TView);
         services.AddTransient<TViewModel>();
-        return this;
+        this.subViewTypes = subViewTypes;
     }
 
     public SubViewConfigure AddAccountModel<TModel>()
@@ -39,23 +33,6 @@ public class SubViewConfigure: ISubViewConfigure
         return this;
     }
 
-    public SubViewConfigure AddCheck(IViewCheck viewCheck)
-    {
-        this.subViewCheck = viewCheck;
-        return this;
-    }
-
-    public SubViewConfigure AddAKAs(List<SubViewAKA> subViewTypes)
-    {
-        this.subViewTypes = subViewTypes;
-        return this;
-    }
-
-    void ISubViewConfigure.AddSubViewContainerType(SubViewContainerType subViewContainerType) => this.subViewContainerType = subViewContainerType;
-    
-    Type ISubViewConfigure.GetSubViewType() => subViewType;
-    List<SubViewAKA> ISubViewConfigure.GetSubViewAKAs() => subViewTypes;
-    bool ISubViewConfigure.IsFuncOpen() => subViewCheck?.IsFuncOpen() ?? true;
-    bool ISubViewConfigure.IsFuncOpenWithTip() => subViewCheck?.IsFuncOpenWithTip() ?? true;
-    SubViewContainerType ISubViewConfigure.GetSubViewContainerType() => subViewContainerType;
+    Type ISubViewConfigure.GetSubViewType() => type;
+    List<SubViewType> ISubViewConfigure.GetSubViewTypes() => subViewTypes;
 }

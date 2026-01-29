@@ -1,22 +1,18 @@
 public class SubActivityView : ViewBase<SubActivityViewModel>
 {
-    protected override void InitUI()
+    public override void InitUI(object viewCheckValue)
     {
-        throw new System.NotImplementedException();
     }
 
-    protected override void DestroyUI()
+    public override void DestroyUI()
     {
-        throw new System.NotImplementedException();
     }
 
-    protected override void BindUI()
+    public override void BindUI()
     {
-        throw new System.NotImplementedException();
     }
 
-    protected override void UnBindUI()
+    public override void UnBindUI()
     {
-        throw new System.NotImplementedException();
     }
 }

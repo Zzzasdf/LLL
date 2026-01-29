@@ -46,25 +46,28 @@
     <Analyzer Include="C:\UnityEditor\2022.3.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Services\Window\Interface\ILayerContainer.cs" />
-    <Compile Include="Assets\Services\Window\Interface\IViewLoader.cs" />
+    <Compile Include="Assets\Services\Window\Interface\Locator\ISubViewCollectLocator.cs" />
     <Compile Include="Assets\Services\Window\Interface\IViewModel.cs" />
-    <Compile Include="Assets\Services\Window\Interface\IViewHelper.cs" />
     <Compile Include="Assets\Services\Window\Interface\IViewConfigure.cs" />
+    <Compile Include="Assets\Services\Window\Interface\Animation\IAnimation.cs" />
+    <Compile Include="Assets\Services\Window\Interface\Locator\IUICanvasLocator.cs" />
+    <Compile Include="Assets\Services\Window\Interface\Locator\ILayerLocator.cs" />
+    <Compile Include="Assets\Services\Window\Interface\Container\ISubViewCollectContainer.cs" />
     <Compile Include="Assets\Services\Window\Interface\ViewState.cs" />
     <Compile Include="Assets\Services\Window\Interface\IView.cs" />
-    <Compile Include="Assets\Services\Window\Interface\IUICanvasLocator.cs" />
+    <Compile Include="Assets\Services\Window\Interface\Locator\IViewLocator.cs" />
     <Compile Include="Assets\Services\Window\Interface\ViewEventDefine.cs" />
+    <Compile Include="Assets\Services\Window\Interface\SubViewDisplay.cs" />
+    <Compile Include="Assets\Services\Window\Interface\ViewCheckGenerator.cs" />
     <Compile Include="Assets\Services\Window\Interface\ISubViewConfigure.cs" />
     <Compile Include="Assets\Services\Window\Interface\IViewService.cs" />
     <Compile Include="Assets\Services\Window\Interface\ViewLayer.cs" />
+    <Compile Include="Assets\Services\Window\Interface\Locator\ISubViewLocator.cs" />
+    <Compile Include="Assets\Services\Window\Interface\SubViewType.cs" />
     <Compile Include="Assets\Services\Window\Interface\ModelServiceCollectionServiceExtensions.cs" />
-    <Compile Include="Assets\Services\Window\Interface\ISubViewContainer.cs" />
-    <Compile Include="Assets\Services\Window\Interface\IAnimation.cs" />
-    <Compile Include="Assets\Services\Window\Interface\ILayerLocator.cs" />
-    <Compile Include="Assets\Services\Window\Interface\SubViewAKA.cs" />
+    <Compile Include="Assets\Services\Window\Interface\Container\ILayerContainer.cs" />
     <Compile Include="Assets\Services\Window\Interface\IViewCheck.cs" />
-    <Compile Include="Assets\Services\Window\Interface\SubViewContainerType.cs" />
+    <Compile Include="Assets\Services\Window\Interface\Loader\IViewLoader.cs" />
     <None Include="Assets\Services\Window\Interface\IWindowService.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>C:\UnityEditor\2022.3.15f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -773,6 +776,10 @@
     <ProjectReference Include="IDataService.csproj">
       <Project>{2eb723c0-1d8e-ee80-fb8d-f5f14ef0485e}</Project>
       <Name>IDataService</Name>
+    </ProjectReference>
+    <ProjectReference Include="LoggerService.csproj">
+      <Project>{a6ac2782-fac7-1774-a263-5c30813f604b}</Project>
+      <Name>LoggerService</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{aa10a73a-0fb6-07c5-fcce-bc576a35745b}</Project>

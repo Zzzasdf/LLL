@@ -16,6 +16,10 @@ public static class MessengerExtensions
     {
         return await messenger.Send(new ViewShowAsyncRequestEvent(typeof(TView)));
     }
+    public static async UniTask<bool> SendViewSubShowAsync(this IMessenger messenger, SubViewType subViewType)
+    {
+        return await messenger.Send(new ViewSubShowAsyncRequestEvent(subViewType));
+    }
     public static async UniTask<bool> SendViewHideAsync(this IMessenger messenger, IView view)
     {
         return await messenger.Send(new ViewHideAsyncRequestEvent(view));

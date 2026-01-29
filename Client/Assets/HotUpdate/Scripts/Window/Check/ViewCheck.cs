@@ -1,5 +1,7 @@
 public class ViewCheck : IViewCheck
 {
+    object IViewCheck.GetViewCheckValue() => null;
+
     bool IViewCheck.IsFuncOpen()
     {
         return true;

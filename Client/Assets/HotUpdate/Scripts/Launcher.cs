@@ -23,16 +23,23 @@ public class Launcher : MonoBehaviour
         services.AddHardwareService();
 
         services
-            .AddWindowService(new Dictionary<ViewLayer, ILayerContainer>
+            .AddWindowService(
+                new Dictionary<ViewLayer, ILayerContainer>
                 {
-                    [ViewLayer.Bg] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingHelper, ViewUniqueLoader>(poolCapacity: 1),
-                    [ViewLayer.Permanent] = new LayerMultipleContainer<LayerUnitLocator, ViewUnitHelper, ViewUniqueLoader>(poolCapacity: 1),
-                    [ViewLayer.FullScreen] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingHelper, ViewUniqueLoader>(poolCapacity: 1),
-                    [ViewLayer.Window] = new LayerUniqueContainer<LayerMaskBlackLocator, ViewMaskTransparentClickHelper, ViewUniqueLoader>(poolCapacity: 1),
-                    [ViewLayer.Popup] = new LayerUniqueContainer<LayerMaskBlackLocator, ViewMaskBlackClickHelper, ViewUnitLoader>(poolCapacity: 1),
-                    [ViewLayer.Tip] = new LayerMultipleContainer<LayerUnitLocator, ViewUnitHelper, ViewUniqueLoader>(poolCapacity: 1),
-                    [ViewLayer.System] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingHelper, ViewUnitLoader>(poolCapacity: 1),
-                }, new Dictionary<ViewLayer, List<IViewConfigure>>
+                    [ViewLayer.Bg] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, ViewUniqueLoader>(poolCapacity: 1),
+                    [ViewLayer.Permanent] = new LayerMultipleContainer<LayerUnitLocator, ViewUnitLocator, ViewUniqueLoader>(poolCapacity: 1),
+                    [ViewLayer.FullScreen] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, ViewUniqueLoader>(poolCapacity: 1),
+                    [ViewLayer.Window] = new LayerUniqueContainer<LayerMaskBlackLocator, ViewMaskTransparentClickLocator, ViewUniqueLoader>(poolCapacity: 1),
+                    [ViewLayer.Popup] = new LayerUniqueContainer<LayerMaskBlackLocator, ViewMaskBlackClickLocator, ViewUnitLoader>(poolCapacity: 1),
+                    [ViewLayer.Tip] = new LayerMultipleContainer<LayerUnitLocator, ViewUnitLocator, ViewUniqueLoader>(poolCapacity: 1),
+                    [ViewLayer.System] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, ViewUnitLoader>(poolCapacity: 1),
+                }, 
+                new Dictionary<SubViewDisplay, ISubViewCollectContainer>
+                {
+                    [SubViewDisplay.Unique] = new SubViewCollectUniqueContainer<SubViewCollectUnitLocator, SubViewUnitLocator, ViewUniqueLoader>(poolCapacity: 1),
+                    [SubViewDisplay.Multiple] = new SubViewCollectMultipleContainer<SubViewCollectUnitLocator, SubViewUnitLocator, ViewMultipleLoader>(poolCapacity: 1),
+                },
+                new Dictionary<ViewLayer, List<IViewConfigure>>
                 {
                     [ViewLayer.Bg] = new List<IViewConfigure>
                     {
@@ -40,13 +47,24 @@ public class Launcher : MonoBehaviour
                     [ViewLayer.Permanent] = new List<IViewConfigure>
                     {
                         AddView<MainView, MainViewModel>(services)
-                            .AddSubType<SubActivityView>(),
+                            .AddSubType(SubViewDisplay.Multiple, new Dictionary<SubViewType, IViewCheck>
+                            {
+                                [SubViewType.MiniMapView] = null,
+                                [SubViewType.MiniChatView] = null,
+                                [SubViewType.EntryButtonGroupView] = null,
+                            }),
                     },
                     [ViewLayer.FullScreen] = new List<IViewConfigure>
                     {
                         AddView<StartView, StartViewModel>(services),
                         AddView<SelectRoleView, SelectRoleViewModel>(services),
-                        AddView<CreateRoleView, CreateRoleViewModel>(services)
+                        AddView<CreateRoleView, CreateRoleViewModel>(services),
+                        AddView<ActivityView, ActivityViewModel>(services)
+                            .AddSubType(SubViewDisplay.Unique, new Dictionary<SubViewType, IViewCheck>
+                            {
+                                [SubViewType.SubActivity] = new SubActivityCheck(1),
+                                [SubViewType.SubActivity2] = null,
+                            }),
                     },
                     [ViewLayer.Window] = new List<IViewConfigure>
                     {
@@ -64,20 +82,26 @@ public class Launcher : MonoBehaviour
                     {
                         AddView<LoadingView, LoadingViewModel>(services),
                     },
-                }, new Dictionary<SubViewContainerType, ISubViewContainer>
+                }, 
+                new List<ISubViewConfigure>
                 {
-                    [SubViewContainerType.Unique] = new SubViewUniqueContainer(),
-                    [SubViewContainerType.Multiple] = new SubViewMultipleContainer(),
-                }, new Dictionary<SubViewContainerType, List<ISubViewConfigure>>
-                {
-                    [SubViewContainerType.Unique] = new List<ISubViewConfigure>
+                    AddSubView<MiniMapView, MiniMapViewModel>(services, new List<SubViewType>
                     {
-                        AddSubView<SubActivityView, SubActivityViewModel>(services)
-                            .AddCheck(new SubActivityCheck(1)),
-                    },
-                    [SubViewContainerType.Multiple] = new List<ISubViewConfigure>
+                        SubViewType.MiniMapView,
+                    }),
+                    AddSubView<MiniChatView, MiniChatViewModel>(services, new List<SubViewType>
                     {
-                    },
+                        SubViewType.MiniChatView,
+                    }),
+                    AddSubView<EntryButtonGroupView, EntryButtonGroupViewModel>(services, new List<SubViewType>
+                    {
+                        SubViewType.EntryButtonGroupView,
+                    }),
+                    AddSubView<SubActivityView, SubActivityViewModel>(services, new List<SubViewType>
+                    {
+                        SubViewType.SubActivity,
+                        SubViewType.SubActivity2,
+                    }),
                 }
             );
         
@@ -128,12 +152,18 @@ public class Launcher : MonoBehaviour
         where TView : IView 
         where TViewModel: class, IViewModel
     {
-        return new ViewConfigure(services).AddView<TView, TViewModel>();
+        ViewConfigure viewConfigure = new ViewConfigure(services);
+        IViewConfigure configure = viewConfigure;
+        configure.AddView<TView, TViewModel>();
+        return viewConfigure;
     }
-    private static SubViewConfigure AddSubView<TView, TViewModel>(IServiceCollection services)
+    private static SubViewConfigure AddSubView<TView, TViewModel>(IServiceCollection services, List<SubViewType> subViewTypes)
         where TView : IView 
         where TViewModel: class, IViewModel
     {
-        return new SubViewConfigure(services).AddView<TView, TViewModel>();
+        SubViewConfigure subViewConfigure = new SubViewConfigure(services);
+        ISubViewConfigure configure = subViewConfigure;
+        configure.AddView<TView, TViewModel>(subViewTypes);
+        return subViewConfigure;
     }
 }

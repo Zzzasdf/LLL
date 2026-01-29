@@ -51,13 +51,17 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
 
     async UniTask<IView> ILayerLocator.ShowViewAsync(Type type)
     {
+        IViewLocator viewLocator;
         if (!viewLoader.TryGetActiveView(type, out IView view))
         {
             if (!viewLoader.TryGetPoolView(type, out view))
             {
                 view = await viewLoader.CreateView(type);
-                view.BindLayer(viewLayer);
                 GameObject goView = view.GameObject();
+                viewLocator = layerContainer.AddViewLocator(goView);
+                viewLocator.Bind(viewLayer, view);
+                view.BindLocator(viewLocator);
+                
                 RectTransform windowRt = goView.GetComponent<RectTransform>();
                 windowRt.SetParent(thisRt);
                 windowRt.localPosition = Vector3.zero;
@@ -67,24 +71,25 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
                 windowRt.anchorMax = Vector2.one;
                 windowRt.offsetMin = Vector2.zero;
                 windowRt.offsetMax = Vector2.zero;
-                IViewHelper viewHelper = layerContainer.AddViewLocator(goView);
-                view.BindLocator(viewHelper);
             }
         }
         else
         {
-            int oldUniqueId = view.GetUniqueId();
+            viewLocator = view.GetLocator();
+            int oldUniqueId = viewLocator.GetUniqueId();
             uniqueViewDict.Remove(oldUniqueId);
-            view.Hide();
+            viewLocator.Hide();
         }
         int uniqueId = UniqueIdGenerator.Default.Create();
+        ViewCheckGenerator.Default.Add(type, uniqueId);
         uniqueTypeDict.Add(uniqueId, type);
         
         uniqueViewDict.Add(uniqueId, view);
         CheckUniqueViewDictCount();
-        view.BindUniqueId(uniqueId);
-        view.GameObject().transform.SetAsLastSibling();
-        view.Show();
+        viewLocator = view.GetLocator();
+        viewLocator.BindUniqueId(uniqueId);
+        viewLocator.GameObject().transform.SetAsLastSibling();
+        viewLocator.Show();
         return view;
     }
 
@@ -117,13 +122,17 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
         {
             return false;
         }
+        IViewLocator viewLocator;
         if (!viewLoader.TryGetActiveView(type, out IView view))
         {
             if (!viewLoader.TryGetPoolView(type, out view))
             {
                 view = await viewLoader.CreateView(type);
-                view.BindLayer(viewLayer);
                 GameObject goView = view.GameObject();
+                viewLocator = layerContainer.AddViewLocator(goView);
+                viewLocator.Bind(viewLayer, view);
+                view.BindLocator(viewLocator);
+                
                 RectTransform windowRt = goView.GetComponent<RectTransform>();
                 windowRt.SetParent(thisRt);
                 windowRt.localPosition = Vector3.zero;
@@ -133,22 +142,21 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
                 windowRt.anchorMax = Vector2.one;
                 windowRt.offsetMin = Vector2.zero;
                 windowRt.offsetMax = Vector2.zero;
-                IViewHelper viewHelper = layerContainer.AddViewLocator(goView);
-                view.BindLocator(viewHelper);
             }
         }
         else
         {
-            int oldUniqueId = view.GetUniqueId();
+            viewLocator = view.GetLocator();
+            int oldUniqueId = viewLocator.GetUniqueId();
             uniqueViewDict.Remove(oldUniqueId);
-            view.Hide();
+            viewLocator.Hide();
         }
         uniqueViewDict.Add(uniqueId, view);
         CheckUniqueViewDictCount();
-        view.BindUniqueId(uniqueId);
-        Transform viewTra = view.GameObject().transform;
-        viewTra.SetAsLastSibling();
-        view.Show();
+        viewLocator = view.GetLocator();
+        viewLocator.BindUniqueId(uniqueId);
+        viewLocator.GameObject().transform.SetAsLastSibling();
+        viewLocator.Show();
         return true;
     }
 
@@ -161,10 +169,12 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
         }
         ViewModelGenerator.Default.Delete(uniqueId);
         UniqueIdGenerator.Default.Delete(uniqueId);
+        ViewCheckGenerator.Default.Delete(uniqueId);
 
         if (uniqueViewDict.Remove(uniqueId, out IView view))
         {
-            view.Hide();
+            IViewLocator viewLocator = view.GetLocator();
+            viewLocator.Hide();
             viewLoader.ReleaseView(view);
         }
         CheckUniqueViewDictCount();
@@ -178,7 +188,8 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
             return;
         }
         CheckUniqueViewDictCount();
-        view.Hide();
+        IViewLocator viewLocator = view.GetLocator();
+        viewLocator.Hide();
         viewLoader.ReleaseView(view);
     }
 

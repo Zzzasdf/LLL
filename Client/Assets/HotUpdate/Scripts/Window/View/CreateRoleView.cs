@@ -8,20 +8,20 @@ public class CreateRoleView : ViewBase<CreateRoleViewModel>
     [SerializeField] private Button btnCancel;
     [SerializeField] private Button btnConfirm;
 
-    protected override void InitUI()
+    public override void InitUI(object viewCheckValue)
     {
     }
-    protected override void DestroyUI()
+    public override void DestroyUI()
     {
     }
 
-    protected override void BindUI()
+    public override void BindUI()
     {
         ifName.onEndEdit.AddListener(roleName => viewModel.SetRoleNameCommand.Execute(roleName));
         btnCancel.onClick.AddListener(() => viewModel.CancelCommand.Execute(this));
         btnConfirm.onClick.AddListener(() => viewModel.ConfirmCommand.Execute(null));
     }
-    protected override void UnBindUI()
+    public override void UnBindUI()
     {
         ifName.onEndEdit.RemoveAllListeners();
         btnCancel.onClick.RemoveAllListeners();

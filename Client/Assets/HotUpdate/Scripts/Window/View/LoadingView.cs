@@ -5,17 +5,17 @@ public class LoadingView : ViewBase<LoadingViewModel>
 {
     [SerializeField] private Slider sliderProgress;
 
-    protected override void InitUI()
+    public override void InitUI(object viewCheckValue)
     {
     }
-    protected override void DestroyUI()
+    public override void DestroyUI()
     {
     }
 
-    protected override void BindUI()
+    public override void BindUI()
     {
     }
-    protected override void UnBindUI()
+    public override void UnBindUI()
     {
     }
 }

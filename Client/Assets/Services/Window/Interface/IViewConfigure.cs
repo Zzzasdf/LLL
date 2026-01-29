@@ -3,13 +3,14 @@ using System.Collections.Generic;
 
 public interface IViewConfigure
 {
+    void AddView<TView, TViewModel>()
+        where TView : IView
+        where TViewModel : class, IViewModel;
     void AddLayer(ViewLayer viewLayer);
     
-    List<Type> GetSubViewTypes();
-    List<SubViewAKA> GetSubViewAKAs();
+    Dictionary<SubViewType, IViewCheck> GetSubViewTypes();
     
     Type GetViewType();
-    bool IsFuncOpen();
-    bool IsFuncOpenWithTip();
+    IViewCheck GetViewCheck();
     ViewLayer GetViewLayer();
 }

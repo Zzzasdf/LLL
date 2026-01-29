@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -21,10 +22,15 @@ public class AlphaAnimation : UIAnimation
             return _canvasGroup;
         }
     }
-    
+
     public override async UniTask DOPlayAsync(CancellationToken token = default)
     {
         CanvasGroup.alpha = from;
         await CanvasGroup.DOFade(to, duration).ToUniTask(cancellationToken: token);
+    }
+
+    private void OnDestroy()
+    {
+        DOTween.Kill(_canvasGroup);
     }
 }

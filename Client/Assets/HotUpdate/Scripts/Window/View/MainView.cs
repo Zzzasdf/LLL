@@ -5,20 +5,20 @@ public class MainView : ViewBase<MainViewModel>
 {
     [SerializeField] private PhotographyLoader photographyLoader;
 
-    protected override void InitUI()
+    public override void InitUI(object viewCheckValue)
     {
         photographyLoader.Load(viewModel.ModelLocation, viewModel.CameraDistance);
         viewModel.PropertyChanged += PropertyChanged;
     }
-    protected override void DestroyUI()
+    public override void DestroyUI()
     {
         viewModel.PropertyChanged -= PropertyChanged;
     }
 
-    protected override void BindUI()
+    public override void BindUI()
     {
     }
-    protected override void UnBindUI()
+    public override void UnBindUI()
     {
     }
     

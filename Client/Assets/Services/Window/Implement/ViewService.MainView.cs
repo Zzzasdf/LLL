@@ -4,12 +4,14 @@ using CommunityToolkit.Mvvm.Messaging;
 using Cysharp.Threading.Tasks;
 
 public partial class ViewService:
+    IRecipient<ViewShowAsyncRequestEvent>,
     IRecipient<ViewHideAsyncRequestEvent>,
     IRecipient<ViewAllHideAsyncRequestEvent>
 {
     private Dictionary<ViewLayer, ILayerContainer> layerContainers;
+    private Dictionary<Type, IViewCheck> viewChecks;
     private Dictionary<Type, IViewConfigure> views;
-    
+
     private void InitViews(Dictionary<ViewLayer, ILayerContainer> layerContainers, Dictionary<ViewLayer, List<IViewConfigure>> views)
     {
         foreach (var pair in layerContainers)
@@ -19,10 +21,10 @@ public partial class ViewService:
             layerContainer.AddLayer(viewLayer);
         }
         this.layerContainers = layerContainers;
-        
+        this.viewChecks = new Dictionary<Type, IViewCheck>();
         this.views = new Dictionary<Type, IViewConfigure>();
-        sub2MainMaps = new Dictionary<Type, Type>();
-        subAka2MainMaps = new Dictionary<SubViewAKA, Type>();
+        this.subViewChecks = new Dictionary<SubViewType, IViewCheck>();
+        this.sub2MainMaps = new Dictionary<SubViewType, Type>();
         foreach (var pair in views)
         {
             ViewLayer viewLayer = pair.Key;
@@ -31,33 +33,40 @@ public partial class ViewService:
             {
                 IViewConfigure viewConfigure = viewConfigures[i];
                 viewConfigure.AddLayer(viewLayer);
-                
                 Type viewType = viewConfigure.GetViewType();
                 this.views.Add(viewType, viewConfigure);
+                viewChecks.Add(viewType, viewConfigure.GetViewCheck());
                 
-                List<Type> subViewTypes = viewConfigure.GetSubViewTypes();
+                Dictionary<SubViewType, IViewCheck> subViewTypes = viewConfigure.GetSubViewTypes();
                 if (subViewTypes != null)
                 {
-                    for (int j = 0; j < subViewTypes.Count; j++)
+                    foreach (var pairSub in subViewTypes)
                     {
-                        Type subViewType = subViewTypes[j];
+                        SubViewType subViewType = pairSub.Key;
+                        IViewCheck viewCheck = pairSub.Value;
+                        subViewChecks.Add(subViewType, viewCheck);
                         sub2MainMaps.Add(subViewType, viewType);
-                    }
-                }
-                
-                List<SubViewAKA> subViewAKAs = viewConfigure.GetSubViewAKAs();
-                if (subViewAKAs != null)
-                {
-                    for (int j = 0; j < subViewAKAs.Count; j++)
-                    {
-                        SubViewAKA subViewAKA = subViewAKAs[j];
-                        subAka2MainMaps.Add(subViewAKA, viewType);
                     }
                 }
             }
         }
+        ViewCheckGenerator.Default.Assembly(viewChecks, subViewChecks);
     }
     
+    private async UniTask<bool> ShowAsync_Internal(Type type)
+    {
+        if (views.TryGetValue(type, out IViewConfigure viewConfigure))
+        {
+            IViewCheck viewCheck = viewConfigure.GetViewCheck();
+            if (viewCheck != null && viewCheck.IsFuncOpenWithTip())
+            {
+                return false;
+            }
+            await ShowMainAsync_Internal(viewConfigure);
+            return true;
+        }
+        return false;
+    }
     private async UniTask<IView> ShowMainAsync_Internal(IViewConfigure viewConfigure)
     {
         Type type = viewConfigure.GetViewType();
@@ -71,7 +80,8 @@ public partial class ViewService:
             ClearUpperLayerStash(viewLayer, removeId.Value);
         }
         // 上层界面遮挡暂存
-        int uniqueId = view.GetUniqueId();
+        IViewLocator viewLocator = view.GetLocator();
+        int uniqueId = viewLocator.GetUniqueId();
         foreach (var item in Enum.GetValues(typeof(ViewLayer)))
         {
             ViewLayer layer = (ViewLayer)item;
@@ -84,7 +94,8 @@ public partial class ViewService:
     
     private async UniTask<bool> HideAsync_Internal(IView view)
     {
-        ViewLayer viewLayer = view.GetLayer();
+        IViewLocator viewLocator = view.GetLocator();
+        ViewLayer viewLayer = viewLocator.GetLayer();
         ILayerContainer layerContainer = layerContainers[viewLayer];
         // 清空上层所有激活界面
         foreach (var item in Enum.GetValues(typeof(ViewLayer)))
@@ -95,7 +106,7 @@ public partial class ViewService:
             container.HideAllActivateView();
         }
         
-        int uniqueId = view.GetUniqueId();
+        int uniqueId = viewLocator.GetUniqueId();
         List<int> popIds = layerContainer.HideViewTryPop(uniqueId);
         if (popIds is { Count: > 0 })
         {
@@ -143,6 +154,10 @@ public partial class ViewService:
         }
     }
     
+    void IRecipient<ViewShowAsyncRequestEvent>.Receive(ViewShowAsyncRequestEvent message)
+    {
+        message.Reply(ShowAsync_Internal(message.Type).AsTask());
+    }
     void IRecipient<ViewHideAsyncRequestEvent>.Receive(ViewHideAsyncRequestEvent message)
     {
         message.Reply(HideAsync_Internal(message.View).AsTask());

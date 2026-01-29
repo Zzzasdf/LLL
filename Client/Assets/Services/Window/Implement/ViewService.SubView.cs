@@ -1,47 +1,83 @@
 using System;
 using System.Collections.Generic;
+using CommunityToolkit.Mvvm.Messaging;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using YooAsset;
 
-public partial class ViewService
+public partial class ViewService:
+    IRecipient<ViewSubShowAsyncRequestEvent>
 {
-    private Dictionary<SubViewContainerType, ISubViewContainer> subViewContainers;
-    private Dictionary<Type, ISubViewConfigure> subViews;
-    private Dictionary<SubViewAKA, ISubViewConfigure> subViewAKAs;
+    private Dictionary<SubViewDisplay, ISubViewCollectContainer> subViewContainers;
+    private Dictionary<SubViewType, IViewCheck> subViewChecks;
+    private Dictionary<SubViewType, ISubViewConfigure> subViewTypes;
+    private Dictionary<SubViewType, Type> sub2MainMaps;
 
-    private void InitSubViews(Dictionary<SubViewContainerType, ISubViewContainer> subViewContainers, Dictionary<SubViewContainerType, List<ISubViewConfigure>> subViews)
+    private void InitSubViews(Dictionary<SubViewDisplay, ISubViewCollectContainer> subViewContainers, List<ISubViewConfigure> subViewConfigures)
     {
         foreach (var pair in subViewContainers)
         {
-            SubViewContainerType subViewContainerType = pair.Key;
-            ISubViewContainer subViewContainer = pair.Value;
-            subViewContainer.AddSubViewContainerType(subViewContainerType);
+            SubViewDisplay subViewDisplay = pair.Key;
+            ISubViewCollectContainer subViewCollectContainer = pair.Value;
+            subViewCollectContainer.AddSubViewContainerType(subViewDisplay);
         }
         this.subViewContainers = subViewContainers;
-        
-        this.subViews = new Dictionary<Type, ISubViewConfigure>();
-        this.subViewAKAs = new Dictionary<SubViewAKA, ISubViewConfigure>();
-        foreach (var pair in subViews)
+        this.subViewTypes = new Dictionary<SubViewType, ISubViewConfigure>();
+        for (int i = 0; i < subViewConfigures.Count; i++)
         {
-            SubViewContainerType subViewContainerType = pair.Key;
-            List<ISubViewConfigure> subViewConfigures = pair.Value;
-            for (int i = 0; i < subViewConfigures.Count; i++)
+            ISubViewConfigure subViewConfigure = subViewConfigures[i];
+            List<SubViewType> subViewTypes = subViewConfigure.GetSubViewTypes();
+            for (int j = 0; j < subViewTypes?.Count; j++)
             {
-                ISubViewConfigure subViewConfigure = subViewConfigures[i];
-                subViewConfigure.AddSubViewContainerType(subViewContainerType);
-                
-                Type subViewType = subViewConfigure.GetSubViewType();
-                this.subViews.Add(subViewType, subViewConfigure);
-                
-                List<SubViewAKA> subViewAKAs = subViewConfigure.GetSubViewAKAs();
-                for (int j = 0; j < subViewAKAs?.Count; j++)
-                {
-                    SubViewAKA subViewAka = subViewAKAs[j];
-                    this.subViewAKAs.Add(subViewAka, subViewConfigure);
-                }
+                SubViewType subViewType = subViewTypes[j];
+                this.subViewTypes.Add(subViewType, subViewConfigure);
             }
         }
+    }
+    
+    private async UniTask<bool> ShowAsync_Internal(SubViewType subViewType)
+    {
+        if (subViewChecks.TryGetValue(subViewType, out IViewCheck subViewCheck))
+        {
+            if (subViewCheck != null && !subViewCheck.IsFuncOpenWithTip())
+            {
+                return false;
+            }
+            if (!sub2MainMaps.TryGetValue(subViewType, out Type mainType))
+            {
+                LLogger.FrameError($"子界面：{subViewType} 未绑定主界面");
+                return false;
+            }
+            IViewConfigure viewConfigure = views[mainType];
+            IViewCheck viewCheck = viewConfigure.GetViewCheck();
+            if (viewCheck != null && !viewCheck.IsFuncOpenWithTip())
+            {
+                return false;
+            }
+            IView mainView = await ShowMainAsync_Internal(viewConfigure);
+            IViewLocator viewLocator = mainView.GameObject().GetComponent<IViewLocator>();
+            viewLocator.SetFirstSubView(subViewType);
+            return true;
+        }
+        return false;
+    }
+
+    private bool SwitchAsync_Internal(IView view, SubViewType subViewType)
+    {
+        if (!sub2MainMaps.TryGetValue(subViewType, out Type mainType))
+        {
+            LLogger.FrameError($"子界面：{subViewType} 未绑定主界面");
+            return false;
+        }
+        IViewConfigure viewConfigure = views[mainType];
+        IViewCheck viewCheck = viewConfigure.GetViewCheck();
+        if (viewCheck != null && !viewCheck.IsFuncOpenWithTip())
+        {
+            return false;
+        }
+        IViewLocator viewLocator = view.GameObject().GetComponent<IViewLocator>();
+        viewLocator.SwitchSubView(subViewType);
+        return true;
     }
     
     private async UniTask<IView> AddSubViewAsync_Internal(ISubViewConfigure subViewConfigure)
@@ -69,5 +105,10 @@ public partial class ViewService
         }
         IView view = instantiatedObject.GetComponent(type) as IView;
         return view;
+    }
+    
+    void IRecipient<ViewSubShowAsyncRequestEvent>.Receive(ViewSubShowAsyncRequestEvent message)
+    {
+        message.Reply(ShowAsync_Internal(message.SubViewType).AsTask());
     }
 }

@@ -3,11 +3,10 @@ using System.Collections.Generic;
 
 public interface ISubViewConfigure
 {
-    void AddSubViewContainerType(SubViewContainerType subViewContainerType);
+    void AddView<TView, TViewModel>(List<SubViewType> subViewTypes) 
+        where TView : IView
+        where TViewModel : class, IViewModel;
     
     Type GetSubViewType();
-    List<SubViewAKA> GetSubViewAKAs();
-    bool IsFuncOpen();
-    bool IsFuncOpenWithTip();
-    SubViewContainerType GetSubViewContainerType();
+    List<SubViewType> GetSubViewTypes();
 }

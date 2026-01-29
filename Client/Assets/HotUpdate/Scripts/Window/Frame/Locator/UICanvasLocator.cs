@@ -6,6 +6,7 @@ public class UICanvasLocator : MonoBehaviour, IUICanvasLocator
 {
     private IViewService viewService;
     private Dictionary<ViewLayer, ILayerLocator> layerLocators;
+    private Dictionary<SubViewDisplay, ISubViewCollectLocator> subViewCollectLocators;
 
     private GameObject go;
     private Transform rt;
@@ -20,6 +21,7 @@ public class UICanvasLocator : MonoBehaviour, IUICanvasLocator
     {
         this.viewService = viewService;
         layerLocators = new Dictionary<ViewLayer, ILayerLocator>();
+        subViewCollectLocators = new Dictionary<SubViewDisplay, ISubViewCollectLocator>();
 
         go = gameObject;
         rt = go.AddComponent<RectTransform>();
@@ -37,6 +39,7 @@ public class UICanvasLocator : MonoBehaviour, IUICanvasLocator
         DontDestroyOnLoad(go);
         
         CreateLayerLocators();
+        CreateSubViewCollectLocators();
     }
 
     private void CreateLayerLocators()
@@ -52,6 +55,21 @@ public class UICanvasLocator : MonoBehaviour, IUICanvasLocator
             var layerLocator = layerContainer.AddLocator(goLocator);
             layerLocator.Build(layerContainer, this);
             layerLocators.Add(viewLayer, layerLocator);
+        }
+    }
+    private void CreateSubViewCollectLocators()
+    {
+        Dictionary<SubViewDisplay, ISubViewCollectContainer> subViewCollectContainers = viewService.GetSubViewContainers();
+        foreach (var pair in subViewCollectContainers)
+        {
+            SubViewDisplay subViewDisplay = pair.Key;
+            var subViewCollectContainer = pair.Value;
+            GameObject goLocator = new GameObject(subViewDisplay.ToString());
+            goLocator.transform.SetParent(rt);
+
+            var subViewCollectLocator = subViewCollectContainer.AddLocator(goLocator);
+            subViewCollectLocator.Build(subViewCollectContainer, this);
+            subViewCollectLocators.Add(subViewDisplay, subViewCollectLocator);
         }
     }
 

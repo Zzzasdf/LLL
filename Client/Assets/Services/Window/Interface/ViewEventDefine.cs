@@ -9,12 +9,12 @@ public class ViewShowAsyncRequestEvent: AsyncRequestMessage<bool>
         Type = type;
     }
 }
-public class ViewAKAShowAsyncRequestEvent: AsyncRequestMessage<bool>
+public class ViewSubShowAsyncRequestEvent: AsyncRequestMessage<bool>
 {
-    public SubViewAKA SubViewAKA { get; }
-    public ViewAKAShowAsyncRequestEvent(SubViewAKA subViewAka)
+    public SubViewType SubViewType { get; }
+    public ViewSubShowAsyncRequestEvent(SubViewType subViewType)
     {
-        SubViewAKA = subViewAka;
+        SubViewType = subViewType;
     }
 }
 

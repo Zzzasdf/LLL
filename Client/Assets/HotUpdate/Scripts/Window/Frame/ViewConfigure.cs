@@ -8,8 +8,9 @@ public class ViewConfigure: IViewConfigure
     
     private Type viewType;
     private IViewCheck viewCheck;
-    private List<Type> subViewTypes;
-    private List<SubViewAKA> subViewAKAs;
+
+    private SubViewDisplay subViewDisplay;
+    private Dictionary<SubViewType, IViewCheck> subViewTypes;
     
     private ViewLayer viewLayer;
 
@@ -18,13 +19,10 @@ public class ViewConfigure: IViewConfigure
         this.services = services;
     }
 
-    public ViewConfigure AddView<TView, TViewModel>()
-        where TView : IView
-        where TViewModel : class, IViewModel
+    void IViewConfigure.AddView<TView, TViewModel>()
     {
         viewType = typeof(TView);
         services.AddTransient<TViewModel>();
-        return this;
     }
 
     public ViewConfigure AddAccountModel<TModel>()
@@ -46,26 +44,17 @@ public class ViewConfigure: IViewConfigure
         return this;
     }
 
-    public ViewConfigure AddSubType<TSubView>()
-        where TSubView: IView
+    public ViewConfigure AddSubType(SubViewDisplay subViewDisplay, Dictionary<SubViewType, IViewCheck> subViewTypes)
     {
-        subViewTypes ??= new List<Type>();
-        subViewTypes.Add(typeof(TSubView));
-        return this;
-    }
-    public ViewConfigure AddSubAKAs(List<SubViewAKA> subViewAKAs)
-    {
-        this.subViewAKAs = subViewAKAs;
+        this.subViewDisplay = subViewDisplay;
+        this.subViewTypes = subViewTypes;
         return this;
     }
     
     void IViewConfigure.AddLayer(ViewLayer viewLayer) => this.viewLayer = viewLayer;
-    List<Type> IViewConfigure.GetSubViewTypes() => subViewTypes;
-    List<SubViewAKA> IViewConfigure.GetSubViewAKAs() => subViewAKAs;
+    Dictionary<SubViewType, IViewCheck> IViewConfigure.GetSubViewTypes() => subViewTypes;
 
     Type IViewConfigure.GetViewType() => viewType;
-    bool IViewConfigure.IsFuncOpen() => viewCheck?.IsFuncOpen() ?? true;
-    bool IViewConfigure.IsFuncOpenWithTip() => viewCheck?.IsFuncOpenWithTip() ?? true;
-
+    IViewCheck IViewConfigure.GetViewCheck() => viewCheck;
     ViewLayer IViewConfigure.GetViewLayer() => viewLayer;
 }

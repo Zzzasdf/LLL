@@ -6,7 +6,9 @@ public class SubActivityCheck : IViewCheck
     {
         this.subActivityId = subActivityId;
     }
-    
+
+    object IViewCheck.GetViewCheckValue() => null;
+
     bool IViewCheck.IsFuncOpen()
     {
         return true;
