@@ -2,6 +2,9 @@ using System.Collections.Generic;
 
 public interface IViewService
 {
-    Dictionary<ViewLayer, ILayerContainer> GetLayerContainers();
-    Dictionary<SubViewDisplay, ISubViewCollectContainer> GetSubViewContainers();
+    ILayerConfigures GetLayerConfigures();
+    void SetLayerLocators(Dictionary<ViewLayer, ILayerLocator> layerLocators);
+
+    ISubViewCollectConfigures GetSubViewCollectConfigures();
+    void SetSubViewCollectLocators(Dictionary<SubViewCollect, ISubViewCollectLocator> subViewCollectLocators);
 }

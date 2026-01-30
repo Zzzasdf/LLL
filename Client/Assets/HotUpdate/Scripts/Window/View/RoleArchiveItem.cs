@@ -12,11 +12,6 @@ public class RoleArchiveItem : MonoBehaviour
 
     private AccountRoleSimpleModel accountRoleSimpleModel;
     
-    private void Start()
-    {
-        BindUI();
-    }
-
     public void BindData(AccountRoleSimpleModel accountRoleSimpleModel)
     {
         this.accountRoleSimpleModel = accountRoleSimpleModel;

@@ -1,6 +1,8 @@
 public interface IViewCheck
 {
-    public object GetViewCheckValue();
-    public bool IsFuncOpen();
-    public bool IsFuncOpenWithTip();
+    object GetViewCheckValue();
+    string BtnEntryName();
+    
+    bool IsFuncOpen();
+    bool IsFuncOpenWithTip();
 }

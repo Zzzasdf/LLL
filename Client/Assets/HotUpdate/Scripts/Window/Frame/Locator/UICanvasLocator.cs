@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +7,7 @@ public class UICanvasLocator : MonoBehaviour, IUICanvasLocator
 {
     private IViewService viewService;
     private Dictionary<ViewLayer, ILayerLocator> layerLocators;
-    private Dictionary<SubViewDisplay, ISubViewCollectLocator> subViewCollectLocators;
+    private Dictionary<SubViewCollect, ISubViewCollectLocator> subViewDisplayLocators;
 
     private GameObject go;
     private Transform rt;
@@ -21,8 +22,8 @@ public class UICanvasLocator : MonoBehaviour, IUICanvasLocator
     {
         this.viewService = viewService;
         layerLocators = new Dictionary<ViewLayer, ILayerLocator>();
-        subViewCollectLocators = new Dictionary<SubViewDisplay, ISubViewCollectLocator>();
-
+        subViewDisplayLocators = new Dictionary<SubViewCollect, ISubViewCollectLocator>();
+        
         go = gameObject;
         rt = go.AddComponent<RectTransform>();
         
@@ -44,33 +45,44 @@ public class UICanvasLocator : MonoBehaviour, IUICanvasLocator
 
     private void CreateLayerLocators()
     {
-        Dictionary<ViewLayer, ILayerContainer> layerContainers = viewService.GetLayerContainers();
-        foreach (var pair in layerContainers)
+        ILayerConfigures layerConfigures = viewService.GetLayerConfigures();
+        foreach (var pair in layerConfigures)
         {
             ViewLayer viewLayer = pair.Key;
-            var layerContainer = pair.Value;
+            ILayerConfigure layerConfigure = pair.Value;
             GameObject goLocator = new GameObject(viewLayer.ToString());
             goLocator.transform.SetParent(rt);
-            
-            var layerLocator = layerContainer.AddLocator(goLocator);
-            layerLocator.Build(layerContainer, this);
+
+            ILayerLocator layerLocator = layerConfigure.AddLayerLocator(goLocator);
+            ILayerContainer layerContainer = layerConfigure.CreateLayerContainer();
+            IViewLoader viewLoader = layerConfigure.CreateViewLoader();
+            Type viewLocatorType = layerConfigure.GetViewLocatorType();
+            layerContainer.Bind(layerLocator);
+            layerLocator.Bind(this, viewLayer, layerContainer, viewLoader, viewLocatorType);
             layerLocators.Add(viewLayer, layerLocator);
         }
+        viewService.SetLayerLocators(layerLocators);
     }
     private void CreateSubViewCollectLocators()
     {
-        Dictionary<SubViewDisplay, ISubViewCollectContainer> subViewCollectContainers = viewService.GetSubViewContainers();
+        ISubViewCollectConfigures subViewCollectContainers = viewService.GetSubViewCollectConfigures();
         foreach (var pair in subViewCollectContainers)
         {
-            SubViewDisplay subViewDisplay = pair.Key;
-            var subViewCollectContainer = pair.Value;
-            GameObject goLocator = new GameObject(subViewDisplay.ToString());
+            SubViewCollect subViewCollect = pair.Key;
+            ISubViewDisplayConfigure subViewDisplayConfigure = pair.Value;
+            GameObject goLocator = new GameObject(subViewCollect.ToString());
             goLocator.transform.SetParent(rt);
-
-            var subViewCollectLocator = subViewCollectContainer.AddLocator(goLocator);
-            subViewCollectLocator.Build(subViewCollectContainer, this);
-            subViewCollectLocators.Add(subViewDisplay, subViewCollectLocator);
+            
+            ISubViewCollectLocator subViewCollectLocator = subViewDisplayConfigure.AddSubViewDisplayLocator(goLocator);
+            ISubViewCollectContainer subViewCollectContainer = subViewDisplayConfigure.CreateSubViewDisplayContainer();
+            IViewLoader viewLoader = subViewDisplayConfigure.CreateViewLoader();
+            Type subViewsLocatorType = subViewDisplayConfigure.GetSubViewsLocatorType();
+            Type subViewLocatorType = subViewDisplayConfigure.GetSubViewLocatorType();
+            subViewCollectContainer.Bind(subViewCollectLocator);
+            subViewCollectLocator.Bind(this, subViewCollect, subViewCollectContainer, viewLoader, subViewsLocatorType, subViewLocatorType);
+            subViewDisplayLocators.Add(subViewCollect, subViewCollectLocator);
         }
+        viewService.SetSubViewCollectLocators(subViewDisplayLocators);
     }
 
     IViewService IUICanvasLocator.ViewService() => viewService;

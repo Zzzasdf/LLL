@@ -2,39 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 
-public class LayerUniqueContainer<TLayerLocator, TViewLocator, TViewLoader>: ILayerContainer
-    where TLayerLocator: MonoBehaviour, ILayerLocator
-    where TViewLocator: MonoBehaviour, IViewLocator
-    where TViewLoader: IViewLoader
+public class LayerUniqueContainer: ILayerContainer
 {
-    private ViewLayer viewLayer;
-    private IViewLoader viewLoader;
-
-    private TLayerLocator layerLocator;
+    private ILayerLocator layerLocator;
     
     private List<int> uniqueIds;
     private Dictionary<int, List<int>> stashDict;
     
-    public LayerUniqueContainer(int poolCapacity, int preDestroyCapacity = 10, int preDestroyMillisecondsDelay = 10)
+    void ILayerContainer.Bind(ILayerLocator layerLocator)
     {
-        viewLoader = (TViewLoader)Activator.CreateInstance
-        (
-            typeof(TViewLoader), poolCapacity, preDestroyCapacity, preDestroyMillisecondsDelay
-        );
+        this.layerLocator = layerLocator;
         uniqueIds = new List<int>();
         stashDict = new Dictionary<int, List<int>>();
     }
 
-    void ILayerContainer.AddLayer(ViewLayer viewLayer) => this.viewLayer = viewLayer;
-
-    ILayerLocator ILayerContainer.AddLocator(GameObject goLocator)
-    {
-        layerLocator = goLocator.AddComponent<TLayerLocator>();
-        return layerLocator;
-    }
-    
     async UniTask<(IView view, int? removeId)> ILayerContainer.ShowViewAndTryRemoveAsync(Type type)
     {
         if (uniqueIds.Count > 0)
@@ -152,11 +134,6 @@ public class LayerUniqueContainer<TLayerLocator, TViewLocator, TViewLoader>: ILa
         stashDict.Remove(uniqueId);
     }
     
-    ViewLayer ILayerContainer.GetViewLayer() => viewLayer;
-    IViewLoader ILayerContainer.GetViewLoader() => viewLoader;
-    ILayerLocator ILayerContainer.GetLocator() => layerLocator;
-    IViewLocator ILayerContainer.AddViewLocator(GameObject goView) => goView.AddComponent<TViewLocator>();
-
     string ILayerContainer.ToString()
     {
         StringBuilder sb = new StringBuilder();

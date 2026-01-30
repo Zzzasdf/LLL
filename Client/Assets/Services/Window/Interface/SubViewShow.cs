@@ -1,4 +1,4 @@
-public enum SubViewType
+public enum SubViewShow
 {
     None = 0,
     MiniMapView = 1,
@@ -7,5 +7,4 @@ public enum SubViewType
     
     SubActivity = 10001,
     SubActivity2 = 10002,
-
 }

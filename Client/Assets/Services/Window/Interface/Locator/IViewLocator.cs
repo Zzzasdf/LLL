@@ -3,6 +3,7 @@ using UnityEngine;
 public interface IViewLocator
 {
     void Bind(ViewLayer viewLayer, IView view);
+    void Bind(IView view, IViewCheck viewCheck);
     ViewLayer GetLayer();
 
     void BindUniqueId(int uniqueId);
@@ -12,7 +13,4 @@ public interface IViewLocator
 
     void Show();
     void Hide();
-
-    void SetFirstSubView(SubViewType subViewType);
-    void SwitchSubView(SubViewType subViewType);
 }

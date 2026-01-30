@@ -11,10 +11,10 @@ public class ViewShowAsyncRequestEvent: AsyncRequestMessage<bool>
 }
 public class ViewSubShowAsyncRequestEvent: AsyncRequestMessage<bool>
 {
-    public SubViewType SubViewType { get; }
-    public ViewSubShowAsyncRequestEvent(SubViewType subViewType)
+    public SubViewShow subViewShow { get; }
+    public ViewSubShowAsyncRequestEvent(SubViewShow subViewShow)
     {
-        SubViewType = subViewType;
+        this.subViewShow = subViewShow;
     }
 }
 

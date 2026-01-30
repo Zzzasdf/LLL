@@ -9,7 +9,6 @@ public interface IView
     void AddViewModel(int uniqueId);
     void RemoveViewModel();
 
-    void InitUI();
     void InitUI(object viewCheckValue);
     void DestroyUI();
     void BindUI();

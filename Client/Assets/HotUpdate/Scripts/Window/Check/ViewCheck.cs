@@ -1,6 +1,7 @@
 public class ViewCheck : IViewCheck
 {
     object IViewCheck.GetViewCheckValue() => null;
+    string IViewCheck.BtnEntryName() => null;
 
     bool IViewCheck.IsFuncOpen()
     {

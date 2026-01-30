@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 
 public interface ILayerContainer
 {
-    void AddLayer(ViewLayer viewLayer);
-    ILayerLocator AddLocator(GameObject goLocator);
+    void Bind(ILayerLocator layerLocator);
     
     UniTask<(IView view, int? removeId)> ShowViewAndTryRemoveAsync(Type type);
     UniTask<List<int>> PopViewAndTryRemove(List<int> popIds);
@@ -22,11 +20,6 @@ public interface ILayerContainer
     void Stash(int uniqueId);
     bool TryStashPop(int uniqueId, out List<int> popIds);
     void StashClear(int uniqueId);
-
-    ViewLayer GetViewLayer();
-    IViewLoader GetViewLoader();
-    ILayerLocator GetLocator();
-    IViewLocator AddViewLocator(GameObject goView);
 
     string ToString();
 }

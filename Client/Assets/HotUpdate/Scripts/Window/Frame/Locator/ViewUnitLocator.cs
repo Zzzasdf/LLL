@@ -9,6 +9,7 @@ public class ViewUnitLocator: MonoBehaviour, IViewLocator
 
     private ViewLayer viewLayer;
     private IView view;
+    private IViewCheck viewCheck;
     private int uniqueId;
     private CancellationTokenSource cts;
 
@@ -22,9 +23,12 @@ public class ViewUnitLocator: MonoBehaviour, IViewLocator
     {
         this.viewLayer = viewLayer;
         this.view = view;
+        this.viewCheck = MainViewCheckGenerator.Default.Get(view.GetType());
     }
+    void IViewLocator.Bind(IView view, IViewCheck viewCheck) { }
 
     ViewLayer IViewLocator.GetLayer() => viewLayer;
+    
     void IViewLocator.BindUniqueId(int uniqueId)
     {
         this.uniqueId = uniqueId;
@@ -48,7 +52,7 @@ public class ViewUnitLocator: MonoBehaviour, IViewLocator
         if (viewState is ViewState.NONE or ViewState.INVISIBLE)
         {
             view.AddViewModel(uniqueId);
-            view.InitUI();
+            view.InitUI(viewCheck?.GetViewCheckValue());
             gameObject.SetActive(true);
             viewState = ViewState.VISIBLE;
             
@@ -144,16 +148,5 @@ public class ViewUnitLocator: MonoBehaviour, IViewLocator
                 ExitAnimation = animation;
             }
         }
-    }
-
-    protected SubViewType subViewType;
-    void IViewLocator.SetFirstSubView(SubViewType subViewType)
-    {
-        this.subViewType = subViewType;
-    }
-
-    void IViewLocator.SwitchSubView(SubViewType subViewType)
-    {
-        this.subViewType = subViewType;
     }
 }

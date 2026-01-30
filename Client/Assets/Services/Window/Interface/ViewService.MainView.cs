@@ -8,70 +8,45 @@ public partial class ViewService:
     IRecipient<ViewHideAsyncRequestEvent>,
     IRecipient<ViewAllHideAsyncRequestEvent>
 {
-    private Dictionary<ViewLayer, ILayerContainer> layerContainers;
-    private Dictionary<Type, IViewCheck> viewChecks;
-    private Dictionary<Type, IViewConfigure> views;
-
-    private void InitViews(Dictionary<ViewLayer, ILayerContainer> layerContainers, Dictionary<ViewLayer, List<IViewConfigure>> views)
+    private async UniTask<bool> ShowAsync_Internal(Type type)
     {
-        foreach (var pair in layerContainers)
+        if (viewShows.TryGetValue(type, out IViewConfigure viewConfigure))
         {
-            ViewLayer viewLayer = pair.Key;
-            ILayerContainer layerContainer = pair.Value;
-            layerContainer.AddLayer(viewLayer);
-        }
-        this.layerContainers = layerContainers;
-        this.viewChecks = new Dictionary<Type, IViewCheck>();
-        this.views = new Dictionary<Type, IViewConfigure>();
-        this.subViewChecks = new Dictionary<SubViewType, IViewCheck>();
-        this.sub2MainMaps = new Dictionary<SubViewType, Type>();
-        foreach (var pair in views)
-        {
-            ViewLayer viewLayer = pair.Key;
-            List<IViewConfigure> viewConfigures = pair.Value;
-            for (int i = 0; i < viewConfigures.Count; i++)
+            if (viewConfigure.TryGetViewCheck(out IViewCheck viewCheck))
             {
-                IViewConfigure viewConfigure = viewConfigures[i];
-                viewConfigure.AddLayer(viewLayer);
-                Type viewType = viewConfigure.GetViewType();
-                this.views.Add(viewType, viewConfigure);
-                viewChecks.Add(viewType, viewConfigure.GetViewCheck());
-                
-                Dictionary<SubViewType, IViewCheck> subViewTypes = viewConfigure.GetSubViewTypes();
-                if (subViewTypes != null)
+                if (!viewCheck.IsFuncOpenWithTip())
                 {
-                    foreach (var pairSub in subViewTypes)
+                    return false;
+                }
+            }
+            if (viewConfigure.TryGetSubViewConfigures(out List<ISubViewConfigure> subViewConfigures))
+            {
+                for (int i = 0; i < subViewConfigures.Count; i++)
+                {
+                    ISubViewConfigure subViewConfigure = subViewConfigures[i];
+                    if (!subViewConfigure.TryGetViewCheck(out IViewCheck subViewCheck)
+                        || subViewCheck.IsFuncOpen())
                     {
-                        SubViewType subViewType = pairSub.Key;
-                        IViewCheck viewCheck = pairSub.Value;
-                        subViewChecks.Add(subViewType, viewCheck);
-                        sub2MainMaps.Add(subViewType, viewType);
+                        IView view = await ShowMainAsync_Internal(viewConfigure);
+                        AddSubViewLocator(view, viewConfigure);
+                        return true;
                     }
                 }
             }
-        }
-        ViewCheckGenerator.Default.Assembly(viewChecks, subViewChecks);
-    }
-    
-    private async UniTask<bool> ShowAsync_Internal(Type type)
-    {
-        if (views.TryGetValue(type, out IViewConfigure viewConfigure))
-        {
-            IViewCheck viewCheck = viewConfigure.GetViewCheck();
-            if (viewCheck != null && viewCheck.IsFuncOpenWithTip())
+            else
             {
-                return false;
+                IView view = await ShowMainAsync_Internal(viewConfigure);
+                AddSubViewLocator(view, viewConfigure);
             }
-            await ShowMainAsync_Internal(viewConfigure);
-            return true;
         }
         return false;
     }
+    
     private async UniTask<IView> ShowMainAsync_Internal(IViewConfigure viewConfigure)
     {
         Type type = viewConfigure.GetViewType();
         ViewLayer viewLayer = viewConfigure.GetViewLayer();
-        ILayerContainer layerContainer = layerContainers[viewLayer];
+        ILayerContainer layerContainer = layerLocators[viewLayer].GetContainer();
         (IView view, int? removeId) = await layerContainer.ShowViewAndTryRemoveAsync(type);
         
         // 同层界面推入 弹出处理
@@ -86,7 +61,7 @@ public partial class ViewService:
         {
             ViewLayer layer = (ViewLayer)item;
             if (layer <= viewLayer) continue;
-            ILayerContainer container = layerContainers[layer];
+            ILayerContainer container = layerLocators[layer].GetContainer();
             container.Stash(uniqueId);
         }
         return view;
@@ -96,13 +71,13 @@ public partial class ViewService:
     {
         IViewLocator viewLocator = view.GetLocator();
         ViewLayer viewLayer = viewLocator.GetLayer();
-        ILayerContainer layerContainer = layerContainers[viewLayer];
+        ILayerContainer layerContainer = layerLocators[viewLayer].GetContainer();
         // 清空上层所有激活界面
         foreach (var item in Enum.GetValues(typeof(ViewLayer)))
         {
             ViewLayer layer = (ViewLayer)item;
             if (layer <= viewLayer) continue;
-            ILayerContainer container = layerContainers[layer];
+            ILayerContainer container = layerLocators[layer].GetContainer();
             container.HideAllActivateView();
         }
         
@@ -116,7 +91,7 @@ public partial class ViewService:
         {
             ViewLayer layer = (ViewLayer)item;
             if (layer <= viewLayer) continue;
-            ILayerContainer container = layerContainers[layer];
+            ILayerContainer container = layerLocators[layer].GetContainer();
             if (!container.TryStashPop(uniqueId, out List<int> ids)) continue;
             await PopShow(layer, ids);
         }
@@ -124,7 +99,7 @@ public partial class ViewService:
     }
     private async UniTask PopShow(ViewLayer viewLayer, List<int> popIds)
     {
-        ILayerContainer layerContainer = layerContainers[viewLayer];
+        ILayerContainer layerContainer = layerLocators[viewLayer].GetContainer();
         List<int> removeIds = await layerContainer.PopViewAndTryRemove(popIds);
         if (removeIds == null) return;
         foreach (var removeId in removeIds)
@@ -140,16 +115,16 @@ public partial class ViewService:
         {
             ViewLayer layer = (ViewLayer)item;
             if (layer <= viewLayer) continue;
-            ILayerContainer container = layerContainers[layer];
+            ILayerContainer container = layerLocators[layer].GetContainer();
             container.StashClear(uniqueId);
         }
     }
     
     private void HideAll_Internal()
     {
-        foreach (var pair in layerContainers)
+        foreach (var pair in layerLocators)
         {
-            ILayerContainer layerContainer = pair.Value;
+            ILayerContainer layerContainer = pair.Value.GetContainer();
             layerContainer.HideAllView();
         }
     }

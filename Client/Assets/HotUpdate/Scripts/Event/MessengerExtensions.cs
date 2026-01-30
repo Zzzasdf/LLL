@@ -7,6 +7,7 @@ public static class MessengerExtensions
 #region Procedure
     public static void SendProcedureSwap(this IMessenger messenger, ProcedureService.GameState gameState)
     {
+        LLogger.FrameWarning($"SendProcedure {gameState}");
         messenger.Send(new GameStateMessage(gameState));
     }
 #endregion
@@ -16,9 +17,9 @@ public static class MessengerExtensions
     {
         return await messenger.Send(new ViewShowAsyncRequestEvent(typeof(TView)));
     }
-    public static async UniTask<bool> SendViewSubShowAsync(this IMessenger messenger, SubViewType subViewType)
+    public static async UniTask<bool> SendViewSubShowAsync(this IMessenger messenger, SubViewShow subViewShow)
     {
-        return await messenger.Send(new ViewSubShowAsyncRequestEvent(subViewType));
+        return await messenger.Send(new ViewSubShowAsyncRequestEvent(subViewShow));
     }
     public static async UniTask<bool> SendViewHideAsync(this IMessenger messenger, IView view)
     {

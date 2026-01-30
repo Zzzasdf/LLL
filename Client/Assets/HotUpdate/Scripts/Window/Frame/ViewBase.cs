@@ -6,7 +6,6 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
 {
     private IViewLocator viewLocator;
     protected TViewModel viewModel { get; private set; }
-    protected IViewCheck viewCheck { get; private set; }
 
     void IView.BindLocator(IViewLocator viewLocator) => this.viewLocator = viewLocator;
     IViewLocator IView.GetLocator() => viewLocator;
@@ -15,7 +14,6 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
     void IView.AddViewModel(int uniqueId)
     {
         viewModel = ViewModelGenerator.Default.GetOrAdd<TViewModel>(uniqueId);
-        viewCheck = ViewCheckGenerator.Default.Get(uniqueId);
         if (viewModel is ObservableRecipient observableRecipient)
         {
             observableRecipient.IsActive = true;
@@ -31,13 +29,8 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
             LLogger.FrameLog($"{typeof(TViewModel).Name} IsActive: {observableRecipient.IsActive}");
         }
         viewModel = null;
-        viewCheck = null;
     }
 
-    void IView.InitUI()
-    {
-        InitUI(viewCheck?.GetViewCheckValue());
-    }
     public abstract void InitUI(object viewCheckValue);
     public abstract void DestroyUI();
     public abstract void BindUI();

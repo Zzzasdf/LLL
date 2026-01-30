@@ -5,7 +5,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Extensions.DependencyInjection;
 using UnityEngine;
 
-public class Launcher : MonoBehaviour
+public partial class Launcher : MonoBehaviour
 {
     private IServiceProvider serviceProvider;
     private void Awake()
@@ -22,88 +22,64 @@ public class Launcher : MonoBehaviour
         services.AddDeviceService();
         services.AddHardwareService();
 
-        services
-            .AddWindowService(
-                new Dictionary<ViewLayer, ILayerContainer>
+        services.AddWindowService(new LayerConfigures(new Dictionary<ViewLayer, ILayerConfigure>
+            {
+                [ViewLayer.Bg] = new LayerConfigure<LayerRaycastBlockingLocator, LayerUniqueContainer, ViewUniqueLoader, ViewRaycastBlockingLocator>(poolCapacity: 1),
+                [ViewLayer.Permanent] = new LayerConfigure<LayerUnitLocator, LayerMultipleContainer, ViewUniqueLoader, ViewUnitLocator>(poolCapacity: 1),
+                [ViewLayer.FullScreen] = new LayerConfigure<LayerRaycastBlockingLocator, LayerUniqueContainer, ViewUniqueLoader, ViewRaycastBlockingLocator>(poolCapacity: 1),
+                [ViewLayer.Window] = new LayerConfigure<LayerMaskBlackLocator, LayerUniqueContainer, ViewUniqueLoader, ViewMaskTransparentClickLocator>(poolCapacity: 1),
+                [ViewLayer.Popup] = new LayerConfigure<LayerMaskBlackLocator, LayerUniqueContainer, ViewUnitLoader, ViewMaskBlackClickLocator>(poolCapacity: 1),
+                [ViewLayer.Tip] = new LayerConfigure<LayerUnitLocator, LayerMultipleContainer, ViewUniqueLoader, ViewUnitLocator>(poolCapacity: 1),
+                [ViewLayer.System] = new LayerConfigure<LayerRaycastBlockingLocator, LayerUniqueContainer, ViewUnitLoader, ViewRaycastBlockingLocator>(poolCapacity: 1),
+            }),new SubViewCollectConfigures(new Dictionary<SubViewCollect, ISubViewDisplayConfigure>
+            {
+                [SubViewCollect.Selector] = new SubViewCollectConfigure<SubViewCollectLocator, SubViewCollectContainer, SubViewsSelectorLocator, ViewUniqueLoader, SubViewUnitLocator>(poolCapacity: 1),
+                [SubViewCollect.MultiOpener] = new SubViewCollectConfigure<SubViewCollectLocator, SubViewCollectContainer, SubViewsMultiOpenerLocator, ViewUniqueLoader, SubViewUnitLocator>(poolCapacity: 1),
+            }), new ViewConfigures(new Dictionary<ViewLayer, List<IViewConfigure>>
+            {
+                [ViewLayer.Bg] = new List<IViewConfigure>
                 {
-                    [ViewLayer.Bg] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, ViewUniqueLoader>(poolCapacity: 1),
-                    [ViewLayer.Permanent] = new LayerMultipleContainer<LayerUnitLocator, ViewUnitLocator, ViewUniqueLoader>(poolCapacity: 1),
-                    [ViewLayer.FullScreen] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, ViewUniqueLoader>(poolCapacity: 1),
-                    [ViewLayer.Window] = new LayerUniqueContainer<LayerMaskBlackLocator, ViewMaskTransparentClickLocator, ViewUniqueLoader>(poolCapacity: 1),
-                    [ViewLayer.Popup] = new LayerUniqueContainer<LayerMaskBlackLocator, ViewMaskBlackClickLocator, ViewUnitLoader>(poolCapacity: 1),
-                    [ViewLayer.Tip] = new LayerMultipleContainer<LayerUnitLocator, ViewUnitLocator, ViewUniqueLoader>(poolCapacity: 1),
-                    [ViewLayer.System] = new LayerUniqueContainer<LayerRaycastBlockingLocator, ViewRaycastBlockingLocator, ViewUnitLoader>(poolCapacity: 1),
-                }, 
-                new Dictionary<SubViewDisplay, ISubViewCollectContainer>
-                {
-                    [SubViewDisplay.Unique] = new SubViewCollectUniqueContainer<SubViewCollectUnitLocator, SubViewUnitLocator, ViewUniqueLoader>(poolCapacity: 1),
-                    [SubViewDisplay.Multiple] = new SubViewCollectMultipleContainer<SubViewCollectUnitLocator, SubViewUnitLocator, ViewMultipleLoader>(poolCapacity: 1),
                 },
-                new Dictionary<ViewLayer, List<IViewConfigure>>
+                [ViewLayer.Permanent] = new List<IViewConfigure>
                 {
-                    [ViewLayer.Bg] = new List<IViewConfigure>
-                    {
-                    },
-                    [ViewLayer.Permanent] = new List<IViewConfigure>
-                    {
-                        AddView<MainView, MainViewModel>(services)
-                            .AddSubType(SubViewDisplay.Multiple, new Dictionary<SubViewType, IViewCheck>
-                            {
-                                [SubViewType.MiniMapView] = null,
-                                [SubViewType.MiniChatView] = null,
-                                [SubViewType.EntryButtonGroupView] = null,
-                            }),
-                    },
-                    [ViewLayer.FullScreen] = new List<IViewConfigure>
-                    {
-                        AddView<StartView, StartViewModel>(services),
-                        AddView<SelectRoleView, SelectRoleViewModel>(services),
-                        AddView<CreateRoleView, CreateRoleViewModel>(services),
-                        AddView<ActivityView, ActivityViewModel>(services)
-                            .AddSubType(SubViewDisplay.Unique, new Dictionary<SubViewType, IViewCheck>
-                            {
-                                [SubViewType.SubActivity] = new SubActivityCheck(1),
-                                [SubViewType.SubActivity2] = null,
-                            }),
-                    },
-                    [ViewLayer.Window] = new List<IViewConfigure>
-                    {
-                    },
-                    [ViewLayer.Popup] = new List<IViewConfigure>
-                    {
-                        AddView<SettingsView, SettingsViewModel>(services),
-                        AddView<HelpView, HelpViewModel>(services),
-                        AddView<ConfirmAgainView, ConfirmAgainViewModel>(services),
-                    },
-                    [ViewLayer.Tip] = new List<IViewConfigure>
-                    {
-                    },
-                    [ViewLayer.System] = new List<IViewConfigure>
-                    {
-                        AddView<LoadingView, LoadingViewModel>(services),
-                    },
-                }, 
-                new List<ISubViewConfigure>
+                    View<MainView, MainViewModel>(services)
+                        .SubViews(SubViewCollect.MultiOpener, new List<ISubViewConfigure>
+                        {
+                            SubView<MiniMapView, MiniMapViewModel>(services, SubViewShow.MiniMapView),
+                            SubView<MiniChatView, MiniChatViewModel>(services, SubViewShow.MiniChatView),
+                            SubView<EntryButtonGroupView, EntryButtonGroupViewModel>(services, SubViewShow.EntryButtonGroupView),
+                        }),
+                },
+                [ViewLayer.FullScreen] = new List<IViewConfigure>
                 {
-                    AddSubView<MiniMapView, MiniMapViewModel>(services, new List<SubViewType>
-                    {
-                        SubViewType.MiniMapView,
-                    }),
-                    AddSubView<MiniChatView, MiniChatViewModel>(services, new List<SubViewType>
-                    {
-                        SubViewType.MiniChatView,
-                    }),
-                    AddSubView<EntryButtonGroupView, EntryButtonGroupViewModel>(services, new List<SubViewType>
-                    {
-                        SubViewType.EntryButtonGroupView,
-                    }),
-                    AddSubView<SubActivityView, SubActivityViewModel>(services, new List<SubViewType>
-                    {
-                        SubViewType.SubActivity,
-                        SubViewType.SubActivity2,
-                    }),
-                }
-            );
+                    View<StartView, StartViewModel>(services),
+                    View<SelectRoleView, SelectRoleViewModel>(services),
+                    View<CreateRoleView, CreateRoleViewModel>(services),
+                    View<ActivityView, ActivityViewModel>(services)
+                        .SubViews(SubViewCollect.Selector, new List<ISubViewConfigure>
+                        {
+                            SubView<SubActivityView, SubActivityViewModel>(services, SubViewShow.SubActivity, new SubActivityCheck(1, "活动1")),
+                            SubView<SubActivityView, SubActivityViewModel>(services, SubViewShow.SubActivity2, new EntryNameCheck("活动2")),
+                        }),
+                },
+                [ViewLayer.Window] = new List<IViewConfigure>
+                {
+                },
+                [ViewLayer.Popup] = new List<IViewConfigure>
+                {
+                    View<SettingsView, SettingsViewModel>(services),
+                    View<HelpView, HelpViewModel>(services),
+                    View<ConfirmAgainView, ConfirmAgainViewModel>(services),
+                },
+                [ViewLayer.Tip] = new List<IViewConfigure>
+                {
+                },
+                [ViewLayer.System] = new List<IViewConfigure>
+                {
+                    View<LoadingView, LoadingViewModel>(services),
+                },
+            }
+        ));
         
         services
             .AddTransient<ProcedurePreload>()
@@ -146,24 +122,5 @@ public class Launcher : MonoBehaviour
         
         // 进入预载流程
         WeakReferenceMessenger.Default.SendProcedureSwap(ProcedureService.GameState.Preload);
-    }
-    
-    private static ViewConfigure AddView<TView, TViewModel>(IServiceCollection services) 
-        where TView : IView 
-        where TViewModel: class, IViewModel
-    {
-        ViewConfigure viewConfigure = new ViewConfigure(services);
-        IViewConfigure configure = viewConfigure;
-        configure.AddView<TView, TViewModel>();
-        return viewConfigure;
-    }
-    private static SubViewConfigure AddSubView<TView, TViewModel>(IServiceCollection services, List<SubViewType> subViewTypes)
-        where TView : IView 
-        where TViewModel: class, IViewModel
-    {
-        SubViewConfigure subViewConfigure = new SubViewConfigure(services);
-        ISubViewConfigure configure = subViewConfigure;
-        configure.AddView<TView, TViewModel>(subViewTypes);
-        return subViewConfigure;
     }
 }

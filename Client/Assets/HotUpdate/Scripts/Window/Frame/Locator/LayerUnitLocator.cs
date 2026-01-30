@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class LayerUnitLocator : MonoBehaviour, ILayerLocator
 {
-    private ILayerContainer layerContainer;
-    private ViewLayer viewLayer;
-    private IViewLoader viewLoader;
-
     private IUICanvasLocator uiCanvasLocator;
+    private ViewLayer viewLayer;
+    private ILayerContainer layerContainer;
+    private IViewLoader viewLoader;
+    private Type viewLocatorType;
     private RectTransform thisRt;
     
     [SerializeField]
@@ -17,19 +17,18 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
     [SerializeField]
     private SerializableDictionary<int, IView> uniqueViewDict;
     
-    void ILayerLocator.Build(ILayerContainer layerContainer, IUICanvasLocator uiCanvasLocator)
+    void ILayerLocator.Bind(IUICanvasLocator uiCanvasLocator, ViewLayer viewLayer, ILayerContainer layerContainer, IViewLoader viewLoader, Type viewLocatorType)
     {
-        this.layerContainer = layerContainer;
-        viewLayer = layerContainer.GetViewLayer();
-        viewLoader = layerContainer.GetViewLoader();
-        
         this.uiCanvasLocator = uiCanvasLocator;
+        this.viewLayer = viewLayer;
+        this.layerContainer = layerContainer;
+        this.viewLoader = viewLoader;
+        this.viewLocatorType = viewLocatorType;
         thisRt = gameObject.GetComponent<RectTransform>();
         if (thisRt == null)
         {
             thisRt = gameObject.AddComponent<RectTransform>();
         }
-
         uniqueTypeDict = new SerializableDictionary<int, Type>();
         uniqueViewDict = new SerializableDictionary<int, IView>();
         
@@ -45,6 +44,7 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
     }
+    
 
     ILayerContainer ILayerLocator.GetContainer() => layerContainer;
     IUICanvasLocator ILayerLocator.GetCanvasLocator() => uiCanvasLocator;
@@ -58,7 +58,7 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
             {
                 view = await viewLoader.CreateView(type);
                 GameObject goView = view.GameObject();
-                viewLocator = layerContainer.AddViewLocator(goView);
+                viewLocator = (IViewLocator)goView.AddComponent(viewLocatorType);
                 viewLocator.Bind(viewLayer, view);
                 view.BindLocator(viewLocator);
                 
@@ -81,7 +81,6 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
             viewLocator.Hide();
         }
         int uniqueId = UniqueIdGenerator.Default.Create();
-        ViewCheckGenerator.Default.Add(type, uniqueId);
         uniqueTypeDict.Add(uniqueId, type);
         
         uniqueViewDict.Add(uniqueId, view);
@@ -129,7 +128,7 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
             {
                 view = await viewLoader.CreateView(type);
                 GameObject goView = view.GameObject();
-                viewLocator = layerContainer.AddViewLocator(goView);
+                viewLocator = (IViewLocator)goView.AddComponent(viewLocatorType);
                 viewLocator.Bind(viewLayer, view);
                 view.BindLocator(viewLocator);
                 
@@ -169,7 +168,6 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
         }
         ViewModelGenerator.Default.Delete(uniqueId);
         UniqueIdGenerator.Default.Delete(uniqueId);
-        ViewCheckGenerator.Default.Delete(uniqueId);
 
         if (uniqueViewDict.Remove(uniqueId, out IView view))
         {
