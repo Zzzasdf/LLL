@@ -2,7 +2,7 @@ using UnityEngine;
 
 public interface IViewLocator
 {
-    void Bind(ViewLayer viewLayer, IView view);
+    void Bind(ViewLayer viewLayer, IView view, IViewCheck viewCheck);
     void Bind(IView view, IViewCheck viewCheck);
     ViewLayer GetLayer();
 

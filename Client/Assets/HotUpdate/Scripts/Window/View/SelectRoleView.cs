@@ -8,7 +8,7 @@ public class SelectRoleView : ViewBase<SelectRoleViewModel>
     [SerializeField] private Button btnReturn;
     [SerializeField] private Button btnClose;
 
-    public override void InitUI(object viewCheckValue)
+    public override void InitUI(IViewCheck viewCheck)
     {
         for (int i = 0; i < roleArchiveItems.Count; i++)
         {

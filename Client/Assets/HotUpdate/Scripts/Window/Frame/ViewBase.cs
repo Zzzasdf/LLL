@@ -1,4 +1,5 @@
 using CommunityToolkit.Mvvm.ComponentModel;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
@@ -31,7 +32,7 @@ public abstract class ViewBase<TViewModel> : MonoBehaviour, IView
         viewModel = null;
     }
 
-    public abstract void InitUI(object viewCheckValue);
+    public abstract void InitUI([CanBeNull] IViewCheck viewCheck);
     public abstract void DestroyUI();
     public abstract void BindUI();
     public abstract void UnBindUI();

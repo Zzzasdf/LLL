@@ -10,6 +10,8 @@ public class ViewConfigures : IViewConfigures
         this.viewConfigures = viewConfigures;
     }
 
+    public List<IViewConfigure> this[ViewLayer viewLayer] => viewConfigures[viewLayer];
+
     IEnumerator<KeyValuePair<ViewLayer, List<IViewConfigure>>> IEnumerable<KeyValuePair<ViewLayer, List<IViewConfigure>>>.GetEnumerator()
     {
         return viewConfigures.GetEnumerator();

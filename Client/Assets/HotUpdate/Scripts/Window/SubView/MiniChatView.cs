@@ -1,6 +1,6 @@
 public class MiniChatView : ViewBase<MiniChatViewModel>
 {
-    public override void InitUI(object viewCheckValue)
+    public override void InitUI(IViewCheck viewCheck)
     {
     }
 

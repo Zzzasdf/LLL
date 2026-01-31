@@ -50,6 +50,7 @@
     <Compile Include="Assets\HotUpdate\Scripts\DataStructures\SerializableStack.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Asset\AssetBaseLoader.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Model\RoleModel.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\Frame\SubView\Selector\SubViewSelector.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\RoleArchiveItem.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Launcher.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\IProcedure.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Assets\HotUpdate\Scripts\Window\ViewModel\SubActivityViewModel.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Frame\Animation\AlphaAnimation.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Frame\Locator\UICanvasLocator.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\Frame\SubView\Selector\SubViewSelectorItem.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Procedure\Node\ProcedureCreateRole.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Asset\Photography.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\SubView\MiniChatView.cs" />
@@ -98,6 +100,7 @@
     <Compile Include="Assets\HotUpdate\Scripts\Window\Frame\Container\SubViewCollectContainer.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Frame\ViewBase.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Frame\Locator\LayerUnitLocator.cs" />
+    <Compile Include="Assets\HotUpdate\Scripts\Window\Frame\SubView\MultiOpener\SubViewMultiOpener.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Frame\Locator\ViewMaskTransparentClickLocator.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\Frame\Animation\UIAnimation.cs" />
     <Compile Include="Assets\HotUpdate\Scripts\Window\View\ActivityView.cs" />

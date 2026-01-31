@@ -55,6 +55,7 @@
     <Compile Include="Assets\Services\Window\Interface\Animation\IAnimation.cs" />
     <Compile Include="Assets\Services\Window\Interface\ViewService.cs" />
     <Compile Include="Assets\Services\Window\Interface\Locator\IUICanvasLocator.cs" />
+    <Compile Include="Assets\Services\Window\Interface\SubView\Selector\SubViewSelectorBase.cs" />
     <Compile Include="Assets\Services\Window\Interface\Configure\ILayerConfigure.cs" />
     <Compile Include="Assets\Services\Window\Interface\Locator\ILayerLocator.cs" />
     <Compile Include="Assets\Services\Window\Interface\Container\ISubViewCollectContainer.cs" />
@@ -74,8 +75,10 @@
     <Compile Include="Assets\Services\Window\Interface\ViewLayer.cs" />
     <Compile Include="Assets\Services\Window\Interface\SubViewCollect.cs" />
     <Compile Include="Assets\Services\Window\Interface\Configure\SubViewCollectConfigures.cs" />
+    <Compile Include="Assets\Services\Window\Interface\SubView\MultiOpener\SubViewMultiOpenerBase.cs" />
     <Compile Include="Assets\Services\Window\Interface\Container\ILayerContainer.cs" />
     <Compile Include="Assets\Services\Window\Interface\Configure\ISubViewConfigure.cs" />
+    <Compile Include="Assets\Services\Window\Interface\SubView\Selector\SubViewSelectorItemBase.cs" />
     <Compile Include="Assets\Services\Window\Interface\Configure\SubViewCollectConfigure.cs" />
     <Compile Include="Assets\Services\Window\Interface\Configure\IViewConfigures.cs" />
     <Compile Include="Assets\Services\Window\Interface\ViewService.SubView.cs" />

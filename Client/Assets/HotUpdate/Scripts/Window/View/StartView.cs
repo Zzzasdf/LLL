@@ -10,7 +10,7 @@ public class StartView : ViewBase<StartViewModel>
     [SerializeField] private Button btnQuit;
     [SerializeField] private Button btnClose;
 
-    public override void InitUI(object viewCheckValue)
+    public override void InitUI(IViewCheck viewCheck)
     {
     }
     public override void DestroyUI()

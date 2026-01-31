@@ -7,7 +7,7 @@ public class EntryButtonGroupView : ViewBase<EntryButtonGroupViewModel>
 {
     [SerializeField] private Button btnActivity;
     
-    public override void InitUI(object viewCheckValue)
+    public override void InitUI(IViewCheck viewCheck)
     {
     }
 

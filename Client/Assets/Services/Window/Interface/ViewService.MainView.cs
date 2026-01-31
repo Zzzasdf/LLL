@@ -35,8 +35,7 @@ public partial class ViewService:
             }
             else
             {
-                IView view = await ShowMainAsync_Internal(viewConfigure);
-                AddSubViewLocator(view, viewConfigure);
+                await ShowMainAsync_Internal(viewConfigure);
             }
         }
         return false;

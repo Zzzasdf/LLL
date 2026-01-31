@@ -1,9 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class SerializableDictionary<TKey, TValue> : ISerializationCallbackReceiver
+public class SerializableDictionary<TKey, TValue> : ISerializationCallbackReceiver, IEnumerable<KeyValuePair<TKey, TValue>>
 {
     [SerializeField]
     private List<TKey> keys = new List<TKey>();
@@ -57,4 +58,7 @@ public class SerializableDictionary<TKey, TValue> : ISerializationCallbackReceiv
     public bool TryGetValue(TKey key, out TValue value) => dictionary.TryGetValue(key, out value);
     
     public Dictionary<TKey,TValue>.KeyCollection Keys => dictionary.Keys;
+    
+    IEnumerator<KeyValuePair<TKey, TValue>> IEnumerable<KeyValuePair<TKey, TValue>>.GetEnumerator() => dictionary.GetEnumerator();
+    IEnumerator IEnumerable.GetEnumerator() => dictionary.GetEnumerator();
 }

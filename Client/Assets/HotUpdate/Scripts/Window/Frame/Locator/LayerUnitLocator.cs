@@ -10,6 +10,7 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
     private ILayerContainer layerContainer;
     private IViewLoader viewLoader;
     private Type viewLocatorType;
+    private List<IViewConfigure> viewConfigures;
     private RectTransform thisRt;
     
     [SerializeField]
@@ -17,13 +18,14 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
     [SerializeField]
     private SerializableDictionary<int, IView> uniqueViewDict;
     
-    void ILayerLocator.Bind(IUICanvasLocator uiCanvasLocator, ViewLayer viewLayer, ILayerContainer layerContainer, IViewLoader viewLoader, Type viewLocatorType)
+    void ILayerLocator.Bind(IUICanvasLocator uiCanvasLocator, ViewLayer viewLayer, ILayerContainer layerContainer, IViewLoader viewLoader, Type viewLocatorType, List<IViewConfigure> viewConfigures)
     {
         this.uiCanvasLocator = uiCanvasLocator;
         this.viewLayer = viewLayer;
         this.layerContainer = layerContainer;
         this.viewLoader = viewLoader;
         this.viewLocatorType = viewLocatorType;
+        this.viewConfigures = viewConfigures;
         thisRt = gameObject.GetComponent<RectTransform>();
         if (thisRt == null)
         {
@@ -59,7 +61,8 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
                 view = await viewLoader.CreateView(type);
                 GameObject goView = view.GameObject();
                 viewLocator = (IViewLocator)goView.AddComponent(viewLocatorType);
-                viewLocator.Bind(viewLayer, view);
+                IViewCheck viewCheck = GetViewCheck(type);
+                viewLocator.Bind(viewLayer, view, viewCheck);
                 view.BindLocator(viewLocator);
                 
                 RectTransform windowRt = goView.GetComponent<RectTransform>();
@@ -78,6 +81,7 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
             viewLocator = view.GetLocator();
             int oldUniqueId = viewLocator.GetUniqueId();
             uniqueViewDict.Remove(oldUniqueId);
+            HideSubViews(view);
             viewLocator.Hide();
         }
         int uniqueId = UniqueIdGenerator.Default.Create();
@@ -129,7 +133,8 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
                 view = await viewLoader.CreateView(type);
                 GameObject goView = view.GameObject();
                 viewLocator = (IViewLocator)goView.AddComponent(viewLocatorType);
-                viewLocator.Bind(viewLayer, view);
+                IViewCheck viewCheck = GetViewCheck(type);
+                viewLocator.Bind(viewLayer, view, viewCheck);
                 view.BindLocator(viewLocator);
                 
                 RectTransform windowRt = goView.GetComponent<RectTransform>();
@@ -148,6 +153,7 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
             viewLocator = view.GetLocator();
             int oldUniqueId = viewLocator.GetUniqueId();
             uniqueViewDict.Remove(oldUniqueId);
+            HideSubViews(view);
             viewLocator.Hide();
         }
         uniqueViewDict.Add(uniqueId, view);
@@ -172,6 +178,7 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
         if (uniqueViewDict.Remove(uniqueId, out IView view))
         {
             IViewLocator viewLocator = view.GetLocator();
+            HideSubViews(view);
             viewLocator.Hide();
             viewLoader.ReleaseView(view);
         }
@@ -187,6 +194,7 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
         }
         CheckUniqueViewDictCount();
         IViewLocator viewLocator = view.GetLocator();
+        HideSubViews(view);
         viewLocator.Hide();
         viewLoader.ReleaseView(view);
     }
@@ -198,6 +206,24 @@ public class LayerUnitLocator : MonoBehaviour, ILayerLocator
     protected virtual void CheckUniqueViewDictCount(int count)
     {
         
+    }
+
+    private IViewCheck GetViewCheck(Type type)
+    {
+        IViewCheck viewCheck = null;
+        for (int i = 0; i < viewConfigures.Count; i++)
+        {
+            IViewConfigure viewConfigure = viewConfigures[i];
+            if (viewConfigure.GetViewType() != type) continue;
+            viewConfigure.TryGetViewCheck(out viewCheck);
+            return viewCheck;
+        }
+        return viewCheck;
+    }
+    private void HideSubViews(IView view)
+    {
+        ISubViewsLocator subViewsLocator = view.GameObject().GetComponent<ISubViewsLocator>();
+        if (subViewsLocator == null) return;
     }
 
     [ContextMenu("LayerContainer Content")]

@@ -1,7 +1,13 @@
+using TMPro;
+using UnityEngine;
+
 public class SubActivityView : ViewBase<SubActivityViewModel>
 {
-    public override void InitUI(object viewCheckValue)
+    [SerializeField] private TextMeshProUGUI lbContent;
+    
+    public override void InitUI(IViewCheck viewCheck)
     {
+        lbContent.SetText(viewCheck.BtnEntryName());
     }
 
     public override void DestroyUI()

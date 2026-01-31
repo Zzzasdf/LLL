@@ -47,7 +47,7 @@ public partial class ViewService: ObservableRecipient, IViewService
                 }
             }
         }
-        MainViewCheckGenerator.Default.Assembly(viewConfigures);
+        // MainViewCheckGenerator.Default.Assembly(viewConfigures);
         IsActive = true;
     }
     
@@ -56,4 +56,6 @@ public partial class ViewService: ObservableRecipient, IViewService
 
     ISubViewCollectConfigures IViewService.GetSubViewCollectConfigures() => subViewCollectConfigures;
     void IViewService.SetSubViewCollectLocators(Dictionary<SubViewCollect, ISubViewCollectLocator> subViewCollectLocators) => this.subViewCollectLocators = subViewCollectLocators;
+
+    List<IViewConfigure> IViewService.GetViewConfigures(ViewLayer viewLayer) => viewConfigures[viewLayer];
 }

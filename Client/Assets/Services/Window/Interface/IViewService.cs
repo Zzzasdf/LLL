@@ -7,4 +7,6 @@ public interface IViewService
 
     ISubViewCollectConfigures GetSubViewCollectConfigures();
     void SetSubViewCollectLocators(Dictionary<SubViewCollect, ISubViewCollectLocator> subViewCollectLocators);
+
+    List<IViewConfigure> GetViewConfigures(ViewLayer viewLayer);
 }

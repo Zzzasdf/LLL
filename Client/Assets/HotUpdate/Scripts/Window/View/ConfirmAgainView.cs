@@ -9,7 +9,7 @@ public class ConfirmAgainView : ViewBase<ConfirmAgainViewModel>
     [SerializeField] private Button btnCancel;
     [SerializeField] private Button btnConfirm;
 
-    public override void InitUI(object viewCheckValue)
+    public override void InitUI(IViewCheck viewCheck)
     {
         viewModel.PropertyChanged += PropertyChanged;
     }

@@ -19,11 +19,11 @@ public class ViewUnitLocator: MonoBehaviour, IViewLocator
     private IAnimation EnterAnimation;
     private IAnimation ExitAnimation;
     
-    void IViewLocator.Bind(ViewLayer viewLayer, IView view)
+    void IViewLocator.Bind(ViewLayer viewLayer, IView view, IViewCheck viewCheck)
     {
         this.viewLayer = viewLayer;
         this.view = view;
-        this.viewCheck = MainViewCheckGenerator.Default.Get(view.GetType());
+        this.viewCheck = viewCheck;
     }
     void IViewLocator.Bind(IView view, IViewCheck viewCheck) { }
 
@@ -49,22 +49,23 @@ public class ViewUnitLocator: MonoBehaviour, IViewLocator
     }
     private async UniTask Show_Internal()
     {
+        if (cts != null)
+        {
+            cts.Cancel();
+            cts.Dispose();
+            cts = null;
+            viewState = ViewState.INVISIBLE;
+        }
         if (viewState is ViewState.NONE or ViewState.INVISIBLE)
         {
             view.AddViewModel(uniqueId);
-            view.InitUI(viewCheck?.GetViewCheckValue());
+            view.InitUI(viewCheck);
             gameObject.SetActive(true);
             viewState = ViewState.VISIBLE;
             
             viewState = ViewState.ENTER_ANIMATION_BEGIN;
             if (EnterAnimation != null)
             {
-                if (cts != null)
-                {
-                    cts.Cancel();
-                    cts.Dispose();
-                    cts = null;
-                }
                 await EnterAnimation.DOPlayAsync();
             }
             viewState = ViewState.ENTER_ANIMATION_END;
@@ -80,6 +81,7 @@ public class ViewUnitLocator: MonoBehaviour, IViewLocator
             cts.Cancel();
             cts.Dispose();
             cts = null;
+            viewState = ViewState.INVISIBLE;
         }
     }
     void IViewLocator.Hide() => Hide_Internal().Forget();

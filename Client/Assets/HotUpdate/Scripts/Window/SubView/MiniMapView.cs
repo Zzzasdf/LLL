@@ -1,6 +1,6 @@
 public class MiniMapView : ViewBase<MiniMapViewModel>
 {
-    public override void InitUI(object viewCheckValue)
+    public override void InitUI(IViewCheck viewCheck)
     {
     }
 

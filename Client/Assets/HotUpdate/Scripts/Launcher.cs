@@ -58,8 +58,8 @@ public partial class Launcher : MonoBehaviour
                     View<ActivityView, ActivityViewModel>(services)
                         .SubViews(SubViewCollect.Selector, new List<ISubViewConfigure>
                         {
-                            SubView<SubActivityView, SubActivityViewModel>(services, SubViewShow.SubActivity, new SubActivityCheck(1, "活动1")),
-                            SubView<SubActivityView, SubActivityViewModel>(services, SubViewShow.SubActivity2, new EntryNameCheck("活动2")),
+                            SubView<SubActivityView, SubActivityViewModel>(services, SubViewShow.SubActivity, new SubActivityCheck(1, "Activity 1")),
+                            SubView<SubActivityView, SubActivityViewModel>(services, SubViewShow.SubActivity2, new EntryNameCheck("Activity 2")),
                         }),
                 },
                 [ViewLayer.Window] = new List<IViewConfigure>

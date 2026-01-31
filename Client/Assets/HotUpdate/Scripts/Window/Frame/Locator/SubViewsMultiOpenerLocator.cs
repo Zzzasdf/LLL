@@ -6,38 +6,57 @@ using UnityEngine;
 public class SubViewsMultiOpenerLocator: MonoBehaviour, ISubViewsLocator
 {
     private ISubViewCollectLocator subViewCollectLocator;
-    private ISubViewCollectContainer subViewCollectContainer;
-    private ISubViewCollectContainer subViewCollectContainer;
+    private IViewConfigure viewConfigure;
     private IViewLoader viewLoader;
-    private Dictionary<SubViewShow, IViewCheck> subViewChecks;
-
-    private List<SubViewShow> subViewTypes;
-    private List<SubViewShow> displaySubViewTypes;
-
-    private Dictionary<SubViewShow, IView> views; 
     
-    void ISubViewsLocator.Init(ISubViewCollectLocator subViewCollectLocator, ISubViewCollectContainer subViewCollectContainer, Dictionary<SubViewShow, IViewCheck> subViewChecks)
+    private List<ISubViewConfigure> subViewConfigures;
+
+    [SerializeField] private SerializableDictionary<int, int> indexUniqueIds;
+    [SerializeField] private SerializableDictionary<int, Type> uniqueIdTypes;
+    [SerializeField] private SerializableDictionary<int, IView> uniqueIdViews;
+    
+    private SubViewMultiOpenerBase subViewMultiOpener;
+    
+    void ISubViewsLocator.Init(ISubViewCollectLocator subViewCollectLocator, IViewConfigure viewConfigure, SubViewShow? firstSubViewShow)
     {
         this.subViewCollectLocator = subViewCollectLocator;
-        this.subViewCollectContainer = subViewCollectLocator.GetSubViewCollectContainer();
-        this.subViewDisplayContainer = subViewCollectContainer;
-        this.viewLoader = subViewCollectContainer.GetViewLoader();
-        this.subViewChecks = subViewChecks;
-    }
-    void ISubViewsLocator.InitSubViews(List<SubViewShow> subViewTypes, List<SubViewShow> displaySubViewTypes, SubViewShow firstDisplaySubViewShow)
-    {
-        this.subViewTypes = subViewTypes;
-        this.displaySubViewTypes = displaySubViewTypes;
-        views = new Dictionary<SubViewShow, IView>();
-        for (int i = 0; i < displaySubViewTypes.Count; i++)
+        this.viewConfigure = viewConfigure;
+        this.viewLoader = subViewCollectLocator.GetViewLoader();
+        this.subViewConfigures = new List<ISubViewConfigure>();
+        this.indexUniqueIds = new SerializableDictionary<int, int>();
+        this.uniqueIdTypes = new SerializableDictionary<int, Type>();
+        this.uniqueIdViews = new SerializableDictionary<int, IView>();
+        viewConfigure.TryGetSubViewConfigures(out List<ISubViewConfigure> subViewConfigures);
+        int firstShowIndex = 0;
+        for (int i = 0; i < subViewConfigures.Count; i++)
         {
-            viewLoader.
+            ISubViewConfigure subViewConfigure = subViewConfigures[i];
+            if (!subViewConfigure.TryGetViewCheck(out IViewCheck viewCheck)
+                || viewCheck.IsFuncOpen())
+            {
+                if (firstSubViewShow.HasValue && subViewConfigure.EqualsSubViewShow(firstSubViewShow.Value))
+                {
+                    firstShowIndex = subViewConfigures.Count;
+                }
+                this.subViewConfigures.Add(subViewConfigure);
+            }
+        }
+        subViewMultiOpener = GetComponent<SubViewMultiOpenerBase>();
+        ShowAllViewAsync(subViewMultiOpener.GetRtPanelParent()).Forget();
+    }
+
+    private async UniTask ShowAllViewAsync(RectTransform rtPanelParent)
+    {
+        for (int i = 0; i < subViewConfigures.Count; i++)
+        {
+            await ShowViewAsync(rtPanelParent, i);
         }
     }
-    void ISubViewsLocator.SwitchSubView(SubViewShow subViewShow) { }
     
-    private async UniTask<IView> ShowViewAsync(Type type)
+    private async UniTask<IView> ShowViewAsync(RectTransform rtPanelParent, int index)
     {
+        ISubViewConfigure subViewConfigure = subViewConfigures[index];
+        Type type = subViewConfigure.GetSubViewType();
         IViewLocator viewLocator;
         if (!viewLoader.TryGetActiveView(type, out IView view))
         {
@@ -45,12 +64,13 @@ public class SubViewsMultiOpenerLocator: MonoBehaviour, ISubViewsLocator
             {
                 view = await viewLoader.CreateView(type);
                 GameObject goView = view.GameObject();
-                viewLocator = subViewDisplayContainer.AddSubViewLocator(goView);
-                viewLocator.Bind(view);
+                viewLocator = subViewCollectLocator.AddSubViewLocator(goView);
+                subViewConfigure.TryGetViewCheck(out IViewCheck viewCheck);
+                viewLocator.Bind(view, viewCheck);
                 view.BindLocator(viewLocator);
                 
                 RectTransform windowRt = goView.GetComponent<RectTransform>();
-                windowRt.SetParent(this.transform);
+                windowRt.SetParent(rtPanelParent);
                 windowRt.localPosition = Vector3.zero;
                 windowRt.localScale = Vector3.one;
                 windowRt.anchoredPosition = Vector2.zero;
@@ -64,18 +84,41 @@ public class SubViewsMultiOpenerLocator: MonoBehaviour, ISubViewsLocator
         {
             viewLocator = view.GetLocator();
             int oldUniqueId = viewLocator.GetUniqueId();
-            uniqueViewDict.Remove(oldUniqueId);
+            uniqueIdViews.Remove(oldUniqueId);
             viewLocator.Hide();
         }
-        int uniqueId = UniqueIdGenerator.Default.Create();
-        MainViewCheckGenerator.Default.Add(type, uniqueId);
-        uniqueTypeDict.Add(uniqueId, type);
-        
-        uniqueViewDict.Add(uniqueId, view);
+        if (!indexUniqueIds.TryGetValue(index, out int uniqueId))
+        {
+            indexUniqueIds.Add(index, uniqueId = UniqueIdGenerator.Default.Create());
+            uniqueIdTypes.Add(uniqueId, type);
+        }
+        uniqueIdViews.Add(index, view);
         viewLocator = view.GetLocator();
         viewLocator.BindUniqueId(uniqueId);
         viewLocator.GameObject().transform.SetAsLastSibling();
         viewLocator.Show();
         return view;
+    }
+
+    void ISubViewsLocator.HideViews()
+    {
+        foreach (var pair in indexUniqueIds)
+        {
+            int uniqueId = pair.Value;
+            if (!uniqueIdTypes.Remove(uniqueId))
+            {
+                LLogger.Error($"请求关闭界面的唯一id: {uniqueId} 不存在！！");
+                return;
+            }
+            ViewModelGenerator.Default.Delete(uniqueId);
+            UniqueIdGenerator.Default.Delete(uniqueId);
+
+            if (uniqueIdViews.Remove(uniqueId, out IView view))
+            {
+                IViewLocator viewLocator = view.GetLocator();
+                viewLocator.Hide();
+                viewLoader.ReleaseView(view);
+            }
+        }
     }
 }

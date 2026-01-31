@@ -8,7 +8,7 @@ public class CreateRoleView : ViewBase<CreateRoleViewModel>
     [SerializeField] private Button btnCancel;
     [SerializeField] private Button btnConfirm;
 
-    public override void InitUI(object viewCheckValue)
+    public override void InitUI(IViewCheck viewCheck)
     {
     }
     public override void DestroyUI()

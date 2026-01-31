@@ -10,61 +10,55 @@ public class SubViewsSelectorLocator: MonoBehaviour, ISubViewsLocator
     private IViewLoader viewLoader;
     
     private List<ISubViewConfigure> subViewConfigures;
-    private Dictionary<int, (Type type, int uniqueId)> typeUniqueIds;
-    private int showIndex;
+
+    [SerializeField] private SerializableDictionary<int, int> indexUniqueIds;
+    [SerializeField] private SerializableDictionary<int, Type> uniqueIdTypes;
+    [SerializeField] private SerializableDictionary<int, IView> uniqueIdViews;
     
-    [SerializeField]
-    private SerializableDictionary<int, Type> uniqueTypeDict;
-    [SerializeField]
-    private SerializableDictionary<int, IView> uniqueViewDict;
+    private int showIndex = -1;
     
-    void ISubViewsLocator.Init(ISubViewCollectLocator subViewCollectLocator, IViewConfigure viewConfigure, SubViewShow firstSubViewShow)
+    private SubViewSelectorBase subViewSelector;
+    
+    void ISubViewsLocator.Init(ISubViewCollectLocator subViewCollectLocator, IViewConfigure viewConfigure, SubViewShow? firstSubViewShow)
     {
         this.subViewCollectLocator = subViewCollectLocator;
         this.viewConfigure = viewConfigure;
         this.viewLoader = subViewCollectLocator.GetViewLoader();
         this.subViewConfigures = new List<ISubViewConfigure>();
-        this.typeUniqueIds = new Dictionary<int, (Type type, int uniqueId)>();
-        this.uniqueTypeDict = new SerializableDictionary<int, Type>();
-        this.uniqueViewDict = new SerializableDictionary<int, IView>();
+        this.indexUniqueIds = new SerializableDictionary<int, int>();
+        this.uniqueIdTypes = new SerializableDictionary<int, Type>();
+        this.uniqueIdViews = new SerializableDictionary<int, IView>();
         viewConfigure.TryGetSubViewConfigures(out List<ISubViewConfigure> subViewConfigures);
+        int firstShowIndex = 0;
         for (int i = 0; i < subViewConfigures.Count; i++)
         {
             ISubViewConfigure subViewConfigure = subViewConfigures[i];
             if (!subViewConfigure.TryGetViewCheck(out IViewCheck viewCheck)
                 || viewCheck.IsFuncOpen())
             {
-                if (subViewConfigure.EqualsSubViewShow(firstSubViewShow))
+                if (firstSubViewShow.HasValue && subViewConfigure.EqualsSubViewShow(firstSubViewShow.Value))
                 {
-                    showIndex = subViewConfigures.Count;
+                    firstShowIndex = subViewConfigures.Count;
                 }
                 this.subViewConfigures.Add(subViewConfigure);
             }
         }
+        subViewSelector = GetComponent<SubViewSelectorBase>();
+        subViewSelector.Init(subViewConfigures, OnSubViewSelector, firstShowIndex);
     }
-    void ISubViewsLocator.Init(ISubViewCollectLocator subViewCollectLocator, IViewConfigure viewConfigure)
+
+    private async UniTask OnSubViewSelector(RectTransform rtPanelParent, int index)
     {
-        this.subViewCollectLocator = subViewCollectLocator;
-        this.viewConfigure = viewConfigure;
-        this.viewLoader = subViewCollectLocator.GetViewLoader();
-        this.subViewConfigures = new List<ISubViewConfigure>();
-        this.typeUniqueIds = new Dictionary<int, (Type type, int uniqueId)>();
-        this.uniqueTypeDict = new SerializableDictionary<int, Type>();
-        this.uniqueViewDict = new SerializableDictionary<int, IView>();
-        viewConfigure.TryGetSubViewConfigures(out List<ISubViewConfigure> subViewConfigures);
-        for (int i = 0; i < subViewConfigures.Count; i++)
-        {
-            ISubViewConfigure subViewConfigure = subViewConfigures[i];
-            if (!subViewConfigure.TryGetViewCheck(out IViewCheck viewCheck)
-                || viewCheck.IsFuncOpen())
-            {
-                this.subViewConfigures.Add(subViewConfigure);
-            }
-        }
+        if (index == showIndex) return;
+        PushHideView(showIndex);
+        showIndex = index;
+        await ShowViewAsync(rtPanelParent, index);
     }
     
-    private async UniTask<IView> ShowViewAsync(Type type)
+    private async UniTask<IView> ShowViewAsync(RectTransform rtPanelParent, int index)
     {
+        ISubViewConfigure subViewConfigure = subViewConfigures[index];
+        Type type = subViewConfigure.GetSubViewType();
         IViewLocator viewLocator;
         if (!viewLoader.TryGetActiveView(type, out IView view))
         {
@@ -73,11 +67,10 @@ public class SubViewsSelectorLocator: MonoBehaviour, ISubViewsLocator
                 view = await viewLoader.CreateView(type);
                 GameObject goView = view.GameObject();
                 viewLocator = subViewCollectLocator.AddSubViewLocator(goView);
-                viewLocator.Bind(view);
                 view.BindLocator(viewLocator);
                 
                 RectTransform windowRt = goView.GetComponent<RectTransform>();
-                windowRt.SetParent(transform);
+                windowRt.SetParent(rtPanelParent);
                 windowRt.localPosition = Vector3.zero;
                 windowRt.localScale = Vector3.one;
                 windowRt.anchoredPosition = Vector2.zero;
@@ -91,17 +84,54 @@ public class SubViewsSelectorLocator: MonoBehaviour, ISubViewsLocator
         {
             viewLocator = view.GetLocator();
             int oldUniqueId = viewLocator.GetUniqueId();
-            uniqueViewDict.Remove(oldUniqueId);
+            uniqueIdViews.Remove(oldUniqueId);
             viewLocator.Hide();
         }
-        int uniqueId = UniqueIdGenerator.Default.Create();
-        uniqueTypeDict.Add(uniqueId, type);
-        
-        uniqueViewDict.Add(uniqueId, view);
+        if (!indexUniqueIds.TryGetValue(index, out int uniqueId))
+        {
+            indexUniqueIds.Add(index, uniqueId = UniqueIdGenerator.Default.Create());
+            uniqueIdTypes.Add(uniqueId, type);
+        }
+        uniqueIdViews.Add(uniqueId, view);
         viewLocator = view.GetLocator();
+        
+        subViewConfigure.TryGetViewCheck(out IViewCheck viewCheck);
+        viewLocator.Bind(view, viewCheck);
+        
         viewLocator.BindUniqueId(uniqueId);
         viewLocator.GameObject().transform.SetAsLastSibling();
         viewLocator.Show();
         return view;
+    }
+    
+    private void PushHideView(int index)
+    {
+        if (!indexUniqueIds.TryGetValue(index, out int uniqueId)) return;
+        if (!uniqueIdViews.Remove(uniqueId, out IView view)) return;
+        IViewLocator viewLocator = view.GetLocator();
+        viewLocator.Hide();
+        viewLoader.ReleaseView(view);
+    }
+
+    void ISubViewsLocator.HideViews()
+    {
+        foreach (var pair in indexUniqueIds)
+        {
+            int uniqueId = pair.Value;
+            if (!uniqueIdTypes.Remove(uniqueId))
+            {
+                LLogger.Error($"请求关闭界面的唯一id: {uniqueId} 不存在！！");
+                return;
+            }
+            ViewModelGenerator.Default.Delete(uniqueId);
+            UniqueIdGenerator.Default.Delete(uniqueId);
+
+            if (uniqueIdViews.Remove(uniqueId, out IView view))
+            {
+                IViewLocator viewLocator = view.GetLocator();
+                viewLocator.Hide();
+                viewLoader.ReleaseView(view);
+            }
+        }
     }
 }

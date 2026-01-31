@@ -57,8 +57,9 @@ public class UICanvasLocator : MonoBehaviour, IUICanvasLocator
             ILayerContainer layerContainer = layerConfigure.CreateLayerContainer();
             IViewLoader viewLoader = layerConfigure.CreateViewLoader();
             Type viewLocatorType = layerConfigure.GetViewLocatorType();
+            List<IViewConfigure> viewConfigures = viewService.GetViewConfigures(viewLayer);
             layerContainer.Bind(layerLocator);
-            layerLocator.Bind(this, viewLayer, layerContainer, viewLoader, viewLocatorType);
+            layerLocator.Bind(this, viewLayer, layerContainer, viewLoader, viewLocatorType, viewConfigures);
             layerLocators.Add(viewLayer, layerLocator);
         }
         viewService.SetLayerLocators(layerLocators);

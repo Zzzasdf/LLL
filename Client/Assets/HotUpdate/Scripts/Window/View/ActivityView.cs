@@ -5,7 +5,7 @@ public class ActivityView : ViewBase<ActivityViewModel>
 {
     [SerializeField] private Button btnClose;
     
-    public override void InitUI(object viewCheckValue)
+    public override void InitUI(IViewCheck viewCheck)
     {
     }
 

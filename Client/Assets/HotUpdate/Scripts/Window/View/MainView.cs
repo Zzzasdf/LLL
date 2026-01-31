@@ -5,7 +5,7 @@ public class MainView : ViewBase<MainViewModel>
 {
     [SerializeField] private PhotographyLoader photographyLoader;
 
-    public override void InitUI(object viewCheckValue)
+    public override void InitUI(IViewCheck viewCheck)
     {
         photographyLoader.Load(viewModel.ModelLocation, viewModel.CameraDistance);
         viewModel.PropertyChanged += PropertyChanged;

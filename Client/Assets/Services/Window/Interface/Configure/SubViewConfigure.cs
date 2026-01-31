@@ -57,4 +57,6 @@ public class SubViewConfigure : ISubViewConfigure
         viewCheck = this.viewCheck;
         return true;
     }
+
+    Type ISubViewConfigure.GetSubViewType() => type;
 }

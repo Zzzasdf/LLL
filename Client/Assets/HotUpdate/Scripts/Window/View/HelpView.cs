@@ -7,7 +7,7 @@ public class HelpView : ViewBase<HelpViewModel>
     [SerializeField] private TextMeshProUGUI lbContent;
     [SerializeField] private Button btnClose;
 
-    public override void InitUI(object viewCheckValue)
+    public override void InitUI(IViewCheck viewCheck)
     {
         lbContent.SetText(((IView)this).GetLocator().GetUniqueId().ToString());
     }

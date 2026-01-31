@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 
 public interface ILayerLocator
 {
-    void Bind(IUICanvasLocator uiCanvasLocator, ViewLayer viewLayer, ILayerContainer layerContainer, IViewLoader viewLoader, Type viewLocatorType);
+    void Bind(IUICanvasLocator uiCanvasLocator, ViewLayer viewLayer, ILayerContainer layerContainer, IViewLoader viewLoader, Type viewLocatorType, List<IViewConfigure> viewConfigures);
     ILayerContainer GetContainer();
     IUICanvasLocator GetCanvasLocator();
 
