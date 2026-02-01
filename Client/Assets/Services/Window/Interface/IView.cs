@@ -2,8 +2,8 @@ using UnityEngine;
 
 public interface IView
 {
-    void BindLocator(IViewLocator viewLocator);
-    IViewLocator GetLocator();
+    void BindLocator(IEntityLocator entityLocator);
+    IEntityLocator GetLocator();
     GameObject GameObject();
     
     void AddViewModel(int uniqueId);

@@ -1,0 +1,16 @@
+{
+    "name": "EntityPoolService",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2d459f7e8e8c84649931a0a465b1245b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

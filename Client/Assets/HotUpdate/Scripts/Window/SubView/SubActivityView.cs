@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class SubActivityView : ViewBase<SubActivityViewModel>
+public class SubActivityView : ViewEntityBase<SubActivityViewModel>
 {
     [SerializeField] private TextMeshProUGUI lbContent;
     

@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class ViewConfigure: IViewConfigure
 {
     private Type type;
     private IViewCheck viewCheck;
-    private SubViewCollect subViewCollect;
+    private Type subViewsLocatorType;
     private List<ISubViewConfigure> subViewConfigures;
 
     private ViewLayer viewLayer;
@@ -20,15 +21,16 @@ public class ViewConfigure: IViewConfigure
         this.viewCheck = viewCheck;
     }
 
-    public ViewConfigure SubViews(SubViewCollect subViewCollect, List<ISubViewConfigure> subViewConfigures)
+    public ViewConfigure SubLayer<TSubViewsLocator>(List<ISubViewConfigure> subViewConfigures)
+        where TSubViewsLocator: ISubViewLayerLocator
     {
-        this.subViewCollect = subViewCollect;
+        this.subViewsLocatorType = typeof(TSubViewsLocator);
         this.subViewConfigures = subViewConfigures;
         return this;
     }
     
-    void IViewConfigure.AddLayer(ViewLayer viewLayer) => this.viewLayer = viewLayer;
-    
+    void IViewConfigure.AddViewLayer(ViewLayer viewLayer) => this.viewLayer = viewLayer;
+
     bool IViewConfigure.TryGetSubViewConfigures(out List<ISubViewConfigure> subViewConfigures)
     {
         if (this.subViewConfigures == null)
@@ -70,9 +72,7 @@ public class ViewConfigure: IViewConfigure
     }
 
     ViewLayer IViewConfigure.GetViewLayer() => viewLayer;
-
-
     Type IViewConfigure.GetViewType() => type;
-
-    SubViewCollect IViewConfigure.GetSubViewDisplay() => subViewCollect;
+    
+    ISubViewLayerLocator IViewConfigure.AddSubViewsLocator(GameObject goMainView) => (ISubViewLayerLocator)goMainView.AddComponent(subViewsLocatorType);
 }

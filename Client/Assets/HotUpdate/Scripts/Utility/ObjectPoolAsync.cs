@@ -18,7 +18,7 @@ public class ObjectPoolAsync<TKey, TValue>
     private readonly Func<TKey, UniTask<TValue>> createFunc;
     private readonly Action<TValue> destroyFunc;
     
-    protected ObjectPoolAsync(int poolCapacity, int preDestroyCapacity, int preDestroyMillisecondsDelay, 
+    public ObjectPoolAsync(int poolCapacity, int preDestroyCapacity, int preDestroyMillisecondsDelay, 
         Func<TKey, UniTask<TValue>> createFunc,
         Action<TValue> destroyFunc)
     {

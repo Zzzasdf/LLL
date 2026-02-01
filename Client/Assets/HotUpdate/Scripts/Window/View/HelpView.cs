@@ -2,14 +2,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HelpView : ViewBase<HelpViewModel>
+public class HelpView : ViewEntityBase<HelpViewModel>
 {
     [SerializeField] private TextMeshProUGUI lbContent;
     [SerializeField] private Button btnClose;
 
     public override void InitUI(IViewCheck viewCheck)
     {
-        lbContent.SetText(((IView)this).GetLocator().GetUniqueId().ToString());
+        lbContent.SetText(UniqueId.ToString());
     }
     public override void DestroyUI()
     {

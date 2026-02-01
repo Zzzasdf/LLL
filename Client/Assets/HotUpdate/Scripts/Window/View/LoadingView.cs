@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoadingView : ViewBase<LoadingViewModel>
+public class LoadingView : ViewEntityBase<LoadingViewModel>
 {
     [SerializeField] private Slider sliderProgress;
 

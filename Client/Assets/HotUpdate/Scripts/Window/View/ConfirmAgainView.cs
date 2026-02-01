@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ConfirmAgainView : ViewBase<ConfirmAgainViewModel>
+public class ConfirmAgainView : ViewEntityBase<ConfirmAgainViewModel>
 {
     [SerializeField] private TextMeshProUGUI lbContent;
     [SerializeField] private Button btnCancel;

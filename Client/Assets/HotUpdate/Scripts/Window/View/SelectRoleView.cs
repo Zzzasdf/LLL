@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectRoleView : ViewBase<SelectRoleViewModel>
+public class SelectRoleView : ViewEntityBase<SelectRoleViewModel>
 {
     [SerializeField] private List<RoleArchiveItem> roleArchiveItems;
     [SerializeField] private Button btnReturn;

@@ -22,20 +22,32 @@ public partial class Launcher : MonoBehaviour
         services.AddDeviceService();
         services.AddHardwareService();
 
-        services.AddWindowService(new LayerConfigures(new Dictionary<ViewLayer, ILayerConfigure>
+        services.AddEntityPoolService();
+        services.AddSingleton<ViewPool>(sp => EntityPool<ViewPool>(sp, EntityPoolType.View, poolCapacity: 5, preDestroyCapacity: 10, preDestroyMillisecondsDelay: 10));
+        services.AddTransient<ViewUnitLoader>(sp => new ViewUnitLoader(sp.GetRequiredService<ViewPool>()));
+        services.AddTransient<ViewUniqueLoader>(sp => new ViewUniqueLoader(sp.GetRequiredService<ViewPool>()));
+        services.AddTransient<ViewMultipleLoader>(sp => new ViewMultipleLoader(sp.GetRequiredService<ViewPool>()));
+        services.AddSingleton<SubViewPool>(sp => EntityPool<SubViewPool>(sp, EntityPoolType.SubView, poolCapacity: 5, preDestroyCapacity: 10, preDestroyMillisecondsDelay: 10));
+        services.AddTransient<SubViewUnitLoader>(sp => new SubViewUnitLoader(sp.GetRequiredService<SubViewPool>()));
+        services.AddTransient<SubViewUniqueLoader>(sp => new SubViewUniqueLoader(sp.GetRequiredService<SubViewPool>()));
+        services.AddTransient<SubViewMultipleLoader>(sp => new SubViewMultipleLoader(sp.GetRequiredService<SubViewPool>()));
+        
+        services.AddTransient<ViewLayerUniqueContainer>();
+        services.AddTransient<ViewLayerMultipleContainer>();
+        services.AddTransient<SubViewLayerContainer>();
+        
+        services.AddWindowService(
+            new Dictionary<ViewLayer, Type>
             {
-                [ViewLayer.Bg] = new LayerConfigure<LayerRaycastBlockingLocator, LayerUniqueContainer, ViewUniqueLoader, ViewRaycastBlockingLocator>(poolCapacity: 1),
-                [ViewLayer.Permanent] = new LayerConfigure<LayerUnitLocator, LayerMultipleContainer, ViewUniqueLoader, ViewUnitLocator>(poolCapacity: 1),
-                [ViewLayer.FullScreen] = new LayerConfigure<LayerRaycastBlockingLocator, LayerUniqueContainer, ViewUniqueLoader, ViewRaycastBlockingLocator>(poolCapacity: 1),
-                [ViewLayer.Window] = new LayerConfigure<LayerMaskBlackLocator, LayerUniqueContainer, ViewUniqueLoader, ViewMaskTransparentClickLocator>(poolCapacity: 1),
-                [ViewLayer.Popup] = new LayerConfigure<LayerMaskBlackLocator, LayerUniqueContainer, ViewUnitLoader, ViewMaskBlackClickLocator>(poolCapacity: 1),
-                [ViewLayer.Tip] = new LayerConfigure<LayerUnitLocator, LayerMultipleContainer, ViewUniqueLoader, ViewUnitLocator>(poolCapacity: 1),
-                [ViewLayer.System] = new LayerConfigure<LayerRaycastBlockingLocator, LayerUniqueContainer, ViewUnitLoader, ViewRaycastBlockingLocator>(poolCapacity: 1),
-            }),new SubViewCollectConfigures(new Dictionary<SubViewCollect, ISubViewDisplayConfigure>
-            {
-                [SubViewCollect.Selector] = new SubViewCollectConfigure<SubViewCollectLocator, SubViewCollectContainer, SubViewsSelectorLocator, ViewUniqueLoader, SubViewUnitLocator>(poolCapacity: 1),
-                [SubViewCollect.MultiOpener] = new SubViewCollectConfigure<SubViewCollectLocator, SubViewCollectContainer, SubViewsMultiOpenerLocator, ViewUniqueLoader, SubViewUnitLocator>(poolCapacity: 1),
-            }), new ViewConfigures(new Dictionary<ViewLayer, List<IViewConfigure>>
+                [ViewLayer.Bg] = typeof(ViewLayerBgLocator),
+                [ViewLayer.Permanent] = typeof(ViewLayerPermanentLocator),
+                [ViewLayer.FullScreen] = typeof(ViewLayerFullScreenLocator),
+                [ViewLayer.Window] = typeof(ViewLayerWindowLocator),
+                [ViewLayer.Popup] = typeof(ViewLayerPopupLocator),
+                [ViewLayer.Tip] = typeof(ViewLayerTipLocator),
+                [ViewLayer.System] = typeof(ViewLayerSystemLocator),
+            },
+            new Dictionary<ViewLayer, List<IViewConfigure>>
             {
                 [ViewLayer.Bg] = new List<IViewConfigure>
                 {
@@ -43,7 +55,7 @@ public partial class Launcher : MonoBehaviour
                 [ViewLayer.Permanent] = new List<IViewConfigure>
                 {
                     View<MainView, MainViewModel>(services)
-                        .SubViews(SubViewCollect.MultiOpener, new List<ISubViewConfigure>
+                        .SubLayer<SubViewLayerMultiLocator>(new List<ISubViewConfigure>
                         {
                             SubView<MiniMapView, MiniMapViewModel>(services, SubViewShow.MiniMapView),
                             SubView<MiniChatView, MiniChatViewModel>(services, SubViewShow.MiniChatView),
@@ -56,7 +68,7 @@ public partial class Launcher : MonoBehaviour
                     View<SelectRoleView, SelectRoleViewModel>(services),
                     View<CreateRoleView, CreateRoleViewModel>(services),
                     View<ActivityView, ActivityViewModel>(services)
-                        .SubViews(SubViewCollect.Selector, new List<ISubViewConfigure>
+                        .SubLayer<SubViewLayerSelectLocator>(new List<ISubViewConfigure>
                         {
                             SubView<SubActivityView, SubActivityViewModel>(services, SubViewShow.SubActivity, new SubActivityCheck(1, "Activity 1")),
                             SubView<SubActivityView, SubActivityViewModel>(services, SubViewShow.SubActivity2, new EntryNameCheck("Activity 2")),
@@ -78,8 +90,8 @@ public partial class Launcher : MonoBehaviour
                 {
                     View<LoadingView, LoadingViewModel>(services),
                 },
-            }
-        ));
+            });
+        
         
         services
             .AddTransient<ProcedurePreload>()
@@ -89,7 +101,7 @@ public partial class Launcher : MonoBehaviour
             .AddTransient<ProcedureInit>()
             .AddTransient<ProcedureMain>()
             .AddTransient<ProcedureBattle>()
-            .AddSingleton<ProcedureService>(sp => new ProcedureService(
+            .AddSingleton(sp => new ProcedureService(
                 new Dictionary<ProcedureService.GameState, IProcedure>
                 {
                     [ProcedureService.GameState.Preload] = sp.GetRequiredService<ProcedurePreload>(),
@@ -106,7 +118,7 @@ public partial class Launcher : MonoBehaviour
         services.AddAccountLevelModel<GlobalSettingsModel>();
         
         // 角色级别数据
-        services.AddRoleLevelModel<RoleModel>(sp => sp.GetRequiredService<IDataService>().Get<RoleModel>()
+        services.AddRoleLevelModel(sp => sp.GetRequiredService<IDataService>().Get<RoleModel>()
             .Bind(sp.GetRequiredService<IDataService>().AccountLevelGet<AccountModel>().GetSelectedAccountRoleSimpleModel()));
 
         return services.BuildServiceProvider();
@@ -114,12 +126,12 @@ public partial class Launcher : MonoBehaviour
 
     private void Start()
     {
+        // 创建 UI 层级
+        serviceProvider.GetRequiredService<IViewService>();
+        
         // 初始化服务（事件订阅）
         serviceProvider.GetRequiredService<ProcedureService>();
-        
-        // 创建 UICanvas
-        new GameObject("UICanvas").AddComponent<UICanvasLocator>().Build(serviceProvider.GetRequiredService<IViewService>());
-        
+
         // 进入预载流程
         WeakReferenceMessenger.Default.SendProcedureSwap(ProcedureService.GameState.Preload);
     }

@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EntryButtonGroupView : ViewBase<EntryButtonGroupViewModel>
+public class EntryButtonGroupView : ViewEntityBase<EntryButtonGroupViewModel>
 {
     [SerializeField] private Button btnActivity;
     

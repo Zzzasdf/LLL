@@ -50,6 +50,7 @@
     <Compile Include="Assets\Services\Hardware\HardwareServiceExtensions.cs" />
     <Compile Include="Assets\Services\Data\DataServiceExtensions.cs" />
     <Compile Include="Assets\Services\Device\DeviceServiceExtensions.cs" />
+    <Compile Include="Assets\Services\EntityPool\EntityPoolServiceExtensions.cs" />
     <None Include="Assets\Services\Services.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>C:\UnityEditor\2022.3.15f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -768,6 +769,14 @@
       <Project>{6a40dfd5-fdb4-823c-4b08-7a1262355bbe}</Project>
       <Name>DeviceService</Name>
     </ProjectReference>
+    <ProjectReference Include="IEntityPoolService.csproj">
+      <Project>{9c68430f-ca6f-7f15-73bf-1d92a6ee0772}</Project>
+      <Name>IEntityPoolService</Name>
+    </ProjectReference>
+    <ProjectReference Include="EntityPoolService.csproj">
+      <Project>{c8e44644-d8b5-0b68-0192-472be279166d}</Project>
+      <Name>EntityPoolService</Name>
+    </ProjectReference>
     <ProjectReference Include="IHardwareService.csproj">
       <Project>{bcb0715c-3bb3-bc03-0a00-769d5e0b84fe}</Project>
       <Name>IHardwareService</Name>
@@ -783,6 +792,10 @@
     <ProjectReference Include="IWindowService.csproj">
       <Project>{92d35b8e-fc77-6bf8-5514-bae5b6582cf1}</Project>
       <Name>IWindowService</Name>
+    </ProjectReference>
+    <ProjectReference Include="WindowService.csproj">
+      <Project>{614c13d1-7deb-d6a8-75d0-0cba74a88caf}</Project>
+      <Name>WindowService</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{aa10a73a-0fb6-07c5-fcce-bc576a35745b}</Project>

@@ -1,4 +1,4 @@
-public class MiniMapView : ViewBase<MiniMapViewModel>
+public class MiniMapView : ViewEntityBase<MiniMapViewModel>
 {
     public override void InitUI(IViewCheck viewCheck)
     {

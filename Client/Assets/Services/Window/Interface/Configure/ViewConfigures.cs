@@ -3,21 +3,13 @@ using System.Collections.Generic;
 
 public class ViewConfigures : IViewConfigures
 {
-    private Dictionary<ViewLayer, List<IViewConfigure>> viewConfigures;
-    
-    public ViewConfigures(Dictionary<ViewLayer, List<IViewConfigure>> viewConfigures)
+    private Dictionary<ViewLayer, IViewConfigure> configures;
+
+    public ViewConfigures(Dictionary<ViewLayer, IViewConfigure> configures)
     {
-        this.viewConfigures = viewConfigures;
+        this.configures = configures;
     }
 
-    public List<IViewConfigure> this[ViewLayer viewLayer] => viewConfigures[viewLayer];
-
-    IEnumerator<KeyValuePair<ViewLayer, List<IViewConfigure>>> IEnumerable<KeyValuePair<ViewLayer, List<IViewConfigure>>>.GetEnumerator()
-    {
-        return viewConfigures.GetEnumerator();
-    }
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return viewConfigures.GetEnumerator();
-    }
+    IEnumerator<KeyValuePair<ViewLayer, IViewConfigure>> IEnumerable<KeyValuePair<ViewLayer, IViewConfigure>>.GetEnumerator() => configures.GetEnumerator();
+    IEnumerator IEnumerable.GetEnumerator() => configures.GetEnumerator();
 }

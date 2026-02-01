@@ -1,4 +1,4 @@
-public class MiniChatView : ViewBase<MiniChatViewModel>
+public class MiniChatView : ViewEntityBase<MiniChatViewModel>
 {
     public override void InitUI(IViewCheck viewCheck)
     {

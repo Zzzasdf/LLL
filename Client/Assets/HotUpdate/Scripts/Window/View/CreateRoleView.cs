@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CreateRoleView : ViewBase<CreateRoleViewModel>
+public class CreateRoleView : ViewEntityBase<CreateRoleViewModel>
 {
     [SerializeField] private TMP_InputField ifName;
     [SerializeField] private Button btnCancel;

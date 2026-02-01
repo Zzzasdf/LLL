@@ -2,10 +2,8 @@
     "name": "WindowService",
     "rootNamespace": "",
     "references": [
-        "GUID:5d371a31c06c93f45bde22c26ae42952",
-        "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:e34a5702dd353724aa315fb8011f08c3",
-        "GUID:f1d9f7f0d80a7df419511c90cc1c3ea6"
+        "GUID:025accaee5e801743a929febb2134df2",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

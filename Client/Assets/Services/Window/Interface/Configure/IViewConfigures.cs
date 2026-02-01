@@ -1,9 +1,6 @@
 using System.Collections.Generic;
 
-public interface IViewConfigures: IEnumerable<KeyValuePair<ViewLayer, List<IViewConfigure>>>
+public interface IViewConfigures: IEnumerable<KeyValuePair<ViewLayer, IViewConfigure>>
 {
-    List<IViewConfigure> this[ViewLayer viewLayer]
-    {
-        get;
-    }
+    
 }

@@ -1,11 +1,29 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
+using UnityEngine;
 
 public partial class Launcher
 {
+#region AddPool
+    private static TEntityPool EntityPool<TEntityPool>(IServiceProvider sp, EntityPoolType entityPoolType,
+        int poolCapacity, int preDestroyCapacity, int preDestroyMillisecondsDelay) 
+        where TEntityPool : MonoBehaviour, IEntityPool
+    {
+        IEntityPoolService entityPoolService = sp.GetRequiredService<IEntityPoolService>();
+        Transform parent = entityPoolService.Transform();
+        GameObject goPool = new GameObject(entityPoolType.ToString());
+        goPool.transform.SetParent(parent);
+        IEntityPool entityPool = goPool.AddComponent<TEntityPool>();
+        entityPool.Init(poolCapacity, preDestroyCapacity, preDestroyMillisecondsDelay);
+        entityPoolService.Add(entityPoolType, entityPool);
+        return (TEntityPool)entityPool;
+    }
+#endregion
+    
 #region AddView
     private static ViewConfigure View<TView, TViewModel>(IServiceCollection services) 
-        where TView : ViewBase<TViewModel>, IView 
+        where TView : ViewEntityBase<TViewModel>, IView 
         where TViewModel: class, IViewModel
     {
         Type type = typeof(TView);
@@ -13,7 +31,7 @@ public partial class Launcher
         return new ViewConfigure(type);
     }
     private static ViewConfigure View<TView, TViewModel>(IServiceCollection services, IViewCheck viewCheck) 
-        where TView : ViewBase<TViewModel>, IView 
+        where TView : ViewEntityBase<TViewModel>, IView 
         where TViewModel: class, IViewModel
     {
         Type type = typeof(TView);
@@ -24,7 +42,7 @@ public partial class Launcher
 
 #region AddSubView
     private static SubViewConfigure SubView<TView, TViewModel>(IServiceCollection services) 
-        where TView : ViewBase<TViewModel>, IView 
+        where TView : ViewEntityBase<TViewModel>, IView 
         where TViewModel: class, IViewModel
     {
         Type type = typeof(TView);

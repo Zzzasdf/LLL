@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 150}
   m_MaxSize: {x: 32384, y: 24288}
   vertical: 1
-  controlID: 24
+  controlID: 15
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 150}
   m_MaxSize: {x: 32384, y: 24288}
   vertical: 0
-  controlID: 25
+  controlID: 16
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,12 +166,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 720
+    width: 742
     height: 939
   m_MinSize: {x: 100, y: 150}
   m_MaxSize: {x: 8096, y: 24288}
   vertical: 1
-  controlID: 26
+  controlID: 17
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -189,10 +189,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 720
-    height: 144
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+    width: 742
+    height: 246
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -214,11 +214,11 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 144
-    width: 720
-    height: 388
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+    y: 246
+    width: 742
+    height: 488
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -240,9 +240,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 532
-    width: 720
-    height: 407
+    y: 734
+    width: 742
+    height: 205
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
@@ -266,12 +266,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 720
+    x: 742
     y: 0
-    width: 300
+    width: 242
     height: 939
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -292,9 +292,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1020
+    x: 984
     y: 0
-    width: 539
+    width: 486
     height: 939
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
@@ -318,12 +318,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1559
+    x: 1470
     y: 0
-    width: 361
+    width: 450
     height: 939
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -386,9 +386,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 605
-    width: 719
-    height: 386
+    y: 807
+    width: 741
+    height: 184
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -422,8 +422,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 719
-    height: 123
+    width: 741
+    height: 225
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -491,7 +491,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 1
       snapOffset: {x: 0, y: -175}
-      snapOffsetDelta: {x: 0, y: 52}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 2
       id: unity-transform-toolbar
       index: 0
@@ -756,9 +756,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 211.27246, y: 1019.8572, z: 0.36044657}
+    m_Target: {x: 517.60297, y: 530.88885, z: -5.4985476}
     speed: 2
-    m_Value: {x: 211.27246, y: 1019.8572, z: 0.36044657}
+    m_Value: {x: 517.60297, y: 530.88885, z: -5.4985476}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -808,9 +808,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 67.03152
+    m_Target: 652.93097
     speed: 2
-    m_Value: 67.03152
+    m_Value: 652.93097
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -857,9 +857,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 217
-    width: 719
-    height: 367
+    y: 319
+    width: 741
+    height: 467
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -912,23 +912,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 719
-      height: 346
-    m_Scale: {x: 0.32037038, y: 0.32037038}
-    m_Translation: {x: 359.5, y: 173}
+      width: 741
+      height: 446
+    m_Scale: {x: 0.3859375, y: 0.38593754}
+    m_Translation: {x: 370.5, y: 223}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -1122.1387
-      y: -540
-      width: 2244.2773
-      height: 1080
+      x: -960
+      y: -577.8137
+      width: 1920
+      height: 1155.6274
     m_MinimalGUI: 1
-  m_defaultScale: 0.32037038
-  m_LastWindowPixelSize: {x: 719, y: 367}
+  m_defaultScale: 0.3859375
+  m_LastWindowPixelSize: {x: 741, y: 467}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -1366,11 +1366,151 @@ MonoBehaviour:
         \u5B57\u8282UnityEngine.Debug:Log (object)\nBoot/<LoadDlls>d__9:MoveNext
         () (at Assets/AOT/Scripts/Boot.cs:83)\nUnityEngine.SetupCoroutine:InvokeMoveNext
         (System.Collections.IEnumerator,intptr)\nLog"
+      - 'You are trying to create a MonoBehaviour using the ''new'' keyword.  This
+        is not allowed.  MonoBehaviours can only be added using AddComponent(). Alternatively,
+        your script can inherit from ScriptableObject or no base class at allUnityEngine.MonoBehaviour:.ctor
+        ()
+
+        EntityPoolAsync`2<System.Type, IView>:.ctor (int,int,int,System.Func`2<System.Type,
+        Cysharp.Threading.Tasks.UniTask`1<IView>>,System.Action`1<IView>) (at Assets/HotUpdate/Scripts/EntityPool/Pool/EntityPoolAsync.cs:27)
+
+        ViewUniqueLoader:.ctor
+        (int,int,int) (at Assets/HotUpdate/Scripts/Window/Frame/Loader/ViewUniqueLoader.cs:13)
+
+        System.Activator:CreateInstance
+        (System.Type,object[])
+
+        LayerConfigure`4<LayerRaycastBlockingLocator,
+        LayerUniqueContainer, ViewUniqueLoader, ViewRaycastBlockingLocator>:ILayerConfigure.CreateViewLoader
+        () (at Assets/Services/Window/Interface/Configure/LayerConfigure.cs:31)
+
+        UICanvasLocator:CreateLayerLocators
+        () (at Assets/HotUpdate/Scripts/Window/Frame/Locator/UICanvasLocator.cs:58)
+
+        UICanvasLocator:Build
+        (IViewService) (at Assets/HotUpdate/Scripts/Window/Frame/Locator/UICanvasLocator.cs:42)
+
+        Launcher:Start
+        () (at Assets/HotUpdate/Scripts/Launcher.cs:130)
+
+        Warning'
+      - 'You are trying to create a MonoBehaviour using the ''new'' keyword.  This
+        is not allowed.  MonoBehaviours can only be added using AddComponent(). Alternatively,
+        your script can inherit from ScriptableObject or no base class at allUnityEngine.MonoBehaviour:.ctor
+        ()
+
+        EntityPoolAsync`2<System.Type, IView>:.ctor (int,int,int,System.Func`2<System.Type,
+        Cysharp.Threading.Tasks.UniTask`1<IView>>,System.Action`1<IView>) (at Assets/HotUpdate/Scripts/EntityPool/Pool/EntityPoolAsync.cs:27)
+
+        ViewUniqueLoader:.ctor
+        (int,int,int) (at Assets/HotUpdate/Scripts/Window/Frame/Loader/ViewUniqueLoader.cs:13)
+
+        System.Activator:CreateInstance
+        (System.Type,object[])
+
+        LayerConfigure`4<LayerUnitLocator, LayerMultipleContainer,
+        ViewUniqueLoader, ViewUnitLocator>:ILayerConfigure.CreateViewLoader () (at
+        Assets/Services/Window/Interface/Configure/LayerConfigure.cs:31)
+
+        UICanvasLocator:CreateLayerLocators
+        () (at Assets/HotUpdate/Scripts/Window/Frame/Locator/UICanvasLocator.cs:58)
+
+        UICanvasLocator:Build
+        (IViewService) (at Assets/HotUpdate/Scripts/Window/Frame/Locator/UICanvasLocator.cs:42)
+
+        Launcher:Start
+        () (at Assets/HotUpdate/Scripts/Launcher.cs:130)
+
+        Warning'
+      - 'You are trying to create a MonoBehaviour using the ''new'' keyword.  This
+        is not allowed.  MonoBehaviours can only be added using AddComponent(). Alternatively,
+        your script can inherit from ScriptableObject or no base class at allUnityEngine.MonoBehaviour:.ctor
+        ()
+
+        EntityPoolAsync`2<System.Type, IView>:.ctor (int,int,int,System.Func`2<System.Type,
+        Cysharp.Threading.Tasks.UniTask`1<IView>>,System.Action`1<IView>) (at Assets/HotUpdate/Scripts/EntityPool/Pool/EntityPoolAsync.cs:27)
+
+        ViewUniqueLoader:.ctor
+        (int,int,int) (at Assets/HotUpdate/Scripts/Window/Frame/Loader/ViewUniqueLoader.cs:13)
+
+        System.Activator:CreateInstance
+        (System.Type,object[])
+
+        LayerConfigure`4<LayerMaskBlackLocator, LayerUniqueContainer,
+        ViewUniqueLoader, ViewMaskTransparentClickLocator>:ILayerConfigure.CreateViewLoader
+        () (at Assets/Services/Window/Interface/Configure/LayerConfigure.cs:31)
+
+        UICanvasLocator:CreateLayerLocators
+        () (at Assets/HotUpdate/Scripts/Window/Frame/Locator/UICanvasLocator.cs:58)
+
+        UICanvasLocator:Build
+        (IViewService) (at Assets/HotUpdate/Scripts/Window/Frame/Locator/UICanvasLocator.cs:42)
+
+        Launcher:Start
+        () (at Assets/HotUpdate/Scripts/Launcher.cs:130)
+
+        Warning'
+      - 'You are trying to create a MonoBehaviour using the ''new'' keyword.  This
+        is not allowed.  MonoBehaviours can only be added using AddComponent(). Alternatively,
+        your script can inherit from ScriptableObject or no base class at allUnityEngine.MonoBehaviour:.ctor
+        ()
+
+        EntityPoolAsync`2<System.Type, IView>:.ctor (int,int,int,System.Func`2<System.Type,
+        Cysharp.Threading.Tasks.UniTask`1<IView>>,System.Action`1<IView>) (at Assets/HotUpdate/Scripts/EntityPool/Pool/EntityPoolAsync.cs:27)
+
+        ViewUniqueLoader:.ctor
+        (int,int,int) (at Assets/HotUpdate/Scripts/Window/Frame/Loader/ViewUniqueLoader.cs:13)
+
+        System.Activator:CreateInstance
+        (System.Type,object[])
+
+        SubViewCollectConfigure`5<SubViewCollectLocator,
+        SubViewCollectContainer, SubViewsSelectorLocator, ViewUniqueLoader, SubViewUnitLocator>:ISubViewDisplayConfigure.CreateViewLoader
+        () (at Assets/Services/Window/Interface/Configure/SubViewCollectConfigure.cs:32)
+
+        UICanvasLocator:CreateSubViewCollectLocators
+        () (at Assets/HotUpdate/Scripts/Window/Frame/Locator/UICanvasLocator.cs:79)
+
+        UICanvasLocator:Build
+        (IViewService) (at Assets/HotUpdate/Scripts/Window/Frame/Locator/UICanvasLocator.cs:43)
+
+        Launcher:Start
+        () (at Assets/HotUpdate/Scripts/Launcher.cs:130)
+
+        Warning'
+      - 'You are trying to create a MonoBehaviour using the ''new'' keyword.  This
+        is not allowed.  MonoBehaviours can only be added using AddComponent(). Alternatively,
+        your script can inherit from ScriptableObject or no base class at allUnityEngine.MonoBehaviour:.ctor
+        ()
+
+        EntityPoolAsync`2<System.Type, IView>:.ctor (int,int,int,System.Func`2<System.Type,
+        Cysharp.Threading.Tasks.UniTask`1<IView>>,System.Action`1<IView>) (at Assets/HotUpdate/Scripts/EntityPool/Pool/EntityPoolAsync.cs:27)
+
+        ViewUniqueLoader:.ctor
+        (int,int,int) (at Assets/HotUpdate/Scripts/Window/Frame/Loader/ViewUniqueLoader.cs:13)
+
+        System.Activator:CreateInstance
+        (System.Type,object[])
+
+        SubViewCollectConfigure`5<SubViewCollectLocator,
+        SubViewCollectContainer, SubViewsMultiOpenerLocator, ViewUniqueLoader, SubViewUnitLocator>:ISubViewDisplayConfigure.CreateViewLoader
+        () (at Assets/Services/Window/Interface/Configure/SubViewCollectConfigure.cs:32)
+
+        UICanvasLocator:CreateSubViewCollectLocators
+        () (at Assets/HotUpdate/Scripts/Window/Frame/Locator/UICanvasLocator.cs:79)
+
+        UICanvasLocator:Build
+        (IViewService) (at Assets/HotUpdate/Scripts/Window/Frame/Locator/UICanvasLocator.cs:43)
+
+        Launcher:Start
+        () (at Assets/HotUpdate/Scripts/Launcher.cs:130)
+
+        Warning'
       - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nSendProcedure PreloadUnityEngine.Debug:LogWarningFormat
         (string,object[])\nLLogger:FrameWarning (object) (at Assets/Services/Logger/LLogger.cs:26)\nMessengerExtensions:SendProcedureSwap
         (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
         Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:10)\nLauncher:Start
-        () (at Assets/HotUpdate/Scripts/Launcher.cs:147)\nWarning"
+        () (at Assets/HotUpdate/Scripts/Launcher.cs:133)\nWarning"
       - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nProcedureService run => PreloadUnityEngine.Debug:LogFormat
         (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
         (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:29)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
@@ -1379,7 +1519,7 @@ MonoBehaviour:
         (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
         (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
         Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:11)\nLauncher:Start
-        () (at Assets/HotUpdate/Scripts/Launcher.cs:147)\nLog"
+        () (at Assets/HotUpdate/Scripts/Launcher.cs:133)\nLog"
       - "ThreadId: 1 \n\u9884\u7F16\u8BD1 Shader..UnityEngine.Debug:LogWarningFormat
         (string,object[])\nLLogger:Warning (object) (at Assets/Services/Logger/LLogger.cs:35)\nProcedurePreload:IProcedure.Run
         () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedurePreload.cs:9)\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
@@ -1389,7 +1529,7 @@ MonoBehaviour:
         (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
         (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
         Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:11)\nLauncher:Start
-        () (at Assets/HotUpdate/Scripts/Launcher.cs:147)\nWarning"
+        () (at Assets/HotUpdate/Scripts/Launcher.cs:133)\nWarning"
       - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nSendProcedure StartUnityEngine.Debug:LogWarningFormat
         (string,object[])\nLLogger:FrameWarning (object) (at Assets/Services/Logger/LLogger.cs:26)\nMessengerExtensions:SendProcedureSwap
         (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
@@ -1401,7 +1541,7 @@ MonoBehaviour:
         (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
         (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
         Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:11)\nLauncher:Start
-        () (at Assets/HotUpdate/Scripts/Launcher.cs:147)\nWarning"
+        () (at Assets/HotUpdate/Scripts/Launcher.cs:133)\nWarning"
       - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nProcedureService run => StartUnityEngine.Debug:LogFormat
         (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
         (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:29)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
@@ -1417,716 +1557,516 @@ MonoBehaviour:
         (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
         (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
         Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:11)\nLauncher:Start
-        () (at Assets/HotUpdate/Scripts/Launcher.cs:147)\nLog"
-      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nSendProcedure SelectRoleUnityEngine.Debug:LogWarningFormat
-        (string,object[])\nLLogger:FrameWarning (object) (at Assets/Services/Logger/LLogger.cs:26)\nMessengerExtensions:SendProcedureSwap
-        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
-        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:10)\nStartViewModel:Start
-        () (at Assets/HotUpdate/Scripts/Window/ViewModel/StartViewModel.cs:19)\nCommunityToolkit.Mvvm.Input.RelayCommand:Execute
-        (object)\nStartView:<BindUI>b__8_0 () (at Assets/HotUpdate/Scripts/Window/View/StartView.cs:23)\nUnityEngine.EventSystems.EventSystem:Update
-        () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)\nWarning"
-      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nProcedureService run => SelectRoleUnityEngine.Debug:LogFormat
-        (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
-        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:29)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
-        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
-        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
-        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
-        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
-        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:11)\nStartViewModel:Start
-        () (at Assets/HotUpdate/Scripts/Window/ViewModel/StartViewModel.cs:19)\nCommunityToolkit.Mvvm.Input.RelayCommand:Execute
-        (object)\nStartView:<BindUI>b__8_0 () (at Assets/HotUpdate/Scripts/Window/View/StartView.cs:23)\nUnityEngine.EventSystems.EventSystem:Update
-        () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)\nLog"
-      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nSelectRoleViewModel IsActive:
-        TrueUnityEngine.Debug:LogFormat (string,object[])\nLLogger:FrameLog (object)
-        (at Assets/Services/Logger/LLogger.cs:24)\nViewBase`1<SelectRoleViewModel>:IView.AddViewModel
-        (int) (at Assets/HotUpdate/Scripts/Window/Frame/ViewBase.cs:20)\nViewUnitLocator/<Show_Internal>d__18:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/Frame/Locator/ViewUnitLocator.cs:52)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder:Start<ViewUnitLocator/<Show_Internal>d__18>
-        (ViewUnitLocator/<Show_Internal>d__18&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:111)\nViewUnitLocator:Show_Internal
-        ()\nViewUnitLocator:IViewLocator.Show () (at Assets/HotUpdate/Scripts/Window/Frame/Locator/ViewUnitLocator.cs:46)\nLayerUnitLocator/<ILayerLocator-ShowViewAsync>d__10:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/Frame/Locator/LayerUnitLocator.cs:92)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LayerUnitLocator/<ILayerLocator-ShowViewAsync>d__10,
-        IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<IView>:TrySetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewUniqueLoader/<IViewLoader-CreateView>d__6,
-        IView>:SetResult (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<IView>:SetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nViewUniqueLoader/<IViewLoader-CreateView>d__6:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/Frame/Loader/ViewUniqueLoader.cs:65)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewUniqueLoader/<IViewLoader-CreateView>d__6,
-        IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<IView>:TrySetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ObjectPoolAsync`2/<Create>d__12<System.Type,
-        IView>, IView>:SetResult (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<IView>:SetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nObjectPoolAsync`2/<Create>d__12<System.Type,
-        IView>:MoveNext () (at Assets/HotUpdate/Scripts/Utility/ObjectPoolAsync.cs:72)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ObjectPoolAsync`2/<Create>d__12<System.Type,
-        IView>, IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<IView>:TrySetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewUniqueLoader/<OnCreate>d__2,
-        IView>:SetResult (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<IView>:SetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nViewUniqueLoader/<OnCreate>d__2:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/Frame/Loader/ViewUniqueLoader.cs:41)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewUniqueLoader/<OnCreate>d__2,
-        IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<object>:TrySetResult
-        (object)\nYooAsset.AsyncOperationBase:UpdateOperation () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/AsyncOperationBase.cs:195)\nYooAsset.OperationSystem:Update
-        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/OperationSystem.cs:108)\nYooAsset.YooAssets:Update
-        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:96)\nYooAsset.YooAssetsDriver:Update
-        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssetsDriver.cs:21)\nLog"
-      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nSendProcedure InitUnityEngine.Debug:LogWarningFormat
-        (string,object[])\nLLogger:FrameWarning (object) (at Assets/Services/Logger/LLogger.cs:26)\nMessengerExtensions:SendProcedureSwap
-        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
-        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:10)\nSelectRoleViewModel/<CommunityToolkit-Mvvm-Messaging-IRecipient<EventDefine-SelectedRoleArchiveEvent>-Receive>d__6:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/ViewModel/SelectRoleViewModel.cs:45)\nSystem.Runtime.CompilerServices.AsyncMethodBuilderCore/MoveNextRunner:Run
-        ()\nCysharp.Threading.Tasks.AwaiterActions:Continuation (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveAccountLevelAsync>d__6`1<AccountModel>,
-        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nMessengerExtensions/<SendDataSaveAccountLevelAsync>d__6`1<AccountModel>:MoveNext
-        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:47)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveAccountLevelAsync>d__6`1<AccountModel>,
-        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<bool>:SetResult
-        (bool)\nCysharp.Threading.Tasks.UniTaskExtensions/<>c__2`1<bool>:<AsTask>b__2_0
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskExtensions.cs:111)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
-        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nLevelDataService/<SaveAsync>d__5:MoveNext
-        () (at Assets/Services/Data/Implement/LevelDataService.cs:74)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
-        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nUnityEngine.UnitySynchronizationContext:ExecuteTasks
-        ()\nWarning"
-      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nProcedureService run => InitUnityEngine.Debug:LogFormat
-        (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
-        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:29)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
-        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
-        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
-        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
-        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
-        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:11)\nSelectRoleViewModel/<CommunityToolkit-Mvvm-Messaging-IRecipient<EventDefine-SelectedRoleArchiveEvent>-Receive>d__6:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/ViewModel/SelectRoleViewModel.cs:45)\nSystem.Runtime.CompilerServices.AsyncMethodBuilderCore/MoveNextRunner:Run
-        ()\nCysharp.Threading.Tasks.AwaiterActions:Continuation (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveAccountLevelAsync>d__6`1<AccountModel>,
-        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nMessengerExtensions/<SendDataSaveAccountLevelAsync>d__6`1<AccountModel>:MoveNext
-        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:47)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveAccountLevelAsync>d__6`1<AccountModel>,
-        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<bool>:SetResult
-        (bool)\nCysharp.Threading.Tasks.UniTaskExtensions/<>c__2`1<bool>:<AsTask>b__2_0
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskExtensions.cs:111)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
-        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nLevelDataService/<SaveAsync>d__5:MoveNext
-        () (at Assets/Services/Data/Implement/LevelDataService.cs:74)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
-        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nUnityEngine.UnitySynchronizationContext:ExecuteTasks
-        ()\nLog"
-      - "ThreadId: 1 \n\u521D\u59CB\u5316\u7EC4\u4EF6 Test Start.. UnityEngine.Debug:LogFormat
-        (string,object[])\nLLogger:Log (object) (at Assets/Services/Logger/LLogger.cs:33)\nProcedureInit/<IProcedure-Run>d__2:MoveNext
-        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedureInit.cs:17)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder:Start<ProcedureInit/<IProcedure-Run>d__2>
-        (ProcedureInit/<IProcedure-Run>d__2&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:111)\nProcedureInit:IProcedure.Run
-        ()\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
-        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:30)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
-        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
-        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
-        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
-        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
-        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:11)\nSelectRoleViewModel/<CommunityToolkit-Mvvm-Messaging-IRecipient<EventDefine-SelectedRoleArchiveEvent>-Receive>d__6:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/ViewModel/SelectRoleViewModel.cs:45)\nSystem.Runtime.CompilerServices.AsyncMethodBuilderCore/MoveNextRunner:Run
-        ()\nCysharp.Threading.Tasks.AwaiterActions:Continuation (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveAccountLevelAsync>d__6`1<AccountModel>,
-        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nMessengerExtensions/<SendDataSaveAccountLevelAsync>d__6`1<AccountModel>:MoveNext
-        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:47)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveAccountLevelAsync>d__6`1<AccountModel>,
-        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<bool>:SetResult
-        (bool)\nCysharp.Threading.Tasks.UniTaskExtensions/<>c__2`1<bool>:<AsTask>b__2_0
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskExtensions.cs:111)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
-        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nLevelDataService/<SaveAsync>d__5:MoveNext
-        () (at Assets/Services/Data/Implement/LevelDataService.cs:74)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
-        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nUnityEngine.UnitySynchronizationContext:ExecuteTasks
-        ()\nLog"
-      - "ThreadId: 1 \n\u521D\u59CB\u5316\u7EC4\u4EF6 Test End.. UnityEngine.Debug:LogFormat
-        (string,object[])\nLLogger:Log (object) (at Assets/Services/Logger/LLogger.cs:33)\nProcedureInit/<IProcedure-Run>d__2:MoveNext
-        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedureInit.cs:22)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`1<ProcedureInit/<IProcedure-Run>d__2>:Run
-        () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:189)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveRoleLevelAsync>d__7`1<RoleModel>,
-        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nMessengerExtensions/<SendDataSaveRoleLevelAsync>d__7`1<RoleModel>:MoveNext
-        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:51)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveRoleLevelAsync>d__7`1<RoleModel>,
-        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<bool>:SetResult
-        (bool)\nCysharp.Threading.Tasks.UniTaskExtensions/<>c__2`1<bool>:<AsTask>b__2_0
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskExtensions.cs:111)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
-        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nLevelDataService/<SaveAsync>d__5:MoveNext
-        () (at Assets/Services/Data/Implement/LevelDataService.cs:74)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
-        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nUnityEngine.UnitySynchronizationContext:ExecuteTasks
-        ()\nLog"
-      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nSendProcedure MainUnityEngine.Debug:LogWarningFormat
-        (string,object[])\nLLogger:FrameWarning (object) (at Assets/Services/Logger/LLogger.cs:26)\nMessengerExtensions:SendProcedureSwap
-        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
-        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:10)\nProcedureInit/<IProcedure-Run>d__2:MoveNext
-        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedureInit.cs:24)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`1<ProcedureInit/<IProcedure-Run>d__2>:Run
-        () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:189)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveRoleLevelAsync>d__7`1<RoleModel>,
-        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nMessengerExtensions/<SendDataSaveRoleLevelAsync>d__7`1<RoleModel>:MoveNext
-        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:51)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveRoleLevelAsync>d__7`1<RoleModel>,
-        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<bool>:SetResult
-        (bool)\nCysharp.Threading.Tasks.UniTaskExtensions/<>c__2`1<bool>:<AsTask>b__2_0
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskExtensions.cs:111)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
-        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nLevelDataService/<SaveAsync>d__5:MoveNext
-        () (at Assets/Services/Data/Implement/LevelDataService.cs:74)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
-        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nUnityEngine.UnitySynchronizationContext:ExecuteTasks
-        ()\nWarning"
-      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nProcedureService run => MainUnityEngine.Debug:LogFormat
-        (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
-        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:29)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
-        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
-        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
-        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
-        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
-        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:11)\nProcedureInit/<IProcedure-Run>d__2:MoveNext
-        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedureInit.cs:24)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`1<ProcedureInit/<IProcedure-Run>d__2>:Run
-        () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:189)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveRoleLevelAsync>d__7`1<RoleModel>,
-        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nMessengerExtensions/<SendDataSaveRoleLevelAsync>d__7`1<RoleModel>:MoveNext
-        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:51)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveRoleLevelAsync>d__7`1<RoleModel>,
-        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<bool>:SetResult
-        (bool)\nCysharp.Threading.Tasks.UniTaskExtensions/<>c__2`1<bool>:<AsTask>b__2_0
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskExtensions.cs:111)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
-        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nLevelDataService/<SaveAsync>d__5:MoveNext
-        () (at Assets/Services/Data/Implement/LevelDataService.cs:74)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
-        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nUnityEngine.UnitySynchronizationContext:ExecuteTasks
-        ()\nLog"
-      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \n\u8FDB\u5165 Main \u573A\u666FUnityEngine.Debug:LogWarningFormat
-        (string,object[])\nLLogger:FrameWarning (object) (at Assets/Services/Logger/LLogger.cs:26)\nProcedureMain/<IProcedure-Run>d__0:MoveNext
-        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedureMain.cs:9)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder:Start<ProcedureMain/<IProcedure-Run>d__0>
-        (ProcedureMain/<IProcedure-Run>d__0&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:111)\nProcedureMain:IProcedure.Run
-        ()\nProcedureService:CommunityToolkit.Mvvm.Messaging.IRecipient<GameStateMessage>.Receive
-        (GameStateMessage) (at Assets/HotUpdate/Scripts/Procedure/ProcedureService.cs:30)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:SendAll<GameStateMessage>
-        (System.ReadOnlySpan`1<object>,int,GameStateMessage)\nCommunityToolkit.Mvvm.Messaging.WeakReferenceMessenger:Send<GameStateMessage,
-        CommunityToolkit.Mvvm.Messaging.Internals.Unit> (GameStateMessage,CommunityToolkit.Mvvm.Messaging.Internals.Unit)\nCommunityToolkit.Mvvm.Messaging.IMessengerExtensions:Send<GameStateMessage>
-        (CommunityToolkit.Mvvm.Messaging.IMessenger,GameStateMessage)\nMessengerExtensions:SendProcedureSwap
-        (CommunityToolkit.Mvvm.Messaging.IMessenger,ProcedureService/GameState) (at
-        Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:11)\nProcedureInit/<IProcedure-Run>d__2:MoveNext
-        () (at Assets/HotUpdate/Scripts/Procedure/Node/ProcedureInit.cs:24)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`1<ProcedureInit/<IProcedure-Run>d__2>:Run
-        () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:189)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveRoleLevelAsync>d__7`1<RoleModel>,
-        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nMessengerExtensions/<SendDataSaveRoleLevelAsync>d__7`1<RoleModel>:MoveNext
-        () (at Assets/HotUpdate/Scripts/Event/MessengerExtensions.cs:51)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<MessengerExtensions/<SendDataSaveRoleLevelAsync>d__7`1<RoleModel>,
-        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<bool>:SetResult
-        (bool)\nCysharp.Threading.Tasks.UniTaskExtensions/<>c__2`1<bool>:<AsTask>b__2_0
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskExtensions.cs:111)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<bool>:TrySetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
-        bool>:SetResult (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<bool>:SetResult
-        (bool) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nLevelDataService/<SaveAsync>d__5:MoveNext
-        () (at Assets/Services/Data/Implement/LevelDataService.cs:74)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LevelDataService/<SaveAsync>d__5,
-        bool>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nUnityEngine.UnitySynchronizationContext:ExecuteTasks
-        ()\nWarning"
-      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nMainViewModel IsActive: TrueUnityEngine.Debug:LogFormat
-        (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nViewBase`1<MainViewModel>:IView.AddViewModel
-        (int) (at Assets/HotUpdate/Scripts/Window/Frame/ViewBase.cs:20)\nViewUnitLocator/<Show_Internal>d__18:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/Frame/Locator/ViewUnitLocator.cs:52)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder:Start<ViewUnitLocator/<Show_Internal>d__18>
-        (ViewUnitLocator/<Show_Internal>d__18&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:111)\nViewUnitLocator:Show_Internal
-        ()\nViewUnitLocator:IViewLocator.Show () (at Assets/HotUpdate/Scripts/Window/Frame/Locator/ViewUnitLocator.cs:46)\nLayerUnitLocator/<ILayerLocator-ShowViewAsync>d__10:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/Frame/Locator/LayerUnitLocator.cs:92)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LayerUnitLocator/<ILayerLocator-ShowViewAsync>d__10,
-        IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<IView>:TrySetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewUniqueLoader/<IViewLoader-CreateView>d__6,
-        IView>:SetResult (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<IView>:SetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nViewUniqueLoader/<IViewLoader-CreateView>d__6:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/Frame/Loader/ViewUniqueLoader.cs:65)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewUniqueLoader/<IViewLoader-CreateView>d__6,
-        IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<IView>:TrySetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ObjectPoolAsync`2/<Create>d__12<System.Type,
-        IView>, IView>:SetResult (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<IView>:SetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nObjectPoolAsync`2/<Create>d__12<System.Type,
-        IView>:MoveNext () (at Assets/HotUpdate/Scripts/Utility/ObjectPoolAsync.cs:72)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ObjectPoolAsync`2/<Create>d__12<System.Type,
-        IView>, IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<IView>:TrySetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewUniqueLoader/<OnCreate>d__2,
-        IView>:SetResult (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<IView>:SetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nViewUniqueLoader/<OnCreate>d__2:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/Frame/Loader/ViewUniqueLoader.cs:41)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewUniqueLoader/<OnCreate>d__2,
-        IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<object>:TrySetResult
-        (object)\nYooAsset.AsyncOperationBase:UpdateOperation () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/AsyncOperationBase.cs:195)\nYooAsset.OperationSystem:Update
-        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/OperationSystem.cs:108)\nYooAsset.YooAssets:Update
-        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:96)\nYooAsset.YooAssetsDriver:Update
-        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssetsDriver.cs:21)\nLog"
-      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nSelectRoleViewModel IsActive:
-        FalseUnityEngine.Debug:LogFormat (string,object[])\nLLogger:FrameLog (object)
-        (at Assets/Services/Logger/LLogger.cs:24)\nViewBase`1<SelectRoleViewModel>:IView.RemoveViewModel
-        () (at Assets/HotUpdate/Scripts/Window/Frame/ViewBase.cs:29)\nViewUnitLocator/<Hide_Internal>d__21:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/Frame/Locator/ViewUnitLocator.cs:90)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder:Start<ViewUnitLocator/<Hide_Internal>d__21>
-        (ViewUnitLocator/<Hide_Internal>d__21&) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:111)\nViewUnitLocator:Hide_Internal
-        ()\nViewUnitLocator:IViewLocator.Hide () (at Assets/HotUpdate/Scripts/Window/Frame/Locator/ViewUnitLocator.cs:83)\nLayerUnitLocator:ILayerLocator.PushHideView
-        (int) (at Assets/HotUpdate/Scripts/Window/Frame/Locator/LayerUnitLocator.cs:192)\nLayerUniqueContainer`3<LayerRaycastBlockingLocator,
-        ViewRaycastBlockingLocator, ViewUniqueLoader>:ILayerContainer.Stash (int)
-        (at Assets/HotUpdate/Scripts/Window/Frame/Container/LayerUniqueContainer.cs:128)\nViewService/<ShowMainAsync_Internal>d__8:MoveNext
-        () (at Assets/Services/Window/Implement/ViewService.MainView.cs:101)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewService/<ShowMainAsync_Internal>d__8,
-        IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<System.ValueTuple`2<IView,
-        System.Nullable`1<int>>>:TrySetResult (System.ValueTuple`2<IView, System.Nullable`1<int>>)
-        (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LayerMultipleContainer`3/<ILayerContainer-ShowViewAndTryRemoveAsync>d__8<LayerUnitLocator,
-        ViewUnitLocator, ViewUniqueLoader>, System.ValueTuple`2<IView, System.Nullable`1<int>>>:SetResult
-        (System.ValueTuple`2<IView, System.Nullable`1<int>>) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<System.ValueTuple`2<IView,
-        System.Nullable`1<int>>>:SetResult (System.ValueTuple`2<IView, System.Nullable`1<int>>)
-        (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nLayerMultipleContainer`3/<ILayerContainer-ShowViewAndTryRemoveAsync>d__8<LayerUnitLocator,
-        ViewUnitLocator, ViewUniqueLoader>:MoveNext () (at Assets/HotUpdate/Scripts/Window/Frame/Container/LayerMultipleContainer.cs:45)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LayerMultipleContainer`3/<ILayerContainer-ShowViewAndTryRemoveAsync>d__8<LayerUnitLocator,
-        ViewUnitLocator, ViewUniqueLoader>, System.ValueTuple`2<IView, System.Nullable`1<int>>>:Run
-        () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<IView>:TrySetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LayerUnitLocator/<ILayerLocator-ShowViewAsync>d__10,
-        IView>:SetResult (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<IView>:SetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nLayerUnitLocator/<ILayerLocator-ShowViewAsync>d__10:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/Frame/Locator/LayerUnitLocator.cs:94)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<LayerUnitLocator/<ILayerLocator-ShowViewAsync>d__10,
-        IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<IView>:TrySetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewUniqueLoader/<IViewLoader-CreateView>d__6,
-        IView>:SetResult (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<IView>:SetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nViewUniqueLoader/<IViewLoader-CreateView>d__6:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/Frame/Loader/ViewUniqueLoader.cs:65)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewUniqueLoader/<IViewLoader-CreateView>d__6,
-        IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<IView>:TrySetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ObjectPoolAsync`2/<Create>d__12<System.Type,
-        IView>, IView>:SetResult (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<IView>:SetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nObjectPoolAsync`2/<Create>d__12<System.Type,
-        IView>:MoveNext () (at Assets/HotUpdate/Scripts/Utility/ObjectPoolAsync.cs:72)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ObjectPoolAsync`2/<Create>d__12<System.Type,
-        IView>, IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<IView>:TrySetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewUniqueLoader/<OnCreate>d__2,
-        IView>:SetResult (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:328)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1<IView>:SetResult
-        (IView) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs:201)\nViewUniqueLoader/<OnCreate>d__2:MoveNext
-        () (at Assets/HotUpdate/Scripts/Window/Frame/Loader/ViewUniqueLoader.cs:41)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`2<ViewUniqueLoader/<OnCreate>d__2,
-        IView>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:313)\nSystem.Threading.Tasks.TaskCompletionSource`1<object>:TrySetResult
-        (object)\nYooAsset.AsyncOperationBase:UpdateOperation () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/AsyncOperationBase.cs:195)\nYooAsset.OperationSystem:Update
-        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/OperationSystem/OperationSystem.cs:108)\nYooAsset.YooAssets:Update
-        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssets.cs:96)\nYooAsset.YooAssetsDriver:Update
-        () (at ./Library/PackageCache/com.tuyoogame.yooasset@2.3.18/Runtime/YooAssetsDriver.cs:21)\nLog"
-      - " [<color=#DD2090>Frame</color>] ThreadId: 1 \nawait destroy StartViewUnityEngine.Debug:LogFormat
-        (string,object[])\nLLogger:FrameLog (object) (at Assets/Services/Logger/LLogger.cs:24)\nObjectPoolAsync`2/<PushPreDestroy>d__14<System.Type,
-        IView>:MoveNext () (at Assets/HotUpdate/Scripts/Utility/ObjectPoolAsync.cs:127)\nCysharp.Threading.Tasks.CompilerServices.AsyncUniTask`1<ObjectPoolAsync`2/<PushPreDestroy>d__14<System.Type,
-        IView>>:Run () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/CompilerServices/StateMachineRunner.cs:189)\nCysharp.Threading.Tasks.AwaiterActions:Continuation
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.cs:25)\nCysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<object>:TrySetResult
-        (object) (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTaskCompletionSource.cs:139)\nCysharp.Threading.Tasks.UniTask/DelayPromise:MoveNext
-        () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/UniTask.Delay.cs:810)\nCysharp.Threading.Tasks.Internal.PlayerLoopRunner:RunCore
-        () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/Internal/PlayerLoopRunner.cs:175)\nCysharp.Threading.Tasks.Internal.PlayerLoopRunner:Update
-        () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/Internal/PlayerLoopRunner.cs:145)\nCysharp.Threading.Tasks.Internal.PlayerLoopRunner:Run
-        () (at ./Library/PackageCache/com.cysharp.unitask@73a63b7f67/Runtime/Internal/PlayerLoopRunner.cs:104)\nLog"
-      - 'warning CS0108: ''Photography.camera'' hides inherited member ''Component.camera''.
-        Use the new keyword if hiding was intended.UnknowClass:UnknowMethod() (at
-        C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Asset\Photography.cs:9)Warning'
-      - 'warning CS0414: The field ''AssetBaseLoader<TObject>.loadState'' is assigned
-        but its value is never usedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Asset\AssetBaseLoader.cs:10)Warning'
-      - 'error CS0103: The name ''type'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:35)Error'
-      - 'error CS0103: The name ''type'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:37)Error'
-      - 'error CS0103: The name ''type'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:39)Error'
-      - 'error CS4033: The ''await'' operator can only be used within an async method.
-        Consider marking this method with the ''async'' modifier and changing its
-        return type to ''Task''.UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:39)Error'
-      - 'error CS0103: The name ''viewLocator'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:41)Error'
-      - 'error CS0103: The name ''layerContainer'' does not exist in the current
-        contextUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:41)Error'
-      - 'error CS0103: The name ''viewLocator'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:42)Error'
-      - 'error CS0103: The name ''viewLayer'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:42)Error'
-      - 'error CS0103: The name ''viewLocator'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:43)Error'
-      - 'error CS0103: The name ''thisRt'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:46)Error'
-      - 'error CS0103: The name ''viewLocator'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:58)Error'
-      - 'error CS0103: The name ''viewLocator'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:59)Error'
-      - 'error CS0103: The name ''uniqueViewDict'' does not exist in the current
-        contextUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:60)Error'
-      - 'error CS0103: The name ''viewLocator'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:61)Error'
-      - 'error CS0103: The name ''type'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:64)Error'
-      - 'error CS0103: The name ''uniqueTypeDict'' does not exist in the current
-        contextUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:65)Error'
-      - 'error CS0103: The name ''type'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:65)Error'
-      - 'error CS0103: The name ''uniqueViewDict'' does not exist in the current
-        contextUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:67)Error'
-      - 'error CS0103: The name ''CheckUniqueViewDictCount'' does not exist in the
-        current contextUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:68)Error'
-      - 'error CS0103: The name ''viewLocator'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:69)Error'
-      - 'error CS0103: The name ''viewLocator'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:70)Error'
-      - 'error CS0103: The name ''viewLocator'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:71)Error'
-      - 'error CS0103: The name ''viewLocator'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:72)Error'
-      - 'error CS0127: Since ''SubViewMultipleLocator.ISubViewLocator.SwitchSubView(SubViewType)''
-        returns void, a return keyword must not be followed by an object expressionUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:73)Error'
-      - 'error CS1001: Identifier expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:32)Error'
-      - 'error CS1002: ; expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewMultipleLocator.cs:32)Error'
-      - 'Assets\Services\Window\Implement\ViewService. error CS0246: The type or
-        namespace name ''ISubViewLocator'' could not be found (are you missing a
-        using directive or an assembly reference?)UnknowClass:UnknowMethod() (at
-        SubView.cs:64)Error'
-      - 'Assets\Services\Window\Implement\ViewService. error CS1061: ''ISubViewContainer''
-        does not contain a definition for ''AddSubViewLocator'' and no accessible
-        extension method ''AddSubViewLocator'' accepting a first argument of type
-        ''ISubViewContainer'' could be found (are you missing a using directive or
-        an assembly reference?)UnknowClass:UnknowMethod() (at SubView.cs:64)Error'
-      - 'error CS1001: Identifier expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewManageMultipleLocator.cs:32)Error'
-      - 'error CS1002: ; expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewManageMultipleLocator.cs:32)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewLocator'' could not be
-        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Container\ISubViewContainer.cs:11)Error'
-      - 'error CS1001: Identifier expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewManageMultipleLocator.cs:34)Error'
-      - 'error CS1002: ; expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewManageMultipleLocator.cs:34)Error'
-      - 'error CS1001: Identifier expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewsMultipleLocator.cs:34)Error'
-      - 'error CS1002: ; expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewsMultipleLocator.cs:34)Error'
-      - 'error CS1001: Identifier expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Container\LayerConfigures.cs:5)Error'
-      - 'error CS1003: Syntax error, '','' expectedUnknowClass:UnknowMethod() (at
-        C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Container\LayerConfigures.cs:5)Error'
-      - 'error CS1002: ; expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Container\LayerConfigures.cs:5)Error'
-      - 'Assets\Services\Window\Implement\ViewService. error CS1061: ''ILayerContainer''
-        does not contain a definition for ''BindLayer'' and no accessible extension
-        method ''BindLayer'' accepting a first argument of type ''ILayerContainer''
-        could be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at MainView.cs:21)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewDisplayConfigures'' could
-        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewDisplayConfigures.cs:1)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewContainer'' could not
-        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewDisplayConfigure.cs:4)Error'
-      - 'error CS1520: Method must have a return typeUnknowClass:UnknowMethod() (at
-        C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewDisplayConfigure.cs:13)Error'
-      - 'error CS0535: ''SubViewDisplayConfigure<TSubViewDisplayLocator, TSubViewDisplayContainer,
-        TSubViewsLocator, TViewLoader, TViewLocator>'' does not implement interface
-        member ''ISubViewDisplayConfigure.AddSubViewDisplayLocator(GameObject)''UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewDisplayConfigure.cs:3)Error'
-      - 'error CS0535: ''SubViewDisplayConfigure<TSubViewDisplayLocator, TSubViewDisplayContainer,
-        TSubViewsLocator, TViewLoader, TViewLocator>'' does not implement interface
-        member ''ISubViewDisplayConfigure.CreateSubViewDisplayContainer()''UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewDisplayConfigure.cs:3)Error'
-      - 'error CS0535: ''SubViewDisplayConfigure<TSubViewDisplayLocator, TSubViewDisplayContainer,
-        TSubViewsLocator, TViewLoader, TViewLocator>'' does not implement interface
-        member ''ISubViewDisplayConfigure.CreateViewLoader()''UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewDisplayConfigure.cs:3)Error'
-      - 'error CS0535: ''SubViewDisplayConfigure<TSubViewDisplayLocator, TSubViewDisplayContainer,
-        TSubViewsLocator, TViewLoader, TViewLocator>'' does not implement interface
-        member ''ISubViewDisplayConfigure.GetSubViewLocatorType()''UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewDisplayConfigure.cs:3)Error'
-      - 'error CS0539: ''SubViewDisplayConfigure<TSubViewDisplayLocator, TSubViewDisplayContainer,
-        TSubViewsLocator, TViewLoader, TSubViewLocator>.GetSubViewsLocatorType()''
-        in explicit interface declaration is not found among members of the interface
-        that can be implementedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewDisplayConfigure.cs:37)Error'
-      - 'error CS0539: ''ViewService.GetSubViewCollectContainer()'' in explicit interface
-        declaration is not found among members of the interface that can be implementedUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Implement\ViewService.cs:18)Error'
-      - 'error CS0535: ''ViewService'' does not implement interface member ''IViewService.GetSubViewDisplayConfigures()''UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Implement\ViewService.cs:4)Error'
-      - 'error CS0539: ''ViewService.GetSubViewCollectContainer()'' in explicit interface
-        declaration is not found among members of the interface that can be implementedUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Implement\ViewService.cs:16)Error'
-      - 'error CS0246: The type or namespace name ''SubViewCollect'' could not be
-        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\ISubViewDisplayConfigures.cs:3)Error'
-      - 'error CS0246: The type or namespace name ''SubViewCollect'' could not be
-        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ISubViewDisplayLocator.cs:5)Error'
-      - 'error CS0246: The type or namespace name ''SubViewCollect'' could not be
-        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewDisplayConfigures.cs:13)Error'
-      - 'error CS0246: The type or namespace name ''SubViewCollect'' could not be
-        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewDisplayConfigures.cs:6)Error'
-      - 'error CS0246: The type or namespace name ''SubViewCollect'' could not be
-        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewDisplayConfigures.cs:8)Error'
-      - 'error CS0246: The type or namespace name ''SubViewCollect'' could not be
-        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Container\ISubViewCollectContainer.cs:5)Error'
-      - 'error CS0246: The type or namespace name ''SubViewCollect'' could not be
-        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ISubViewLocator.cs:5)Error'
-      - 'error CS0246: The type or namespace name ''SubViewCollect'' could not be
-        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ISubViewLocator.cs:6)Error'
-      - 'error CS0246: The type or namespace name ''SubViewCollect'' could not be
-        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\ISubViewCollectConfigures.cs:3)Error'
-      - 'error CS0246: The type or namespace name ''SubViewCollect'' could not be
-        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewCollectConfigures.cs:13)Error'
-      - 'error CS0246: The type or namespace name ''SubViewCollect'' could not be
-        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewCollectConfigures.cs:6)Error'
-      - 'error CS0246: The type or namespace name ''SubViewCollect'' could not be
-        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewCollectConfigures.cs:8)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewCollectContainer'' could
-        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ISubViewDisplayLocator.cs:6)Error'
+        () (at Assets/HotUpdate/Scripts/Launcher.cs:133)\nLog"
+      - 'A meta data file (.meta) exists but its asset ''Assets/HotUpdate/Scripts/EntityPool/Pool/ObjectPoolAsync.cs''
+        can''t be found. When moving or deleting files outside of Unity, please ensure
+        that the corresponding .meta file is moved or deleted along with it.UnityEditor.AssetDatabase:Refresh
+        ()
+
+        Packages.Rider.Editor.RiderScriptEditor:SyncIfNeeded (bool) (at
+        ./Library/PackageCache/com.unity.ide.rider@3.0.28/Rider/Editor/RiderScriptEditor.cs:178)
+
+        System.Reflection.MethodBase:Invoke
+        (object,object[])
+
+        JetBrains.Rider.Unity.Editor.RiderPackageInterop:TrySyncIfNeeded
+        (bool)
+
+        JetBrains.Rider.Unity.Editor.RiderPackageInterop:SyncSolution
+        ()
+
+        JetBrains.Rider.Unity.Editor.UnityEditorProtocol/<>c:<AdviseOnRefresh>b__11_0
+        (JetBrains.Lifetimes.Lifetime,JetBrains.Rider.Model.Unity.BackendUnity.RefreshType)
+
+        JetBrains.Rd.Tasks.RdCall`2/<>c__DisplayClass24_0<JetBrains.Rider.Model.Unity.BackendUnity.RefreshType,
+        JetBrains.Core.Unit>:<OnWireReceived>b__0 ()
+
+        JetBrains.Rd.Impl.MessageBroker/RdWireableDispatchHelper/<>c__DisplayClass12_0:<DoDispatch>b__0
+        ()
+
+        JetBrains.Rider.Unity.Editor.MainThreadDispatcher:DispatchTasks
+        ()
+
+        UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+        Warning'
       - 'Assembly for Assembly Definition File ''Assets/Services/Window/Implement/WindowService.asmdef''
         will not be compiled, because it has no scripts associated with it.UnityEditor.Scripting.ScriptCompilation.EditorCompilationInterface:TickCompilationPipeline
         (UnityEditor.Scripting.ScriptCompilation.EditorScriptCompilationOptions,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,string[],bool)
 
         Warning'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0246: The type or
-        namespace name ''ISubViewCollectContainer'' could not be found (are you missing
-        a using directive or an assembly reference?)UnknowClass:UnknowMethod() (at
-        SubView.cs:14)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewCollectContainer'' could
-        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ViewService.cs:16)Error'
-      - 'error CS0539: ''ViewService.GetSubViewCollectContainer()'' in explicit interface
-        declaration is not found among members of the interface that can be implementedUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ViewService.cs:16)Error'
-      - 'error CS0535: ''ViewService'' does not implement interface member ''IViewService.GetSubViewDisplayConfigures()''UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ViewService.cs:4)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0246: The type or
-        namespace name ''ISubViewCollectContainer'' could not be found (are you missing
-        a using directive or an assembly reference?)UnknowClass:UnknowMethod() (at
-        SubView.cs:9)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewCollectContainer'' could
-        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ISubViewDisplayLocator.cs:5)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewCollectContainer'' could
-        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ISubViewsLocator.cs:5)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewCollectContainer'' could
-        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\ISubViewDisplayConfigure.cs:7)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewCollectContainer'' could
-        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewCollectConfigure.cs:6)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewCollectContainer'' could
-        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewCollectConfigure.cs:26)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0102: The type ''ViewService''
-        already contains a definition for ''viewConfigures''UnknowClass:UnknowMethod()
-        (at MainView.cs:13)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0102: The type ''ViewService''
-        already contains a definition for ''subViewConfigures''UnknowClass:UnknowMethod()
-        (at SubView.cs:11)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewCollectContainer'' could
-        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ISubViewCollectLocator.cs:5)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewCollectContainer'' could
-        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ISubViewCollectLocator.cs:6)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewCollectLocator'' could
-        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ISubViewsLocator.cs:5)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewCollectLocator'' could
-        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\ISubViewDisplayConfigure.cs:6)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewCollectLocator'' could
-        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewCollectConfigure.cs:5)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewCollectLocator'' could
-        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewCollectConfigure.cs:22)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0103: The name ''layerContainers''
-        does not exist in the current contextUnknowClass:UnknowMethod() (at MainView.cs:17)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS1061: ''ILayerContainer''
-        does not contain a definition for ''BindLayer'' and no accessible extension
-        method ''BindLayer'' accepting a first argument of type ''ILayerContainer''
-        could be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at MainView.cs:21)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0103: The name ''layerContainers''
-        does not exist in the current contextUnknowClass:UnknowMethod() (at MainView.cs:23)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0103: The name ''views''
-        does not exist in the current contextUnknowClass:UnknowMethod() (at MainView.cs:28)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0136: A local or parameter
-        named ''viewConfigures'' cannot be declared in this scope because that name
-        is used in an enclosing local scope to define a local or parameterUnknowClass:UnknowMethod()
-        (at MainView.cs:31)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0266: Cannot implicitly
-        convert type ''ILayerLocator'' to ''ILayerContainer''. An explicit conversion
-        exists (are you missing a cast?)UnknowClass:UnknowMethod() (at MainView.cs:85)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0266: Cannot implicitly
-        convert type ''ILayerLocator'' to ''ILayerContainer''. An explicit conversion
-        exists (are you missing a cast?)UnknowClass:UnknowMethod() (at MainView.cs:100)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0266: Cannot implicitly
-        convert type ''ILayerLocator'' to ''ILayerContainer''. An explicit conversion
-        exists (are you missing a cast?)UnknowClass:UnknowMethod() (at MainView.cs:110)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0266: Cannot implicitly
-        convert type ''ILayerLocator'' to ''ILayerContainer''. An explicit conversion
-        exists (are you missing a cast?)UnknowClass:UnknowMethod() (at MainView.cs:116)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0266: Cannot implicitly
-        convert type ''ILayerLocator'' to ''ILayerContainer''. An explicit conversion
-        exists (are you missing a cast?)UnknowClass:UnknowMethod() (at MainView.cs:130)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0266: Cannot implicitly
-        convert type ''ILayerLocator'' to ''ILayerContainer''. An explicit conversion
-        exists (are you missing a cast?)UnknowClass:UnknowMethod() (at MainView.cs:138)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0266: Cannot implicitly
-        convert type ''ILayerLocator'' to ''ILayerContainer''. An explicit conversion
-        exists (are you missing a cast?)UnknowClass:UnknowMethod() (at MainView.cs:154)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0266: Cannot implicitly
-        convert type ''ILayerLocator'' to ''ILayerContainer''. An explicit conversion
-        exists (are you missing a cast?)UnknowClass:UnknowMethod() (at MainView.cs:163)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS1061: ''ISubViewConfigures''
-        does not contain a definition for ''Count'' and no accessible extension method
-        ''Count'' accepting a first argument of type ''ISubViewConfigures'' could
-        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at SubView.cs:20)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0021: Cannot apply
-        indexing with [] to an expression of type ''ISubViewConfigures''UnknowClass:UnknowMethod()
-        (at SubView.cs:22)Error'
-      - 'Assets\Services\Window\Interface\ViewService. warning CS1717: Assignment
-        made to same variable; did you mean to assign something else?UnknowClass:UnknowMethod()
-        (at SubView.cs:18)Warning'
-      - 'Assets\Services\Window\Interface\ViewService. error CS1061: ''ISubViewCollectContainer''
-        does not contain a definition for ''GetSubViewContainer'' and no accessible
-        extension method ''GetSubViewContainer'' accepting a first argument of type
-        ''ISubViewCollectContainer'' could be found (are you missing a using directive
-        or an assembly reference?)UnknowClass:UnknowMethod() (at SubView.cs:65)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS1061: ''ISubViewCollectContainer''
-        does not contain a definition for ''AddSubViewManageLocator'' and no accessible
-        extension method ''AddSubViewManageLocator'' accepting a first argument of
-        type ''ISubViewCollectContainer'' could be found (are you missing a using
-        directive or an assembly reference?)UnknowClass:UnknowMethod() (at SubView.cs:66)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS1061: ''ISubViewCollectContainer''
-        does not contain a definition for ''GetLocator'' and no accessible extension
-        method ''GetLocator'' accepting a first argument of type ''ISubViewCollectContainer''
-        could be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at SubView.cs:67)Error'
-      - 'error CS1061: ''ISubViewConfigures'' does not contain a definition for ''Count''
-        and no accessible extension method ''Count'' accepting a first argument of
-        type ''ISubViewConfigures'' could be found (are you missing a using directive
-        or an assembly reference?)UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ViewService.cs:70)Error'
-      - 'error CS0021: Cannot apply indexing with [] to an expression of type ''ISubViewConfigures''UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ViewService.cs:72)Error'
-      - 'warning CS1717: Assignment made to same variable; did you mean to assign
-        something else?UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ViewService.cs:68)Warning'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0266: Cannot implicitly
-        convert type ''ILayerLocator'' to ''ILayerContainer''. An explicit conversion
-        exists (are you missing a cast?)UnknowClass:UnknowMethod() (at MainView.cs:44)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0266: Cannot implicitly
-        convert type ''ILayerLocator'' to ''ILayerContainer''. An explicit conversion
-        exists (are you missing a cast?)UnknowClass:UnknowMethod() (at MainView.cs:59)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0266: Cannot implicitly
-        convert type ''ILayerLocator'' to ''ILayerContainer''. An explicit conversion
-        exists (are you missing a cast?)UnknowClass:UnknowMethod() (at MainView.cs:69)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0266: Cannot implicitly
-        convert type ''ILayerLocator'' to ''ILayerContainer''. An explicit conversion
-        exists (are you missing a cast?)UnknowClass:UnknowMethod() (at MainView.cs:75)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0266: Cannot implicitly
-        convert type ''ILayerLocator'' to ''ILayerContainer''. An explicit conversion
-        exists (are you missing a cast?)UnknowClass:UnknowMethod() (at MainView.cs:89)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0266: Cannot implicitly
-        convert type ''ILayerLocator'' to ''ILayerContainer''. An explicit conversion
-        exists (are you missing a cast?)UnknowClass:UnknowMethod() (at MainView.cs:97)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0266: Cannot implicitly
-        convert type ''ILayerLocator'' to ''ILayerContainer''. An explicit conversion
-        exists (are you missing a cast?)UnknowClass:UnknowMethod() (at MainView.cs:113)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS0266: Cannot implicitly
-        convert type ''ILayerLocator'' to ''ILayerContainer''. An explicit conversion
-        exists (are you missing a cast?)UnknowClass:UnknowMethod() (at MainView.cs:122)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS1061: ''ISubViewCollectContainer''
-        does not contain a definition for ''GetSubViewContainer'' and no accessible
-        extension method ''GetSubViewContainer'' accepting a first argument of type
-        ''ISubViewCollectContainer'' could be found (are you missing a using directive
-        or an assembly reference?)UnknowClass:UnknowMethod() (at SubView.cs:45)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS1061: ''ISubViewCollectContainer''
-        does not contain a definition for ''AddSubViewManageLocator'' and no accessible
-        extension method ''AddSubViewManageLocator'' accepting a first argument of
-        type ''ISubViewCollectContainer'' could be found (are you missing a using
-        directive or an assembly reference?)UnknowClass:UnknowMethod() (at SubView.cs:46)Error'
-      - 'Assets\Services\Window\Interface\ViewService. error CS1061: ''ISubViewCollectContainer''
-        does not contain a definition for ''GetLocator'' and no accessible extension
-        method ''GetLocator'' accepting a first argument of type ''ISubViewCollectContainer''
-        could be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at SubView.cs:47)Error'
-      - 'error CS0539: ''SubViewConfigure.AddView<TView, TViewModel>(List<SubViewType>)''
-        in explicit interface declaration is not found among members of the interface
-        that can be implementedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewConfigure.cs:14)Error'
-      - 'error CS0535: ''SubViewConfigure'' does not implement interface member ''ISubViewConfigure.AddView<TView,
-        TViewModel>()''UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewConfigure.cs:5)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewConfigures'' could not
-        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewConfigures.cs:4)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewConfigure'' could not
-        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewConfigure.cs:5)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewConfigure'' could not
-        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewConfigures.cs:13)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewConfigure'' could not
-        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewConfigures.cs:6)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewConfigure'' could not
-        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewConfigure.cs:14)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewConfigure'' could not
-        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewConfigure.cs:21)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewConfigure'' could not
-        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewConfigure.cs:22)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewConfigure'' could not
-        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewConfigures.cs:8)Error'
-      - 'error CS0538: ''ISubViewConfigure'' in explicit interface declaration is
-        not an interfaceUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewConfigure.cs:14)Error'
-      - 'error CS0540: ''SubViewConfigures.IEnumerable<ISubViewConfigure>.GetEnumerator()'':
-        containing type does not implement interface ''IEnumerable<ISubViewConfigure>''UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewConfigures.cs:13)Error'
-      - 'error CS0538: ''ISubViewConfigure'' in explicit interface declaration is
-        not an interfaceUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewConfigure.cs:21)Error'
-      - 'error CS0540: ''SubViewConfigures.IEnumerable.GetEnumerator()'': containing
-        type does not implement interface ''IEnumerable''UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewConfigures.cs:18)Error'
-      - 'error CS0538: ''ISubViewConfigure'' in explicit interface declaration is
-        not an interfaceUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewConfigure.cs:22)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewConfigures'' could not
-        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ViewService.cs:66)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewConfigure'' could not
-        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ViewService.cs:16)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewConfigures'' could not
-        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ViewService.cs:23)Error'
-      - 'warning CS0108: ''SubViewConfigure.Create<TView>(SubViewShow, IViewCheck)''
-        hides inherited member ''ISubViewConfigure.Create<TView>(SubViewShow, IViewCheck)''.
+      - 'warning CS0108: ''Photography.camera'' hides inherited member ''Component.camera''.
         Use the new keyword if hiding was intended.UnknowClass:UnknowMethod() (at
-        C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewConfigure.cs:12)Warning'
-      - 'error CS1061: ''IViewConfigure'' does not contain a definition for ''GetViewCheck''
-        and no accessible extension method ''GetViewCheck'' accepting a first argument
-        of type ''IViewConfigure'' could be found (are you missing a using directive
-        or an assembly reference?)UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ViewConfigureGenerator.cs:43)Error'
-      - 'error CS0103: The name ''subViewChecks'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\ViewConfigure.cs:78)Error'
-      - 'error CS0103: The name ''subViews'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\ViewConfigure.cs:79)Error'
-      - 'error CS0103: The name ''subViewChecks'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\ViewConfigure.cs:82)Error'
-      - 'error CS0103: The name ''subViews'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\ViewConfigure.cs:88)Error'
-      - 'error CS0103: The name ''subViews'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\ViewConfigure.cs:90)Error'
-      - 'error CS0103: The name ''subViewChecks'' does not exist in the current contextUnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\ViewConfigure.cs:91)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewLocator'' could not be
+        C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Asset\Photography.cs:9)Warning'
+      - 'error CS7036: There is no argument given that corresponds to the required
+        formal parameter ''poolCapacity'' of ''EntityPoolAsync<Type, IView>.EntityPoolAsync(int,
+        int, int, Func<Type, UniTask<IView>>, Action<IView>)''UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\ViewEntityPool.cs:4)Error'
+      - 'error CS0311: The type ''ViewEntityPool'' cannot be used as type parameter
+        ''TEntityPool'' in the generic type or method ''Launcher.EntityPool<TEntityPool>(IServiceProvider,
+        EntityPoolType, int, int, int)''. There is no implicit reference conversion
+        from ''ViewEntityPool'' to ''UnityEngine.MonoBehaviour''.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:26)Error'
+      - 'warning CS0414: The field ''AssetBaseLoader<TObject>.loadState'' is assigned
+        but its value is never usedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Asset\AssetBaseLoader.cs:10)Warning'
+      - 'error CS0246: The type or namespace name ''EntityPoolAsync<,>'' could not
+        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\ViewEntityPool.cs:4)Error'
+      - 'error CS0246: The type or namespace name ''EntityPoolAsync<,>'' could not
+        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Loader\ViewMultipleLoader.cs:7)Error'
+      - 'error CS0246: The type or namespace name ''EntityPoolAsync<,>'' could not
+        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Loader\ViewUniqueLoader.cs:8)Error'
+      - 'error CS1031: Type expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\EntityPoolBase.cs:5)Error'
+      - 'error CS0246: The type or namespace name ''ComponentPool<>'' could not be
         found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewCollectConfigure.cs:9)Error'
-      - 'error CS0246: The type or namespace name ''ISubViewLocator'' could not be
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\ViewEntityPool.cs:4)Error'
+      - 'error CS0540: ''UniqueTypeEntityPoolBase<TValue>.IViewLoader.TryGetActiveView(Type,
+        out IView)'': containing type does not implement interface ''IViewLoader''UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\Base\UniqueTypeEntityPoolBase.cs:47)Error'
+      - 'error CS0540: ''UniqueTypeEntityPoolBase<TValue>.IViewLoader.TryGetPoolView(Type,
+        out IView)'': containing type does not implement interface ''IViewLoader''UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\Base\UniqueTypeEntityPoolBase.cs:51)Error'
+      - 'error CS0540: ''UniqueTypeEntityPoolBase<TValue>.IViewLoader.CreateView(Type)'':
+        containing type does not implement interface ''IViewLoader''UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\Base\UniqueTypeEntityPoolBase.cs:60)Error'
+      - 'error CS0540: ''UniqueTypeEntityPoolBase<TValue>.IViewLoader.ReleaseView(IView)'':
+        containing type does not implement interface ''IViewLoader''UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\Base\UniqueTypeEntityPoolBase.cs:67)Error'
+      - 'error CS0540: ''UniqueTypeEntityPoolBase<TValue>.IViewLoader.BatchAddFilter(List<Type>,
+        List<int>)'': containing type does not implement interface ''IViewLoader''UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\Base\UniqueTypeEntityPoolBase.cs:74)Error'
+      - 'error CS0540: ''UniqueTypeEntityPoolBase<TValue>.IViewLoader.ToString()'':
+        containing type does not implement interface ''IViewLoader''UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\Base\UniqueTypeEntityPoolBase.cs:94)Error'
+      - 'Import Error Code:(4)
+
+        Message: Build asset version error: assets/hotupdate/scripts/entitypool/pool/base/entitypoolbase.cs
+        in SourceAssetDB has modification time of ''2026-01-31T17:47:51.503407Z''
+        while content on disk has modification time of ''2026-01-31T17:48:50.5725308Z''
+
+        Warning'
+      - 'error CS0534: ''UniqueEntityTypePoolBase<TValue>'' does not implement inherited
+        abstract member ''EntityPoolBase<Type, TValue>.Destroy(TValue)''UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\Base\UniqueEntityTypePoolBase.cs:8)Error'
+      - 'error CS0540: ''UniqueEntityTypePoolBase<TValue>.IViewLoader.TryGetActiveView(Type,
+        out IView)'': containing type does not implement interface ''IViewLoader''UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\Base\UniqueEntityTypePoolBase.cs:43)Error'
+      - 'error CS0540: ''UniqueEntityTypePoolBase<TValue>.IViewLoader.TryGetPoolView(Type,
+        out IView)'': containing type does not implement interface ''IViewLoader''UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\Base\UniqueEntityTypePoolBase.cs:47)Error'
+      - 'error CS0540: ''UniqueEntityTypePoolBase<TValue>.IViewLoader.CreateView(Type)'':
+        containing type does not implement interface ''IViewLoader''UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\Base\UniqueEntityTypePoolBase.cs:56)Error'
+      - 'error CS0540: ''UniqueEntityTypePoolBase<TValue>.IViewLoader.ReleaseView(IView)'':
+        containing type does not implement interface ''IViewLoader''UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\Base\UniqueEntityTypePoolBase.cs:63)Error'
+      - 'error CS0540: ''UniqueEntityTypePoolBase<TValue>.IViewLoader.BatchAddFilter(List<Type>,
+        List<int>)'': containing type does not implement interface ''IViewLoader''UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\Base\UniqueEntityTypePoolBase.cs:70)Error'
+      - 'error CS0540: ''UniqueEntityTypePoolBase<TValue>.IViewLoader.ToString()'':
+        containing type does not implement interface ''IViewLoader''UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\Base\UniqueEntityTypePoolBase.cs:90)Error'
+      - 'error CS0311: The type ''TValue'' cannot be used as type parameter ''TValue''
+        in the generic type or method ''EntityTypePoolBase<TValue>''. There is no
+        implicit reference conversion from ''TValue'' to ''EntityBase''.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\Base\UniqueEntityTypePoolBase.cs:8)Error'
+      - 'error CS0246: The type or namespace name ''EntityTypePoolBase<>'' could
+        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\Base\UniqueEntityTypePoolBase.cs:8)Error'
+      - 'error CS0311: The type ''IView'' cannot be used as type parameter ''TValue''
+        in the generic type or method ''EntityUniqueTypePoolBase<TValue>''. There
+        is no implicit reference conversion from ''IView'' to ''EntityBase''.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\ViewPool.cs:4)Error'
+      - 'warning CS0114: ''EntityUniqueTypePoolBase<TValue>.ToString()'' hides inherited
+        member ''EntityPoolBase<Type, TValue>.ToString()''. To make the current member
+        override that implementation, add the override keyword. Otherwise add the
+        new keyword.UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\Base\EntityUniqueTypePoolBase.cs:35)Warning'
+      - 'error CS0311: The type ''IView'' cannot be used as type parameter ''TValue''
+        in the generic type or method ''EntityUniqueTypePoolBase<TValue>''. There
+        is no implicit reference conversion from ''IView'' to ''EntityBase''.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\ViewEntityPool.cs:4)Error'
+      - 'error CS0311: The type ''IView'' cannot be used as type parameter ''TValue''
+        in the generic type or method ''EntityUniqueTypePoolBase<TValue>''. There
+        is no implicit reference conversion from ''IView'' to ''EntityBase''.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\ViewEntityPool.cs:1)Error'
+      - 'error CS0246: The type or namespace name ''ViewPool'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:26)Error'
+      - 'error CS1526: A new expression requires an argument list or (), [], or {}
+        after typeUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:27)Error'
+      - 'error CS1526: A new expression requires an argument list or (), [], or {}
+        after typeUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:37)Error'
+      - 'error CS7036: There is no argument given that corresponds to the required
+        formal parameter ''poolCapacity'' of ''ViewUniqueLoader.ViewUniqueLoader(int,
+        int, int)''UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:29)Error'
+      - 'error CS7036: There is no argument given that corresponds to the required
+        formal parameter ''poolCapacity'' of ''ViewUniqueLoader.ViewUniqueLoader(int,
+        int, int)''UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:30)Error'
+      - 'error CS7036: There is no argument given that corresponds to the required
+        formal parameter ''poolCapacity'' of ''ViewUniqueLoader.ViewUniqueLoader(int,
+        int, int)''UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:31)Error'
+      - 'error CS7036: There is no argument given that corresponds to the required
+        formal parameter ''poolCapacity'' of ''ViewUniqueLoader.ViewUniqueLoader(int,
+        int, int)''UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:32)Error'
+      - 'error CS7036: There is no argument given that corresponds to the required
+        formal parameter ''poolCapacity'' of ''ViewUnitLoader.ViewUnitLoader(int,
+        int, int)''UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:33)Error'
+      - 'error CS7036: There is no argument given that corresponds to the required
+        formal parameter ''poolCapacity'' of ''ViewUniqueLoader.ViewUniqueLoader(int,
+        int, int)''UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:34)Error'
+      - 'error CS7036: There is no argument given that corresponds to the required
+        formal parameter ''poolCapacity'' of ''ViewUnitLoader.ViewUnitLoader(int,
+        int, int)''UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:35)Error'
+      - 'error CS7036: There is no argument given that corresponds to the required
+        formal parameter ''loaders'' of ''SubViewPoolConfigure<SubViewEntityPool>.SubViewPoolConfigure(int,
+        int, int, Dictionary<SubViewCollect, IViewLoader>)''UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:37)Error'
+      - 'error CS7036: There is no argument given that corresponds to the required
+        formal parameter ''poolCapacity'' of ''ViewUniqueLoader.ViewUniqueLoader(int,
+        int, int)''UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:39)Error'
+      - 'error CS7036: There is no argument given that corresponds to the required
+        formal parameter ''poolCapacity'' of ''ViewMultipleLoader.ViewMultipleLoader(int,
+        int, int)''UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:40)Error'
+      - 'error CS0246: The type or namespace name ''IViewLoader'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\IEntityPool.cs:6)Error'
+      - "error CS1056: Unexpected character '\u3002'UnknowClass:UnknowMethod() (at
+        C:\\UnityProject\\LLL\\Client\\Assets\\HotUpdate\\Scripts\\EntityPool\\Pool\\ViewEntityPool.cs:3)Error"
+      - 'error CS1513: } expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:37)Error'
+      - 'error CS1002: ; expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\ViewEntityPool.cs:3)Error'
+      - 'error CS1002: ; expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:37)Error'
+      - 'error CS1519: Invalid token ''('' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\ViewEntityPool.cs:3)Error'
+      - 'error CS8124: Tuple must contain at least two elements.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\ViewEntityPool.cs:3)Error'
+      - 'error CS1525: Invalid expression term ''=''UnknowClass:UnknowMethod() (at
+        C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:38)Error'
+      - 'error CS1002: ; expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:42)Error'
+      - 'error CS1519: Invalid token '':'' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\ViewEntityPool.cs:3)Error'
+      - 'error CS1513: } expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:42)Error'
+      - 'error CS1519: Invalid token ''{'' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\ViewEntityPool.cs:4)Error'
+      - 'error CS1519: Invalid token '')'' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:43)Error'
+      - 'error CS1022: Type or namespace definition, or end-of-file expectedUnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\Pool\ViewEntityPool.cs:7)Error'
+      - 'error CS1519: Invalid token ''('' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:44)Error'
+      - 'error CS8124: Tuple must contain at least two elements.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:44)Error'
+      - 'error CS1026: ) expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:44)Error'
+      - 'error CS1519: Invalid token ''=>'' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:44)Error'
+      - 'error CS1031: Type expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:44)Error'
+      - 'error CS1519: Invalid token ''5'' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:44)Error'
+      - 'error CS1519: Invalid token ''('' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:45)Error'
+      - 'error CS8124: Tuple must contain at least two elements.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:45)Error'
+      - 'error CS1026: ) expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:45)Error'
+      - 'error CS1519: Invalid token ''=>'' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:45)Error'
+      - 'error CS1031: Type expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:45)Error'
+      - 'error CS1519: Invalid token ''5'' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:45)Error'
+      - 'error CS1519: Invalid token ''('' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:47)Error'
+      - 'error CS1031: Type expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:47)Error'
+      - 'error CS8124: Tuple must contain at least two elements.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:47)Error'
+      - 'error CS1026: ) expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:47)Error'
+      - 'error CS1002: ; expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:47)Error'
+      - 'error CS1519: Invalid token ''{'' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:48)Error'
+      - 'error CS1519: Invalid token ''='' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:49)Error'
+      - 'error CS1519: Invalid token ''('' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:49)Error'
+      - 'error CS8124: Tuple must contain at least two elements.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:49)Error'
+      - 'error CS1026: ) expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:49)Error'
+      - 'error CS1519: Invalid token '':'' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:49)Error'
+      - 'error CS1519: Invalid token ''='' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:50)Error'
+      - 'error CS1519: Invalid token ''('' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:50)Error'
+      - 'error CS8124: Tuple must contain at least two elements.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:50)Error'
+      - 'error CS1026: ) expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:50)Error'
+      - 'error CS1519: Invalid token '':'' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:50)Error'
+      - 'error CS1519: Invalid token ''='' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:51)Error'
+      - 'error CS1519: Invalid token ''('' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:51)Error'
+      - 'error CS8124: Tuple must contain at least two elements.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:51)Error'
+      - 'error CS1026: ) expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:51)Error'
+      - 'error CS1519: Invalid token '':'' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:51)Error'
+      - 'error CS1519: Invalid token ''='' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:52)Error'
+      - 'error CS1519: Invalid token ''('' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:52)Error'
+      - 'error CS8124: Tuple must contain at least two elements.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:52)Error'
+      - 'error CS1026: ) expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:52)Error'
+      - 'error CS1519: Invalid token '':'' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:52)Error'
+      - 'error CS1519: Invalid token ''='' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:53)Error'
+      - 'error CS1519: Invalid token ''('' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:53)Error'
+      - 'error CS8124: Tuple must contain at least two elements.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:53)Error'
+      - 'error CS1026: ) expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:53)Error'
+      - 'error CS1519: Invalid token '':'' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:53)Error'
+      - 'error CS1519: Invalid token ''='' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:54)Error'
+      - 'error CS1519: Invalid token ''('' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:54)Error'
+      - 'error CS8124: Tuple must contain at least two elements.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:54)Error'
+      - 'error CS1026: ) expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:54)Error'
+      - 'error CS1519: Invalid token '':'' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:54)Error'
+      - 'error CS1519: Invalid token ''='' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:55)Error'
+      - 'error CS1519: Invalid token ''('' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:55)Error'
+      - 'error CS8124: Tuple must contain at least two elements.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:55)Error'
+      - 'error CS1026: ) expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:55)Error'
+      - 'error CS1519: Invalid token '':'' in class, record, struct, or interface
+        member declarationUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:55)Error'
+      - 'error CS1022: Type or namespace definition, or end-of-file expectedUnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:56)Error'
+      - 'error CS8803: Top-level statements must precede namespace and type declarations.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:56)Error'
+      - 'error CS1002: ; expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:60)Error'
+      - 'error CS1022: Type or namespace definition, or end-of-file expectedUnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:60)Error'
+      - 'error CS1002: ; expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:104)Error'
+      - 'error CS1022: Type or namespace definition, or end-of-file expectedUnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:104)Error'
+      - 'error CS1022: Type or namespace definition, or end-of-file expectedUnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:135)Error'
+      - 'error CS0106: The modifier ''private'' is not valid for this itemUnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:137)Error'
+      - 'error CS1022: Type or namespace definition, or end-of-file expectedUnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Launcher.cs:153)Error'
+      - 'error CS0246: The type or namespace name ''IEntityPoolConfigure'' could
+        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\EntityPoolServiceExtensions.cs:7)Error'
+      - 'error CS0246: The type or namespace name ''IEntityPoolConfigure'' could
+        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\EntityPoolConfigure.cs:4)Error'
+      - 'error CS0246: The type or namespace name ''IEntityPoolConfigure'' could
+        not be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\EntityPoolConfigure.cs:19)Error'
+      - 'error CS0538: ''IEntityPoolConfigure'' in explicit interface declaration
+        is not an interfaceUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\EntityPoolConfigure.cs:19)Error'
+      - 'warning CS0114: ''EntityUniqueTypePoolBase<TValue>.ToString()'' hides inherited
+        member ''EntityPoolBase<Type, TValue>.ToString()''. To make the current member
+        override that implementation, add the override keyword. Otherwise add the
+        new keyword.UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\EntityPool\EntityUniqueTypePoolBase.cs:35)Warning'
+      - 'error CS0246: The type or namespace name ''IViewLoader'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\ISubViewDisplayConfigure.cs:8)Error'
+      - 'error CS0246: The type or namespace name ''IViewLoader'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\ILayerConfigure.cs:8)Error'
+      - 'error CS0246: The type or namespace name ''IViewLoader'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\LayerConfigure.cs:8)Error'
+      - 'error CS0246: The type or namespace name ''IViewLoader'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewCollectConfigure.cs:8)Error'
+      - 'error CS0246: The type or namespace name ''IViewLoader'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\LayerConfigure.cs:29)Error'
+      - 'error CS0246: The type or namespace name ''IViewLoader'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\SubViewCollectConfigure.cs:30)Error'
+      - 'error CS0246: The type or namespace name ''IViewLoader'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ILayerLocator.cs:7)Error'
+      - 'error CS0246: The type or namespace name ''IViewLoader'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ISubViewCollectLocator.cs:6)Error'
+      - 'error CS0246: The type or namespace name ''IViewLoader'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ISubViewCollectLocator.cs:9)Error'
+      - 'error CS0246: The type or namespace name ''TKey'' could not be found (are
+        you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\IEntityPool.cs:5)Error'
+      - 'error CS0246: The type or namespace name ''UniTask<>'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\IEntityPool.cs:5)Error'
+      - 'error CS0246: The type or namespace name ''TValue'' could not be found (are
+        you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\IEntityPool.cs:5)Error'
+      - 'error CS0246: The type or namespace name ''TKey'' could not be found (are
+        you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\IEntityPool.cs:6)Error'
+      - 'error CS0246: The type or namespace name ''TValue'' could not be found (are
+        you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\IEntityPool.cs:6)Error'
+      - 'error CS0246: The type or namespace name ''TKey'' could not be found (are
+        you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\IEntityPool.cs:7)Error'
+      - 'error CS0246: The type or namespace name ''UniTask<>'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\IEntityPool.cs:7)Error'
+      - 'error CS0246: The type or namespace name ''TValue'' could not be found (are
+        you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\IEntityPool.cs:7)Error'
+      - 'error CS0246: The type or namespace name ''TKey'' could not be found (are
+        you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\IEntityPool.cs:8)Error'
+      - 'error CS0246: The type or namespace name ''TValue'' could not be found (are
+        you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\IEntityPool.cs:8)Error'
+      - 'error CS0246: The type or namespace name ''IEntityPool'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\IEntityLoader.cs:3)Error'
+      - 'error CS0246: The type or namespace name ''IEntityPool'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\IEntityPoolService.cs:6)Error'
+      - 'error CS0246: The type or namespace name ''EntityUnitLoader<,>'' could not
+        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\LayerConfigure.cs:8)Error'
+      - 'error CS0246: The type or namespace name ''EntityBase<>'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\LayerConfigure.cs:8)Error'
+      - 'error CS1721: Class ''ViewService'' cannot have multiple base classes: ''MonoBehaviour''
+        and ''ObservableRecipient''UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ViewService.cs:5)Error'
+      - 'error CS0246: The type or namespace name ''IEntityLoader<,>'' could not
+        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ILayerLocator.cs:7)Error'
+      - 'error CS0246: The type or namespace name ''EntityBase<>'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ILayerLocator.cs:7)Error'
+      - 'error CS0246: The type or namespace name ''TViewLocator'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ILayerLocator.cs:7)Error'
+      - 'error CS0246: The type or namespace name ''IViewLoader'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ILayerLocator.cs:10)Error'
+      - 'error CS0246: The type or namespace name ''ILayerLocator'' could not be
         found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
-        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\ISubViewCollectLocator.cs:10)Error'
-      - 'error CS1061: ''IViewConfigure'' does not contain a definition for ''GetSubViewChecks''
-        and no accessible extension method ''GetSubViewChecks'' accepting a first
-        argument of type ''IViewConfigure'' could be found (are you missing a using
-        directive or an assembly reference?)UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ViewConfigureGenerator.cs:25)Error'
-      - 'error CS1001: Identifier expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewsMultiOpenerLocator.cs:34)Error'
-      - 'error CS1002: ; expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\HotUpdate\Scripts\Window\Frame\Locator\SubViewsMultiOpenerLocator.cs:34)Error'
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\ILayerConfigure.cs:6)Error'
+      - 'error CS0246: The type or namespace name ''ILayerLocator'' could not be
+        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\LayerConfigure.cs:5)Error'
+      - 'error CS0246: The type or namespace name ''ILayerLocator'' could not be
+        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Container\ILayerContainer.cs:7)Error'
+      - 'error CS0246: The type or namespace name ''ILayerLocator'' could not be
+        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Configure\LayerConfigure.cs:21)Error'
+      - 'error CS0246: The type or namespace name ''ILayerLocator'' could not be
+        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\IViewService.cs:6)Error'
+      - 'error CS0246: The type or namespace name ''ILayerLocator'' could not be
+        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\Locator\IUICanvasLocator.cs:4)Error'
+      - 'error CS0246: The type or namespace name ''ILayerLocator'' could not be
+        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ViewService.cs:55)Error'
+      - 'error CS0246: The type or namespace name ''ILayerLocator'' could not be
+        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ViewService.cs:10)Error'
+      - 'error CS1001: Identifier expectedUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\IViewService.cs:7)Error'
+      - 'error CS0246: The type or namespace name ''IEntityLoader<,>'' could not
+        be found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ILayerLocator.cs:7)Error'
+      - 'error CS0246: The type or namespace name ''EntityBase<>'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ILayerLocator.cs:7)Error'
+      - 'error CS0246: The type or namespace name ''IViewLoader'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ILayerLocator.cs:10)Error'
+      - 'error CS0535: ''ViewService'' does not implement interface member ''IViewService.Transform()''UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ViewService.cs:5)Error'
+      - 'error CS0535: ''ViewService'' does not implement interface member ''IViewService.Add(ViewLayer,
+        ILayerLocator)''UnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\Window\Interface\ViewService.cs:5)Error'
+      - 'error CS0246: The type or namespace name ''Cysharp'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\IEntityLoader.cs:2)Error'
+      - 'error CS0246: The type or namespace name ''UniTask<>'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\IEntityLoader.cs:8)Error'
+      - 'error CS0246: The type or namespace name ''Cysharp'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:5)Error'
+      - 'error CS0246: The type or namespace name ''YooAsset'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:7)Error'
+      - 'error CS0246: The type or namespace name ''IEntityPool<,>'' could not be
+        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:15)Error'
+      - 'error CS0246: The type or namespace name ''EntityBase'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:16)Error'
+      - 'error CS0314: The type ''TValue'' cannot be used as type parameter ''TValue''
+        in the generic type or method ''EntityPoolBase<TKey, TValue>''. There is
+        no boxing conversion or type parameter conversion from ''TValue'' to ''EntityBase''.UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:9)Error'
+      - 'error CS0246: The type or namespace name ''EntityBase'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:10)Error'
+      - 'error CS0246: The type or namespace name ''IEntityPool'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:29)Error'
+      - 'error CS0246: The type or namespace name ''IEntityPool<,>'' could not be
+        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:43)Error'
+      - 'error CS0246: The type or namespace name ''IEntityPool<,>'' could not be
+        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:53)Error'
+      - 'error CS0246: The type or namespace name ''IEntityPool<,>'' could not be
+        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:78)Error'
+      - 'error CS0246: The type or namespace name ''IEntityPool<,>'' could not be
+        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:104)Error'
+      - 'error CS0246: The type or namespace name ''IEntityPool<,>'' could not be
+        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:161)Error'
+      - 'error CS0246: The type or namespace name ''UniTask'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:128)Error'
+      - 'error CS0246: The type or namespace name ''IEntityPool<,>'' could not be
+        found (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:27)Error'
+      - 'error CS0538: ''IEntityPool'' in explicit interface declaration is not an
+        interfaceUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:29)Error'
+      - 'error CS0246: The type or namespace name ''UniTask<>'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:43)Error'
+      - 'error CS0538: ''IEntityPool<TKey, TValue>'' in explicit interface declaration
+        is not an interfaceUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:43)Error'
+      - 'error CS0538: ''IEntityPool<TKey, TValue>'' in explicit interface declaration
+        is not an interfaceUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:53)Error'
+      - 'error CS0246: The type or namespace name ''UniTask<>'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:78)Error'
+      - 'error CS0538: ''IEntityPool<TKey, TValue>'' in explicit interface declaration
+        is not an interfaceUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:78)Error'
+      - 'error CS0538: ''IEntityPool<TKey, TValue>'' in explicit interface declaration
+        is not an interfaceUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:104)Error'
+      - 'error CS0538: ''IEntityPool<TKey, TValue>'' in explicit interface declaration
+        is not an interfaceUnknowClass:UnknowMethod() (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\EntityPoolBase.cs:161)Error'
+      - 'error CS0246: The type or namespace name ''Cysharp'' could not be found
+        (are you missing a using directive or an assembly reference?)UnknowClass:UnknowMethod()
+        (at C:\UnityProject\LLL\Client\Assets\Services\EntityPool\Interface\IEntityPool.cs:1)Error'
       serializeValueList:
       - count: 1
       - count: 1
@@ -2148,24 +2088,6 @@ MonoBehaviour:
       - count: 1
       - count: 1
       - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
       - count: 2
       - count: 2
       - count: 1
@@ -2177,143 +2099,197 @@ MonoBehaviour:
       - count: 1
       - count: 1
       - count: 1
+      - count: 114
+      - count: 43
       - count: 1
       - count: 1
+      - count: 7
+      - count: 7
+      - count: 23
+      - count: 4
+      - count: 1
+      - count: 9
+      - count: 4
+      - count: 4
+      - count: 4
+      - count: 4
+      - count: 4
+      - count: 4
+      - count: 1
+      - count: 3
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
       - count: 1
       - count: 1
+      - count: 4
+      - count: 18
       - count: 1
       - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
+      - count: 2
+      - count: 2
       - count: 4
       - count: 2
       - count: 2
       - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
+      - count: 2
       - count: 1
       - count: 1
       - count: 1
-      - count: 7
-      - count: 7
+      - count: 1
+      - count: 3
+      - count: 10
+      - count: 6
+      - count: 5
+      - count: 3
+      - count: 3
+      - count: 5
+      - count: 5
+      - count: 3
+      - count: 5
+      - count: 3
+      - count: 5
+      - count: 3
+      - count: 10
+      - count: 5
+      - count: 10
       - count: 5
       - count: 5
       - count: 5
-      - count: 8
+      - count: 10
+      - count: 5
+      - count: 10
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 10
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 5
+      - count: 1
+      - count: 9
+      - count: 9
+      - count: 9
+      - count: 3
+      - count: 47
+      - count: 47
+      - count: 32
+      - count: 47
+      - count: 47
+      - count: 47
+      - count: 44
+      - count: 47
+      - count: 47
+      - count: 1
       - count: 2
       - count: 1
       - count: 1
-      - count: 2
-      - count: 2
-      - count: 2
-      - count: 2
+      - count: 1
+      - count: 1
       - count: 2
       - count: 1
-      - count: 16
+      - count: 1
+      - count: 1
+      - count: 2
+      - count: 48
       - count: 15
+      - count: 15
+      - count: 11
       - count: 1
-      - count: 3
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 1
       - count: 2
       - count: 1
       - count: 1
-      - count: 3
-      - count: 3
-      - count: 3
-      - count: 2
+      - count: 1
+      - count: 1
+      - count: 1
+      - count: 5
+      - count: 5
       - count: 4
-      - count: 2
-      - count: 2
-      - count: 8
-      - count: 31
+      - count: 4
       - count: 3
-      - count: 1
-      - count: 1
-      - count: 1
+      - count: 2
+      - count: 2
+      - count: 2
       - count: 3
-      - count: 1
-      - count: 2
-      - count: 2
-      - count: 2
-      - count: 2
-      - count: 2
-      - count: 2
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 6
-      - count: 6
-      - count: 6
-      - count: 6
-      - count: 6
-      - count: 6
-      - count: 6
-      - count: 6
-      - count: 6
-      - count: 6
-      - count: 6
-      - count: 6
-      - count: 6
-      - count: 6
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 2
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 1
-      - count: 12
-      - count: 6
-      - count: 12
-      - count: 1
+      - count: 3
+      - count: 3
+      - count: 3
+      - count: 3
+      - count: 3
+      - count: 4
+      - count: 3
+      - count: 3
+      - count: 4
+      - count: 3
+      - count: 3
       - count: 4
       - count: 3
       - count: 3
       - count: 3
-      - count: 3
-      - count: 3
-      - count: 3
-      - count: 2
       - count: 1
-      - count: 1
-      - count: 2
-      - count: 2
       logFilter:
         collapse: 0
         showTime: 1
@@ -2327,32 +2303,6 @@ MonoBehaviour:
       _analysisDataManager:
         poolInstance:
           _itemPool:
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
           - Row: 0
           - Row: 0
           - Row: 0
@@ -2467,32 +2417,6 @@ MonoBehaviour:
       _analysisDataManager:
         poolInstance:
           _itemPool:
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
           - Row: 0
           - Row: 0
           - Row: 0
@@ -2704,32 +2628,6 @@ MonoBehaviour:
           - Row: 0
           - Row: 0
           - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
         _root:
           Row: 0
     - serializeKeyList: []
@@ -2747,32 +2645,6 @@ MonoBehaviour:
       _analysisDataManager:
         poolInstance:
           _itemPool:
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
-          - Row: 0
           - Row: 0
           - Row: 0
           - Row: 0
@@ -2901,9 +2773,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 720
+    x: 742
     y: 73
-    width: 298
+    width: 240
     height: 918
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -2918,23 +2790,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 867e0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 5448ffff564bffff604bffff824bffff1469ffff8c6cffffae6cffff2ea8ffffaaa8ffffb4a8ffffd6a8ffffeab5ffff60b8ffff6ab8ffff8cb8ffffa0bfffffeec1ffff02c2ffff16c2ffff20c2ffff34c2ffff42c2ffff6ed3ffff9ad3ffff20d9ffff12f6fffff4ffffff
+      m_ExpandedIDs: 060affff1811ffffb816ffff8e2bffffa46bffff3eadffff58adffff72b1ffff94b1ffff5ab9ffff9eb9ffffdab9ffff12baffff4cbdffff60bdffff74bdffff7ebdffffa0bdffff16c5ffff96d0ffffb4d0ffffc8d0ffffdcd0ffffe6d0ffff08d1ffffb0dcfffff6dcffffa8e0ffffd4e0ffff62eaffffa8eaffffdeedfffff2edffff06eeffff32eeffff14fbfffff4ffffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: MainView(Clone)
-        m_OriginalName: MainView(Clone)
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -16480
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 11}
       m_SearchString: 
@@ -2965,9 +2837,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1020
+    x: 984
     y: 73
-    width: 537
+    width: 484
     height: 918
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -2980,7 +2852,7 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_SearchFilter:
-    m_NameFilter: ISubViewLocator
+    m_NameFilter: 
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -2990,38 +2862,38 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/HotUpdate/Scripts/Window/Check
+    - Assets/HotUpdate/Scripts/EntityPool/Pool/Base
     m_Globs: []
-    m_OriginalText: ISubViewLocator
+    m_OriginalText: 
     m_ImportLogFlags: 0
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/HotUpdate/Scripts/Window/Check
+  - Assets/HotUpdate/Scripts/EntityPool/Pool/Base
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\UnityProject\LLL\Client
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 198}
-    m_SelectedIDs: 18790000
-    m_LastClickedID: 31000
-    m_ExpandedIDs: 000000003e77000040770000427700004477000046770000487700004a7700004c7700004e77000050770000527700005477000056770000587700005a7700005c7700005e77000060770000627700006477000066770000687700006a7700006c7700006e77000070770000727700007477000076770000787700007a7700007c7700007e77000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 338}
+    m_SelectedIDs: f8810000
+    m_LastClickedID: 33272
+    m_ExpandedIDs: 00000000587300005a7300005c7300005e73000060730000627300006473000066730000687300006a7300006c7300006e73000070730000727300007473000076730000787300007a7300007c7300007e73000080730000827300008473000086730000887300008a7300008c7300008e73000090730000927300009473000096730000987300003c75000052750000e27b0000007f0000347f000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Animation
-      m_OriginalName: Animation
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 31036
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 12}
     m_SearchString: 
@@ -3035,7 +2907,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003e77000040770000427700004477000046770000487700004a7700004c7700004e77000050770000527700005477000056770000587700005a7700005c7700005e77000060770000627700006477000066770000687700006a7700006c7700006e77000070770000727700007477000076770000787700007a7700007c7700007e770000
+    m_ExpandedIDs: 00000000587300005a7300005c7300005e73000060730000627300006473000066730000687300006a7300006c7300006e73000070730000727300007473000076730000787300007a7300007c7300007e73000080730000827300008473000086730000887300008a7300008c7300008e7300009073000092730000947300009673000098730000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -3066,15 +2938,15 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: d2630000785600007c610000c86100002c9d00009aa20000a6a20000aaa20000f447000060810000b464000038680000526800003c6b00001e68000062670000146500000a6e0000e46d00000e4f0000e2c600001e7a000002700000ac6b00003c700000000000007e7000001a72000042760000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: ForeverFalseCheck
-      m_OriginalName: ForeverFalseCheck
+      m_Name: EntityPoolBase
+      m_OriginalName: EntityPoolBase
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 34018
+      m_UserData: 33248
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -3112,9 +2984,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1559
+    x: 1470
     y: 73
-    width: 360
+    width: 449
     height: 918
   m_SerializedDataModeController:
     m_DataMode: 0

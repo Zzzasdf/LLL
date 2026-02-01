@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using UnityEngine;
 
-public class MainView : ViewBase<MainViewModel>
+public class MainView : ViewEntityBase<MainViewModel>
 {
     [SerializeField] private PhotographyLoader photographyLoader;
 

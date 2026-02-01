@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public interface IViewConfigure
 {
-    void AddLayer(ViewLayer viewLayer);
+    void AddViewLayer(ViewLayer viewLayer);
     bool TryGetSubViewConfigures(out List<ISubViewConfigure> subViewConfigures);
 
     bool TryGetViewCheck(out IViewCheck viewCheck);
@@ -12,5 +13,5 @@ public interface IViewConfigure
     ViewLayer GetViewLayer();
     Type GetViewType();
     
-    SubViewCollect GetSubViewDisplay();
+    ISubViewLayerLocator AddSubViewsLocator(GameObject goMainView);
 }

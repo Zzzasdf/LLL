@@ -45,7 +45,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5284201028899895369}
   - component: {fileID: 5194969064438342418}
-  - component: {fileID: 3832956555438755971}
+  - component: {fileID: 2534566892761852593}
   m_Layer: 5
   m_Name: MainView
   m_TagString: Untagged
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   photographyLoader: {fileID: 8707921601831251291}
---- !u!114 &3832956555438755971
+--- !u!114 &2534566892761852593
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,10 +97,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5352653147464178677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf426b212e107942bc495464db94682, type: 3}
+  m_Script: {fileID: 11500000, guid: e1c9b7bed7699234c81379b1e26401b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rtPanelParent: {fileID: 6592632333932194664}
+  rtParent: {fileID: 6592632333932194664}
 --- !u!1 &7767866216701307563
 GameObject:
   m_ObjectHideFlags: 0

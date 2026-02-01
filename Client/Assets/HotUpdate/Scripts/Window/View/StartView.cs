@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartView : ViewBase<StartViewModel>
+public class StartView : ViewEntityBase<StartViewModel>
 {
     [SerializeField] private Button btnStart;
     [SerializeField] private Button btnShaderExamples;

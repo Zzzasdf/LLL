@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ActivityView : ViewBase<ActivityViewModel>
+public class ActivityView : ViewEntityBase<ActivityViewModel>
 {
     [SerializeField] private Button btnClose;
     

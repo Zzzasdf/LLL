@@ -47,45 +47,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Services\Window\Interface\Configure\ViewConfigure.cs" />
-    <Compile Include="Assets\Services\Window\Interface\ViewService.MainView.cs" />
-    <Compile Include="Assets\Services\Window\Interface\Locator\ISubViewCollectLocator.cs" />
-    <Compile Include="Assets\Services\Window\Interface\ExServiceCollectionServiceExtensions.cs" />
+    <Compile Include="Assets\Services\Window\Interface\IViewLoader.cs" />
     <Compile Include="Assets\Services\Window\Interface\IViewModel.cs" />
-    <Compile Include="Assets\Services\Window\Interface\Configure\LayerConfigures.cs" />
+    <Compile Include="Assets\Services\Window\Interface\ISubViewPool.cs" />
+    <Compile Include="Assets\Services\Window\Interface\ISubViewLoader.cs" />
+    <Compile Include="Assets\Services\Window\Interface\IViewPool.cs" />
+    <Compile Include="Assets\Services\Window\Interface\View\Base\Locator\IViewLocator.cs" />
     <Compile Include="Assets\Services\Window\Interface\Animation\IAnimation.cs" />
-    <Compile Include="Assets\Services\Window\Interface\ViewService.cs" />
-    <Compile Include="Assets\Services\Window\Interface\Locator\IUICanvasLocator.cs" />
-    <Compile Include="Assets\Services\Window\Interface\SubView\Selector\SubViewSelectorBase.cs" />
-    <Compile Include="Assets\Services\Window\Interface\Configure\ILayerConfigure.cs" />
-    <Compile Include="Assets\Services\Window\Interface\Locator\ILayerLocator.cs" />
-    <Compile Include="Assets\Services\Window\Interface\Container\ISubViewCollectContainer.cs" />
+    <Compile Include="Assets\Services\Window\Interface\SubView\Layer\Locator\ISubViewLayerLocator.cs" />
     <Compile Include="Assets\Services\Window\Interface\ViewState.cs" />
     <Compile Include="Assets\Services\Window\Interface\SubViewShow.cs" />
     <Compile Include="Assets\Services\Window\Interface\IView.cs" />
-    <Compile Include="Assets\Services\Window\Interface\Configure\ISubViewCollectConfigures.cs" />
-    <Compile Include="Assets\Services\Window\Interface\Locator\IViewLocator.cs" />
-    <Compile Include="Assets\Services\Window\Interface\Configure\ISubViewDisplayConfigure.cs" />
     <Compile Include="Assets\Services\Window\Interface\Configure\ViewConfigures.cs" />
-    <Compile Include="Assets\Services\Window\Interface\Configure\LayerConfigure.cs" />
     <Compile Include="Assets\Services\Window\Interface\Configure\SubViewConfigure.cs" />
+    <Compile Include="Assets\Services\Window\Interface\View\Layer\Container\IViewLayerContainer.cs" />
+    <Compile Include="Assets\Services\Window\Interface\DataStructures\SerializableStack.cs" />
     <Compile Include="Assets\Services\Window\Interface\ViewEventDefine.cs" />
-    <Compile Include="Assets\Services\Window\Interface\Configure\ILayerConfigures.cs" />
-    <Compile Include="Assets\Services\Window\Interface\Locator\ISubViewsLocator.cs" />
     <Compile Include="Assets\Services\Window\Interface\IViewService.cs" />
+    <Compile Include="Assets\Services\Window\Interface\Check\IViewCheck.cs" />
     <Compile Include="Assets\Services\Window\Interface\ViewLayer.cs" />
-    <Compile Include="Assets\Services\Window\Interface\SubViewCollect.cs" />
-    <Compile Include="Assets\Services\Window\Interface\Configure\SubViewCollectConfigures.cs" />
-    <Compile Include="Assets\Services\Window\Interface\SubView\MultiOpener\SubViewMultiOpenerBase.cs" />
-    <Compile Include="Assets\Services\Window\Interface\Container\ILayerContainer.cs" />
+    <Compile Include="Assets\Services\Window\Interface\IEntityLocator.cs" />
+    <Compile Include="Assets\Services\Window\Interface\ViewModelGenerator.cs" />
     <Compile Include="Assets\Services\Window\Interface\Configure\ISubViewConfigure.cs" />
-    <Compile Include="Assets\Services\Window\Interface\SubView\Selector\SubViewSelectorItemBase.cs" />
-    <Compile Include="Assets\Services\Window\Interface\Configure\SubViewCollectConfigure.cs" />
+    <Compile Include="Assets\Services\Window\Interface\DataStructures\SerializableHashSet.cs" />
     <Compile Include="Assets\Services\Window\Interface\Configure\IViewConfigures.cs" />
-    <Compile Include="Assets\Services\Window\Interface\ViewService.SubView.cs" />
-    <Compile Include="Assets\Services\Window\Interface\IViewCheck.cs" />
-    <Compile Include="Assets\Services\Window\Interface\Loader\IViewLoader.cs" />
-    <Compile Include="Assets\Services\Window\Interface\MainViewCheckGenerator.cs" />
+    <Compile Include="Assets\Services\Window\Interface\View\Layer\Locator\IViewLayerLocator.cs" />
+    <Compile Include="Assets\Services\Window\Interface\DataStructures\SerializableDictionary.cs" />
+    <Compile Include="Assets\Services\Window\Interface\SubView\Base\Locator\ISubViewLocator.cs" />
     <Compile Include="Assets\Services\Window\Interface\Configure\IViewConfigure.cs" />
+    <Compile Include="Assets\Services\Window\Interface\SubView\Layer\Container\ISubViewLayerContainer.cs" />
     <None Include="Assets\Services\Window\Interface\IWindowService.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>C:\UnityEditor\2022.3.15f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -791,9 +781,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="IDataService.csproj">
-      <Project>{2eb723c0-1d8e-ee80-fb8d-f5f14ef0485e}</Project>
-      <Name>IDataService</Name>
+    <ProjectReference Include="IEntityPoolService.csproj">
+      <Project>{9c68430f-ca6f-7f15-73bf-1d92a6ee0772}</Project>
+      <Name>IEntityPoolService</Name>
     </ProjectReference>
     <ProjectReference Include="LoggerService.csproj">
       <Project>{a6ac2782-fac7-1774-a263-5c30813f604b}</Project>
