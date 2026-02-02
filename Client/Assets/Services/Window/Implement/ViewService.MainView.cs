@@ -10,35 +10,34 @@ public partial class ViewService:
 {
     private async UniTask<bool> ShowAsync_Internal(Type type)
     {
-        if (viewShows.TryGetValue(type, out IViewConfigure viewConfigure))
+        if (!viewShows.TryGetValue(type, out IViewConfigure viewConfigure))
         {
-            if (viewConfigure.TryGetViewCheck(out IViewCheck viewCheck))
+            return false;
+        }
+        if (viewConfigure.TryGetViewCheck(out IViewCheck viewCheck))
+        {
+            if (!viewCheck.IsFuncOpenWithTip())
             {
-                if (!viewCheck.IsFuncOpenWithTip())
-                {
-                    return false;
-                }
-            }
-            if (viewConfigure.TryGetSubViewConfigures(out List<ISubViewConfigure> subViewConfigures))
-            {
-                for (int i = 0; i < subViewConfigures.Count; i++)
-                {
-                    ISubViewConfigure subViewConfigure = subViewConfigures[i];
-                    if (!subViewConfigure.TryGetViewCheck(out IViewCheck subViewCheck)
-                        || subViewCheck.IsFuncOpen())
-                    {
-                        IView view = await ShowMainAsync_Internal(viewConfigure);
-                        AddSubViewLocator(view, viewConfigure);
-                        return true;
-                    }
-                }
-            }
-            else
-            {
-                await ShowMainAsync_Internal(viewConfigure);
+                return false;
             }
         }
-        return false;
+        if (viewConfigure.TryGetSubViewConfigures(out List<ISubViewConfigure> subViewConfigures))
+        {
+            for (int i = 0; i < subViewConfigures.Count; i++)
+            {
+                ISubViewConfigure subViewConfigure = subViewConfigures[i];
+                if (!subViewConfigure.TryGetViewCheck(out IViewCheck subViewCheck)
+                    || subViewCheck.IsFuncOpen())
+                {
+                    IView view = await ShowMainAsync_Internal(viewConfigure);
+                    AddSubViewLocator(view, viewConfigure);
+                    return true;
+                }
+            }
+            return false;
+        }
+        await ShowMainAsync_Internal(viewConfigure);
+        return true;
     }
     
     private async UniTask<IView> ShowMainAsync_Internal(IViewConfigure viewConfigure)

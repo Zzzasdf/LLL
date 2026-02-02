@@ -13,5 +13,5 @@ public interface IViewConfigure
     ViewLayer GetViewLayer();
     Type GetViewType();
     
-    ISubViewLayerLocator AddSubViewsLocator(GameObject goMainView);
+    ISubViewLayerLocator GetOrAddSubViewsLocator(GameObject goMainView);
 }

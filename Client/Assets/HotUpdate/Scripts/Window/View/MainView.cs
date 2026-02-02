@@ -1,9 +1,11 @@
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainView : ViewEntityBase<MainViewModel>
 {
     [SerializeField] private PhotographyLoader photographyLoader;
+    [SerializeField] private Button btnClose;
 
     public override void InitUI(IViewCheck viewCheck)
     {
@@ -17,9 +19,11 @@ public class MainView : ViewEntityBase<MainViewModel>
 
     public override void BindUI()
     {
+        btnClose.onClick.AddListener(() => viewModel.CloseCommand.Execute(this));
     }
     public override void UnBindUI()
     {
+        btnClose.onClick.RemoveAllListeners();
     }
     
     private void PropertyChanged(object sender, PropertyChangedEventArgs e)

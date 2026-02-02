@@ -131,5 +131,6 @@ public class SubViewLayerSelectLocatorBase<TSubViewLayerContainer, TSubViewLoade
             }
         }
         indexUniqueIds.Clear();
+        showIndex = -1;
     }
 }

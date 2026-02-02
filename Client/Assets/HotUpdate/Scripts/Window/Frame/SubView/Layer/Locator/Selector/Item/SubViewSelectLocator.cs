@@ -19,7 +19,7 @@ public class SubViewSelectLocator: MonoBehaviour, ISubViewSelectLocator
         {
             for (int i = btnSelects.Count - 1; i >= 0; i--)
             {
-                Destroy(btnSelects[i]);
+                Destroy(btnSelects[i].gameObject);
             }
             btnSelects.Clear();
         }

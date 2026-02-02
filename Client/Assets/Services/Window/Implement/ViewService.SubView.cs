@@ -6,32 +6,32 @@ public partial class ViewService:
 {
     private async UniTask<bool> ShowAsync_Internal(SubViewShow subViewShow)
     {
-        if (subViewShows.TryGetValue(subViewShow, out IViewConfigure viewConfigure))
+        if (!subViewShows.TryGetValue(subViewShow, out IViewConfigure viewConfigure))
         {
-            if (viewConfigure.TryGetSubViewCheck(subViewShow, out IViewCheck subViewCheck))
-            {
-                if (!subViewCheck.IsFuncOpenWithTip())
-                {
-                    return false;
-                }
-            }
-            if (viewConfigure.TryGetViewCheck(out IViewCheck viewCheck))
-            {
-                if (!viewCheck.IsFuncOpenWithTip())
-                {
-                    return false;
-                }
-            }
-            IView view = await ShowMainAsync_Internal(viewConfigure);
-            AddSubViewLocator(view, viewConfigure, subViewShow);
-            return true;
+            return false;
         }
-        return false;
+        if (viewConfigure.TryGetSubViewCheck(subViewShow, out IViewCheck subViewCheck))
+        {
+            if (!subViewCheck.IsFuncOpenWithTip())
+            {
+                return false;
+            }
+        }
+        if (viewConfigure.TryGetViewCheck(out IViewCheck viewCheck))
+        {
+            if (!viewCheck.IsFuncOpenWithTip())
+            {
+                return false;
+            }
+        }
+        IView view = await ShowMainAsync_Internal(viewConfigure);
+        AddSubViewLocator(view, viewConfigure, subViewShow);
+        return true;
     }
 
     private void AddSubViewLocator(IView view, IViewConfigure viewConfigure, SubViewShow? firstSubViewShow = null)
     {
-        ISubViewLayerLocator subViewLayerLocator = viewConfigure.AddSubViewsLocator(view.GameObject());
+        ISubViewLayerLocator subViewLayerLocator = viewConfigure.GetOrAddSubViewsLocator(view.GameObject());
         subViewLayerLocator.Init(viewConfigure, firstSubViewShow);
     }
     

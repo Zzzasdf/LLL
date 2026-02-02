@@ -74,5 +74,13 @@ public class ViewConfigure: IViewConfigure
     ViewLayer IViewConfigure.GetViewLayer() => viewLayer;
     Type IViewConfigure.GetViewType() => type;
     
-    ISubViewLayerLocator IViewConfigure.AddSubViewsLocator(GameObject goMainView) => (ISubViewLayerLocator)goMainView.AddComponent(subViewsLocatorType);
+    ISubViewLayerLocator IViewConfigure.GetOrAddSubViewsLocator(GameObject goMainView)
+    {
+        ISubViewLayerLocator subViewLayerLocator = (ISubViewLayerLocator)goMainView.GetComponent(subViewsLocatorType);
+        if (subViewLayerLocator == null)
+        {
+            subViewLayerLocator = (ISubViewLayerLocator)goMainView.AddComponent(subViewsLocatorType);
+        }
+        return subViewLayerLocator;
+    }
 }
