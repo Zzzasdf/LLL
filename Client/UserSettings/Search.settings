@@ -11,6 +11,9 @@ scopes = {
 	"last_search.EC64999F" = ""
 	"OpenInspectorPreview.EC64999F" = "0"
 	"currentGroup.EC64999F" = "all"
+	"last_search.195A2723" = "ViewLayerDri"
+	"OpenInspectorPreview.195A2723" = "0"
+	"currentGroup.195A2723" = "all"
 }
 providers = {
 	performance = {
@@ -62,6 +65,7 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"ViewLayerDri"
 ]
 searchItemFavorites = [
 ]

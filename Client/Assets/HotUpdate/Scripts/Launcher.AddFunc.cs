@@ -6,6 +6,14 @@ using UnityEngine;
 public partial class Launcher
 {
 #region AddPool
+    private static Type ReusableDisposable<TReusable>()
+        where TReusable: class, IReusableDisposable, new()
+    {
+        return typeof(TReusable);
+    }
+#endregion
+    
+#region AddEntityPool
     private static TEntityPool EntityPool<TEntityPool>(IServiceProvider sp, EntityPoolType entityPoolType,
         int poolCapacity, int preDestroyCapacity, int preDestroyMillisecondsDelay) 
         where TEntityPool : MonoBehaviour, IEntityPool
@@ -22,56 +30,73 @@ public partial class Launcher
 #endregion
     
 #region AddView
-    private static ViewConfigure View<TView, TViewModel>(IServiceCollection services) 
+    #region Branch
+    private static ViewConfigure View<TView, TViewModel, TViewDriver, TViewLayerCore, TViewLayerDriver>(IServiceCollection services, ViewType viewType, List<IViewConfigure> subViewConfigures) 
         where TView : ViewEntityBase<TViewModel>, IView 
         where TViewModel: class, IViewModel
+        where TViewDriver: MonoBehaviour, IViewDriver
+        where TViewLayerCore: class, IViewLayerCore
+        where TViewLayerDriver: MonoBehaviour, IViewLayerDriver
+    {
+        return View<TView, TViewModel, ViewLoader, TViewDriver, TViewLayerCore, TViewLayerDriver>(services, viewType, null, subViewConfigures);
+    }
+    private static ViewConfigure View<TView, TViewModel, TViewLoader, TViewDriver, TViewLayerCore, TViewLayerDriver>(IServiceCollection services, ViewType viewType, List<IViewConfigure> subViewConfigures) 
+        where TView : ViewEntityBase<TViewModel>, IView 
+        where TViewModel: class, IViewModel
+        where TViewLoader: class, IViewLoader
+        where TViewDriver: MonoBehaviour, IViewDriver
+        where TViewLayerCore: class, IViewLayerCore
+        where TViewLayerDriver: MonoBehaviour, IViewLayerDriver
+    {
+        return View<TView, TViewModel, TViewLoader, TViewDriver, TViewLayerCore, TViewLayerDriver>(services, viewType, null, subViewConfigures);
+    }
+    private static ViewConfigure View<TView, TViewModel, TViewDriver, TViewLayerCore, TViewLayerDriver>(IServiceCollection services, ViewType viewType, IViewCheck viewCheck, List<IViewConfigure> subViewConfigures)
+        where TView : ViewEntityBase<TViewModel>, IView
+        where TViewModel : class, IViewModel
+        where TViewDriver : MonoBehaviour, IViewDriver
+        where TViewLayerCore : class, IViewLayerCore
+        where TViewLayerDriver : MonoBehaviour, IViewLayerDriver
+    {
+        return View<TView, TViewModel, ViewLoader, TViewDriver, TViewLayerCore, TViewLayerDriver>(services, viewType, viewCheck, subViewConfigures);
+    }
+    private static ViewConfigure View<TView, TViewModel, TViewLoader, TViewDriver, TViewLayerCore, TViewLayerDriver>(IServiceCollection services, ViewType viewType, IViewCheck viewCheck, List<IViewConfigure> subViewConfigures) 
+        where TView : ViewEntityBase<TViewModel>, IView 
+        where TViewModel: class, IViewModel
+        where TViewLoader: class, IViewLoader
+        where TViewDriver: MonoBehaviour, IViewDriver
+        where TViewLayerCore: class, IViewLayerCore
+        where TViewLayerDriver: MonoBehaviour, IViewLayerDriver
     {
         Type type = typeof(TView);
         services.AddTransient<TViewModel>();
-        return new ViewConfigure(type);
+        Type viewLoaderType = typeof(TViewLoader);
+        Type viewDriverType = typeof(TViewDriver);
+        Type viewLayerCoreType = typeof(TViewLayerCore);
+        Type viewLayerDriverType = typeof(TViewLayerDriver);
+        return new ViewConfigure(type, viewType, viewCheck, viewLoaderType, viewDriverType, viewLayerCoreType, viewLayerDriverType, subViewConfigures);
     }
-    private static ViewConfigure View<TView, TViewModel>(IServiceCollection services, IViewCheck viewCheck) 
-        where TView : ViewEntityBase<TViewModel>, IView 
-        where TViewModel: class, IViewModel
-    {
-        Type type = typeof(TView);
-        services.AddTransient<TViewModel>();
-        return new ViewConfigure(type, viewCheck);
-    }
-#endregion
+    #endregion
 
-#region AddSubView
-    private static SubViewConfigure SubView<TView, TViewModel>(IServiceCollection services) 
+    #region Leaf
+    private static ViewConfigure View<TView, TViewModel, TViewDriver>(IServiceCollection services, ViewType viewType, IViewCheck viewCheck = null) 
         where TView : ViewEntityBase<TViewModel>, IView 
         where TViewModel: class, IViewModel
+        where TViewDriver: MonoBehaviour, IViewDriver
     {
-        Type type = typeof(TView);
-        services.AddTransient<TViewModel>();
-        return new SubViewConfigure(type);
+        return View<TView, TViewModel, ViewLoader, TViewDriver>(services, viewType, viewCheck);
     }
-    private static SubViewConfigure SubView<TView, TViewModel>(IServiceCollection services, SubViewShow subViewShow) 
-        where TView : IView 
+    private static ViewConfigure View<TView, TViewModel, TViewLoader, TViewDriver>(IServiceCollection services, ViewType viewType, IViewCheck viewCheck = null) 
+        where TView : ViewEntityBase<TViewModel>, IView 
         where TViewModel: class, IViewModel
+        where TViewLoader: class, IViewLoader
+        where TViewDriver: MonoBehaviour, IViewDriver
     {
         Type type = typeof(TView);
         services.AddTransient<TViewModel>();
-        return new SubViewConfigure(type, subViewShow);
+        Type viewLoaderType = typeof(TViewLoader);
+        Type viewDriverType = typeof(TViewDriver);
+        return new ViewConfigure(type, viewType, viewCheck, viewLoaderType, viewDriverType, null, null, null);
     }
-    private static SubViewConfigure SubView<TView, TViewModel>(IServiceCollection services, IViewCheck viewCheck) 
-        where TView : IView 
-        where TViewModel: class, IViewModel
-    {
-        Type type = typeof(TView);
-        services.AddTransient<TViewModel>();
-        return new SubViewConfigure(type, viewCheck);
-    }
-    private static SubViewConfigure SubView<TView, TViewModel>(IServiceCollection services, SubViewShow subViewShow, IViewCheck viewCheck) 
-        where TView : IView 
-        where TViewModel: class, IViewModel
-    {
-        Type type = typeof(TView);
-        services.AddTransient<TViewModel>();
-        return new SubViewConfigure(type, subViewShow, viewCheck);
-    }
+    #endregion
 #endregion
 }

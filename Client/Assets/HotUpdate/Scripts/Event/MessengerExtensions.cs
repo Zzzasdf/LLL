@@ -13,15 +13,11 @@ public static class MessengerExtensions
 #endregion
     
 #region Window
-    public static async UniTask<bool> SendViewShowAsync<TView>(this IMessenger messenger) where TView : class, IView
+    public static async UniTask<bool> SendViewShowAsync(this IMessenger messenger, ViewType viewType)
     {
-        return await messenger.Send(new ViewShowAsyncRequestEvent(typeof(TView)));
+        return await messenger.Send(new ViewShowAsyncRequestEvent(viewType));
     }
-    public static async UniTask<bool> SendViewSubShowAsync(this IMessenger messenger, SubViewShow subViewShow)
-    {
-        return await messenger.Send(new ViewSubShowAsyncRequestEvent(subViewShow));
-    }
-    public static async UniTask<bool> SendViewHideAsync(this IMessenger messenger, IView view)
+    public static async UniTask<bool> SendViewHideAsync(this IMessenger messenger, ViewEntityBase view)
     {
         return await messenger.Send(new ViewHideAsyncRequestEvent(view));
     }
@@ -32,7 +28,7 @@ public static class MessengerExtensions
 
     public static async UniTask<bool> SendViewConfirmAgainShowAsync(this IMessenger messenger, string content, Func<UniTask> confirmFunc)
     {
-        bool result = await messenger.SendViewShowAsync<ConfirmAgainView>();
+        bool result = await messenger.SendViewShowAsync(ViewType.ConfirmAgainView);
         if (!result) return false;
         messenger.Send(new EventDefine.ConfirmAgainViewEvent(content, confirmFunc));
         return true;

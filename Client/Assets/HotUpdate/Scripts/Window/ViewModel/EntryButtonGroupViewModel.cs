@@ -9,6 +9,6 @@ public partial class EntryButtonGroupViewModel : ObservableObject, IViewModel
     private void ShowActivity() => ShowActivityAsync().Forget();
     private async UniTask ShowActivityAsync()
     {
-        await WeakReferenceMessenger.Default.SendViewShowAsync<ActivityView>();
+        await WeakReferenceMessenger.Default.SendViewShowAsync(ViewType.ActivityView);
     }
 }

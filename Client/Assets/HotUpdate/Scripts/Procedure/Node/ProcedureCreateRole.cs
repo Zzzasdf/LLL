@@ -6,6 +6,6 @@ public class ProcedureCreateRole : IProcedure
     async UniTask IProcedure.Run()
     {
         WeakReferenceMessenger.Default.SendViewAllHideAsync();
-        await WeakReferenceMessenger.Default.SendViewShowAsync<CreateRoleView>();
+        await WeakReferenceMessenger.Default.SendViewShowAsync(ViewType.CreateRoleView);
     }
 }

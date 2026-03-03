@@ -3,8 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Cysharp.Threading.Tasks;
 
-public partial class SelectRoleViewModel : ObservableRecipient,
-    IViewModel,
+public partial class SelectRoleViewModel : ObservableRecipient, IViewModel,
     IRecipient<EventDefine.SelectedRoleArchiveEvent>
 {
     private readonly AccountModel accountModel;
@@ -21,8 +20,8 @@ public partial class SelectRoleViewModel : ObservableRecipient,
     }
 
     [RelayCommand]
-    private void Close(IView view) => CloseAsync(view).Forget();
-    private async UniTask CloseAsync(IView view)
+    private void Close(ViewEntityBase view) => CloseAsync(view).Forget();
+    private async UniTask CloseAsync(ViewEntityBase view)
     {
         await WeakReferenceMessenger.Default.SendViewHideAsync(view);
     }

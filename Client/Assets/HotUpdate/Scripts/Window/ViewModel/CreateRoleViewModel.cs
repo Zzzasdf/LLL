@@ -4,8 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Cysharp.Threading.Tasks;
 
-public partial class CreateRoleViewModel : ObservableRecipient,
-    IViewModel
+public partial class CreateRoleViewModel : ObservableRecipient, IViewModel
 {
     private AccountModel accountModel;
 
@@ -23,8 +22,8 @@ public partial class CreateRoleViewModel : ObservableRecipient,
     }
 
     [RelayCommand]
-    private void Cancel(IView view) => CancelAsync(view).Forget();
-    private async UniTask CancelAsync(IView view)
+    private void Cancel(ViewEntityBase view) => CancelAsync(view).Forget();
+    private async UniTask CancelAsync(ViewEntityBase view)
     {
         await WeakReferenceMessenger.Default.SendViewHideAsync(view);
     }

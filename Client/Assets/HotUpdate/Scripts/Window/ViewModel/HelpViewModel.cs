@@ -6,8 +6,8 @@ using Cysharp.Threading.Tasks;
 public partial class HelpViewModel : ObservableObject, IViewModel
 {
     [RelayCommand]
-    private void Close(IView view) => CloseAsync(view).Forget();
-    private async UniTask CloseAsync(IView view)
+    private void Close(ViewEntityBase view) => CloseAsync(view).Forget();
+    private async UniTask CloseAsync(ViewEntityBase view)
     {
         await WeakReferenceMessenger.Default.SendViewHideAsync(view);
     }

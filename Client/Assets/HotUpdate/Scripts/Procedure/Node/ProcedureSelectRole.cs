@@ -6,6 +6,6 @@ public class ProcedureSelectRole : IProcedure
     async UniTask IProcedure.Run()
     {
         WeakReferenceMessenger.Default.SendViewAllHideAsync();
-        await WeakReferenceMessenger.Default.SendViewShowAsync<SelectRoleView>();
+        await WeakReferenceMessenger.Default.SendViewShowAsync(ViewType.SelectRoleView);
     }
 }

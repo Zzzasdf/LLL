@@ -27,13 +27,13 @@ public partial class StartViewModel : ObservableObject, IViewModel
     [RelayCommand]
     private async Task Settings()
     {
-        await WeakReferenceMessenger.Default.SendViewShowAsync<SettingsView>();
+        await WeakReferenceMessenger.Default.SendViewShowAsync(ViewType.SettingsView);
     }
 
     [RelayCommand]
     private async Task Help()
     {
-        await WeakReferenceMessenger.Default.SendViewShowAsync<HelpView>();
+        await WeakReferenceMessenger.Default.SendViewShowAsync(ViewType.HelpView);
     }
 
     [RelayCommand]
@@ -43,8 +43,8 @@ public partial class StartViewModel : ObservableObject, IViewModel
     }
     
     [RelayCommand]
-    private void Close(IView view) => CloseAsync(view).Forget();
-    private async UniTask CloseAsync(IView view)
+    private void Close(ViewEntityBase view) => CloseAsync(view).Forget();
+    private async UniTask CloseAsync(ViewEntityBase view)
     {
         await WeakReferenceMessenger.Default.SendViewHideAsync(view);
     }

@@ -7,6 +7,6 @@ public class ProcedureMain : IProcedure
     {
         WeakReferenceMessenger.Default.SendViewAllHideAsync();
         LLogger.FrameWarning("进入 Main 场景");
-        await WeakReferenceMessenger.Default.SendViewShowAsync<MainView>();
+        await WeakReferenceMessenger.Default.SendViewShowAsync(ViewType.MainView);
     }
 }

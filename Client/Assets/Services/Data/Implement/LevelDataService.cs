@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Cysharp.Threading.Tasks;
-using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 
 public class LevelDataService
@@ -43,7 +42,7 @@ public class LevelDataService
         try
         {
             string jsonString = File.ReadAllText(filePath);
-            T result = JsonConvert.DeserializeObject<T>(jsonString);
+            T result = JsonUtility.FromJson<T>(jsonString);
             levelCache.Add(type, result);
             return result;
         }
@@ -59,7 +58,7 @@ public class LevelDataService
     
     public async UniTask<bool> SaveAsync(Type type, object data)
     {
-        string jsonString = JsonConvert.SerializeObject(data, Formatting.Indented);
+        string jsonString = JsonUtility.ToJson(data);
         try
         {
             string filePath = Path.Combine(folderFunc.Invoke(), $"{type.Name}.json");

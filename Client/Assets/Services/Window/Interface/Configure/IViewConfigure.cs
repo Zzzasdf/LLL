@@ -1,17 +1,15 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 public interface IViewConfigure
 {
-    void AddViewLayer(ViewLayer viewLayer);
-    bool TryGetSubViewConfigures(out List<ISubViewConfigure> subViewConfigures);
-
-    bool TryGetViewCheck(out IViewCheck viewCheck);
-    bool TryGetSubViewCheck(SubViewShow subViewShow, out IViewCheck viewCheck);
-
-    ViewLayer GetViewLayer();
-    Type GetViewType();
+    public Type Type { get; }
+    public ViewType ViewType { get; }
+    public IViewCheck ViewCheck { get; }
+    public Type ViewLoaderType { get; }
+    public Type ViewDriverType { get; }
     
-    ISubViewLayerLocator GetOrAddSubViewsLocator(GameObject goMainView);
+    public Type SubViewLayerCoreType { get; }
+    public Type SubViewLayerDriverType { get; }
+    public List<IViewConfigure> SubViewConfigures { get; }
 }

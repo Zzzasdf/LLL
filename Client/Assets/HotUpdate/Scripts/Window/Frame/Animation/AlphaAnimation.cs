@@ -1,9 +1,9 @@
-using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class AlphaAnimation : UIAnimation
 {
     [Range(0f, 1f)] public float from = 1f;
@@ -17,7 +17,10 @@ public class AlphaAnimation : UIAnimation
         {
             if (_canvasGroup == null)
             {
-                _canvasGroup = GetComponent<CanvasGroup>();
+                _canvasGroup = gameObject.GetComponent<CanvasGroup>();
+                _canvasGroup.interactable = true;
+                _canvasGroup.blocksRaycasts = true;
+                _canvasGroup.alpha = 1f;
             }
             return _canvasGroup;
         }

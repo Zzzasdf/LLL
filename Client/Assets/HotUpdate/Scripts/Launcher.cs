@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Messaging;
+using Cysharp.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using UnityEngine;
 
@@ -13,85 +14,97 @@ public partial class Launcher : MonoBehaviour
         serviceProvider = ConfigureServices();
         Ioc.Default.ConfigureServices(serviceProvider);
     }
-    
+
     private static IServiceProvider ConfigureServices()
     {
         var services = new ServiceCollection();
-    
+
         services.AddDataService();
         services.AddDeviceService();
         services.AddHardwareService();
 
+        services.AddPoolService(new Dictionary<IFactoryObjectPool, List<Type>>
+        {
+            [new SharedFactoryObjectPool(10)] = new List<Type>
+            {
+                ReusableDisposable<ViewAutoExpander>(),
+                // ReusableDisposable<ViewSingleResponder>(),
+                // ReusableDisposable<ViewMultiResponder>(),
+                // ReusableDisposable<ViewSelector>(),
+            }
+        });
         services.AddEntityPoolService();
-        services.AddSingleton<ViewPool>(sp => EntityPool<ViewPool>(sp, EntityPoolType.View, poolCapacity: 5, preDestroyCapacity: 10, preDestroyMillisecondsDelay: 10));
-        services.AddTransient<ViewUnitLoader>(sp => new ViewUnitLoader(sp.GetRequiredService<ViewPool>()));
-        services.AddTransient<ViewUniqueLoader>(sp => new ViewUniqueLoader(sp.GetRequiredService<ViewPool>()));
-        services.AddTransient<ViewMultipleLoader>(sp => new ViewMultipleLoader(sp.GetRequiredService<ViewPool>()));
-        services.AddSingleton<SubViewPool>(sp => EntityPool<SubViewPool>(sp, EntityPoolType.SubView, poolCapacity: 5, preDestroyCapacity: 10, preDestroyMillisecondsDelay: 10));
-        services.AddTransient<SubViewUnitLoader>(sp => new SubViewUnitLoader(sp.GetRequiredService<SubViewPool>()));
-        services.AddTransient<SubViewUniqueLoader>(sp => new SubViewUniqueLoader(sp.GetRequiredService<SubViewPool>()));
-        services.AddTransient<SubViewMultipleLoader>(sp => new SubViewMultipleLoader(sp.GetRequiredService<SubViewPool>()));
-        
-        services.AddTransient<ViewLayerUniqueContainer>();
-        services.AddTransient<ViewLayerMultipleContainer>();
-        services.AddTransient<SubViewLayerContainer>();
-        
+        {
+            services.AddSingleton<ViewLayerDriverPool>(sp => EntityPool<ViewLayerDriverPool>(sp, EntityPoolType.ViewLayerDriver, poolCapacity: 5, preDestroyCapacity: 10, preDestroyMillisecondsDelay: 10));
+            {
+                services.AddSingleton<ViewLayerDriverLoader>(sp => new ViewLayerDriverLoader(sp.GetRequiredService<ViewLayerDriverPool>()));
+            }
+            services.AddSingleton<ViewDriverPool>(sp => EntityPool<ViewDriverPool>(sp, EntityPoolType.ViewDriver, poolCapacity: 5, preDestroyCapacity: 10, preDestroyMillisecondsDelay: 10));
+            {
+                services.AddSingleton<ViewDriverLoader>(sp => new ViewDriverLoader(sp.GetRequiredService<ViewDriverPool>()));
+            }
+            services.AddSingleton<ViewPool>(sp => EntityPool<ViewPool>(sp, EntityPoolType.View, poolCapacity: 5, preDestroyCapacity: 10, preDestroyMillisecondsDelay: 10));
+            {
+                services.AddSingleton<ViewLoader>(sp => new ViewLoader(sp.GetRequiredService<ViewPool>()));
+            }
+        }
+
         services.AddWindowService(
-            new Dictionary<ViewLayer, Type>
+            View<ServiceView, ServiceViewModel, ViewDriver_RaycastBlocking, ViewAutoExpander, ViewLayerDriver>(services, ViewType.Service, new List<IViewConfigure>
             {
-                [ViewLayer.Bg] = typeof(ViewLayerBgLocator),
-                [ViewLayer.Permanent] = typeof(ViewLayerPermanentLocator),
-                [ViewLayer.FullScreen] = typeof(ViewLayerFullScreenLocator),
-                [ViewLayer.Window] = typeof(ViewLayerWindowLocator),
-                [ViewLayer.Popup] = typeof(ViewLayerPopupLocator),
-                [ViewLayer.Tip] = typeof(ViewLayerTipLocator),
-                [ViewLayer.System] = typeof(ViewLayerSystemLocator),
-            },
-            new Dictionary<ViewLayer, List<IViewConfigure>>
-            {
-                [ViewLayer.Bg] = new List<IViewConfigure>
+                View<BgView, BgViewModel, ViewDriver, ViewAutoExpander, ViewLayerDriver>(services, ViewType.Bg, new List<IViewConfigure>
                 {
-                },
-                [ViewLayer.Permanent] = new List<IViewConfigure>
+                }),
+                View<PermanentView, PermanentViewModel, ViewDriver, ViewAutoExpander, ViewLayerDriver_RaycastBlocking>(services, ViewType.Permanent, new List<IViewConfigure>
                 {
-                    View<MainView, MainViewModel>(services)
-                        .SubLayer<SubViewLayerMultiLocator>(new List<ISubViewConfigure>
-                        {
-                            SubView<MiniMapView, MiniMapViewModel>(services, SubViewShow.MiniMapView),
-                            SubView<MiniChatView, MiniChatViewModel>(services, SubViewShow.MiniChatView),
-                            SubView<EntryButtonGroupView, EntryButtonGroupViewModel>(services, SubViewShow.EntryButtonGroupView),
-                        }),
-                },
-                [ViewLayer.FullScreen] = new List<IViewConfigure>
-                {
-                    View<StartView, StartViewModel>(services),
-                    View<SelectRoleView, SelectRoleViewModel>(services),
-                    View<CreateRoleView, CreateRoleViewModel>(services),
-                    View<ActivityView, ActivityViewModel>(services)
-                        .SubLayer<SubViewLayerSelectLocator>(new List<ISubViewConfigure>
-                        {
-                            SubView<SubActivityView, SubActivityViewModel>(services, SubViewShow.SubActivity, new SubActivityCheck(1, "Activity 1")),
-                            SubView<SubActivityView, SubActivityViewModel>(services, SubViewShow.SubActivity2, new EntryNameCheck("Activity 2")),
-                        }),
-                },
-                [ViewLayer.Window] = new List<IViewConfigure>
-                {
-                },
-                [ViewLayer.Popup] = new List<IViewConfigure>
-                {
-                    View<SettingsView, SettingsViewModel>(services),
-                    View<HelpView, HelpViewModel>(services),
-                    View<ConfirmAgainView, ConfirmAgainViewModel>(services),
-                },
-                [ViewLayer.Tip] = new List<IViewConfigure>
-                {
-                },
-                [ViewLayer.System] = new List<IViewConfigure>
-                {
-                    View<LoadingView, LoadingViewModel>(services),
-                },
-            });
-        
+                    View<LoginView, LoginViewModel, ViewDriver>(services, ViewType.LoadingView),
+                    // View<MainView, MainViewModel, ViewDriver, ViewAutoExpander, ViewLayerDriver>(services, ViewType.MainView, new List<IViewConfigure>
+                    // {
+                    //     View<MiniMapView, MiniMapViewModel, ViewDriver>(services, ViewType.Main_MiniMapView),
+                    //     View<MiniChatView, MiniChatViewModel, ViewDriver>(services, ViewType.Main_MiniChatView),
+                    //     View<EntryButtonGroupView, EntryButtonGroupViewModel, ViewDriver>(services, ViewType.Main_EntryButtonGroupView),
+                    // }),
+                }),
+                // View<BgView, BgViewModel, ViewLayerSingleResponder_RaycastBlocking>(services, ViewType.Bg, new List<IViewConfigure>
+                // {
+                // }),
+                // View<PermanentView, PermanentViewModel, ViewLayerMultiResponder>(services, ViewType.Permanent, new List<IViewConfigure>
+                // {
+                //     View<MainView, MainViewModel, ViewLayerAutoExpander>(services, ViewType.MainView, new List<IViewConfigure>
+                //     {
+                //         View<MiniMapView, MiniMapViewModel, >(services, ViewType.Main_MiniMapView),
+                //         View<MiniChatView, MiniChatViewModel>(services, ViewType.Main_MiniChatView),
+                //         View<EntryButtonGroupView, EntryButtonGroupViewModel>(services, ViewType.Main_EntryButtonGroupView),
+                //     }),
+                // }),
+                // View<FullScreenView, FullScreenViewModel, ViewLayerSingleResponder_RaycastBlocking>(services, ViewType.FullScreen, new List<IViewConfigure>
+                // {
+                //     View<StartView, StartViewModel, >(services, ViewType.StartView),
+                //     View<SelectRoleView, SelectRoleViewModel, >(services, ViewType.SelectRoleView),
+                //     View<CreateRoleView, CreateRoleViewModel, >(services, ViewType.CreateRoleView),
+                //     View<ActivityView, ActivityViewModel, ViewLayerSelector>(services, ViewType.ActivityView, new List<IViewConfigure>
+                //     {
+                //         View<SubActivityView, SubActivityViewModel, >(services, ViewType.Activity_SubActivityView, new SubActivityCheck(1, "Activity 1")),
+                //         View<SubActivityView, SubActivityViewModel, >(services, ViewType.Activity_SubActivity2View, new EntryNameCheck("Activity 2")),
+                //     }),
+                // }),
+                // View<WindowView, WindowViewModel, ViewLayerSingleResponder_MaskBlack>(services, ViewType.Window, new List<IViewConfigure>
+                // {
+                // }),
+                // View<PopupView, PopupViewModel, ViewLayerMultiResponder_MaskBlack>(services, ViewType.Popup, new List<IViewConfigure>
+                // {
+                //     View<SettingsView, SettingsViewModel, >(services, ViewType.SettingsView),
+                //     View<HelpView, HelpViewModel, >(services, ViewType.HelpView),
+                //     View<ConfirmAgainView, ConfirmAgainViewModel, >(services, ViewType.ConfirmAgainView),
+                // }),
+                // View<TipView, TipViewModel, ViewLayerMultiResponder>(services, ViewType.Tip, new List<IViewConfigure>
+                // {
+                // }),
+                // View<SystemView, SystemViewModel, ViewLayerSingleResponder_RaycastBlocking>(services, ViewType.System, new List<IViewConfigure>
+                // {
+                //     View<LoadingView, LoadingViewModel, >(services, ViewType.System),
+                // }),
+            }));
         
         services
             .AddTransient<ProcedurePreload>()
@@ -124,15 +137,30 @@ public partial class Launcher : MonoBehaviour
         return services.BuildServiceProvider();
     }
 
-    private void Start()
+    private void Start() => StartAsync().Forget();
+    private async UniTask StartAsync()
     {
         // 创建 UI 层级
         serviceProvider.GetRequiredService<IViewService>();
-        
+        await WeakReferenceMessenger.Default.SendViewShowAsync(ViewType.Service);
+
         // 初始化服务（事件订阅）
         serviceProvider.GetRequiredService<ProcedureService>();
 
         // 进入预载流程
-        WeakReferenceMessenger.Default.SendProcedureSwap(ProcedureService.GameState.Preload);
+        // WeakReferenceMessenger.Default.SendProcedureSwap(ProcedureService.GameState.Preload);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            WeakReferenceMessenger.Default.SendViewShowAsync(ViewType.MainView).Forget();
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            WeakReferenceMessenger.Default.SendViewShowAsync(ViewType.Main_MiniChatView).Forget();
+        }
     }
 }

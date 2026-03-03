@@ -10,15 +10,15 @@ public partial class ConfirmAgainViewModel : ObservableRecipient, IViewModel,
     private EventDefine.ConfirmAgainViewEvent _confirmAgainViewEvent;
     
     [RelayCommand]
-    private void Cancel(IView view) => CancelAsync(view).Forget();
-    private async UniTask CancelAsync(IView view)
+    private void Cancel(ViewEntityBase view) => CancelAsync(view).Forget();
+    private async UniTask CancelAsync(ViewEntityBase view)
     {
         await WeakReferenceMessenger.Default.SendViewHideAsync(view);
     }
 
     [RelayCommand]
-    private void Confirm(IView view) => ConfirmAsync(view).Forget();
-    private async UniTask ConfirmAsync(IView view)
+    private void Confirm(ViewEntityBase view) => ConfirmAsync(view).Forget();
+    private async UniTask ConfirmAsync(ViewEntityBase view)
     {
         await CancelAsync(view);
         await ConfirmAgainViewEvent.ConfirmFunc.Invoke();

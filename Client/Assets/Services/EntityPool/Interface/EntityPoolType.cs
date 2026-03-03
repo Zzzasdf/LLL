@@ -1,5 +1,6 @@
 public enum EntityPoolType
 {
     View,
-    SubView,
+    ViewLayerDriver,
+    ViewDriver,
 }
